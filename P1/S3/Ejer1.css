@@ -1,0 +1,25 @@
+/* Hoja de estilo de CSS */
+
+/* Dando estilo al body */
+body {
+    width: 300px;
+    height: 300px;
+    margin: 100px;
+    background-color: yellow;
+    color: black;
+}
+
+/* El estilo del encabezado título principal
+y su pie de título, se adaptará a lo que tenga
+el body. */
+
+/* Estilo class cap */
+.cap {
+    color: brown;
+    list-style-type: georgian;
+}
+/* Estilo id txt */
+#txt {
+    color: chocolate;
+    list-style-type: georgian;
+}
