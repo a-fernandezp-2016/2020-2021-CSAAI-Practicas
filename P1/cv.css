@@ -20,7 +20,7 @@ del título = Peeta Mellark. */
     font-size: xxx-large;
     margin-top: -205px;
     font-family: "Tahoma", sans-serif;
-    font-size: 72px;
+    font-size: 60px;
 }
 /* Etiqueta que define las características
 del título y pie de título. */
@@ -33,21 +33,22 @@ del pie de título. */
 #phrase {
     color: blue;
     margin-top: -40px;
-    font-size: 19px;
+    font-size: 18px;
     font-style: oblique;
 }
-/* Etiqueta que define las características
+/* Etiquetas que definen las características
 de "sobre mí". */
 #about {
     margin-top: 110px;
     margin-left: 95px;
     color: black;
     font-family: "Tahoma", sans-serif;
-    font-size: 25px;
+    font-size: 20px;
 }
 #descrip {
     width: 235px;
     margin-top: -20px;
     margin-left: 88px;
     color: black;
+    font-size: 12px;
 }
