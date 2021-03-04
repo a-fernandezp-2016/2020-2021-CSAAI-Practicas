@@ -4,6 +4,8 @@
 body {
     background-image: url("https://us.123rf.com/450wm/yamabikay/yamabikay1610/yamabikay161000356/65548130-la-textura-de-la-textura-de-color-marr%C3%B3n-claro-la-textura-de-alta-calidad-en-muy-alta-resoluci%C3%B3n.jpg?ver=6");
 }
+/* Etiqueta que define las características
+de la imagen o foto CV. */
 #peetaimg {
     margin-top: 80px;
     margin-left: 80px;
@@ -11,19 +13,41 @@ body {
     border-width: 10px;
     border-color: goldenrod;
 }
+/* Etiqueta que define las características
+del título = Peeta Mellark. */
 #title {
     color: black;
     font-size: xxx-large;
     margin-top: -205px;
-    font-family: "Brush Script MT", Brush, Cursive;
-    font-size: 80px;
+    font-family: "Tahoma", sans-serif;
+    font-size: 72px;
 }
+/* Etiqueta que define las características
+del título y pie de título. */
 .encab {
-    color: blue;
-    width: 900px;
+    width: 850px;
     margin-left: 400px;
+}
+/* Etiqueta que define las características
+del pie de título. */
+#phrase {
+    color: blue;
+    margin-top: -40px;
+    font-size: 19px;
     font-style: oblique;
 }
-#phrase {
-    margin-top: -50px;
+/* Etiqueta que define las características
+de "sobre mí". */
+#about {
+    margin-top: 110px;
+    margin-left: 95px;
+    color: black;
+    font-family: "Tahoma", sans-serif;
+    font-size: 25px;
+}
+#descrip {
+    width: 235px;
+    margin-top: -20px;
+    margin-left: 88px;
+    color: black;
 }
