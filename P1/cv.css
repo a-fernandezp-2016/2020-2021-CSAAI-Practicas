@@ -5,18 +5,25 @@ body {
     background-image: url("https://us.123rf.com/450wm/yamabikay/yamabikay1610/yamabikay161000356/65548130-la-textura-de-la-textura-de-color-marr%C3%B3n-claro-la-textura-de-alta-calidad-en-muy-alta-resoluci%C3%B3n.jpg?ver=6");
 }
 #peetaimg {
-    margin-top: 40px;
-    margin-left: 40px;
+    margin-top: 80px;
+    margin-left: 80px;
     border-style: groove;
-    border-color: grey;
+    border-width: 10px;
+    border-color: goldenrod;
 }
 #title {
     color: black;
-    margin-top: -100px;
+    font-size: xxx-large;
+    margin-top: -205px;
+    font-family: "Brush Script MT", Brush, Cursive;
+    font-size: 80px;
 }
 .encab {
     color: blue;
-    margin-top: -60px;
-    margin-left: 500px;
-    margin-right: 500px;
+    width: 900px;
+    margin-left: 400px;
+    font-style: oblique;
+}
+#phrase {
+    margin-top: -185px;
 }
