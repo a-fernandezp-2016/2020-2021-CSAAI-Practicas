@@ -1,7 +1,7 @@
 /* Propiedades de la caja del cuerpo */
 body {
-    padding: 5px;  /* relleno */
-    margin: 10px;  /* Margen */
+    padding: 100px;  /* relleno */
+    margin: 30px;  /* Margen */
     border: solid;
     border-color: red;
   }
@@ -11,5 +11,5 @@ body {
     margin: 10px;
     padding: 10px; /* Relleno */
     border:solid;
-    border-color: blue;
+    border-color: green;
   }
