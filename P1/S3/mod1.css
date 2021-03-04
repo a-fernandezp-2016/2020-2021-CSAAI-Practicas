@@ -2,7 +2,7 @@
 /* Sin marge, sin relleno y sin borde              */
 body {
     padding: 0px;
-    margin: 0px;
+    margin: 10px;  /* Margen */
     border: solid;
     border-color: red;
   }
