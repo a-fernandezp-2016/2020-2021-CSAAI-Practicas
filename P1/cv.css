@@ -1,8 +1,15 @@
 /* Hoja de estilos en CSS */
 
-/* Definimos el fondo del CV */
+/* Definimos el fondo del CV y, el marco
+de fuera. */
 body {
     background-image: url("https://us.123rf.com/450wm/yamabikay/yamabikay1610/yamabikay161000356/65548130-la-textura-de-la-textura-de-color-marr%C3%B3n-claro-la-textura-de-alta-calidad-en-muy-alta-resoluci%C3%B3n.jpg?ver=6");
+    width: 1320px;
+    height: 1000px;
+    margin: 30px;
+    border: solid;
+    border-width: 10px;
+    border-color: goldenrod;
 }
 /* Etiqueta que define las características
 de la imagen o foto CV. */
@@ -32,14 +39,14 @@ del título y pie de título. */
 del pie de título. */
 #phrase {
     color: blue;
-    margin-top: -40px;
+    margin-top: -30px;
     font-size: 18px;
     font-style: oblique;
 }
 /* Etiquetas que definen las características
 de "sobre mí". */
 #about {
-    margin-top: 110px;
+    margin-top: 120px;
     margin-left: 95px;
     color: black;
     font-family: "Tahoma", sans-serif;
@@ -51,4 +58,33 @@ de "sobre mí". */
     margin-left: 88px;
     color: black;
     font-size: 12px;
+}
+/* Etiquetas que definen las características
+de mi Contacto. */
+#contact {
+    margin-top: 35px;
+    margin-left: 95px;
+    color: black;
+    font-family: "Tahoma", sans-serif;
+    font-size: 20px;
+}
+div {
+    width: 235px;
+    margin-top: -17px;
+    margin-left: 88px;
+    color: black;
+    font-size: 12px;
+}
+/* Etiquetas que definen las características
+del icono de instagram que hace de pulsador al link
+que tiene. */
+#insta {
+    width: 18px;
+    height: 18px;
+}
+/* Etiquetas que definen las características
+del icono de ubicación (mero dibujo). */
+#ubica {
+    width: 23px;
+    height: 23px;
 }
