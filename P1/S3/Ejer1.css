@@ -27,7 +27,10 @@ el body. */
     list-style-type: georgian;
 }
 #c1 {
-    margin-top: 100px;
+    margin-top: 200px;
+}
+#jpg {
+    margin-top: 10px;
 }
 /* Estilo id txt */
 #txt {
