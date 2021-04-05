@@ -11,6 +11,11 @@ body {
     border-width: 10px;
     border-color: goldenrod;
 }
+/* Para centrar el CV al ejecutar el Navegador. */
+#contenido {
+    width: 800px;
+    margin: 0 auto; 
+}
     /* Etiqueta que define las características
     de la imagen o foto CV. */
     #peetaimg {
