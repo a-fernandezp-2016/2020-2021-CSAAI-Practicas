@@ -7,6 +7,7 @@ body {
     width: 1270px;
     height: 1740px;
     margin: 30px;
+    margin-bottom: 180px;
     border: solid;
     border-width: 10px;
     border-color: goldenrod;
@@ -208,4 +209,10 @@ body {
         de los Logros. */
         #log {
             margin-top: 5px;
+        }
+        /* Icono del sinsajo al final del CV y en el
+        margen inferior. */
+        #webp {
+            margin-left: 425px;
+            margin-top: 362px;
         }
