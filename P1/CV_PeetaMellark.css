@@ -64,17 +64,16 @@ body {
             margin-top: 35px;
         }
         /* Etiqueta que define las características
-        de "Hobbies". */
+        de "Hobbies" e "Información Adicional". */
         #rest2 {
-            margin-top: 65px;
-            margin-left: 175px;
+            margin-top: 45px;
+            margin-left: 180px;
         }
         /* Etiqueta que define las características
-        de "Información Adicional". */
+        de "Hobbies" e "Información Adicional". */
         #rest3 {
-            margin-top: 65px;
-            font-size: 18px;
-            margin-left: 155px;
+            margin-top: 45px;
+            margin-left: 150px;
         }
     /* Etiquetas que definen las características
     de las descripciones de los encabezados
