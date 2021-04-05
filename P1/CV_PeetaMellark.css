@@ -15,7 +15,7 @@ body {
     de la imagen o foto CV. */
     #peetaimg {
         margin-top: 80px;
-        margin-left: 180px;
+        margin-left: 170px;
         border-style: groove;
         border-width: 10px;
         border-color: goldenrod;
@@ -24,7 +24,7 @@ body {
     del título y pie de título. */
     .encab {
         width: 600px;
-        margin-left: 500px;
+        margin-left: 510px;
     }
         /* Etiqueta que define las características
         del título = Peeta Mellark. */
@@ -47,7 +47,7 @@ body {
     /* Etiquetas que definen las características
     de los encabezados de las secciones izquierdas. */
     .sectionizq {
-        margin-left: 95px;
+        margin-left: 183px;
         color: black;
         font-family: "Tahoma", sans-serif;
         font-size: 20px;
@@ -58,53 +58,52 @@ body {
             margin-top: 120px;
         }
         /* Etiqueta que define las características
-        de "Contacto", "Localización", "Idiomas",
-        "Hobbies" e "Información Adicional". */
+        de "Contacto", "Localización" e "Idiomas" */
         #rest {
             margin-top: 35px;
+        }
+        /* Etiqueta que define las características
+        de "Hobbies" e "Información Adicional". */
+        #rest2 {
+            margin-top: 65px;
         }
     
     /* Etiquetas que definen las características
     de las descripciones de los encabezados
     de las secciones izquierdas. */  
     .descripizq {
-        width: 235px;
+        width: 245px;
         margin-top: -17px;
-        margin-left: 88px;
+        margin-left: 170px;
         color: black;
         font-size: 12px;
     }
-        /* Etiqueta que define las características
-        de la descripción de "Localización". */
-        #descrip {
-            width: 245px;
+        /* Etiquetas que definen las características
+        del icono de instagram que hace de pulsador al link
+        que tiene. */
+        #insta {
+            width: 25px;
+            height: 25px;
         }
-            /* Etiquetas que definen las características
-            del icono de instagram que hace de pulsador al link
-            que tiene. */
-            #insta {
-                width: 25px;
-                height: 25px;
-            }
-            /* Etiqueta que define las características
-            del icono de ubicación, usado para
-            la descripción de la "Localización" */
-            #ubica {
-                width: 30px;
-                height: 30px;
-            }
-            /* Etiqueta que define las características
-            de los iconos de las lenguas aborígenes
-            de Panem, usados para
-            la descripción de los "Idiomas" */
-            #flag {
-                width: 35px;
-                height: 25px;
-            }
+        /* Etiqueta que define las características
+        del icono de ubicación, usado para
+        la descripción de la "Localización" */
+        #ubica {
+            width: 30px;
+            height: 30px;
+        }
+        /* Etiqueta que define las características
+        de los iconos de las lenguas aborígenes
+        de Panem, usados para
+        la descripción de los "Idiomas" */
+        #flag {
+            width: 35px;
+            height: 25px;
+        }
     /* Etiquetas que definen las características
     de los encabezados de las secciones derechas. */
     .sectionder {
-        margin-left: 480px;
+        margin-left: 550px;
         color: black;
         font-family: "Tahoma", sans-serif;
         font-size: 20px;
@@ -112,7 +111,17 @@ body {
         /* Etiqueta que define las características
         de "Experiencia Laboral". */
         #exper {
-            margin-top: -1122px;
+            margin-top: -1198px;
+        }
+        /* Etiqueta que define las características
+        de "Formación Académica". */
+        #formac {
+            margin-top: 40px;
+        }
+        /* Etiqueta que define las características
+        de "Habilidades y Logros". */
+        #HabLog {
+            margin-top: 40px;
         }
     /* Etiquetas que definen las características
     de las descripciones de los encabezados
@@ -120,7 +129,7 @@ body {
     .descripder {
         width: 600px;
         margin-top: -9px;
-        margin-left: 430px;
+        margin-left: 510px;
         color: black;
         font-size: 14px;
     }
@@ -142,13 +151,61 @@ body {
         /* Etiqueta que define las características
         de la descripción del periodo de tiempo trabajado
         de cada una de las experiencias laborales. */
-        #periodo {
+        #periodo1 {
             letter-spacing: 1px;
             margin-top: 5px;
-            margin-left: 140px;
+            margin-left: 130px;
         }
+        /* Etiqueta que define las características
+        de la descripción del otro periodo de tiempo trabajado
+        de cada una de las experiencias laborales. */
+        #periodo2 {
+            letter-spacing: 1px;
+            margin-top: 5px;
+            margin-left: 160px;
+        }
+        /* Etiqueta que define las características
+        de la descripción del resto de los puestos de trabajo
+        de cada una de las experiencias laborales. */
         #restpuesto {
             text-decoration-line: underline;
             letter-spacing: 2px;
             margin-top: 20px;
+        }
+        /* Etiquetas que definen las características
+        de la descripción de la formación académica
+        realizada. */
+        #formacion {
+            letter-spacing: 2px;
+            margin-top: -15px;
+            color: rgb(12, 99, 9);
+        }
+        #formacion1 {
+            letter-spacing: 2px;
+            margin-top: 10px;
+            color: rgb(12, 99, 9);
+        }
+        #place {
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+    /* Etiquetas que definen las características
+    de las descripciones del encabezado de
+    "Habilidades y Logros". */ 
+    .descriphl {
+        width: 600px;
+        margin-top: -15px;
+        margin-left: 510px;
+        color: black;
+        font-size: 14px;
+    }
+        /* Separación entre líneas de Habilidades
+        y Logros. */
+        #sec {
+            margin-top: 10px;
+        }
+        /* Separación entre líneas de cada uno
+        de los Logros. */
+        #log {
+            margin-top: 5px;
         }
