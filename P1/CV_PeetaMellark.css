@@ -73,7 +73,7 @@ body {
         de "Hobbies" e "Información Adicional". */
         #rest3 {
             margin-top: 45px;
-            margin-left: 150px;
+            margin-left: 120px;
         }
     /* Etiquetas que definen las características
     de las descripciones de los encabezados
@@ -114,7 +114,7 @@ body {
         /* Etiqueta para indicar la posición de la información
         adicional. */
         #infoad {
-            margin-left: 150px;
+            margin-left: 140px;
         }
     /* Etiquetas que definen las características
     de los encabezados de las secciones derechas. */
