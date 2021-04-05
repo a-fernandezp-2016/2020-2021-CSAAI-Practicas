@@ -107,6 +107,15 @@ body {
             width: 35px;
             height: 25px;
         }
+        /* Etiqueta para indicar la posición de Hobbies. */
+        #hobby {
+            margin-left: 160px;
+        }
+        /* Etiqueta para indicar la posición de la información
+        adicional. */
+        #infoad {
+            margin-left: 150px;
+        }
     /* Etiquetas que definen las características
     de los encabezados de las secciones derechas. */
     .sectionder {
