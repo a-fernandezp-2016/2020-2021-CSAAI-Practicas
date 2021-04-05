@@ -216,3 +216,9 @@ body {
             margin-left: 540px;
             margin-top: 125px;
         }
+        /* Para mostrar el icono de cada sección
+        del CV de Peeta Mellark. */
+        #icon {
+            width: 40px;
+            height: 20px;
+        }
