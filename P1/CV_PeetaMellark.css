@@ -68,12 +68,17 @@ body {
         #rest2 {
             margin-top: 65px;
         }
-    
+        /* Etiqueta que define las características
+        de "Hobbies" e "Información Adicional". */
+        #rest3 {
+            margin-top: 65px;
+            font-size: 18px;
+        }
     /* Etiquetas que definen las características
     de las descripciones de los encabezados
     de las secciones izquierdas. */  
     .descripizq {
-        width: 245px;
+        width: 225px;
         margin-top: -17px;
         margin-left: 170px;
         color: black;
