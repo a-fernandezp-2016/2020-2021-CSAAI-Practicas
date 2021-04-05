@@ -24,7 +24,7 @@ body {
     /* Etiqueta que define las características
     del título y pie de título. */
     .encab {
-        width: 600px;
+        width: 640px;
         margin-left: 510px;
     }
         /* Etiqueta que define las características
@@ -127,7 +127,7 @@ body {
         /* Etiqueta que define las características
         de "Experiencia Laboral". */
         #exper {
-            margin-top: -1415px;
+            margin-top: -1384px;
         }
         /* Etiqueta que define las características
         de "Formación Académica". */
