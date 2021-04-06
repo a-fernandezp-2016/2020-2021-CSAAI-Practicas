@@ -39,3 +39,22 @@ Brave es un Navegador Web de código abierto, desarrollado por Brave Software. D
 6) Entre otras características.
 
 He sacado el tema de Brave, ya que para visualizar mi CV en el móvil, es el mejor Navegador para visualizarlo. En Brave, mi CV está ajustado, sin que algunas líneas se muevan y se desajusten, por el mismo motivo que ya he explicado más arriba entre Firefox Ubuntu y Firefox Windows 10 Pro (el motivo de los tipos de fuente y, los marcos de la resolución de pantalla de cada dispositivo).
+<br>
+<br>
+Para finalizar os dejo la imagen de mi CV completo para que veáis que está ajustado perfectamente:
+<br>
+<br>
+![](1.png)
+![](2.png)
+![](3.png)
+![](4.png)
+<br>
+<br>
+Éste es el icono final de mi CV, es un webp, como un gif, va cambiando, como una animación.
+<br>
+<br>
+![](sinsajo.webp)
+<br>
+<br>
+<br>
+<br>
