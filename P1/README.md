@@ -9,7 +9,7 @@
 ![](Sketch_HG.png)
 
 <br>
- La hoja de estilos CSS del CV, está debidamente comentada para entender cada clase e identificador y, el por qué se ha diseñado así.  
+ La hoja de estilos CSS del CV "CV_PeetaMellark.css", está debidamente comentada para entender cada clase e identificador y, el por qué se ha diseñado así.  
 <br>
 <br>
  El archivo .html principal "index.html", usado para ver el CV desde el Navegador, también está debidamente comentado, para entender su código de programación HTML.
