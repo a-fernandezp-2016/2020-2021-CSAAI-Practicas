@@ -16,3 +16,11 @@ h2 {
     bottom: 200px;
     border-bottom-color: cornsilk;
 }
+
+/* Formato del párrafo. */
+p {
+    font-size: 20px;
+    font-style: oblique;
+    font-stretch: ultra-expanded;
+    color: black;
+}
