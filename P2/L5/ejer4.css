@@ -1,0 +1,36 @@
+/* Color del fondo del documento HTML. */
+body {
+    background-color: sandybrown;
+}
+
+/* Formato del encabezado principal. */
+h2 {
+    color: yellow;
+    margin-left: 250px;
+}
+
+/* Formato del botón 1. */
+#b1 {
+    color: blue;
+    margin-left: 250px;
+    bottom: 1500px;
+    border-bottom-color: cornsilk;
+}
+
+/* Formato del botón 2. */
+#b2 {
+    color: red;
+    bottom: 1500px;
+    border-bottom-color: cornsilk;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* Formato del párrafo. */
+p {
+    font-size: 20px;
+    font-style: oblique;
+    font-stretch: ultra-expanded;
+    color: black;
+    margin-left: 400px;
+}
