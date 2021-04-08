@@ -10,7 +10,7 @@ imprime.onclick = () => {
     let cont = 0;
 
     // Condicionante.
-    if (cont == 0)
+    if (cont != 0)
     {
         console.log(" ¡Has entrado en la NAVE DEL MISTERIO! ");
         let cont = 1;
