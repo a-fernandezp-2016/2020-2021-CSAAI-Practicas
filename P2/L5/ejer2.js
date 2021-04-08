@@ -10,5 +10,5 @@ const parrafo = document.getElementById('parrafo');
 imprime.onclick = () => {
     console.log(" ¡Has entrado en la NAVE DEL MISTERIO! ");
 
-    parrafo.innerHTML(' ¡HAS ENTRADO EN EL CONCURSO DE LA TV ');
+    parrafo.innerHTML = " ¡HAS ENTRADO EN EL CONCURSO DE LA TV! ";
 }
