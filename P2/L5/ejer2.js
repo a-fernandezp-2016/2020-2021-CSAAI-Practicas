@@ -1,10 +1,10 @@
 console.log("Esperando a que el botón sea pulsado.......");
 
-//-- Leer el id del botón.
+//-- Leer el elemento del botón.
 const imprime = document.getElementById('Print');
 
-// Cargar el párrafo.
-const parrafo = document.getElementsByTagName('P');
+// Obtener el elemento del párrafo para introducir mensaje.
+const parrafo = document.getElementById('parrafo');
 
 //-- Funcion de retrollamada de la pulsación del párrafo
 imprime.onclick = () => {
