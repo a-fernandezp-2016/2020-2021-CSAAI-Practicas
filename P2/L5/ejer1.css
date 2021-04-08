@@ -13,6 +13,6 @@ h2 {
 #Print {
     color: blue;
     margin-left: 250px;
-    border-bottom-width: 40px;
+    bottom: 200px;
     border-bottom-color: cornsilk;
 }
