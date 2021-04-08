@@ -1,18 +1,18 @@
 /* Color del fondo del documento HTML. */
-.body {
+body {
     background-color: sandybrown;
 }
 
 /* Formato del encabezado principal. */
-.h2 {
+h2 {
     color: red;
-    margin-left: 50px;
+    margin-left: 250px;
 }
 
 /* Formato del botón. */
 #Print {
-    height: 10px;
-    width: 20 px;
-    color: seagreen;
-    margin-left: 50px;
+    color: blue;
+    margin-left: 250px;
+    border-bottom-width: 40px;
+    border-bottom-color: cornsilk;
 }
