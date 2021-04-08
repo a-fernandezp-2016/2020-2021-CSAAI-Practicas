@@ -61,3 +61,4 @@ Para finalizar os dejo la imagen de mi CV completo para que veáis que está aju
 <br>
 <br>
 <br>
+Nota: Todas las imágenes puestas, tanto en el Readme, como en el CV de Peeta Mellark (incluidos iconos de redes sociales y ubicación), están editadas por el programa de edición de imágenes Photoshop 2018, que se encuentra en el escritorio Adobe de "My APPs URJC".
