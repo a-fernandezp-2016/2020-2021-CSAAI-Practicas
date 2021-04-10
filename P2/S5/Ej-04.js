@@ -14,7 +14,7 @@ const counter = {
   valor: 0,
   inc : function(value) {
     this.valor += value;
-    gui.display.innerHTML = this.valor;
+    gui.display.innerHTML = " " + this.valor;
   }
 }
 
