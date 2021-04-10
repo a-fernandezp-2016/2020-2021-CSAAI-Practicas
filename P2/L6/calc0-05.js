@@ -61,46 +61,30 @@ for (let boton of digitos) {
 
 //-------- Resto de funciones de retrollamada
 
-if(estado == ESTADO.OP1)
-{
-    //-- Operación de sumar
-    suma.onclick = (ev) => {
+//-- Operación de sumar
+suma.onclick = (ev) => {
 
-        //-- Insertar simbolo de sumar
-        display.innerHTML += ev.target.value;
+    //-- Insertar simbolo de sumar
+    display.innerHTML += ev.target.value;
 
-        //-- ¡Ojo! Aquí se inserta el + siempre!
-        //-- Para que la calculadora funcione bien
-        //-- sólo se debe permitir insertar el operador
-        //-- en el estado OP1, y debe cambiar el estado
-        //-- a OPERATION (según el diagrama de estados)
+    //-- ¡Ojo! Aquí se inserta el + siempre!
+    //-- Para que la calculadora funcione bien
+    //-- sólo se debe permitir insertar el operador
+    //-- en el estado OP1, y debe cambiar el estado
+    //-- a OPERATION (según el diagrama de estados)
 
-    }
-}
-else    
-{
-    display.innerHTML = "ERROR! Chacho, no puedes pulsar el operando todavía";
-    console.log("ERROR! Chacho, no puedes pulsar el operando todavía");
 }
 
-if(estado == ESTADO.OP2)
-{
-    //-- Evaluar la expresion
-    igual.onclick = () => {
+//-- Evaluar la expresion
+igual.onclick = () => {
 
-        //-- Calcular la expresión y añadirla al display
-        display.innerHTML = eval(display.innerHTML);
+    //-- Calcular la expresión y añadirla al display
+    display.innerHTML = eval(display.innerHTML);
 
-        //-- ¡Ojo! Aquí se hace siempre!
-        //-- Sólo se debe permitar que eso se haga
-        //-- si se está en el estado final (OP2)
+    //-- ¡Ojo! Aquí se hace siempre!
+    //-- Sólo se debe permitar que eso se haga
+    //-- si se está en el estado final (OP2)
 
-    }
-}
-else
-{
-    display.innerHTML = "ERROR! Chacho, no tiene sentido conocer el resultado de algo inexistente";
-    console.log("ERROR! Chacho, no tiene sentido conocer el resultado de algo inexistente");
 }
 
 //-- Poner a cero la expresion
