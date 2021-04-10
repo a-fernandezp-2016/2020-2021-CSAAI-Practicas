@@ -37,15 +37,12 @@ function digito(ev)
        
         //--En cualquier otro estado lo añadimos
         display.innerHTML += ev.target.value;
-
-        //-- Y nos quedamos en el mismo estado
-        //-- Ojo! Este ejemplo sólo implementa el primer
-        //-- estado del diagrama. Habría que tener en 
-        //-- cuenta el resto... lo debes hacer en tu práctica
+        
+        //-- Pasar al siguiente estado.
+        estado += ESTADO.OP1;
     } 
     
 }
-
 
 //-- Obtener una colección con todos los elementos
 //-- de la clase digito
@@ -64,35 +61,51 @@ for (let boton of digitos) {
 
 //-------- Resto de funciones de retrollamada
 
-//-- Operación de sumar
-suma.onclick = (ev) => {
+if(estado == ESTADO.OP1)
+{
+    //-- Operación de sumar
+    suma.onclick = (ev) => {
 
-    //-- Insertar simbolo de sumar
-    display.innerHTML += ev.target.value;
+        //-- Insertar simbolo de sumar
+        display.innerHTML += ev.target.value;
 
-    //-- ¡Ojo! Aquí se inserta el + siempre!
-    //-- Para que la calculadora funcione bien
-    //-- sólo se debe permitir insertar el operador
-    //-- en el estado OP1, y debe cambiar el estado
-    //-- a OPERATION (según el diagrama de estados)
-  
+        //-- ¡Ojo! Aquí se inserta el + siempre!
+        //-- Para que la calculadora funcione bien
+        //-- sólo se debe permitir insertar el operador
+        //-- en el estado OP1, y debe cambiar el estado
+        //-- a OPERATION (según el diagrama de estados)
+
+    }
+}
+else    
+{
+    display.innerHTML = "ERROR! Chacho, no puedes pulsar el operando todavía";
+    console.log("ERROR! Chacho, no puedes pulsar el operando todavía");
 }
 
-//-- Evaluar la expresion
-igual.onclick = () => {
-  
-    //-- Calcular la expresión y añadirla al display
-    display.innerHTML = eval(display.innerHTML);
+if(estado == ESTADO.OP2)
+{
+    //-- Evaluar la expresion
+    igual.onclick = () => {
 
-    //-- ¡Ojo! Aquí se hace siempre!
-    //-- Sólo se debe permitar que eso se haga
-    //-- si se está en el estado final (OP2)
-  
+        //-- Calcular la expresión y añadirla al display
+        display.innerHTML = eval(display.innerHTML);
+
+        //-- ¡Ojo! Aquí se hace siempre!
+        //-- Sólo se debe permitar que eso se haga
+        //-- si se está en el estado final (OP2)
+
+    }
+}
+else
+{
+    display.innerHTML = "ERROR! Chacho, no tiene sentido conocer el resultado de algo inexistente";
+    console.log("ERROR! Chacho, no tiene sentido conocer el resultado de algo inexistente");
 }
 
 //-- Poner a cero la expresion
 //-- Y volver al estado inicial
 clear.onclick = () => {
-  display.innerHTML = "0";
-  estado = ESTADO.INIT;
+    display.innerHTML = "0";
+    estado = ESTADO.INIT;
 }
