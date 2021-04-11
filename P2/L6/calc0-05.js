@@ -37,9 +37,6 @@ function digito(ev)
        
         //--En cualquier otro estado lo añadimos
         display.innerHTML += ev.target.value;
-        
-        //-- Pasar al siguiente estado.
-        estado += ESTADO.OP1;
     } 
     
 }
@@ -64,27 +61,41 @@ for (let boton of digitos) {
 //-- Operación de sumar
 suma.onclick = (ev) => {
 
-    //-- Insertar simbolo de sumar
-    display.innerHTML += ev.target.value;
+    if(estado == ESTADO.OP1)
+    {
+        //-- Insertar simbolo de sumar
+        display.innerHTML += ev.target.value;
 
-    //-- ¡Ojo! Aquí se inserta el + siempre!
-    //-- Para que la calculadora funcione bien
-    //-- sólo se debe permitir insertar el operador
-    //-- en el estado OP1, y debe cambiar el estado
-    //-- a OPERATION (según el diagrama de estados)
-
+        //-- Pasar al siguiente estado.
+        estado = ESTADO.OPERATION;
+    }
+    else
+    {
+        display.innerHTML = "ERROR! Botón incorrecto."
+        console.log("ERROR! Botón incorrecto.");
+        display.innerHTML = "0";
+        estado = ESTADO.INIT;
+    }
 }
 
 //-- Evaluar la expresion
 igual.onclick = () => {
 
-    //-- Calcular la expresión y añadirla al display
-    display.innerHTML = eval(display.innerHTML);
+    if(estado == ESTADO.OP2)
+    {
+        //-- Calcular la expresión y añadirla al display
+        display.innerHTML = eval(display.innerHTML);
 
-    //-- ¡Ojo! Aquí se hace siempre!
-    //-- Sólo se debe permitar que eso se haga
-    //-- si se está en el estado final (OP2)
-
+        //-- Pasar al estado final de op1.
+        estado = ESTADO.OP1;
+    }
+    else
+    {
+        display.innerHTML = "ERROR! Botón incorrecto."
+        console.log("ERROR! Botón incorrecto.");
+        display.innerHTML = "0";
+        estado = ESTADO.INIT;
+    }
 }
 
 //-- Poner a cero la expresion
