@@ -35,8 +35,22 @@ function digito(ev)
 
     } else {
        
-        //--En cualquier otro estado lo añadimos
-        display.innerHTML += ev.target.value;
+        if(estado == ESTADO.OP1)
+        {
+            //--En cualquier otro estado lo añadimos
+            display.innerHTML += ev.target.value;
+
+            //-- Pasar al siguiente estado
+            estado = ESTADO.OPERATION;
+        }
+        else
+        {
+            //--En cualquier otro estado lo añadimos
+            display.innerHTML += ev.target.value;
+
+            //-- Pasar al siguiente estado
+            estado = ESTADO.OP2;
+        }
     } 
     
 }
