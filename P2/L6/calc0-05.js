@@ -40,8 +40,8 @@ function digito(ev)
             //--En cualquier otro estado lo añadimos
             display.innerHTML += ev.target.value;
 
-            //-- Pasar al siguiente estado
-            estado = ESTADO.OPERATION;
+            //-- Se queda en el estado op1.
+            estado = ESTADO.OP1;
         }
         else
         {
@@ -51,8 +51,7 @@ function digito(ev)
             //-- Pasar al siguiente estado
             estado = ESTADO.OP2;
         }
-    } 
-    
+    }    
 }
 
 //-- Obtener una colección con todos los elementos
@@ -105,7 +104,7 @@ igual.onclick = () => {
     }
     else
     {
-        display.innerHTML = "ERROR! Botón incorrecto."
+        display.innerHTML = "ERROR! Botón incorrecto.";
         console.log("ERROR! Botón incorrecto.");
         display.innerHTML = "0";
         estado = ESTADO.INIT;
