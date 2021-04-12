@@ -15,6 +15,7 @@ const contxto = canvas.getContext("2d");
 contxto.beginPath();
 
 // Definimos la figura concreta en 2D a dibujar en el canvas.
+// rect(x,y [dónde se dibuja el rectangulo], x, y [dimensiones del rectángulo]);
 contxto.rect(10,10,80,40);
 
 // Mostrar el relleno de la figura 2D en rojo.
