@@ -1,0 +1,11 @@
+/* Damos estilo a nuestro canvas (lienzo). */
+#canvas {
+    background-color: lightblue;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+}
+#Alex {
+    /* Imagen deshabilitada. Se usa para leerla desde js y meterla en el canvas. */
+    display: none;
+}
