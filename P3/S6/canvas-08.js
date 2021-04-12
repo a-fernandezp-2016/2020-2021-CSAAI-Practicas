@@ -24,16 +24,16 @@ function update()
 
     //-- Física del movimiento uniformemente acelerado bidimensional.
     //-- Actualizar las posiciones según la velocidad actual.
-    x = x + velx;
-    y = y + vely;
+    x = x + VELX;
+    y = y + VELY;
 
     //-- Actualizar las velocidades según las aceleraciones
-    velx = velx + ACCELX;
-    vely = vely + ACCELY;
-
+    x = x + ACCELX;
+    y = y + ACCELY;
+    
     //-- Rebote en pared vertical: cambiar el signo de la velocidad x.
-    velx = -velx;
-    vely = -vely;
+    x = -x;
+    y = -y;
 
     //-- 2) Borrar el canvas.
     contxto.clearRect(0, 0, canvas.width, canvas.height);
