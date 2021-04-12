@@ -14,7 +14,7 @@ const contxto = canvas.getContext("2d");
 // Delimitar los objetos en 2D.
 contxto.beginPath();
 
-// Definimos el pto de partida de una línea horizontal.
+// Definimos el pto de partida (x,y) de una línea horizontal. x = varía e y = cte.
 contxto.moveTo(10,20);
 
 // Definimos el pto final de la línea horizontal.
@@ -24,7 +24,7 @@ contxto.lineTo(100,20);
 contxto.moveTo(10,80);
 contxto.lineTo(150,80);
 
-// Unimos una línea vertical a la anterior línea horizontal.
+// Unimos una línea vertical (x,y) a la anterior línea horizontal. En vertical: x = cte e y = varía.
 contxto.lineTo(150,20);
 
 // Coloreamos las líneas o trazados de color rojo.

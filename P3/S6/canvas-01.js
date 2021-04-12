@@ -5,5 +5,7 @@ console.log("Ejecutando JS....");
 const canvas = document.getElementById("canvas");
 
 // Definimos las dimensiones del canvas.
-canvas.width = 400;
+// Ancho del canvas.
+canvas.width = 400; 
+// Alto del canvas.
 canvas.height = 250;
