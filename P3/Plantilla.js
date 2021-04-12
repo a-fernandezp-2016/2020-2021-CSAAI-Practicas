@@ -36,5 +36,5 @@ function update()
 
 //-- Otras funciones....
 
-//-- ¡Que comience la fiesta! Hay que llamar a update la primera vez
+//-- ¡Que comience la fiesta! Hay que llamar a update la primera vez.
 update();
