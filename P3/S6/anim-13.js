@@ -16,8 +16,8 @@ let x = 0;
 let y = 0;
 
 // Variable velocidad de x y, variable velocidad de y.
-let velx = 5;
-let vely = 0.3;
+let velx = 15;
+let vely = 15;
 
 // Asignar las dimensiones de la figura 2D: rectángulo.
 let rectx = 40;
