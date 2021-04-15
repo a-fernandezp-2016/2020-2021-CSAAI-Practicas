@@ -21,8 +21,8 @@ function update()
     console.log("Test");
 
     //-- 1) Actualizar posicion de los elementos.
-    x = x + x;
-    y = y + y;
+    x = x + 0;
+    y = y + 0;
     
     //-- 2) Borrar el canvas.
     contxto.clearRect(0, 0, canvas.width, canvas.height);
@@ -34,7 +34,7 @@ function update()
 
     // Definimos la figura concreta en 2D a dibujar en el canvas.
     // rect(x,y [dónde se dibuja el rectangulo], x, y [dimensiones del rectángulo]);
-    contxto.rect(3,4,80,40);
+    contxto.rect(x,y,80,40);
 
     // Mostrar el relleno de la figura 2D en rojo.
     contxto.fillStyle = 'red';
