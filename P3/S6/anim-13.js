@@ -19,8 +19,9 @@ let y = 0;
 let velx = 5;
 let vely = 0.3;
 
-// Asignar el radio del círculo.
-let radio = 20;
+// Asignar las dimensiones de la figura 2D: rectángulo.
+let rectx = 40;
+let recty = 40;
 
 //-- Función principal de actualización
 function update() 
@@ -30,13 +31,13 @@ function update()
 
     // Debemos marcar el límite horizontal a ambos lados, para que
     // la figura 2D esté confinada entre las paredes verticales.
-    if(x < 0 || x >= (canvas.width-radio))
+    if(x < 0 || x >= (canvas.width-rectx))
     {
         velx = -velx;
     }
     // Debemos marcar el límite vertical en la parte superior e inferior, para que
     // la figura 2D esté confinada entre las paredes horizontales.
-    if(y < 0 || y >= (canvas.height-radio))
+    if(y < 0 || y >= (canvas.height-recty))
     {
         vely = -vely;
     }
@@ -53,25 +54,18 @@ function update()
     contxto.beginPath();
 
     // Definimos la figura concreta en 2D a dibujar en el canvas.
-    //-- Dibujar un circulo: coordenadas x,y del centro
-    //-- Radio, Angulo inicial y angulo final.
-    contxto.arc(x,y,radio, 0, 2 * Math.PI);
+    // rect(x,y [dónde se dibuja el rectangulo], x, y [dimensiones del rectángulo]);
+    contxto.rect(x,y,rectx,recty);
 
-    // Coloreamos circunferencia del círculo de negro.
-    contxto.strokeStyle = 'black';
-
-    // Editar el grosor de la circunferencia del círculo.
-    contxto.lineWidth = 3;
-
-    // Coloreamos el círculo de rojo.
+    // Colorear la figura 2D en rojo.
     contxto.fillStyle = 'red';
 
-    // Mostrar o dibujar el relleno del círculo.
+    // Mostrar el relleno de la figura 2D.
     contxto.fill();
 
-    // Mostrar o dibujar la circunferencia del círculo.
+    // Mostrar el trazo de la figura 2D.
     contxto.stroke();
-
+    
     // Cerrar delimitación de los objetos en 2D.
     contxto.closePath();
 
