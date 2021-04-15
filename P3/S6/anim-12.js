@@ -16,8 +16,11 @@ let x = 0;
 let y = 0;
 
 // Variable velocidad de x y, variable velocidad de y.
-let velx = 4;
-let vely = 2;
+let velx = 2;
+let vely = 1;
+
+// Asignar el radio del círculo.
+let radio = 20;
 
 //-- Función principal de actualización
 function update() 
@@ -27,7 +30,7 @@ function update()
     //-- 1) Actualizar posicion de los elementos, pero antes...
     // Debemos marcar el límite de que al llegar a la pared de la derecha,
     // la figura 2D vuelva para atrás o retroceda.
-    if(x < 0 || x >= canvas.width-rectx)
+    if(x < 0 || x >= (canvas.width-(2*radio)))
     {
         velx = -velx;
     }
@@ -45,15 +48,21 @@ function update()
     // Definimos la figura concreta en 2D a dibujar en el canvas.
     //-- Dibujar un circulo: coordenadas x,y del centro
     //-- Radio, Angulo inicial y angulo final.
-    contxto.arc(x,y,12, 0, 2 * Math.PI);
+    contxto.arc(x,y,radio, 0, 2 * Math.PI);
 
-    // Mostrar el relleno de la figura 2D en rojo.
+    // Coloreamos circunferencia del círculo de negro.
+    contxto.strokeStyle = 'black';
+
+    // Editar el grosor de la circunferencia del círculo.
+    contxto.lineWidth = 3;
+
+    // Coloreamos el círculo de rojo.
     contxto.fillStyle = 'red';
 
-    // Mostrar el relleno de la figura 2D.
+    // Mostrar o dibujar el relleno del círculo.
     contxto.fill();
 
-    // Mostrar el trazo del rectángulo.
+    // Mostrar o dibujar la circunferencia del círculo.
     contxto.stroke();
 
     // Cerrar delimitación de los objetos en 2D.
