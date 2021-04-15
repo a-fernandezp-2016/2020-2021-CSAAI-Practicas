@@ -5,8 +5,8 @@ console.log("Ejecutando JS....");
 const canvas = document.getElementById("canvas");
 
 // Definimos las dimensiones del canvas.
-canvas.width = 800;
-canvas.height = 420;
+canvas.width = 500;
+canvas.height = 260;
 
 // Leemos un contexto para poder dibujar en 2D en nuestro canvas y, lo almacenamos en la cte contxto.
 const contxto = canvas.getContext("2d");
