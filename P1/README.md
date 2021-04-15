@@ -62,3 +62,33 @@ Para finalizar os dejo la imagen de mi CV completo para que veáis que está aju
 <br>
 <br>
 Nota: Todas las imágenes puestas, tanto en el Readme, como en el CV de Peeta Mellark (incluidos iconos de redes sociales y ubicación), están editadas por el programa de edición de imágenes Photoshop 2018, que se encuentra en el escritorio Adobe de "My APPs URJC".
+<br>
+<br>
+### MEJORAS:
+<br>
+1) Introducción de un favicon o icono en el título de cabecera: "CV Peeta".
+<br>
+2) Introducción de iconos al principio de cada título de cada sección del CV.
+<br>
+3) Encuadrado de todo el CV en un borde dorado y con el suficiente ancho.
+<br>
+4) Fuera del borde, en la parte inferior, poner un archivo gif o webp que vaya cambiando, según el icono de las partes de la trilogía.
+<br>
+5) Dividir el CV en parte derecha e izquierda:
+    <br>
+    
+    5.1) En la parte derecha se encontrarán los aspectos más de desarrollo propio: Sobre mí, Contacto, Localización, Idiomas, Hobbies e Información Adicional.
+
+    5.2) En la parte derecha se encontrarán los aspectos más de desarrollo profesional: Experiencia Laboral, Formación Académica y Habilidades y Logros.
+<br>
+6) Debajo del título de quién es el CV (Peeta Mellark), he puesto una frase que dice Peeta en los libros y en las película (a ver si averiguas en qué libro y en qué película) y que me ha parecido una buena idea ponerla como pie de título, ya que describe en una sola frase, el personaje de Peeta.
+<br>
+7)Para finalizar, como se puede observar, está todo bien alineado y cuidado.
+<br>
+<br>
+<br>
+<br>
+¡MUCHAS GRACIAS POR SU ATENCIÓN Y SU TIEMPO!
+<br>
+<br>
+ESPEREMOS QUE LE GUSTE MI PRÁCTICA 1: CV DE PEETA MELLARK (HECHO POR: ALEJANDRO FERNÁNDEZ PÉREZ).
