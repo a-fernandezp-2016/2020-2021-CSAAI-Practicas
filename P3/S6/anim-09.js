@@ -7,7 +7,7 @@ canvas.width = 300;
 canvas.height = 100;
 
 //-- Obtener el contexto del canvas
-const ctx = canvas.getContext("2d");
+const contxto = canvas.getContext("2d");
 
 //-- Coordenadas del objeto
 let x = 0;
@@ -19,31 +19,31 @@ let velx = 1;
 //-- Funcion principal de animacion
 function update() 
 {
-  console.log("test");
-  //-- Algoritmo de animacion:
-  //-- 1) Actualizar posicion del  elemento
-  //-- (física del movimiento rectilineo uniforme)
-  x = x + velx;
+    console.log("test");
+    //-- Algoritmo de animacion:
+    //-- 1) Actualizar posicion del  elemento
+    //-- (física del movimiento rectilineo uniforme)
+    x = x + velx;
 
-  //-- 2) Borrar el canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //-- 2) Borrar el canvas
+    contxto.clearRect(0, 0, canvas.width, canvas.height);
 
-  //-- 3) Dibujar los elementos visibles
-  ctx.beginPath();
-    ctx.rect(x, y, 20, 20);
+    //-- 3) Dibujar los elementos visibles
+    contxto.beginPath();
+    contxto.rect(x, y, 20, 20);
 
     //-- Dibujar
-    ctx.fillStyle = 'red';
+    contxto.fillStyle = 'red';
 
     //-- Rellenar
-    ctx.fill();
+    contxto.fill();
 
     //-- Dibujar el trazo
-    ctx.stroke()
-  ctx.closePath();
+    contxto.stroke()
+    contxto.closePath();
 
-  //-- 4) Volver a ejecutar update cuando toque
-  requestAnimationFrame(update);
+    //-- 4) Volver a ejecutar update cuando toque
+    requestAnimationFrame(update);
 }
 
 //-- ¡Que empiece la función! Llamar la primera vez a la función update.
