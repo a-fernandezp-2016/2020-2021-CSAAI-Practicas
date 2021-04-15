@@ -20,8 +20,8 @@ let velx = 15;
 let vely = 15;
 
 // Asignar las dimensiones de la figura 2D: rectángulo.
-let rectx = 40;
-let recty = 40;
+let rectx = 20;
+let recty = 20;
 
 //-- Función principal de actualización
 function update() 
