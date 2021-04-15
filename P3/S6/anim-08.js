@@ -21,9 +21,9 @@ function update()
     console.log("Test");
 
     //-- 1) Actualizar posicion de los elementos.
-    x = x + x;
-    y = y + y;
-
+    x = x + 0;
+    y = y + 0;
+    
     //-- 2) Borrar el canvas.
     contxto.clearRect(0, 0, canvas.width, canvas.height);
 
