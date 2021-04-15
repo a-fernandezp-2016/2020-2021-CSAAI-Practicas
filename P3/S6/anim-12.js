@@ -17,7 +17,7 @@ let y = 0;
 
 // Variable velocidad de x y, variable velocidad de y.
 let velx = 2;
-let vely = 1;
+let vely = 0.4;
 
 // Asignar el radio del círculo.
 let radio = 20;
@@ -30,7 +30,7 @@ function update()
     //-- 1) Actualizar posicion de los elementos, pero antes...
     // Debemos marcar el límite de que al llegar a la pared de la derecha,
     // la figura 2D vuelva para atrás o retroceda.
-    if(x < 0 || x >= (canvas.width-(2*radio)))
+    if(x < 0 || x >= (canvas.width-radio))
     {
         velx = -velx;
     }
