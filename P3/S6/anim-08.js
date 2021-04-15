@@ -22,7 +22,7 @@ function update()
 
     //-- 1) Actualizar posicion de los elementos.
     x = x + 0;
-    y = y + 0;
+    y = y + y;
     
     //-- 2) Borrar el canvas.
     contxto.clearRect(0, 0, canvas.width, canvas.height);
