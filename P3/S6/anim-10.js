@@ -18,6 +18,10 @@ let y = 50;
 // Variable velocidad de x.
 let velx = 2;
 
+// Dimensiones objeto rectángulo.
+let rectx = 80;
+let recty = 40;
+
 //-- Función principal de actualización
 function update() 
 {
@@ -26,7 +30,7 @@ function update()
     //-- 1) Actualizar posicion de los elementos, pero antes...
     // Debemos marcar el límite de que al llegar a la pared de la derecha,
     // la figura 2D vuelva para atrás o retroceda.
-    if(x >= canvas.width)
+    if(x >= canvas.width-rectx)
     {
         velx = -velx;
     }
@@ -42,7 +46,7 @@ function update()
 
     // Definimos la figura concreta en 2D a dibujar en el canvas.
     // rect(x,y [dónde se dibuja el rectangulo], x, y [dimensiones del rectángulo]);
-    contxto.rect(x,y,80,40);
+    contxto.rect(x,y,rectx,recty);
 
     // Mostrar el relleno de la figura 2D en rojo.
     contxto.fillStyle = 'red';
