@@ -1,0 +1,7 @@
+/* Damos estilo a nuestro canvas (lienzo). */
+#canvas {
+    background-color: lightblue;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+}
