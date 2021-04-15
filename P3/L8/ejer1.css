@@ -2,15 +2,16 @@
 #canvas {
     background-color: black;
     border-color: white;
-    border-width: 4px;
+    border-width: 6px;
     border-style: solid;
     align-content: center;
-    margin-left: 60px;
+    margin-top: 70px;
+    margin-left: 530px;
 }
 /* Icono o favicon de la cabecera del título de la pestaña de la Pág Web. */
 #icon {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
 }
 /* Damos estilo a la propia página web html. */
 body {
@@ -22,10 +23,10 @@ body {
     color: chartreuse;
 }
     #princ {
-        margin-left: 100px;
-        margin-top: 10px;
+        margin-left: 530px;
+        margin-top: 30px;
     }
     #secun {
-        margin-left: 345px;
+        margin-left: 775px;
         margin-top: -50px;
     }
