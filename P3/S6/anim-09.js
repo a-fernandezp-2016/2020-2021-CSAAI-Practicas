@@ -46,5 +46,5 @@ function update()
   requestAnimationFrame(update);
 }
 
-//-- ¡Que empiece la función!
+//-- ¡Que empiece la función! Llamar la primera vez a la función update.
 update();
