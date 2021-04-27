@@ -162,14 +162,13 @@ window.onkeydown = (e) => {
     else
     {
         display.innerHTML = `Tecla: ${e.key}. Código: ${e.keyCode}`
-    }
-}
-
-//-- Tecla liberada: Borrar el párrafo.
- window.onkeyup = (e) => {
-    
-    if(e.key != ' ')
-    {
-        display.innerHTML = ""
+        //-- Tecla liberada: Borrar el párrafo.
+        window.onkeyup = (e) => {
+            
+            if(e.key != ' ')
+            {
+                display.innerHTML = ""
+            }
+        }
     }
 }
