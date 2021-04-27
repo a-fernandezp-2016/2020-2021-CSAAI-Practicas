@@ -139,17 +139,6 @@ range.onchange = () => {
   range_disp2.innerHTML = range.value;
 }
 
-//-- Funcion de retrollamada de tecla pulsada
-window.onkeydown = (e) => {
-  
-    //-- Comprobar si la tecla es un espacio
-    if (e.key == ' ') {
-  
-      //-- Cambiar la activación de la clase color
-      body.classList.toggle("color");
-    }
-}
-
 //-- Tecla pulsada: Mostrar su información
 window.onkeydown = (e)=> {
 
@@ -176,4 +165,15 @@ click.onclick = () => {
 what.onclick = () => {
     what_sound.currentTime = 0;
     what_sound.play();
+}
+
+//-- Funcion de retrollamada de tecla pulsada
+window.onkeydown = (e) => {
+  
+    //-- Comprobar si la tecla es un espacio
+    if (e.key == ' ') {
+  
+      //-- Cambiar la activación de la clase color
+      body.classList.toggle("color");
+    }
 }
