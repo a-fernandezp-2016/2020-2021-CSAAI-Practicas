@@ -37,7 +37,7 @@ const range_disp = document.getElementById("range_disp");
 const range_disp2 = document.getElementById("range_disp2");
 
 // Clickando en el fondo con tecla Espacio.
-const click_espacio = document.getElementsByTagName('body')[0]
+click_espacio = document.getElementsByTagName('body')[0]
 
 // Pulsando tecla cualquiera y aparece debajo de su texto.
 const display = document.getElementById("display");
