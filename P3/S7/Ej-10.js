@@ -25,5 +25,5 @@ small.onclick = () => {
 }
 
 reinicio.onclick = () => {
- video.currentTime = 2;
+ video.currentTime = 0;
 }
