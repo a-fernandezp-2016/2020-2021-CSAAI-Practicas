@@ -1,0 +1,13 @@
+/* Formato del vídeo. */
+video {
+    background-color: salmon;
+}
+/* Formato del cuerpo en general. */
+body {
+    margin-left: 400px;
+    margin-top: 50px;
+}
+/* Formato del párrafo. */
+p {
+    width: 200px;
+}
