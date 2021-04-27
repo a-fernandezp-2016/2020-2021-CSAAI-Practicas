@@ -139,24 +139,6 @@ range.onchange = () => {
   range_disp2.innerHTML = range.value;
 }
 
-//-- Tecla pulsada: Mostrar su información
-window.onkeydown = (e)=> {
-
-    if(e.key != ' ')
-    {
-        display.innerHTML = `Tecla: ${e.key}. Código: ${e.keyCode}`
-    }
-}
-
-//-- Tecla liberada: Borrar el párrafo
- window.onkeyup = (e) => {
-    
-    if(e.key != ' ')
-    {
-        display.innerHTML = ""
-    }
-}
-
 click.onclick = () => {
     click_sound.currentTime = 0;
     click_sound.play();
@@ -167,7 +149,8 @@ what.onclick = () => {
     what_sound.play();
 }
 
-//-- Funcion de retrollamada de tecla pulsada
+//-- Funcion de retrollamada de tecla pulsada.
+// Mostrar su información si no es Tecla Espacio.
 window.onkeydown = (e) => {
   
     //-- Comprobar si la tecla es un espacio
@@ -175,5 +158,18 @@ window.onkeydown = (e) => {
   
       //-- Cambiar la activación de la clase color
       body.classList.toggle("color");
+    }
+    else
+    {
+        display.innerHTML = `Tecla: ${e.key}. Código: ${e.keyCode}`
+    }
+}
+
+//-- Tecla liberada: Borrar el párrafo.
+ window.onkeyup = (e) => {
+    
+    if(e.key != ' ')
+    {
+        display.innerHTML = ""
     }
 }
