@@ -37,7 +37,7 @@ const range_disp = document.getElementById("range_disp");
 const range_disp2 = document.getElementById("range_disp2");
 
 // Clickando en el fondo con tecla Espacio.
-click_espacio = document.getElementsByTagName('body')[0]
+body = document.getElementsByTagName('body')[0]
 
 // Pulsando tecla cualquiera y aparece debajo de su texto.
 const display = document.getElementById("display");
@@ -146,18 +146,26 @@ window.onkeydown = (e) => {
     if (e.key == ' ') {
   
       //-- Cambiar la activación de la clase color
-      click_espacio.classList.toggle("color");
+      body.classList.toggle("color");
     }
 }
 
 //-- Tecla pulsada: Mostrar su información
 window.onkeydown = (e)=> {
-    display.innerHTML = `Tecla: ${e.key}. Código: ${e.keyCode}`
+
+    if(e.key != ' ')
+    {
+        display.innerHTML = `Tecla: ${e.key}. Código: ${e.keyCode}`
+    }
 }
 
 //-- Tecla liberada: Borrar el párrafo
  window.onkeyup = (e) => {
-   display.innerHTML = ""
+    
+    if(e.key != ' ')
+    {
+        display.innerHTML = ""
+    }
 }
 
 click.onclick = () => {
