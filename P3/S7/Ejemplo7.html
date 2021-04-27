@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Ej-07.css">
+    <script src="Ej-07.js" defer></script>
+    <title> Ejemplo 7: GENERAL </title>
+</head>
+<body>
+    <hr>
+    <!-- Creación de un botón general que al pulsarlo cambia de color las letras de su lado. -->
+    <h2> Botón General </h2>
+    <p> <input type="button" value="start" id="boton1"> 
+        <scan id="boton1_descrip"> Illo que pasa </scan>
+    </p>
+    <!-- Creación de dos cuadrados que al activar 1 o los 2, aparece un tick en ellos. -->
+    <h2> Botón Checkbox </h2>
+    <p> <span id="c1_test">c1</span> <input type="checkbox" id="checkbox1" > 
+        <span id="c2_test">c2</span> <input type="checkbox" id="checkbox2"> </p>
+    <!-- Creación de 4 círculos de selección, sólo se puede seleccionar 1 y aparece abajo de ellos en el display. -->
+    <h2> Botón Tipo Radio </h2>
+    <p>
+        b1 <input type="radio" name="grupo1" value=1 id="radio1">
+        b2 <input type="radio" name="grupo1" value=2 id="radio2">
+        b3 <input type="radio" name="grupo1" value=3 id="radio3">
+        b4 <input type="radio" name="grupo1" value=4 id="radio4">
+    </p>
+    <p id="radio_display"></p>
+    <!-- Creación de tres cajitas en blanco donde puedes escribir con límite de caracteres (se indica).
+       Y luego aparece al lado, por scan, el resultado.-->
+    <h2> Cajas de texto visible </h2>
+    <p> Text: <input type="text" id="text1"> <span id="text1_disp"></span></p>
+    <p> Text: <input type="text" id="text2" maxlength=10 placeholder="Max. 10 caracteres">
+        <span id="text2_disp"></span>
+    </p>
+    <p>
+        Chose option:
+        <input type="text" id ="text3" list="items" placeholder="Con valores predefinidos...."/>
+        <span id="text3_disp"></span>
+            <!-- Lista de opciones -->
+            <datalist id="items">
+                <option value="1">Opción 1</option>
+                <option value="2">Opción 2</option>
+                <option value="3">Opción 3</option>
+            </datalist>
+    </p>
+    <!-- Igual que lo anterior, pero el texto está oculto en forma de contraseña. -->
+    <h2> Cajas de texto oculto </h2>
+    <p> Contraseña: <input type="password" maxlength=10 id="passw"> <span id="passw_disp"></span> </p>
+    <!-- Creación de una caja donde incrementamos al nº que queramos y aparecerá en el display. -->
+    <h2> Metiendo nº incrementando en la caja </h2>
+    <p> Incrementa y cuando quieras el nº, para: <input type="number" id="num1"> <span id="num1_disp"></span></p>
+    <!-- Creación de un elemento deslizante que cuanto más a la derecha se seleccionará
+       un nº mayor y, cuanto más a la izquierda se seleccionará un nº menor. -->
+    <h2> Deslizador </h2>
+    <p> Desliza para elegir el nº: <input type="range" id="range"> <span id="range_disp"></span>  
+        Valor final: <span id="range_disp2"></span>
+    </p>
+    <hr>
+    <p> Pulsa la tecla ESPACIO </p>
+    <hr>
+    <p> Pulsa una tecla cualquiera </p>
+    <p id="display"></p>
+    <hr>
+    <h2> Prueba de SONIDOS </h2>
+    <input type="button" id="click" value="Click">  
+    <input type="button" id="what" value="What"> 
+</body>

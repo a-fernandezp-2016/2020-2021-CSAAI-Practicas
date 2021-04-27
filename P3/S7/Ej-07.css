@@ -1,0 +1,10 @@
+/* Formato de los encabezados 2. */
+h2 {
+    color: red;
+}
+/*
+   Cambiar el color del fondo del cuerpo al pulsar con la tecla ESPACIO.
+*/
+.color {
+    background: lightblue;
+}
