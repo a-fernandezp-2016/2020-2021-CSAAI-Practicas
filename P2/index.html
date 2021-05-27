@@ -11,13 +11,47 @@
     <!-- Título de la Calcu. -->
     <title> Calculator HUAWEI </title>
 </head>
-<body>
+<body onload= "start()">
     <!-- Todo empieza con el fondo de la página HTML de la Calculadora Huawei, en tono azul clarito o cyan. -->
     <!-- Poner en el centro el Hardware de la Calculadora de color marroncito.-->
     <div class="MyCalc">
         <!-- Logo de Huawei. -->
-        <img id="logHuawei" src="Logo_Huawei.png" alt="Logo de Huawei">
+        <img style="float:left;" id="logHuawei" src="Logo_Huawei.png" alt="Logo de Huawei">
+        <!-- Modelo procesador Calculadora Huawei. -->
+        <img style="float: right;" id="logmodel" src="fx.png" alt="Modelo de Huawei">
+        <!-- Posicionar el display trasero arriba del Hardware y debajo del logo Huawei y del modelo de Huawei. -->
+        <!-- El display trasero es para que se puedan visualizar en el display los números. -->
+        <!-- El estilo float es para que se visualice por la derecha. -->
+        <img style="float: right;" id="backdisp" src="fondo_display.jpeg" alt="Display Trasero Calc">
+        <!-- El propio display donde se muestran los números. -->
+        <p style="float: right;" id="display"></p>
+        <!-- Ahora empezamos con la 1º línea de botones. -->
+        <div>
+            <button type="button" class="firstline">AC</button>
+            <button type="button" class="firstline">DEL</button>
+            <br>
+            <!-- Pasamos a la 2º línea. -->
+            <button type="button" value="7" class="secondline">7</button>
+            <button type="button" value="8" class="secondline">8</button>
+            <button type="button" value="9" class="secondline">9</button>
+            <button type="button" value="+" class="secondline">+</button>
+            <br>
+            <!-- Pasamos a la 3º línea. -->
+            <button type="button" value="4" class="digito">4</button>
+            <button type="button" value="5" class="digito">5</button>
+            <button type="button" value="6" class="digito">6</button>
+            <button type="button" value="-" class="digito">-</button>
+            <br>
+            <!-- Pasamos a la 4º línea. -->
+            <button type="button" value="1" class="digito">1</button>
+            <button type="button" value="2" class="digito">2</button>
+            <button type="button" value="3" class="digito">3</button>
+            <button type="button" value="*" class="digito">x</button>
+            <br>
+            <!-- Pasamos a la 5º línea. -->
+            <button type="button" value="0" class="digito">0</button>
+            <button type="button" value="/" class="digito">/</button>
+            <button type="button" value="=" class="digito">=</button>
+        </div>
     </div>
-    <!-- Posicionar el display arriba del Hardware y debajo del logo Huawei y del display pequeño. -->
-    <img id="display" src="fondo_display.jpeg" alt="Display Calc">
 </body>
