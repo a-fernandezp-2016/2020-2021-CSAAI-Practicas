@@ -17,10 +17,7 @@ let numeros = document.getElementsByClassName("digito");
 // Variable operandos a partir de la clase operacion, para crear el array de los operandos.
 let operandos = document.getElementsByClassName("operacion");
 
-// Variable de la fase inicial.
-let fase = MOMENTO.INIT;
-
-// Momento en que estas de la calculadora:
+// Momento/Fase en que estas de la calculadora:
 // Momento/Fase 0: inicial, no has metido nada.
 // Momento/Fase 1: 1º operando.
 // Momento/Fase 2: operador.
@@ -33,6 +30,10 @@ const MOMENTO = {
   OPER: 2,
   OP2: 3,
 }
+
+// Variable de la fase inicial.
+let fase = MOMENTO.INIT;
+
 //-- Función de retrollamada de los botones
 //-- de la función digito donde se procesan las operaciones.
 function digito(boton)
