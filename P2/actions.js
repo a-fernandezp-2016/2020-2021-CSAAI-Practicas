@@ -18,16 +18,16 @@ let numeros = document.getElementsByClassName("digito");
 let operandos = document.getElementsByClassName("operacion");
 
 // Variable de la fase inicial.
-let fase = FASES.INIT;
+let fase = MOMENTO.INIT;
 
-// Fase en que estas de la calculadora:
-// Fase 0: inicial, no has metido nada.
-// Fase 1: 1º operando.
-// Fase 2: operador.
-// Fase 3: 2º operando.
-// Fase 4: resultado. Este es dandole a igual, no aparece en la estructura de const
+// Momento en que estas de la calculadora:
+// Momento/Fase 0: inicial, no has metido nada.
+// Momento/Fase 1: 1º operando.
+// Momento/Fase 2: operador.
+// Momento/Fase 3: 2º operando.
+// Momento/Fase 4: resultado. Este es dandole a igual, no aparece en la estructura de const
 // porque es la misma que la fase 1 en verdad, ya que el resultado es 1 nº solo.
-const FASES = {
+const MOMENTO = {
   INIT: 0,
   OP1: 1,
   OPER: 2,
@@ -37,18 +37,18 @@ const FASES = {
 //-- de la función digito donde se procesan las operaciones.
 function digito(boton)
 {
-    if(fase = FASES.INIT)
+    if(fase = MOMENTO.INIT)
     {
       display.innerHTML = boton;
-      fase = FASES.OP1;
+      fase = MOMENTO.OP1;
       console.log(fase,"Ahora estas en el operador 1");
     }
-    else if(fase == FASES.OP1 || fase == FASES.OP2 || fase == FASES.OPER)
+    else if(fase == MOMENTO.OP1 || fase == MOMENTO.OP2 || fase == MOMENTO.OPER)
     {
       display.innerHTML += boton;
-      if(fase == FASES.OPER)
+      if(fase == MOMENTO.OPER)
       {
-        fase = FASES.OP2;
+        fase = MOMENTO.OP2;
         console.log(fase,"Ahora estas en el operador 2");
       }
     }
@@ -68,10 +68,10 @@ for (i=0; i<numeros.length; i++) {
 // Pulsando un operando.
 for (j=0; j<operandos.length; j++) {
   operandos[j].onclick = (ev) => {
-      if(fase == FASES.OP1)
+      if(fase == MOMENTO.OP1)
       {
         display.innerHTML += ev.target.value;
-        fase = FASES.OPER;
+        fase = MOMENTO.OPER;
         console.log(fase,"Ahora estas en el operando");
       }
   }
