@@ -1,8 +1,10 @@
 // Hecho por: Alejandro Fernández Pérez.
 
-// Mensaje de inicio de ejecución en consola.
-console.log("Página cargada....");
-console.log("Ejecutando Calculadora HUAWEI con seguridad");
+function start() {
+  // Mensaje de inicio de ejecución en consola.
+  console.log("Página cargada....");
+  console.log("Ejecutando Calculadora HUAWEI con seguridad");
+}
 
 // Fase en que estas de la calculadora:
 // Fase 0: inicial, no has metido nada.
@@ -18,31 +20,31 @@ const FASES = {
     OP2: 3,
 }
 
-// Asignar la clase de los números a una cte.
-const numeros = document.getElementsByClassName("digito")
-// Asignar el id del display a la cte display.
-const display = document.getElementById("display")
-// Asignar el la clase de los operandos a la cte operandos.
-const operandos = document.getElementsByClassName("operacion")
-// Asignar el id de igual a la cte igual.
-const igual = document.getElementById("igual")
+// Asignar la clase de los números a una variable o array de numeros.
+let numeros = document.getElementsByClassName("digito")
+// Asignar el id del display a la variable del display.
+let display = document.getElementById("display")
+// Asignar la clase de los operandos a una variable o array operandos.
+let operandos = document.getElementsByClassName("operacion")
+// Asignar el id de igual a la variable del igual.
+let igual = document.getElementById("igual")
 
 // Variable de la fase inicial.
 let fase = FASES.INIT;
 
 //-- Función de retrollamada de los botones
 //-- de la función digito donde se procesan las operaciones.
-function digito(valor)
+function digito(boton)
 {
     if(fase = FASES.INIT)
     {
-      display.innerHTML = valor;
+      display.innerHTML = boton;
       fase = FASES.OP1;
       console.log(fase,"Ahora estas en el operador 1");
     }
     else if(fase == FASES.OP1 || fase == FASES.OP2 || fase == FASES.OPER)
     {
-      display.innerHTML += valor;
+      display.innerHTML += boton;
       if(fase == FASES.OPER)
       {
         fase = FASES.OP2;
@@ -62,8 +64,8 @@ igual.onclick = (ev) => {
 
 // Bucle que recorre todos los operandos y pasa al siguiente estado
 // del OP1 al OPER.
-for (let operando of operandos) {
-  operando.onclick = (ev) => {
+for (j=0; j<operandos.length; j++) {
+  operandos[j].onclick = (ev) => {
       if(fase == FASES.OP1)
       {
         display.innerHTML += ev.target.value;
@@ -75,12 +77,12 @@ for (let operando of operandos) {
 
 // Bucle que recorre todos los nº del 0 al 9 y saca como valor a la funcion digito
 // al que se le haya hecho click.
-for (let numero of numeros) {
+for (i=0; i<numeros.length; i++) {
 
     //-- Establecer la funcion de llamada del boton del 0 al 9.
     //-- El parámetro ev.target contiene el boton
     //-- que ha recibido el click, y por el valor "value".
-    numero.onclick = (ev) => {
-      digito(ev.target.value)
+    numeros[i].onclick = (ev) => {
+      digito(ev.target.value);
     }
   }
