@@ -33,6 +33,26 @@ const FASES = {
   OPER: 2,
   OP2: 3,
 }
+//-- Función de retrollamada de los botones
+//-- de la función digito donde se procesan las operaciones.
+function digito(boton)
+{
+    if(fase = FASES.INIT)
+    {
+      display.innerHTML = boton;
+      fase = FASES.OP1;
+      console.log(fase,"Ahora estas en el operador 1");
+    }
+    else if(fase == FASES.OP1 || fase == FASES.OP2 || fase == FASES.OPER)
+    {
+      display.innerHTML += boton;
+      if(fase == FASES.OPER)
+      {
+        fase = FASES.OP2;
+        console.log(fase,"Ahora estas en el operador 2");
+      }
+    }
+}
 
 // Acciones de la calculadora (pulsando botones).
 
@@ -64,24 +84,4 @@ igual.onclick = (ev) => {
     fase = FASES.OP1;
     console.log(fase,"Ahora estas en la FASE DE RESULTADO 4");
   }
-}
-//-- Función de retrollamada de los botones
-//-- de la función digito donde se procesan las operaciones.
-function digito(boton)
-{
-    if(fase = FASES.INIT)
-    {
-      display.innerHTML = boton;
-      fase = FASES.OP1;
-      console.log(fase,"Ahora estas en el operador 1");
-    }
-    else if(fase == FASES.OP1 || fase == FASES.OP2 || fase == FASES.OPER)
-    {
-      display.innerHTML += boton;
-      if(fase == FASES.OPER)
-      {
-        fase = FASES.OP2;
-        console.log(fase,"Ahora estas en el operador 2");
-      }
-    }
 }
