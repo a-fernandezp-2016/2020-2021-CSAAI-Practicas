@@ -1,7 +1,7 @@
 body {
     background-color: cyan;
     margin-top: 80px;
-    margin-bottom: 80;
+    margin-bottom: 80px;
 }
 /* Diseño de mi calculadora en general. Dándola estilos css. */
 .MyCalcu {
@@ -31,8 +31,8 @@ body {
     text-align: right;
     font-size: 40px;
     margin-top: -90px;
-    margin-left: -400px;
-    margin-right: 165px;
+    margin-left: -155px;
+    margin-right: 125px;
     margin-bottom: 50px;
     background-color:black;
     color: white;
