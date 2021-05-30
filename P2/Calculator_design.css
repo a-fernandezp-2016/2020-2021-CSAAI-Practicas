@@ -1,75 +1,56 @@
 body {
     background-color: cyan;
 }
-#logHuawei {
-    width: 125px;
-    height: 100px;
-    margin-left: 20px;
-    margin-top: -50px;
-    margin-bottom: 50px;
-}
-#logmodel {
-    width: 100px;
-    height: 75px;
-    margin-top: -40px;
-    margin-bottom: 40px;
-    margin-right: 20px;
-}
-/* Este debe estar a la misma altura que #display. */
-#backdisp {
-    width: 380px;
-    height: 90px;
-    margin-left: 35px;
-    margin-right: 35px;
-    margin-top: -40px;
-    margin-bottom: 40px;
-}
-.MyCalc {
-    padding-top: 50px;
-    padding-bottom: 50px;
+/* Diseño de mi calculadora en general. Dándola estilos css. */
+.MyCalcu {
+    display: block;
+    margin: 0 auto;
+    padding: 150px;
     background-color:gainsboro;
+    width: 300px;
+    height: 500px;
     border-radius: 20px 20px 20px 20px;
     border: 10px groove;
     border-color:goldenrod;
-    text-align: center;
-    margin-top: 100px;
-    margin-right: 500px;
-    margin-left: 500px;
-    margin-bottom: 100px;
-    width: 450px;
 }
-/* Este debe estar a la misma altura que #backdisp. */
+/* Esto sirve para que los botones estén dentro de la calculadora y encuadrados. */
+.MyCalcu td button {
+    display: block;
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+    background-color: blue;
+    color: white;
+}
 #display {
+    display: block;
+    text-align: right;
+    font-size: 40px;
+    margin-bottom: 50px;
     background-color:black;
     color: white;
-    text-align: right;
-    font-size: 70px;
-    width: 380px;
+    width: 280px;
     height: 90px;
-    margin-left: 35px;
-    margin-right: 35px;
-    margin-top: -129px;
-    margin-bottom: 129px;
+    line-height: 90px;
+    border-radius: 20px 20px 20px 20px;
+    border: 5px groove;
+    border-color:goldenrod;
     /* Para no salirnos del display */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip clip;
 }
-button {
-    background-color: blue;
-    color: white;
-    padding: 14px;
-    font-size: 22px;
-    margin: 5px 2px;
-    margin-left: 16px;
-    border-radius: 20px 20px 20px 20px;
-    border: 3px solid blue;
-    width: 70px;
+#logHuawei {
+    display: block;
+    margin-top: 10px;
+    margin-left: 120px;
+    width: 90px;
+    height: 55px;
 }
-.firstline {
-    width: 85px;
-    align-items: center;
-    margin-left: 20px;
-    margin-top: 0px;
-    margin-bottom: 50px;
+#logmodel {
+    display: block;
+    margin-top: 15px;
+    margin-right: 120px;
+    width: 70px;
+    height: 35px;
 }

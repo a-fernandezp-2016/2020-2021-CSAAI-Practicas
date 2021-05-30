@@ -15,44 +15,51 @@
 <body onload="start()">
     <!-- Todo empieza con el fondo de la página HTML de la Calculadora Huawei, en tono azul clarito o cyan. -->
     <!-- Poner en el centro el Hardware de la Calculadora de color marroncito.-->
-    <div class="MyCalc">
-        <!-- Logo de Huawei. -->
-        <img style="float:left;" id="logHuawei" src="Logo_Huawei.png" alt="Logo de Huawei">
-        <!-- Modelo procesador Calculadora Huawei. -->
-        <img style="float: right;" id="logmodel" src="fx.png" alt="Modelo de Huawei">
-        <!-- Posicionar el display trasero arriba del Hardware y debajo del logo Huawei y del modelo de Huawei. -->
-        <!-- El display trasero es para que se puedan visualizar en el display los números. -->
-        <!-- El estilo float es para que se visualice por la derecha. -->
-        <img style="float: right;" id="backdisp" src="fondo_display.jpeg" alt="Display Trasero Calc">
-        <!-- El propio display donde se muestran los números. -->
-        <p style="float: right;" id="display"></p>
-        <!-- Ahora empezamos con la 1º línea de botones. -->
-        <div>
-            <button id="clear" class="firstline">AC</button>
-            <button id="delete_lastChar" class="firstline">DEL</button>
-            <br>
+    <!-- Aquí empieza el codigo de la propia calculadora. -->
+    <table class="MyCalcu">
+        <tr>
+            <!-- Logo de Huawei. -->
+            <img style="float:left;" id="logHuawei" src="Logo_Huawei.png" alt="Logo de Huawei">
+            <!-- Modelo procesador Calculadora Huawei. -->
+            <img style="float: right;" id="logmodel" src="fx.png" alt="Modelo de Huawei">
+        </tr>
+        <tr>
+            <!-- El propio display donde se muestran los números. -->
+            <td colspan="4"> <span style="float: right;" id="display"> </span> </td>
+        </tr>
+        <tr>
+            <!-- Ahora empezamos con la 1º línea de botones. -->
+            <td> <button id="clear" class="firstline">AC</button> </td>
+            <td> <button id="delete_lastChar" class="firstline">DEL</button> </td>
+        </tr>
+        <tr>
             <!-- Pasamos a la 2º línea. -->
-            <button value="7" class="digito">7</button>
-            <button value="8" class="digito">8</button>
-            <button value="9" class="digito">9</button>
-            <button value="+" class="operacion">+</button>
-            <br>
+            <td> <button value="7" class="digito">7</button> </td>
+            <td> <button value="8" class="digito">8</button> </td>
+            <td> <button value="9" class="digito">9</button> </td>
+            <td> <button value="+" class="operacion">+</button> </td>
+        </tr>
+        <tr>
             <!-- Pasamos a la 3º línea. -->
-            <button value="4" class="digito">4</button>
-            <button value="5" class="digito">5</button>
-            <button value="6" class="digito">6</button>
-            <button value="-" class="operacion">-</button>
-            <br>
+            <td> <button value="4" class="digito">4</button> </td>
+            <td> <button value="5" class="digito">5</button> </td>
+            <td> <button value="6" class="digito">6</button> </td>
+            <td> <button value="-" class="operacion">-</button> </td>
+        </tr>
+        <tr>
             <!-- Pasamos a la 4º línea. -->
-            <button value="1" class="digito">1</button>
-            <button value="2" class="digito">2</button>
-            <button value="3" class="digito">3</button>
-            <button value="*" class="operacion">x</button>
-            <br>
+            <td> <button value="1" class="digito">1</button> </td>
+            <td> <button value="2" class="digito">2</button> </td>
+            <td> <button value="3" class="digito">3</button> </td>
+            <td> <button value="*" class="operacion">x</button> </td>
+        </tr>
+        <tr>
             <!-- Pasamos a la 5º línea. -->
-            <button value="0" class="digito">0</button>
-            <button value="/" class="operacion">/</button>
-            <button id="igual">=</button>
-        </div>
-    </div>
+            <td> <button value="0" class="digito">0</button> </td>
+            <td> </td>
+            <td> <button value="/" class="operacion">/</button> </td>
+            <td> <button id="igual">=</button> </td>
+        </tr>
+    </table>
 </body>
+</html>
