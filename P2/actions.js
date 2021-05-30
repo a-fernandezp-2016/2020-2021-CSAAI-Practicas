@@ -9,8 +9,12 @@ function start() {
 
 // Crear un elemento display a partir del ID display.
 display = document.getElementById("display")
-// Crear un elemento  igual a partir del ID igual.
-igual = document.getElementById("igual");
+// Crear un elemento igual a partir del ID igual.
+igual = document.getElementById("igual")
+// Crear un elemento para resetear la pantalla a 0 a partir del ID AC.
+clear = document.getElementById("clear")
+// Crear un elemento para borrar ultimo caracter a partir del ID DEL.
+deletLast = document.getElementById("delete_lastChar");
 
 // Variable numeros a partir de la clase digito, para crear el array de los 10 nº.
 let numeros = document.getElementsByClassName("digito");
@@ -79,10 +83,22 @@ for (j=0; j<operandos.length; j++) {
 }
 // Pulsando el botón igual.
 igual.onclick = (ev) => {
-  if(fase == FASES.OP1 || fase == FASES.OP2)
+  if(fase == MOMENTO.OP1 || fase == MOMENTO.OP2)
   {
     display.innerHTML = eval(display.innerHTML);
-    fase = FASES.OP1;
+    fase = MOMENTO.OP1;
     console.log(fase,"Ahora estas en la FASE DE RESULTADO 4");
   }
+}
+//-- Pulsando el DEL para borrar el último caracter.
+deletLast.onclick = (ev) => {
+  display.innerHTML = display.innerHTML.slice(0,-1);
+  console.log(fase,"Reduciendo....");
+}
+
+//-- Pulsando el AC para resetear el display a 0.
+clear.onclick = (ev) => {
+  display.innerHTML = "0";
+  fase = MOMENTO.INIT;
+  console.log(fase,"Ahora estas en el Estado Inicial");
 }
