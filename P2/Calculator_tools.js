@@ -9,12 +9,12 @@ function start() {
 
 // Variable numeros a partir de la clase digito, para crear el array de los 10 nº.
 let numeros = document.getElementsByClassName("digito");
-// Variable display a partir del ID display.
-let display = document.getElementById("display");
+// Crear un elemento display a partir del ID display.
+display = document.getElementById("display");
 // Variable operandos a partir de la clase operacion, para crear el array de los operandos.
 let operandos = document.getElementsByClassName("operacion");
-// Variable igual a partir del ID igual.
-let igual = document.getElementById("igual");
+// Crear un elemento  igual a partir del ID igual.
+igual = document.getElementById("igual");
 // Variable de la fase inicial.
 let fase = FASES.INIT;
 
