@@ -15,11 +15,10 @@ igual = document.getElementById("igual")
 clear = document.getElementById("clear")
 // Crear un elemento para borrar ultimo caracter a partir del ID DEL.
 deletLast = document.getElementById("delete_lastChar");
-
-// Variable numeros a partir de la clase digito, para crear el array de los 10 nº.
-let numeros = document.getElementsByClassName("digito");
-// Variable operandos a partir de la clase operacion, para crear el array de los operandos.
-let operandos = document.getElementsByClassName("operacion");
+// Crear un elemento array de los 10 nº, a partir de la clase digito.
+numeros = document.getElementsByClassName("digito");
+// Crear un elemento array de los operandos, a partir de la clase operacion.
+operandos = document.getElementsByClassName("operacion");
 
 // Momento/Fase en que estas de la calculadora:
 // Momento/Fase 0: inicial, no has metido nada.
