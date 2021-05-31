@@ -20,8 +20,6 @@ deletLast = document.getElementById("delete_lastChar");
 let numeros = document.getElementsByClassName("digito");
 // Variable del array de los operandos, a partir de la clase operacion.
 let operandos = document.getElementsByClassName("operacion");
-//-- Crea un array con todos los elementos de la clase boton.
-let boton = document.getElementsByClassName("boton");
 
 // Momento/Fase en que estas de la calculadora:
 // Momento/Fase 0: inicial, no has metido nada.
@@ -40,6 +38,8 @@ const MOMENTO = {
 // Variable de la fase inicial.
 let fase = MOMENTO.INIT;
 
+// Acciones de la calculadora (pulsando botones).
+
 // Pulsando 1 de los 10 nº.
 for (i=0; i<numeros.length; i++) {
   //-- Establecer la funcion de llamada del boton del 0 al 9.
@@ -52,17 +52,17 @@ for (i=0; i<numeros.length; i++) {
 
 //-- Función de retrollamada de los botones
 //-- de la función digito donde se procesan las operaciones.
-function digito(botons)
+function digito(botones)
 {
     if(fase = MOMENTO.INIT)
     {
-      display.innerHTML = botons;
+      display.innerHTML = botones;
       fase = MOMENTO.OP1;
       console.log(fase,"Ahora estas en el operador 1");
     }
     else if(fase == MOMENTO.OP1 || fase == MOMENTO.OP2 || fase == MOMENTO.OPER)
     {
-      display.innerHTML += botons;
+      display.innerHTML += botones;
       if(fase == MOMENTO.OPER)
       {
         fase = MOMENTO.OP2;
@@ -74,8 +74,8 @@ function digito(botons)
 // Acciones de la calculadora (pulsando botones).
 
 // Pulsando un operando.
-for (j=0; j<operandos.length; j++) {
-  operandos[j].onclick = (ev) => {
+for (i=0; i<operandos.length; i++) {
+  operandos[i].onclick = (ev) => {
       if(fase == MOMENTO.OP1)
       {
         display.innerHTML += ev.target.value;
