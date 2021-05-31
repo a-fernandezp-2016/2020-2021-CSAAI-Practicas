@@ -15,10 +15,13 @@ igual = document.getElementById("igual")
 clear = document.getElementById("clear")
 // Crear un elemento para borrar ultimo caracter a partir del ID DEL.
 deletLast = document.getElementById("delete_lastChar");
-// Crear un elemento array de los 10 nº, a partir de la clase digito.
-numeros = document.getElementsByClassName("digito");
-// Crear un elemento array de los operandos, a partir de la clase operacion.
-operandos = document.getElementsByClassName("operacion");
+
+// Variable del array de los 10 nº, a partir de la clase digito.
+let numeros = document.getElementsByClassName("digito");
+// Variable del array de los operandos, a partir de la clase operacion.
+let operandos = document.getElementsByClassName("operacion");
+//-- Crea un array con todos los elementos de la clase boton.
+let boton = document.getElementsByClassName("boton");
 
 // Momento/Fase en que estas de la calculadora:
 // Momento/Fase 0: inicial, no has metido nada.
@@ -37,19 +40,29 @@ const MOMENTO = {
 // Variable de la fase inicial.
 let fase = MOMENTO.INIT;
 
+// Pulsando 1 de los 10 nº.
+for (i=0; i<numeros.length; i++) {
+  //-- Establecer la funcion de llamada del boton del 0 al 9.
+  //-- El parámetro ev.target contiene el boton
+  //-- que ha recibido el click, y por el valor "value".
+  numeros[i].onclick = (ev) => {
+    digito(ev.target.value);
+  }
+}
+
 //-- Función de retrollamada de los botones
 //-- de la función digito donde se procesan las operaciones.
-function digito(numeros)
+function digito(botons)
 {
     if(fase = MOMENTO.INIT)
     {
-      display.innerHTML = numeros;
+      display.innerHTML = botons;
       fase = MOMENTO.OP1;
       console.log(fase,"Ahora estas en el operador 1");
     }
     else if(fase == MOMENTO.OP1 || fase == MOMENTO.OP2 || fase == MOMENTO.OPER)
     {
-      display.innerHTML += numeros;
+      display.innerHTML += botons;
       if(fase == MOMENTO.OPER)
       {
         fase = MOMENTO.OP2;
@@ -60,15 +73,6 @@ function digito(numeros)
 
 // Acciones de la calculadora (pulsando botones).
 
-// Pulsando 1 de los 10 nº.
-for (i=0; i<numeros.length; i++) {
-  //-- Establecer la funcion de llamada del boton del 0 al 9.
-  //-- El parámetro ev.target contiene el boton
-  //-- que ha recibido el click, y por el valor "value".
-  numeros[i].onclick = (ev) => {
-    digito(ev.target.value);
-  }
-}
 // Pulsando un operando.
 for (j=0; j<operandos.length; j++) {
   operandos[j].onclick = (ev) => {
