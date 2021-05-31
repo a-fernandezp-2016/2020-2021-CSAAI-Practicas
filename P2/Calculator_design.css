@@ -3,6 +3,10 @@ body {
     margin-top: 80px;
     margin-bottom: 80px;
 }
+/* Diseño título pag HTML. */
+h1 {
+    margin-left: -300px;
+}
 /* Diseño de mi calculadora en general. Dándola estilos css. */
 .MyCalcu {
     display: block;
