@@ -39,17 +39,17 @@ let fase = MOMENTO.INIT;
 
 //-- Función de retrollamada de los botones
 //-- de la función digito donde se procesan las operaciones.
-function digito(ev)
+function digito(numeros)
 {
     if(fase = MOMENTO.INIT)
     {
-      display.innerHTML = ev.target.value;
+      display.innerHTML = numeros;
       fase = MOMENTO.OP1;
       console.log(fase,"Ahora estas en el operador 1");
     }
     else if(fase == MOMENTO.OP1 || fase == MOMENTO.OP2 || fase == MOMENTO.OPER)
     {
-      display.innerHTML += ev.target.value;
+      display.innerHTML += numeros;
       if(fase == MOMENTO.OPER)
       {
         fase = MOMENTO.OP2;
