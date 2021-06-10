@@ -16,10 +16,10 @@ clear = document.getElementById("clear")
 // Crear un elemento para borrar ultimo caracter a partir del ID DEL.
 deletLast = document.getElementById("delete_lastChar");
 
-// Variable del array de los 10 nº, a partir de la clase digito.
-let numeros = document.getElementsByClassName("digito");
-// Variable del array de los operandos, a partir de la clase operacion.
-let operandos = document.getElementsByClassName("operacion");
+// Cte del array de los 10 nº, a partir de la clase digito.
+const numeros = document.getElementsByClassName("digito");
+// Cte del array de los operandos, a partir de la clase operacion.
+const operandos = document.getElementsByClassName("operacion");
 
 // Momento/Fase en que estas de la calculadora:
 // Momento/Fase 0: inicial, no has metido nada.
@@ -41,32 +41,40 @@ let fase = MOMENTO.INIT;
 // Acciones de la calculadora (pulsando botones).
 
 // Pulsando 1 de los 10 nº.
-for (i=0; i<numeros.length; i++) {
+for (let boton of numeros) {
   //-- Establecer la funcion de llamada del boton del 0 al 9.
   //-- El parámetro ev.target contiene el boton
   //-- que ha recibido el click, y por el valor "value".
-  numeros[i].onclick = (ev) => {
+  boton.onclick = (ev) => {
     digito(ev.target.value);
   }
 }
 
 //-- Función de retrollamada de los botones
 //-- de la función digito donde se procesan las operaciones.
-function digito(botones)
+function digito(value)
 {
+    // Empezamos comprobando, con el estado o momento inicial.
     if(fase = MOMENTO.INIT)
     {
-      display.innerHTML = botones;
+      // Escribimos en la pantalla.
+      display.innerHTML = value;
+      // Pasamos al siguiente estado.
       fase = MOMENTO.OP1;
+      // Ponemos un mensaje en consola, para avisar.
       console.log(fase,"Ahora estas en el operador 1");
     }
     else if(fase == MOMENTO.OP1 || fase == MOMENTO.OP2 || fase == MOMENTO.OPER)
     {
-      display.innerHTML += botones;
+      // Escribimos en la pantalla.
+      display.innerHTML += value;
+      // Entra sólo cuando se haya escrito el operador.
       if(fase == MOMENTO.OPER)
       {
+        // Pasamos al siguiente estado.
         fase = MOMENTO.OP2;
-        console.log(fase,"Ahora estas en el operador 2");
+        // Ponemos un mensaje en consola, para avisar.
+        console.log(fase,"Ahora estas en el operando 2.");
       }
     }
 }

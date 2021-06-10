@@ -9,7 +9,6 @@ h1 {
 }
 /* Diseño de mi calculadora en general. Dándola estilos css. */
 .MyCalcu {
-    display: block;
     margin: 0 auto;
     padding: 180px;
     background-color:gainsboro;
@@ -21,7 +20,6 @@ h1 {
 }
 /* Esto sirve para que los botones estén dentro de la calculadora y encuadrados. */
 .MyCalcu td button {
-    display: block;
     margin-left: -150px;
     margin-right: 170px;
     width: 55px;
