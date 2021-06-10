@@ -10,58 +10,49 @@
     <link rel="stylesheet" href="Calculator_design.css">
     <!-- Título de la Calcu. -->
     <title> Calculator HUAWEI </title>
+    <!-- Favicon o icono de la pestaña de la página web. -->
+    <link id="icon" rel="icon" href="Logo_Huawei.png" type="image/png">
 </head>
 <!-- Aquí empieza el código de mi calculadora. -->
-<body onload="start()">
+<body>
+    <!-- Título de la Página Web. -->
     <h1> Calculadora HUAWEI </h1>
     <!-- Todo empieza con el fondo de la página HTML de la Calculadora Huawei, en tono azul clarito o cyan. -->
     <!-- Poner en el centro el Hardware de la Calculadora de color marroncito.-->
     <!-- Aquí empieza el codigo de la propia calculadora. -->
-    <table class="MyCalcu">
-        <tr>
-            <!-- Logo de Huawei. -->
-            <img style="float:left;" id="logHuawei" src="Logo_Huawei.png" alt="Logo de Huawei">
-            <!-- Modelo procesador Calculadora Huawei. -->
-            <img style="float: right;" id="logmodel" src="fx.png" alt="Modelo de Huawei">
-        </tr>
-        <tr>
-            <!-- El propio display donde se muestran los números. -->
-            <td colspan="4"> <span id="display"> </span> </td>
-        </tr>
-        <tr>
-            <!-- Ahora empezamos con la 1º línea de botones. -->
-            <td> </td>
-            <td> <button id="clear">AC</button> </td>
-            <td> <button id="delete_lastChar">DEL</button> </td>
-        </tr>
-        <tr>
-            <!-- Pasamos a la 2º línea. -->
-            <td> <button class="digito" value="7">7</button> </td>
-            <td> <button class="digito" value="8">8</button> </td>
-            <td> <button class="digito" value="9">9</button> </td>
-            <td> <button class="operacion" value="+">+</button> </td>
-        </tr>
-        <tr>
-            <!-- Pasamos a la 3º línea. -->
-            <td> <button class="digito" value="4">4</button> </td>
-            <td> <button class="digito" value="5">5</button> </td>
-            <td> <button class="digito" value="6">6</button> </td>
-            <td> <button class="operacion" value="-">-</button> </td>
-        </tr>
-        <tr>
-            <!-- Pasamos a la 4º línea. -->
-            <td> <button class="digito" value="1">1</button> </td>
-            <td> <button class="digito" value="2">2</button> </td>
-            <td> <button class="digito" value="3">3</button> </td>
-            <td> <button class="operacion" value="*">x</button> </td>
-        </tr>
-        <tr>
-            <!-- Pasamos a la 5º línea. -->
-            <td> <button class="digito" value="0">0</button> </td>
-            <td> </td>
-            <td> <button class="operacion" value="/">/</button> </td>
-            <td> <button id="igual">=</button> </td>
-        </tr>
-    </table>
+    <div>
+        <p id="display">  </p>
+    </div>
+    <div> <!-- Esta sección es para dejar margen entre el display o pantalla y los botones. --> </div>
+    <div>
+        <div>
+            <button> AC </button>
+            <button> DEL </button>
+        </div>
+        <div>
+            <button class="digito" value="7"> 7 </button>
+            <button class="digito" value="8"> 8 </button>
+            <button class="digito" value="9"> 9 </button>
+            <button class="operador" value="+"> + </button>
+        </div>
+        <div>
+            <button class="digito" value="4"> 4 </button>
+            <button class="digito" value="5"> 5 </button>
+            <button class="digito" value="6"> 6 </button>
+            <button class="operador" value="-"> - </button>
+        </div>
+        <div>
+            <button class="digito" value="1"> 1 </button>
+            <button class="digito" value="2"> 2 </button>
+            <button class="digito" value="3"> 3 </button>
+            <button class="operador" value="*"> x </button>
+        </div>
+        <div>
+            <button class="digito" value="0"> 0 </button>
+            <button> . </button>
+            <button class="operador" value="/"> / </button>
+            <button> = </button>
+        </div>
+    </div>
 </body>
 </html>
