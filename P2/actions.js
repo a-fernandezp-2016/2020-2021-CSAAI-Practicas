@@ -1,5 +1,6 @@
 // Hecho por: Alejandro Fernández Pérez.
 
+// Punto de inicio en el depurador del navegador.
 console.log("Arranca la Calculadora Web.....");
 
 // Crear un elemento display a partir del ID display.
@@ -32,7 +33,7 @@ let fase = MOMENTO.INIT;
 function digito(ev)
 {
     // Empezamos comprobando, con el estado o momento inicial.
-    if(fase = MOMENTO.INIT)
+    if(fase == MOMENTO.INIT)
     {
       // Escribimos en la pantalla.
       display.innerHTML = ev.target.value;
