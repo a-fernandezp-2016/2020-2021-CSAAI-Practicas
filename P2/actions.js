@@ -2,13 +2,12 @@
 
 console.log("Arranca la Calculadora Web.....");
 
-// Crear un elemento display (y guardarlo como cte) a partir del ID display.
-const display = document.getElementById("display")
-
-// Cte del array de los 10 nº, a partir de la clase digito.
-const numeros = document.getElementsByClassName("digito");
-// Cte del array de los operadores, a partir de la clase operador.
-const operadores = document.getElementsByClassName("operador");
+// Crear un elemento display a partir del ID display.
+display = document.getElementById("display")
+// Obtener el array con todos los elementos de la clase operador, que son 4 tipos.
+operadores = document.getElementsByClassName("operador");
+//-- Obtener el array con todos los elementos de la clase digito, que son 10 nº.
+numeros = document.getElementsByClassName("digito");
 
 // Momento/Fase en que estas de la calculadora:
 // Momento/Fase 0: inicial, no has metido nada.
@@ -23,32 +22,20 @@ const MOMENTO = {
   OP1: 1,
   OPER: 2,
   OP2: 3,
-};
+}
 
 // Variable de la fase inicial.
-var fase = MOMENTO.INIT;
-
-// Acciones de la calculadora (pulsando botones).
-
-// Pulsando 1 de los 10 nº.
-for (let boton of numeros) {
-  //-- Establecer la funcion de llamada del boton del 0 al 9.
-  //-- El parámetro ev.target contiene el boton
-  //-- que ha recibido el click, y por el valor "value".
-  boton.onclick = (ev) => {
-    digito(ev.target.value);
-  }
-}
+let fase = MOMENTO.INIT;
 
 //-- Función de retrollamada de los botones
 //-- de la función digito donde se procesan las operaciones.
-function digito(value)
+function digito(ev)
 {
     // Empezamos comprobando, con el estado o momento inicial.
     if(fase = MOMENTO.INIT)
     {
       // Escribimos en la pantalla.
-      display.innerHTML = value;
+      display.innerHTML = ev.target.value;
       // Pasamos al siguiente estado.
       fase = MOMENTO.OP1;
       // Ponemos un mensaje en consola, para avisar.
@@ -57,7 +44,7 @@ function digito(value)
     else if(fase == MOMENTO.OP1 || fase == MOMENTO.OP2 || fase == MOMENTO.OPER)
     {
       // Escribimos en la pantalla a continuación de lo anterior.
-      display.innerHTML += value;
+      display.innerHTML += ev.target.value;
       // Entra sólo cuando se haya escrito el operador.
       if(fase == MOMENTO.OPER)
       {
@@ -74,6 +61,12 @@ function digito(value)
     }
 }
 
+// Para pulsar uno de los 10 digitos o nº que componen la calculadora web.
+for (let boton of numeros) {
+  //-- Al pulsar un dígito, se accede a la function digito.
+  boton.onclick = digito;
+}
+
 // Al pulsar un operador.
 for (let operador of operadores) {
   operador.onclick = (ev) => {
@@ -84,7 +77,12 @@ for (let operador of operadores) {
         // Pasamos al siguiente estado.
         fase = MOMENTO.OPER;
         // Ponemos un mensaje en consola, para avisar.
-        console.log(fase,"Ahora estas en el operando");
+        console.log(fase,"Ahora estas en el operador");
+      }
+      else
+      {
+        // Ponemos un mensaje en consola, para avisar.
+        console.log(fase,"Todavía no es momento para pulsar a un operador.");
       }
   }
 }
