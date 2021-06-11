@@ -1,7 +1,7 @@
 // Hecho por: Alejandro Fernández Pérez.
 
 // Punto de inicio en el depurador del navegador.
-console.log("Arranca la Calculadora Web.....");
+console.log("Arranca la Calculadora HUawei Web.....");
 
 // Crear un elemento display a partir del ID display.
 display = document.getElementById("display")

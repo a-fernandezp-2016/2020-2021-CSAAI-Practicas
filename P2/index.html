@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
 <head>
+    <!-- Configuración obligatoria para la página HTML. -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Código JavaScript de la calculadora. -->
     <script src="actions.js" defer></script>
     <!-- Código CSS de la Calculadora. -->
-    <link rel="stylesheet" href="Calculator_design.css">
+    <link rel="stylesheet" href="design.css">
     <!-- Título de la Calcu. -->
     <title> Calculator HUAWEI </title>
     <!-- Favicon o icono de la pestaña de la página web. -->
@@ -15,44 +16,52 @@
 </head>
 <!-- Aquí empieza el código de mi calculadora. -->
 <body>
-    <!-- Título de la Página Web. -->
+    <!-- Título de la Página HTML. -->
     <h1> Calculadora HUAWEI </h1>
     <!-- Todo empieza con el fondo de la página HTML de la Calculadora Huawei, en tono azul clarito o cyan. -->
-    <!-- Poner en el centro el Hardware de la Calculadora de color marroncito.-->
+    <!-- Poner en el centro la Calculadora-->
     <!-- Aquí empieza el codigo de la propia calculadora. -->
-    <div>
-        <p id="display">  </p>
-    </div>
-    <div> <!-- Esta sección es para dejar margen entre el display o pantalla y los botones. --> </div>
-    <div>
-        <div>
-            <button type="button"> AC </button>
-            <button type="button"> DEL </button>
-        </div>
-        <div>
-            <button type="button" class="digito" value="7"> 7 </button>
-            <button type="button" class="digito" value="8"> 8 </button>
-            <button type="button" class="digito" value="9"> 9 </button>
-            <button type="button" class="operador" value="+"> + </button>
-        </div>
-        <div>
-            <button type="button" class="digito" value="4"> 4 </button>
-            <button type="button" class="digito" value="5"> 5 </button>
-            <button type="button" class="digito" value="6"> 6 </button>
-            <button type="button" class="operador" value="-"> - </button>
-        </div>
-        <div>
-            <button type="button" class="digito" value="1"> 1 </button>
-            <button type="button" class="digito" value="2"> 2 </button>
-            <button type="button" class="digito" value="3"> 3 </button>
-            <button type="button" class="operador" value="*"> x </button>
-        </div>
-        <div>
-            <button type="button" class="digito" value="0"> 0 </button>
-            <button type="button"> . </button>
-            <button type="button" class="operador" value="/"> / </button>
-            <button type="button"> = </button>
-        </div>
-    </div>
+    <table>
+        <tr>
+            <td> <img id="logo1" src="Logo_Huawei.png" alt="Logo Huawei Calculadora"> </td>
+            <td> <img id="logo2" src="fx.png" alt="Procesador Calculadora"> </td>
+        </tr>
+        <tr>
+            <td> <p id="display"></p> </td>
+        </tr>
+        <tr> 
+            <!-- Esta sección es para dejar margen entre el display o pantalla y los botones. --> </div>
+        </tr>
+        <tr id="botEnable">
+            <!-- Botón de reiniciar a 0. -->
+            <td> <button type="button"> AC </button> </td>
+            <!-- Botón de eliminar el último carácter -->
+            <td> <button type="button"> DEL </button> </td> 
+        </tr>
+        <tr id="numMayores">
+            <td> <button type="button" class="digito" value="7"> 7 </button> </td>
+            <td> <button type="button" class="digito" value="8"> 8 </button> </td>
+            <td> <button type="button" class="digito" value="9"> 9 </button> </td>
+            <td> <button type="button" class="operador" value="+"> + </button> </td>
+        </tr>
+        <tr id="numMedianos">
+            <td> <button type="button" class="digito" value="4"> 4 </button> </td>
+            <td> <button type="button" class="digito" value="5"> 5 </button> </td>
+            <td> <button type="button" class="digito" value="6"> 6 </button> </td>
+            <td> <button type="button" class="operador" value="-"> - </button> </td>
+        </tr>
+        <tr id="numPeques">
+            <td> <button type="button" class="digito" value="1"> 1 </button> </td>
+            <td> <button type="button" class="digito" value="2"> 2 </button> </td>
+            <td> <button type="button" class="digito" value="3"> 3 </button> </td>
+            <td> <button type="button" class="operador" value="*"> x </button> </td>
+        </tr>
+        <tr id="numZero">
+            <td> <button type="button" class="digito" value="0"> 0 </button> </td>
+            <td> <button type="button"> . </button> </td>
+            <td> <button type="button" class="operador" value="/"> / </button> </td>
+            <td> <button type="button"> = </button> </td>
+        </tr>
+    </table>
 </body>
 </html>

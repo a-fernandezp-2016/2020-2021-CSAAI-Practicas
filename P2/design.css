@@ -1,0 +1,44 @@
+/* Configuración del favicon. */
+#icon {
+    width: 10px;
+    height: 10px;
+}
+/* Diseño del logo de Huawei. */
+#logo1 {
+    width: 80px;
+    height: 60px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 50px;
+}
+/* Diseño del logo del procesador fx. */
+#logo2 {
+    width: 60px;
+    height: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 50px;
+    margin-right: -50px;
+}
+/* Color de fondo de la página HTML. */
+body {
+    background-color: cyan;
+    margin: auto;
+}
+/* Diseño del título de la Calculadora Huawei Web. */
+h1 {
+    text-align: center;
+    font: bold 30px Tahoma;
+    color: black;
+}
+/* Diseño de la tabla o de la propia calculadora. */
+table {
+    margin: 0 auto;
+    border: solid;
+    width: 200px;
+    height: 300px;
+    border-radius: 15px;
+    border-color: brown;
+    background-color: grey;
+}
