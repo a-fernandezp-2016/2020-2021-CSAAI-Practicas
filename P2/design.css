@@ -22,6 +22,8 @@
 body {
     background-color: cyan;
     margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 /* Diseño del título de la Calculadora Huawei Web. */
 h1 {
