@@ -21,7 +21,8 @@ clear = document.getElementById("clear");
 // empezando por la derecha, a partir del ID del.
 del = document.getElementById("del");
 
-// Momento/Fase en que estas de la calculadora:
+// Estados o momentos de la calculadora en una cte Momento.
+// Momento/Fase en que estás, de la calculadora:
 // Momento/Fase 0: inicial, no has metido nada.
 // Momento/Fase 1: 1º operando.
 // Momento/Fase 2: operador.
@@ -38,6 +39,9 @@ const MOMENTO = {
 
 // Variable de la fase inicial.
 let fase = MOMENTO.INIT;
+
+// Creamos la variable let contador, para saber cuál es el último nº o carácter.
+let contador = "n";
 
 //-- La función digito es una función donde se procesan las operaciones con los
 // dígitos, en cada momento o cada fase.
@@ -72,6 +76,8 @@ function digito(ev)
       }
       else if(fase == MOMENTO.OP2)
       {
+        // Sobreescribimos el contador a n.
+        contador = "n";
         // Ponemos un mensaje en consola del navegador, para avisar.
         console.log(fase,"Sigues en la fase 3: operando 2.");
       }
@@ -91,6 +97,8 @@ for (let operador of operadores) {
       {
         // Escribimos en la pantalla a continuación de lo anterior.
         display.innerHTML += ev.target.value;
+        // Sobreescribimos el contador.
+        contador = ev.target.value;
         // Pasamos al siguiente estado.
         fase = MOMENTO.OPER;
         // Ponemos un mensaje en consola del navegador, para avisar.
@@ -137,7 +145,61 @@ clear.onclick = (ev) => {
 // Al pulsar el botón de DEL, borras el último nº o carácter del display,
 // empezando por la derecha.
 del.onclick = (ev) => {
-  // Borrar el último nº o carácter del display, empezando por la derecha.
-  display.innerHTML = display.innerHTML.slice(0,-1);
-  // Procedimiento de cambio de fase o momento.
+  // Comprobar si estamos en la fase 3.
+  if(fase == MOMENTO.OP2)
+  {
+    // Si el contador es igual a n de negado, se queda en la fase 3.
+    if(contador == "n")
+    {
+      // Borrar el último nº o carácter del display, empezando por la derecha.
+      display.innerHTML = display.innerHTML.slice(0,-1);
+      // Ponemos un mensaje en consola del navegador, para avisar.
+      console.log(fase,"Sigues en la fase 3: operando 2.");
+    }
+    // Si el contador es igual a un operador, vuelve a la fase 2.
+    else
+    {
+      // Borrar el último nº o carácter del display, empezando por la derecha.
+      display.innerHTML = display.innerHTML.slice(0,-1);
+      // Cambio fase.
+      fase == MOMENTO.OPER;
+      // Ponemos un mensaje en consola del navegador, para avisar.
+      console.log(fase,"Ahora estas en la fase 2: operador");
+    }
+  }
+  else
+  {
+    // Borrar el último nº o carácter del display, empezando por la derecha.
+    display.innerHTML = display.innerHTML.slice(0,-1);
+    // Procedimiento de cambio de fase o momento.
+    switch(fase) 
+    {
+      case MOMENTO.INIT:
+        // Ponemos un mensaje en consola del navegador, para avisar.
+        console.log(fase,"Sigues en la fase 0: inicial.");
+        break;
+
+      case MOMENTO.OP1:
+        if(display.innerHTML == "")
+        {
+          // Pasamos a la fase 0.
+          fase = MOMENTO.INIT;
+          // Ponemos un mensaje en consola del navegador, para avisar.
+          console.log(fase,"Ahora estas en la fase 0: inicial");
+        }
+        else
+        {
+          // Ponemos un mensaje en consola del navegador, para avisar.
+          console.log(fase,"Sigues en la fase 1: operando 1.");
+        }
+        break;
+
+      case MOMENTO.OPER:
+        // Pasamos a la fase 0.
+        fase = MOMENTO.OP1;
+        // Ponemos un mensaje en consola del navegador, para avisar.
+        console.log(fase,"Ahora estas en la fase 1: operando 1");
+        break;
+    }
+  }
 }
