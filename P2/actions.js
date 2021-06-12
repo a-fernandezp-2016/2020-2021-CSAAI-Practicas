@@ -41,7 +41,7 @@ const MOMENTO = {
 let fase = MOMENTO.INIT;
 
 // Creamos la variable let contador, para saber cuál es el último nº o carácter.
-let contador = "n";
+let contador = 'n';
 
 //-- La función digito es una función donde se procesan las operaciones con los
 // dígitos, en cada momento o cada fase.
@@ -77,7 +77,7 @@ function digito(ev)
       else if(fase == MOMENTO.OP2)
       {
         // Sobreescribimos el contador a n.
-        contador = "n";
+        contador = 'n';
         // Ponemos un mensaje en consola del navegador, para avisar.
         console.log(fase,"Sigues en la fase 3: operando 2.");
       }
@@ -149,7 +149,7 @@ del.onclick = (ev) => {
   if(fase == MOMENTO.OP2)
   {
     // Si el contador es igual a n de negado, se queda en la fase 3.
-    if(contador == "n")
+    if(contador == 'n')
     {
       // Borrar el último nº o carácter del display, empezando por la derecha.
       display.innerHTML = display.innerHTML.slice(0,-1);
