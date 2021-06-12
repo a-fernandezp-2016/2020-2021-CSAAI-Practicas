@@ -32,25 +32,24 @@ coma = document.getElementById("punto");
 // Con todos esos momentos ya puedes dar a =.
 // Si metes otro nº, se mantiene en la fase 3.
 // Cuando pulsas =, va a la fase 1.
-// El estado o momento FLOAT es booleano y sirve para comprobar si podemos introducir coma o no.
 const MOMENTO = {
   INIT: 0,
   OP1: 1,
   OPER: 2,
   OP2: 3,
-  FLOAT: false,
 }
 
 // Variable de la fase inicial.
 let fase = MOMENTO.INIT;
 
-// Contador que cuenta las cifras que hay en el operando 2.
-let contador = 1;
-// Contador que cuenta las cifras que hay en el operando 2 y con coma flotante.
-let contador2 = 2;
-
-// Variable booleana que define si hay coma (true) o no (false) en el operando 1.
+// Variable booleana que define si hay coma (false) o no (true) en el operando 1.
 let stateOp1 = false;
+// Contador que cuenta las cifras que hay en el operando 1, a partir de la coma.
+let contOp1 = 0;
+// Variable booleana que define si hay coma (false) o no (true) en el operando 2.
+let stateOp2 = false;
+// Contador que cuenta las cifras que hay en el operando 2, a partir de la coma.
+let contOp2 = 0;
 
 //-- La función digito es una función donde se procesan las operaciones con los
 // dígitos, en cada momento o cada fase.
@@ -63,8 +62,10 @@ function digito(ev)
       display.innerHTML = ev.target.value;
       // Pasamos al siguiente estado.
       fase = MOMENTO.OP1;
-      // Cambiar a true el estado para poder introducir una coma.
-      MOMENTO.FLOAT = true;
+      // Variable booleana del operando 1 a true para poder pulsar la coma.
+      stateOp1 = true;
+      // Inicializar contador de las cifras del operando 1, a partir de la coma flotante.
+      contOp1 = 1;
       // Ponemos un mensaje en consola, para avisar.
       console.log(fase,"Ahora estas en la fase 1: operando 1.");
     }
@@ -79,31 +80,29 @@ function digito(ev)
         fase = MOMENTO.OP2;
         // Ponemos un mensaje en consola del navegador, para avisar.
         console.log(fase,"Ahora estas en la fase 3: operando 2.");
-        // Cambiar a true el estado para poder introducir una coma.
-        MOMENTO.FLOAT = true;
-        // Inicializar contador de las cifras del operando 2 sin coma flotante.
-        contador = 1;
-        // Inicializar contador de las cifras del operando 2 con coma flotante.
-        contador2 = 2;
+        // Variable booleana del operando 2 a true para poder pulsar la coma.
+        stateOp2 = true;
+        // Inicializar contador de las cifras del operando 2, a partir de la coma flotante.
+        contOp2 = 1;
       }
       else if(fase == MOMENTO.OP1)
       {
         // Ponemos un mensaje en consola del navegador, para avisar.
         console.log(fase,"Sigues en la fase 1: operando 1.");
+        if(stateOp1 == false)
+        {
+          // Contador que cuenta el nº de cifras que tiene el operando 1, a partir de la coma flotante.
+          contOp1 += 1;
+        }
       }
       else if(fase == MOMENTO.OP2)
       {
         // Ponemos un mensaje en consola del navegador, para avisar.
         console.log(fase,"Sigues en la fase 3: operando 2.");
-        if(MOMENTO.FLOAT == true)
+        if(stateOp2 == false)
         {
-          // Contador que cuenta el nº de cifras que tiene el operando 2.
-          contador += 1;
-        }
-        else
-        {
-          // Contador que cuenta el nº de cifras que tiene el operando 2.
-          contador2 += 1;
+          // Contador que cuenta el nº de cifras que tiene el operando 2, a partir de la coma flotante.
+          contOp2 += 1;
         }
       }
     }
@@ -171,19 +170,12 @@ del.onclick = () => {
   // Comprobar si estamos en la fase 3.
   if(fase == MOMENTO.OP2)
   {
+    contOp2 -= 1;
     // Si el contador es igual a n de negado, se queda en la fase 3.
-    if(contador > 1  || contador2 >= 2)
+    if(contOp2 == 0)
     {
       // Borrar el último nº o carácter del display, empezando por la derecha.
       display.innerHTML = display.innerHTML.slice(0,-1);
-      // Poner a true, cuando se elimine la coma del 2º operando.
-      if(contador2 == 2)
-      {
-        MOMENTO.FLOAT = true;
-      }
-      // Restamos al contador y al contador2 el último caracter quitado.
-      contador -= 1;
-      contador2 -= 1;
       // Ponemos un mensaje en consola del navegador, para avisar.
       console.log(fase,"Sigues en la fase 3: operando 2.");
     }
@@ -220,6 +212,13 @@ del.onclick = () => {
         }
         else
         {
+          // Reducir el contOp1 para evitar poner 2 o más comas.
+          contOp1 -= 1;
+          if(contOp1 == 0)
+          {
+            // Volver a activar el poder poner coma.
+            stateOp1 = true;
+          }
           // Ponemos un mensaje en consola del navegador, para avisar.
           console.log(fase,"Sigues en la fase 1: operando 1.");
         }
@@ -237,12 +236,22 @@ del.onclick = () => {
 
 // Pulsar el punto . para usar la calculadora con nº decimales.
 coma.onclick = (ev) => {
-  if((fase == MOMENTO.OP1 || fase == MOMENTO.OP2) && MOMENTO.FLOAT == true)
+  if((fase == MOMENTO.OP1 && stateOp1 == true) || (fase == MOMENTO.OP2 && stateOp2 == true))
   {
     // Escribo el punto o coma flotante.
     display.innerHTML += ev.target.value;
     // Cambiamos el estado o momento de si hay o no coma flotante a false.
     MOMENTO.FLOAT = false;
+    if(fase == MOMENTO.OP1)
+    {
+      // Cambiamos la variable booleana del operando 1 a false.
+      stateOp1 = false;
+    }
+    else if(fase == MOMENTO.OP2)
+    {
+      // Cambiamos la variable booleana del operando 2 a false.
+      stateOp2 = false;
+    }
   }
   else
   {
