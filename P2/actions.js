@@ -22,6 +22,10 @@ clear = document.getElementById("clear");
 del = document.getElementById("del");
 // Crear un elemento para calcular el porcentaje de un nº a partir del ID percien.
 porcentaje = document.getElementById("percien");
+// Crear un elemento para calcular el cuadrado de un nº a partir del ID potencia2.
+cuadrado = document.getElementById("potencia2");
+// Crear un elemento para calcular el cubo de un nº a partir del ID potencia3.
+cubo = document.getElementById("potencia3");
 
 // Estados o momentos de la calculadora en una cte Momento.
 // Momento/Fase en que estás, de la calculadora:
@@ -198,12 +202,42 @@ del.onclick = () => {
   }
 }
 
-// Al pulsar el %, calcula el porcentaje del OP1 o del OP2, o del resultado final.
+// Al pulsar el %, calcula el porcentaje del OP1 o del resultado final (sólo cuando está
+// en la fase 1).
 porcentaje.onclick = (ev) => {
-  if(fase == MOMENTO.OP1 || fase == MOMENTO.OP2)
+  if(fase == MOMENTO.OP1)
   {
-    // Multiplico el valor del operando 1 por 0.01 y se sobreescribe.
+    // Multiplico el valor del operando 1 o del resultado final por 0.01 y se sobreescribe.
     display.innerHTML *= ev.target.value;
+  }
+  else
+  {
+    // Ponemos un mensaje en consola del navegador, para avisar.
+    console.log(fase,"PROCESO NO VÁLIDO, LO SIENTO");
+  }
+}
+// Al pulsar el ^2, calcula el cuadrado del OP1 o del resultado final (sólo cuando está
+// en la fase 1).
+cuadrado.onclick = () => {
+  if(fase == MOMENTO.OP1)
+  {
+    // Multiplico el valor del operando 1 o del resultado final por 0.01 y se sobreescribe.
+    display.innerHTML **= 2;
+  }
+  else
+  {
+    // Ponemos un mensaje en consola del navegador, para avisar.
+    console.log(fase,"PROCESO NO VÁLIDO, LO SIENTO");
+  }
+}
+
+// Al pulsar el ^3, calcula el cubo del OP1 o del resultado final (sólo cuando está
+// en la fase 1).
+cubo.onclick = () => {
+  if(fase == MOMENTO.OP1)
+  {
+    // Multiplico el valor del operando 1 o del resultado final por 0.01 y se sobreescribe.
+    display.innerHTML **= 3;
   }
   else
   {

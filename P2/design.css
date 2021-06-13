@@ -15,8 +15,8 @@
     width: 90px;
     height: 50px;
     margin-top: -18px;
-    margin-right: -235px;
-    margin-left: 235px;
+    margin-right: -142px;
+    margin-left: 142px;
 }
 /* Color de fondo de la página HTML. */
 body {
@@ -37,7 +37,7 @@ h1 {
 table {
     margin: 0 auto;
     border: solid;
-    width: 460px;
+    width: 470px;
     height: 650px;
     border-radius: 15px;
     border-color: brown;
@@ -59,32 +59,57 @@ button {
 }
 /* Diseño del botón de eliminar el último carácter.  */
 #del {
-    margin-right: -237px;
-    margin-left: 237px;
+    margin-right: 82px;
+    margin-left: -82px;
 }
 /* Diseñar el botón del 9. */
 #nueve {
-    margin-left: -62px;
+    margin-left: -70px;
 }
 /* Diseñar el botón del 8. */
 #ocho {
-    margin-left: -50px;
+    margin-right: 82px;
+    margin-left: -82px;
 }
 /* Diseñar el botón del 6. */
 #seis {
-    margin-left: -62px;
+    margin-left: -70px;
 }
 /* Diseñar el botón del 5. */
 #cinco {
-    margin-left: -50px;
+    margin-right: 82px;
+    margin-left: -82px;
 }
 /* Diseñar el botón del 3. */
 #tres {
-    margin-left: -62px;
+    margin-left: -70px;
 }
 /* Diseñar el botón del 2. */
 #dos {
-    margin-left: -50px;
+    margin-right: 82px;
+    margin-left: -82px;
+}
+/* Diseñar el botón del elevado al cuadrado. */
+#potencia2 {
+    margin-right: 82px;
+    margin-left: -82px;
+}
+/* Diseñar el botón del elevado al cubo. */
+#potencia3 {
+    margin-left: -70px;
+}
+/* Diseñar el botón del porcentaje. */
+#percien {
+    margin-left: -40px;
+}
+/* Diseño del botón de la división. */
+.operador {
+    margin-left: -40px;
+}
+/* Diseño del botón del igual. */
+#igual {
+    margin-right: 70px;
+    margin-left: -70px;
 }
 /* Diseño del display o pantalla donde mostrar los nº. */
 #display {
@@ -92,13 +117,13 @@ button {
     color: black;
     text-align: right;
     font-size: 60px;
-    width: 430px;
+    width: 410px;
     height: 100px;
     border-radius: 20px 20px 20px 20px;
     border: 10px ridge;
     border-color: brown;
-    margin-right: -310px;
-    margin-left: 20px;
+    margin-right: -245px;
+    margin-left: 5px;
     margin-top: 0px;
     /* Para no salirnos del display */
     white-space: nowrap;
