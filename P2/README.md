@@ -6,3 +6,21 @@ La práctica 2 consiste en hacer una calculadora web con HTML, como página prin
 <br>
 <br>
 La calculadora se ha realizado como si fuera una tabla (véase la imagen PNG):
+
+<br>
+<br>
+La Calculadora Web, se ha decidido que lleve la marca de Huawei, ya que el móvil del autor es Huawei y le gusta dicha marca.
+<br>
+<br>
+También se ha incorporado el logo del procesador: fx-90MS.
+<br>
+<br>
+La pestaña que se abre para ver la pag HTML, cuenta con:    
+
+    
+    Título: Calculator HUAWEI.
+
+    Favicon o icono: Logo HUAWEI en pequeño.    
+        
+    ![](favicon.png)
+
