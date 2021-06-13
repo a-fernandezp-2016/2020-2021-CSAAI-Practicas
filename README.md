@@ -1,4 +1,7 @@
 # 2020-2021-CSAAI-Practicas
+
+### Página Principal de Mis Prácticas de CSAAI.
+
 Mis prácticas de la asignatura Construcción de Servicios y Aplicaciones Audiovisuales en Internet Curso 2020-2021
 <br>
 <br>
@@ -11,10 +14,10 @@ Aquí comienzan mis proyectos de las prácticas de CSAAI (Construcción de Servi
 ### Son 5 prácticas en total: P1, P2, P3, P4 Y P5.
 <br>
 <br>
-P1 => Tu CV o el de un personaje real o ficticio.
+P1 => CV de un personaje ficticio. En mi caso, Peeta Mellark.
 <br>
 <br>
-P2 => Calculadora con HTML, CSS Y JS.
+P2 => Calculadora Huawei Web.
 <br>
 <br>
 P3 => Videojuego Retro.
