@@ -20,8 +20,8 @@ clear = document.getElementById("clear");
 // Crear un elemento para borrar el último nº o carácter del display o pantalla,
 // empezando por la derecha, a partir del ID del.
 del = document.getElementById("del");
-// Crear un elemento para usar la calculadora con nº decimales a partir del ID punto.
-coma = document.getElementById("punto");
+// Crear un elemento para calcular el porcentaje de un nº a partir del ID percien.
+porcentaje = document.getElementById("percien");
 
 // Estados o momentos de la calculadora en una cte Momento.
 // Momento/Fase en que estás, de la calculadora:
@@ -42,16 +42,8 @@ const MOMENTO = {
 // Variable de la fase inicial.
 let fase = MOMENTO.INIT;
 
-// Variable booleana que define si hay coma (false) o no (true) en el operando 1.
-let stateOp1 = false;
-// Contador que cuenta las cifras que hay en el operando 1, a partir de la coma.
-let contOp1 = 0;
-// Variable booleana que define si hay coma (false) o no (true) en el operando 2.
-let stateOp2 = false;
-// Contador que cuenta las cifras que hay en el operando 2, a partir de la coma.
-let contOp2 = 0;
-// Variable previa a la coma del operando 2.
-let prevComa = 0;
+// Variable que cuenta los nº que hay en el operando 2.
+let numOp2 = 0;
 
 //-- La función digito es una función donde se procesan las operaciones con los
 // dígitos, en cada momento o cada fase.
@@ -64,10 +56,6 @@ function digito(ev)
       display.innerHTML = ev.target.value;
       // Pasamos al siguiente estado.
       fase = MOMENTO.OP1;
-      // Variable booleana del operando 1 a true para poder pulsar la coma.
-      stateOp1 = true;
-      // Inicializar contador de las cifras del operando 1, a partir de la coma flotante.
-      contOp1 = 0;
       // Ponemos un mensaje en consola, para avisar.
       console.log(fase,"Ahora estas en la fase 1: operando 1.");
     }
@@ -82,37 +70,20 @@ function digito(ev)
         fase = MOMENTO.OP2;
         // Ponemos un mensaje en consola del navegador, para avisar.
         console.log(fase,"Ahora estas en la fase 3: operando 2.");
-        // Variable booleana del operando 2 a true para poder pulsar la coma.
-        stateOp2 = true;
-        // Inicializar contador de las cifras del operando 2, a partir de la coma flotante.
-        contOp2 = 0;
-        // Inicializar la variable que cuenta los nº previos a la coma del operando 2.
-        prevComa = 1;
+        // Inicializamos a 1 la variable que cuenta los nº que hay en el operando 2.
+        numOp2 = 1;
       }
       else if(fase == MOMENTO.OP1)
       {
         // Ponemos un mensaje en consola del navegador, para avisar.
         console.log(fase,"Sigues en la fase 1: operando 1.");
-        if(stateOp1 == false)
-        {
-          // Contador que cuenta el nº de cifras que tiene el operando 1, a partir de la coma flotante.
-          contOp1 += 1;
-        }
       }
       else if(fase == MOMENTO.OP2)
       {
         // Ponemos un mensaje en consola del navegador, para avisar.
         console.log(fase,"Sigues en la fase 3: operando 2.");
-        if(stateOp2 == false)
-        {
-          // Contador que cuenta el nº de cifras que tiene el operando 2, a partir de la coma flotante.
-          contOp2 += 1;
-        }
-        else
-        {
-          // Incrementa las cifras de nº previos a la coma del operando 2.
-          prevComa += 1;
-        }
+        // Incrementamos la variable que cuenta los nº que hay en el operando 2.
+        numOp2 += 1;
       }
     }
 }
@@ -153,14 +124,6 @@ igual.onclick = () => {
     display.innerHTML = eval(display.innerHTML);
     // Pasamos a la fase 1.
     fase = MOMENTO.OP1;
-    if(stateOp1 == true && stateOp2 == false)
-    {
-      // Convertir a false porque de no tener coma, el operando 1 ahora sí tiene coma.
-      stateOp1 = false;
-      // Al contador a partir de la coma del operando 1, se le asigna el valor del
-      // contador a partir del operando 2.
-      contOp1 = contOp2;
-    }
     // Ponemos un mensaje en consola del navegador, para avisar.
     console.log(fase,"Ahora estas en la fase 1: operando 1");
   }
@@ -204,16 +167,6 @@ del.onclick = () => {
       }
       else
       {
-        if(stateOp1 == false)
-        {
-          // Reducir el contOp1 para evitar poner 2 o más comas.
-          contOp1 -= 1;
-          if(contOp1 == 0)
-          {
-            // Volver a activar el poder poner coma.
-            stateOp1 = true;
-          }
-        }
         // Ponemos un mensaje en consola del navegador, para avisar.
         console.log(fase,"Sigues en la fase 1: operando 1.");
       }
@@ -227,61 +180,30 @@ del.onclick = () => {
       break;
 
     case MOMENTO.OP2:
-      if(stateOp2 == false)
+      // Decrementamos la variable que cuenta los nº que hay en el operando 2.
+      numOp2 -= 1;
+      if(numOp2 == 0)
       {
-        contOp2 -= 1;
-        // Si el contador es igual a n de negado, se queda en la fase 3.
-        if(contOp2 == 0)
-        {
-          // Volver a activar el poder poner coma.
-          stateOp2 = true;
-        }
+        // Cambio fase.
+        fase = MOMENTO.OPER;
         // Ponemos un mensaje en consola del navegador, para avisar.
-        console.log(fase,"Sigues en la fase 3: operando 2.");
+        console.log(fase,"Ahora estas en la fase 2: operador");
       }
-      // Si el contador es igual a un operador, vuelve a la fase 2.
       else
       {
-        // Decrementar las cifras de nº previos a la coma del operando 2.
-        prevComa -= 1;
-        // Cuando ya no quedan nº no decimales, cambiamos a la fase 2: operador.
-        if(prevComa == 0)
-        {
-          // Cambio fase.
-          fase = MOMENTO.OPER;
-          // Ponemos un mensaje en consola del navegador, para avisar.
-          console.log(fase,"Ahora estas en la fase 2: operador");
-        }
-        else
-        {
-          // Ponemos un mensaje en consola del navegador, para avisar.
-          console.log(fase,"Sigues en la fase 3: operando 2.");
-        }
+        // Ponemos un mensaje en consola del navegador, para avisar.
+        console.log(fase,"Sigues en la fase 3: operando 2.");
       }
       break;
   }
 }
 
-// Pulsar el punto . para usar la calculadora con nº decimales.
-coma.onclick = (ev) => {
-  if((fase == MOMENTO.OP1 && stateOp1 == true) || (fase == MOMENTO.OP2 && stateOp2 == true))
+// Al pulsar el %, calcula el porcentaje del OP1 o del OP2, o del resultado final.
+porcentaje.onclick = (ev) => {
+  if(fase == MOMENTO.OP1 || fase == MOMENTO.OP2)
   {
-    // Escribo el punto o coma flotante.
-    display.innerHTML += ev.target.value;
-    if(fase == MOMENTO.OP1)
-    {
-      // Cambiamos la variable booleana del operando 1 a false.
-      stateOp1 = false;
-      // Primer dígito del contador Op1 a partir de la coma.
-      contOp1 += 1;
-    }
-    else if(fase == MOMENTO.OP2)
-    {
-      // Cambiamos la variable booleana del operando 2 a false.
-      stateOp2 = false;
-      // Primer dígito del contador Op2 a partir de la coma.
-      contOp2 += 1;
-    }
+    // Multiplico el valor del operando 1 por 0.01 y se sobreescribe.
+    display.innerHTML *= ev.target.value;
   }
   else
   {
