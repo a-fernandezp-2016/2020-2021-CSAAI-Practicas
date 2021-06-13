@@ -153,6 +153,14 @@ igual.onclick = () => {
     display.innerHTML = eval(display.innerHTML);
     // Pasamos a la fase 1.
     fase = MOMENTO.OP1;
+    if(stateOp1 == true && stateOp2 == false)
+    {
+      // Convertir a false porque de no tener coma, el operando 1 ahora sí tiene coma.
+      stateOp1 = false;
+      // Al contador a partir de la coma del operando 1, se le asigna el valor del
+      // contador a partir del operando 2.
+      contOp1 = contOp2;
+    }
     // Ponemos un mensaje en consola del navegador, para avisar.
     console.log(fase,"Ahora estas en la fase 1: operando 1");
   }
