@@ -84,6 +84,7 @@ A continuación, describiremos el proceso que se lleva a cabo en cada uno de los
 10. Una vez tengo la expresión completa de:  
 Op1 *operador* OP2 o, sólo, Op1, puedo darle a la tecla = (igual), para así obtener el resultado final.  
 <br>
+
 ####  **Descripción de cada función de cada botón:**
 
 - Botones dígitos => van del 0 al 9.
