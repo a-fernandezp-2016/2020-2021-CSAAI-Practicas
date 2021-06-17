@@ -23,5 +23,21 @@
     </h1>
     <!-- Creamos el canvas, donde va a estar el videojuego en sí. -->
     <canvas id="canvas"></canvas>
+    <!-- Tabla donde se muestran los controles del juego (2 primeras filas) y, los tres
+    botones de: play | pause | restart. -->
+    <table>
+        <!-- 1º fila: control mvto de la raqueta. -->
+        <tr>
+            <p id="control1"> Pulsa "<=" "=>" para mover la raqueta </p>
+        </tr>
+        <tr>
+            <p id="control2"> Pulsa "Tecla_espacio" para comenzar la partida </p>
+        </tr>
+        <tr>
+            <td> <input class="boton" type="button" value="PLAY"> </td>
+            <td> <input class="boton" type="button" value="PAUSE"> </td>
+            <td> <input class="boton" type="button" value="RESTART"> </td>
+        </tr>
+    </table>
 </body>
 </html>
