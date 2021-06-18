@@ -9,7 +9,12 @@ const pantalla = document.getElementById("canvas");
 
 // Definimos el tamaño de la pantalla sobre la que jugar o el canvas.
 pantalla.width = 550;
-pantalla.height = 700;
+pantalla.height = 800;
+
+// Creamos el elemento ID del botón play para poder pulsarlo.
+const play = document.getElementById("play");
+// Creamos el elemento ID del botón restart para poder pulsarlo.
+const restart = document.getElementById("restart");
 
 // Definimos el texto sólido de puntuación, tiempo y vidas.
 const texto = pantalla.getContext("2d");
@@ -43,6 +48,11 @@ let velX = 5;
 let posX = 0;
 // Definimos la variable fase, para ir cambiando de fase y saber donde estamos.
 let fase = ESTADO.INIT;
+
+// Función mensaje bienvenida.
+function InitialMessag() {
+    pantalla.innerHTML = "¡QUÉ EMPIECE EL JUEGO!";
+}
 
 // Estructuramos el texto sólido.
 // De puntuación.
@@ -96,20 +106,51 @@ function update()
   requestAnimationFrame(update);
 }
 
-// Al pulsar la tecla ESPACIO, FLECHA DER o FLECHA IZQ.
+// Para empezar la partida, hay que pulsar el botón play.
+play.onclick = () => {
+    if(fase == ESTADO.INIT)
+    {
+        timeinit = setInterval(InitialMessag, 2000)
+        clearInterval(timeinit)
+        // Cambiamos a la fase 1 o de saque.
+        fase = ESTADO.SAQUE;
+    }
+    else
+    {
+        // Mensaje de error o proceso inválido.
+        console.log("PROCESO NO VÁLIDO: SÓLO ES PARA INICIAR EL JUEGO...");
+    }
+}
+
+// Para reiniciar la partida, hay que pulsar el botón restart.
+restart.onclick = () => {
+    // Volvemos a la fase 0 o inicial.
+    fase = ESTADO.INIT;
+}
+
+// Al pulsar 1 de las 3 teclas del teclado QWERTY: ESPACIO / FLECHA DER / FLECHA IZQ.
 window.onkeydown = (e) => {
-    if(e.key == ' ')
-    {
 
+    if((fase != ESTADO.INIT) && ((e.key == ' ') || (e.keyCode == '39') || (e.keyCode == '37')))
+    {
+        if(e.key == ' ')
+        {
+
+        }
+        // Si pulsamos la flecha de la derecha.
+        else if(e.keyCode == '39')
+        {
+
+        }
+        // Si pulsamos la flecha de la izquierda.
+        else if(e.keyCode == '37')
+        {
+
+        }
     }
-    // Si pulsamos la flecha de la derecha.
-    else if(e.keyCode == '39')
+    else
     {
-
-    }
-    // Si pulsamos la flecha de la izquierda.
-    else if(e.keyCode == '37')
-    {
-
+        // Mensaje de error o proceso inválido.
+        console.log("PROCESO NO VÁLIDO: Debes estar en la fase inicial y haber dado espacio o flecha der/izq.");
     }
 }
