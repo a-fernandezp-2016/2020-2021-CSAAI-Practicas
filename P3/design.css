@@ -55,7 +55,7 @@ p {
 /* Diseño del botón: play. */
 #play {
     /* Para centrar los botones. */
-    margin-left: 250px;
+    margin-left: 310px;
     margin-right: 10px;
     display: block;
     /* Otros ajustes. */
@@ -67,17 +67,6 @@ p {
 #restart {
     /* Para centrar los botones. */
     margin-left: 10px;
-    display: block;
-    /* Otros ajustes. */
-    width: 100px;
-    height: 40px;
-    border-style: 15px;
-}
-/* Diseño del botón: pause. */
-#pause {
-    /* Para centrar los botones. */
-    margin-left: 10px;
-    margin-right: 10px;
     display: block;
     /* Otros ajustes. */
     width: 100px;
