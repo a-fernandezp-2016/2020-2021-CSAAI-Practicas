@@ -52,10 +52,10 @@ p {
     font: bold 20px Tahoma;
     margin-top: 30px;
 }
-/* Diseño del botón: pause-play. */
-#boton1 {
+/* Diseño del botón: play. */
+#play {
     /* Para centrar los botones. */
-    margin-left: 300px;
+    margin-left: 250px;
     margin-right: 10px;
     display: block;
     /* Otros ajustes. */
@@ -64,9 +64,20 @@ p {
     border-style: 15px;
 }
 /* Diseño del botón: restart. */
-#boton2 {
+#restart {
     /* Para centrar los botones. */
     margin-left: 10px;
+    display: block;
+    /* Otros ajustes. */
+    width: 100px;
+    height: 40px;
+    border-style: 15px;
+}
+/* Diseño del botón: pause. */
+#pause {
+    /* Para centrar los botones. */
+    margin-left: 10px;
+    margin-right: 10px;
     display: block;
     /* Otros ajustes. */
     width: 100px;

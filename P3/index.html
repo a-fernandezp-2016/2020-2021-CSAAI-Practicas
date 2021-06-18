@@ -28,16 +28,23 @@
     <!-- Tabla donde se muestran los controles del juego (2 primeras filas) y, los tres
     botones de: play | pause | restart. -->
     <table>
-        <!-- 1º fila: control mvto de la raqueta. -->
+        <!-- 1º fila: Explicación del inicio del juego. -->
         <tr>
-            <p id="control1"> Pulsa "<=" "=>" para mover la raqueta </p>
+            <p> Pulsa "Play" para iniciar la partida </p>
         </tr>
+        <!-- 2º fila: Explicación del control del mvto de la raqueta. -->
         <tr>
-            <p id="control2"> Pulsa "Tecla_espacio" para que la bola comience a moverse </p>
+            <p> Pulsa "<=" "=>" para mover la raqueta </p>
         </tr>
+        <!-- 3º fila: Explicación del saque. -->
         <tr>
-            <td> <input id="boton1" type="button" value="PAUSE/PLAY"> </td>
-            <td> <input id="boton2" type="button" value="RESTART"> </td>
+            <p> Pulsa "Tecla_espacio" para sacar </p>
+        </tr>
+        <!-- 4º fila: Botones de play, pause y restart. -->
+        <tr>
+            <td> <input id="play" type="button" value="PLAY"> </td>
+            <td> <input id="pause" type="button" value="PAUSE"> </td>
+            <td> <input id="restart" type="button" value="RESTART"> </td>
         </tr>
     </table>
 </body>
