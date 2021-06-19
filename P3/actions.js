@@ -34,17 +34,20 @@ const ESTADO = {
     FINAL: 3
 }
 
+// Definimos la variable fase, para ir cambiando de fase y saber donde estamos.
+let fase = ESTADO.INIT;
+
 // Características de los textos sólidos de arriba de la pantalla.
     // Coordenadas de la puntuación.
     let puntX = 50;
     let puntY = 60;
     // Variable de la puntuación total.
-    let score = 0;
+    // let score = 0;
     // Coordenadas de las vidas.
     let vidX = 380;
     let vidY = 60;
     // Variable de las vidas totales.
-    let vidas = 3;
+    // let vidas = 3;
     // Coordenadas del tiempo.
     let timeX = 50;
     let timeY = 120;
@@ -57,23 +60,37 @@ const ESTADO = {
     let separY = 165;
 
 // Características de la raqueta.
-    // Dimensiones raqueta.
+    // Dimensiones de la raqueta.
     let anchoRAQ = 100;
-    let altoRAQ = 25;
+    let altoRAQ = 50;
     // Definimos las coordenadas de la raqueta.
-    let raqX = 275;
-    let raqY = 650;
-// Definimos las coordenadas de la bola.
-let bolaX = 274;
-let bolaY = 650;
+    let raqX = 300;
+    let raqY = 800;
+    // Definimos la variable velocidad del eje x de la raqueta.
+    let velX_raq = 60;
 
-// Definimos variable velocidad del eje x.
-let velX = 5;
-// Definimos la variable fase, para ir cambiando de fase y saber donde estamos.
-let fase = ESTADO.INIT;
+// Características de la bola.
+    // Definimos las coordenadas de la bola.
+    let bolaX = 350;
+    let bolaY = 790;
+    // Definimos el radio de la bola.
+    let radio = 10;
+    // Definimos los ángulos de la bola.
+    let ang0 = 0;
+    let angF = 2 * Math.PI;
+    // Definimos la variable velocidad del eje x e y de la bola.
+    let velX_bol = 60;
+    let velY_bol = 100;
 
-// Definimos la vidas que tiene un jugador.
-let vidas = 3;
+// Definimos la estructura del bloque de ladrillos.
+const LADRILLO = {
+    FILA: 5,   //-- Filas.
+    COLUM: 9,   //-- Columnas.
+    ANCH: 100,  //-- Anchura.
+    ALT: 50,  //-- Altura.
+    relleno: 10,  //-- Espacio alrededor del ladrillo.
+    activacion: true //-- Estado del ladrillo: activo (true) o no (false).
+}
 
 // Estructuramos el texto sólido.
     // De puntuación.
@@ -93,9 +110,9 @@ let vidas = 3;
 
 // Trazamos la línea de separación: cabecera de textos - juego en sí,
 // a través del bucle for. Usando líneas discontinuas.
-for(let i=separX; i<600; i += 100)
+for(let i=separX; i<=pantalla.width; i += 100)
 {
-    for(let j=60; j<600; j += 100)
+    for(let j=separX+60; j<pantalla.width; j += 100)
     {
         // Inicio trazo.
         paintIT.beginPath();
@@ -124,38 +141,19 @@ for(let i=separX; i<600; i += 100)
     }
 }
 
-// // Delimitación del objeto bola.
-// paintIT.beginPath();
-//     // Creamos el círculo con la función arc(posición x, posición y, radio, ángulo inicial, ángulo final);
-//     paintIT.arc(225,430,10,0,2*Math.PI);
-//     // Rellenamos el rectángulo de blanco.
-//     paintIT.fillStyle = 'white';
-//     // Mostramos el trazo.
-//     paintIT.stroke();
-//     // Mostramos el relleno.
-//     paintIT.fill();
-// paintIT.closePath()
-
-// // Animación de la raqueta y de la bola a través de la función update.
-// function update() 
-// {
-//   //-- Implementación del algoritmo de animación de la raqueta:
-//   console.log("Analizando posición de la raqueta y de la bola....");
-//   //-- 1) Actualizar posicion de los elementos.
-//   raqX = raqX + velX;
-//   //-- 2) Borrar el canvas.
-//   paintIT.clearRect(0, 0, pantalla.width, pantalla.height);
-//   //-- 3) Pintar los elementos en el canvas, delimitando el objeto raqueta.
-//   paintIT.beginPath();
-//         // Creamos el rectángulo con la función rect(posición x variable, posición y fija, ancho, alto);
-//         paintIT.rect(raqX, raqY, anchoRAQ, altoRAQ);
-//         //-- Rellenamos el rectángulo de blanco.
-//         paintIT.fillStyle = 'white';
-//         // Mostramos el trazo.
-//         paintIT.stroke();
-//         // Mostramos el relleno.
-//         paintIT.fill();
-//   paintIT.closePath()
-//   //-- 4) Repetir
-//   requestAnimationFrame(update);
-// }
+// Estructura inicial de los ladrillos.
+const ladrillos = [];
+for(let i=1; i<=LADRILLO.FILA; i++)
+{
+    for(let j=1; j<=LADRILLO.COLUM; j++)
+    {
+        ladrillos[i][j] = {
+            posX: (LADRILLO.ANCH + LADRILLO.relleno) * j,
+            posY: (LADRILLO.ALT + LADRILLO.relleno) * i,
+            w: LADRILLO.ANCH,
+            h: LADRILLO.ALT,
+            relleno: LADRILLO.relleno,
+            active: LADRILLO.activacion
+        };
+    }
+}
