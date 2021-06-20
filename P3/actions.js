@@ -67,7 +67,7 @@ let fase = ESTADO.INIT;
     let raqX = 250;
     let raqY = 900;
     // Definimos la variable velocidad del eje x de la raqueta.
-    let velX_raq = 50;
+    let velX_raq = 0;
 
 // Características de la bola.
     // Definimos las coordenadas de la bola.
@@ -79,8 +79,8 @@ let fase = ESTADO.INIT;
     let ang0 = 0;
     let angF = 2 * Math.PI;
     // Definimos la variable velocidad del eje x e y de la bola.
-    let velX_bol = 40;
-    let velY_bol = 50;
+    let velX_bol = -10;
+    let velY_bol = -5;
     // Pintar o borrar bola.
     let actBola = false;
 
@@ -117,26 +117,33 @@ function update()
 {
     // 0) Mensaje inicial de toma de contacto de la animación.
     console.log("Chequeando posiciones y características de la raqueta y de la bola....");
+    
     //-- 1) Actualizar las posiciones: Física del MRU.
-    // Darle a play para iniciar la partida y cambiar de fase.
-    play.onclick = ()=> {
-        if(fase == ESTADO.INIT)
-        {
-            // Mensaje de inicio del juego.
-            paintIT.font = "80px Arial";
-            paintIT.fillStyle = 'blue';
-            paintIT.fillText("Puntuación: ",250,500);
-            // Cambio a la fase 1 del saque.
-            fase = ESTADO.SAQUE;
-            // Aparición de la bola.
-            actBola = true;
-        }
-        else
-        {
-            // Mensaje de aviso.
-            console.log("El botón PLAY sólo es para iniciar la partida y cambiar a la fase 1 del saque.");
-        }
+    
+    //-- Caso para que la raqueta, cuando llegue al extremo vertical izq/der de la pantalla, 
+    // rebote y vuelva.
+    if (raqX < 2 || raqX > (pantalla.width - anchoRAQ)) 
+    {
+        velX_raq = -velX_raq;
     }
+
+    //-- Caso para que la bola, cuando llegue al extremo vertical izq de la pantalla, 
+    // rebote y vuelva.
+    if (bolaY <= radio) 
+    {
+        velY_bol = -velY_bol;
+    }
+
+    //-- Caso para que la bola, cuando llegue al extremo horizontal inferior de la pantalla, 
+    // rebote y vuelva.
+    if (bolaY > (pantalla.height-raqY)) 
+    {
+        fase = ESTADO.SAQUE;
+        bolaX = raqX + 40;
+        bolaY = raqY - 10;
+        velY_bol = -velY_bol;
+    }
+
     // Condición para que la raqueta no se salga por las paredes verticales.
     if((raqX>2) && (raqX<=pantalla.width-anchoRAQ))
     {
@@ -189,18 +196,23 @@ function update()
             }
         }
     }
+
     //-- Colisión de la bola con la raqueta.
-    if((bolaX + radio) >= raqX && bolaX <=(raqX + anchoRAQ) && (bolaY + radio) >= raqY && bolaY <=(raqY + altoRAQ)) {
+    if((bolaX + radio) >= raqX && bolaX <=(raqX + anchoRAQ) && (bolaY + radio) >= raqY 
+    && bolaY <=(raqY + altoRAQ)) 
+    {
         velY_bol = -velY_bol;
     }
     //-- Actualizamos la posición de la bola.
-    if (fase == ESTADO.PLAYING) {
+    if (fase == ESTADO.PLAYING) 
+    {
         bolaX = bolaX + velX_bol;
         bolaY = bolaY + velY_bol; 
     }
     // Cuando te quedas sin vidas, finaliza el juego.
     if(vidas == 0)
     {
+        vidas += 1;
         console.log("GAME OVER. FIN DEL JUEGO.");
         // Pasamos a la fase final y última (3).
         fase = ESTADO.FINAL;
@@ -312,7 +324,7 @@ function update()
         paintIT.stroke();
     paintIT.closePath();
 
-    // Dibujamos cada ladrillo, si está activado su visibilidad a true.
+    // Dibujamos cada ladrillo, si está activado su visibilidad a true. Si no, desaparecen.
     for(let i=1; i<=LADRILLO.FILA; i++)
     {
         for(let j=1; j<=LADRILLO.COLUM; j++)
@@ -336,9 +348,54 @@ function update()
         }
     }
 
+    //-- Colisión de la bola con cada ladrillo.
+    if (fase == ESTADO.PLAYING)
+    {
+        for (let i=1; i<=LADRILLO.FILA; i++) 
+        {
+            for (let j=1; j<=LADRILLO.COLUM; j++) 
+            {
+                if (ladrillos[i][j].active == true)
+                {
+                    if ((bolaX + radio) >= ladrillos[i][j].posX && bolaX <=(ladrillos[i][j].posX + ladrillos[i][j].w) &&
+                        (bolaY + radio) >= ladrillos[i][j].posY && bolaY <=(ladrillos[i][j].posY + ladrillos[i][j].h))
+                    {
+                        ladrillos[i][j].active = false;
+                        velY_bol = -velY_bol;
+                        //-- Incrementar la puntuación.
+                        score += 1;
+                        if (score == 45) 
+                        {
+                            fase = ESTADO.FINAL;
+                        }
+                    }
+                }     
+            }
+        }
+    }
+
     //-- 4) Repetir el proceso de ejecución con la función update de nuevo.
     requestAnimationFrame(update);
 }
 
-//-- Punto de entrada de la animación del videojuego.
-update();
+// Darle a play para iniciar la partida y cambiar de fase.
+play.onclick = () => {
+    if(fase == ESTADO.INIT)
+    {
+        // Mensaje de inicio del juego.
+        paintIT.font = "100px Arial";
+        paintIT.fillStyle = 'blue';
+        paintIT.fillText("'QUÉ COMIENCE EL JUEGO! ",(pantalla.width-10)/2,pantalla.height/2);
+        // Cambio a la fase 1 del saque.
+        fase = ESTADO.SAQUE;
+        // Aparición de la bola.
+        actBola = true;
+        //-- Punto de entrada de la animación del videojuego.
+        update();
+    }
+    else
+    {
+        // Mensaje de aviso.
+        console.log("El botón PLAY sólo es para iniciar la partida y cambiar a la fase 1 del saque.");
+    }
+}
