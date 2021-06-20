@@ -101,7 +101,7 @@ for(let i=1; i<=LADRILLO.FILA; i++)
     {
         ladrillos[i][j] = 
         {
-            posX: LADRILLO.ANCHO * j,
+            posX: (LADRILLO.ANCHO + LADRILLO.relleno) * j,
             posY: (LADRILLO.origen_y + 20) + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
             ancho: LADRILLO.ANCHO,
             alto: LADRILLO.ALTO,
