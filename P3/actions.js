@@ -378,6 +378,9 @@ function update()
     requestAnimationFrame(update);
 }
 
+//-- Punto de entrada de la animación del videojuego.
+update();
+
 // Darle a play para iniciar la partida y cambiar de fase.
 play.onclick = () => {
     if(fase == ESTADO.INIT)
@@ -390,8 +393,6 @@ play.onclick = () => {
         fase = ESTADO.SAQUE;
         // Aparición de la bola.
         actBola = true;
-        //-- Punto de entrada de la animación del videojuego.
-        update();
     }
     else
     {
