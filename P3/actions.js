@@ -84,12 +84,12 @@ let fase = ESTADO.INIT;
 const ladrillos = [];
 // Definimos la estructura del bloque de ladrillos.
 const LADRILLO = {
-    FILA: 5,   //-- Filas.
-    COLUM: 10,   //-- Columnas.
-    ANCHO: 55,  //-- Anchura.
+    FILA: 6,   //-- Filas.
+    COLUM: 9,   //-- Columnas.
+    ANCHO: 60,  //-- Anchura.
     ALTO: 15,  //-- Altura.
     origen_y: separY,    //-- De donde parten los ladrillos en el eje y.
-    relleno: 5,  //-- Espacio alrededor del ladrillo.
+    relleno: 6,  //-- Espacio alrededor del ladrillo.
     activacion: true //-- Estado del ladrillo: activo (true) o no (false).
 }
 
