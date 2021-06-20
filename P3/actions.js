@@ -283,11 +283,6 @@ function update()
         {
             velY_bol = -velY_bol;
         }
-        else
-        {
-            alert("¡GAME OVER!");
-            document.location.reload();
-        }
     }
     // Condición para que al pulsar la tecla: flecha derecha, avance la raqueta 
     // hacia la derecha, sin salirse de pantalla.
@@ -318,7 +313,7 @@ function update()
     drawBola();
     // La raqueta.
     drawRaqueta();
-    
+
     //-- 4) Repetir de nuevo el proceso de animación del juego.
     requestAnimationFrame(update);
 }
