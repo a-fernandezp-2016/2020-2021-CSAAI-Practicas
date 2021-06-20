@@ -42,7 +42,7 @@ let fase = ESTADO.INIT;
     let puntX = 50;
     let puntY = 60;
     // Variable de la puntuación total.
-    let score = 0;
+    let puntuacion = 0;
     // Coordenadas de las vidas.
     let vidX = 380;
     let vidY = 60;
@@ -51,8 +51,6 @@ let fase = ESTADO.INIT;
     // Coordenadas del tiempo.
     let timeX = 50;
     let timeY = 120;
-    // Variable tiempo.
-    // let timer = ;
 
 // Características de la línea de separación trazada para separar la cabecera del juego en sí.
     // Coordenadas de la separación de la cabecera con el juego en sí.
@@ -67,7 +65,7 @@ let fase = ESTADO.INIT;
     let raqX = 250;
     let raqY = 900;
     // Definimos la variable velocidad del eje x de la raqueta.
-    let velX_raq = 0;
+    let velX_raq = 60;
 
 // Características de la bola.
     // Definimos las coordenadas de la bola.
@@ -89,158 +87,35 @@ const ladrillos = [];
 // Definimos la estructura del bloque de ladrillos.
 const LADRILLO = {
     FILA: 5,   //-- Filas.
-    COLUM: 9,   //-- Columnas.
-    ANCH: 60,  //-- Anchura.
-    ALT: 30,  //-- Altura.
-    relleno: 10,  //-- Espacio alrededor del ladrillo.
+    COLUM: 10,   //-- Columnas.
+    ANCHO: 55,  //-- Anchura.
+    ALTO: 15,  //-- Altura.
+    origen_y: separY,    //-- De donde parten los ladrillos en el eje y.
+    relleno: 5,  //-- Espacio alrededor del ladrillo.
     activacion: true //-- Estado del ladrillo: activo (true) o no (false).
 }
 
 // Estructura inicial de los ladrillos.
+const ladrillos = [];
+
 for(let i=1; i<=LADRILLO.FILA; i++)
 {
+    ladrillos[i] = [];
     for(let j=1; j<=LADRILLO.COLUM; j++)
     {
-        ladrillos[i][j] = {
-            posX: (LADRILLO.ANCH + LADRILLO.relleno) * j,
-            posY: (LADRILLO.ALT + LADRILLO.relleno) * i,
-            w: LADRILLO.ANCH,
-            h: LADRILLO.ALT,
+        ladrillos[i][j] = 
+        {
+            posX: (LADRILLO.ANCHO + LADRILLO.relleno) * j,
+            posY: LADRILLO.origen_y + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
+            ancho: LADRILLO.ANCHO,
+            alto: LADRILLO.ALTO,
             relleno: LADRILLO.relleno,
             active: LADRILLO.activacion
         };
     }
 }
 
-// Función donde se procesa la animación de la raqueta, bola y ladrillos.
-function update() 
-{
-    // 0) Mensaje inicial de toma de contacto de la animación.
-    console.log("Chequeando posiciones y características de la raqueta y de la bola....");
-    
-    //-- 1) Actualizar las posiciones: Física del MRU.
-    
-    //-- Caso para que la raqueta, cuando llegue al extremo vertical izq/der de la pantalla, 
-    // rebote y vuelva.
-    if (raqX < 2 || raqX > (pantalla.width - anchoRAQ)) 
-    {
-        velX_raq = -velX_raq;
-    }
-
-    //-- Caso para que la bola, cuando llegue al extremo vertical izq de la pantalla, 
-    // rebote y vuelva.
-    if (bolaY <= radio) 
-    {
-        velY_bol = -velY_bol;
-    }
-
-    //-- Caso para que la bola, cuando llegue al extremo horizontal inferior de la pantalla, 
-    // rebote y vuelva.
-    if (bolaY > (pantalla.height-raqY)) 
-    {
-        fase = ESTADO.SAQUE;
-        bolaX = raqX + 40;
-        bolaY = raqY - 10;
-        velY_bol = -velY_bol;
-    }
-
-    // Condición para que la raqueta no se salga por las paredes verticales.
-    if((raqX>2) && (raqX<=pantalla.width-anchoRAQ))
-    {
-        window.onkeydown = (e) => {
-            if(vidas != 0)
-            {
-                switch(e.keyCode)
-                {
-                    // Pulsar espacio.
-                    case 32:
-                        if(fase == ESTADO.SAQUE)
-                        {
-                            console.log("Saque");
-                            // Aparición de la bola.
-                            actBola = true;
-                            // Si cae la bola, hay que volver a sacar y con 1 vida menos.
-                            vidas -= 1;
-                            // Pasamos al estado Playing.
-                            fase = ESTADO.PLAYING;
-                        }
-                        break;
-                    // Pulsar Arrow Left.
-                    case 37:
-                        if(fase == ESTADO.PLAYING)
-                        {
-                            raqX = raqX - velX_raq;
-                            console.log("Moviendo hacia la izquierda.");
-                        }
-                        else
-                        {
-                            // Mensaje de aviso.
-                            console.log("PROCESO NO VÁLIDO, LO SIENTO.");
-                        }
-                        break;
-                    // Pulsar Arrow Right.
-                    case 39:
-                        if(fase == ESTADO.PLAYING)
-                        {
-                            raqX = raqX + velX_raq;
-                            console.log("Moviendo hacia la derecha.");
-                        }
-                        else
-                        {
-                            // Mensaje de aviso.
-                            console.log("PROCESO NO VÁLIDO, LO SIENTO.");
-                        }
-                        break;
-                    default:
-                        // Mensaje aviso, no es válido pulsar otra tecla.
-                        console.log("NO ES VÁLIDO PULSAR UNA TECLA DIFERENTE");
-                }
-            }
-        }
-    }
-
-    //-- Colisión de la bola con la raqueta.
-    if((bolaX + radio) >= raqX && bolaX <=(raqX + anchoRAQ) && (bolaY + radio) >= raqY 
-    && bolaY <=(raqY + altoRAQ)) 
-    {
-        velY_bol = -velY_bol;
-    }
-    //-- Actualizamos la posición de la bola.
-    if (fase == ESTADO.PLAYING) 
-    {
-        bolaX = bolaX + velX_bol;
-        bolaY = bolaY + velY_bol; 
-    }
-    // Cuando te quedas sin vidas, finaliza el juego.
-    if(vidas == 0)
-    {
-        vidas += 1;
-        console.log("GAME OVER. FIN DEL JUEGO.");
-        // Pasamos a la fase final y última (3).
-        fase = ESTADO.FINAL;
-    }
-
-    //-- 2) Borramos la pantalla de juego.
-    paintIT.clearRect(0, 0, pantalla.width, pantalla.height);
-    
-    //-- 3) Dibujamos de nuevo los elementos actualizados.
-    paintIT.beginPath();
-        // Dibujando la bola.
-        if(actBola == true)
-        {
-            //-- Definimos las dimensiones de la bola: 
-            // (posición x, posición y, radio, ángulo inicial, ángulo final).
-            paintIT.arc(bolaX,bolaY,radio,ang0,angF);
-        }
-        //-- Definimos un color para la bola.
-        paintIT.fillStyle = 'purple';
-        //-- Lo coloreamos.
-        paintIT.fill();
-        //-- Mostramos el trazo.
-        paintIT.stroke();
-    paintIT.closePath();
-
-    // Estructuramos el texto sólido.
+// Estructuramos el texto sólido.
         // De puntuación.
         paintIT.font = "35px Arial";
         paintIT.fillStyle = 'white';
@@ -255,130 +130,161 @@ function update()
         paintIT.font = "35px Arial";
         paintIT.fillStyle = 'white';
         paintIT.fillText("Tiempo: ",timeX,timeY);
-    
-    // Al llegar al final, puedes ganar (aún te quedan vidas), o perder (no te quedan vidas).
-    if (fase == ESTADO.FINAL) 
+
+// Trazamos la línea de separación: cabecera de textos - juego en sí,
+// a través del bucle for. Usando líneas discontinuas.
+for(let i=separX; i<=pantalla.width; i += 100)
+{
+    for(let j=separX+60; j<pantalla.width; j += 100)
     {
-        if(score == 45) 
+        // Inicio trazo.
+        paintIT.beginPath();
+        //-- Trazo de la línea horizontal desde el pto inicial al final.
+        paintIT.moveTo(i,separY);
+        paintIT.lineTo(j, separY);
+        // Coloreamos de blanco la línea.
+        paintIT.strokeStyle = 'white';
+        //-- Le ponemos un tamaño visible al trazo.
+        paintIT.lineWidth = 4;
+        //-- Mostrar el trazo.
+        paintIT.stroke();
+        // Final trazo.
+        paintIT.closePath();
+        // Parte o trazo invisible.
+        paintIT.beginPath();
+        //-- Trazo de la línea horizontal desde el pto inicial al final.
+        paintIT.moveTo(j,separY);
+        paintIT.lineTo(j+=40, separY);
+        // Coloreamos de blanco la línea.
+        paintIT.strokeStyle = 'black';
+        //-- Mostrar el trazo.
+        paintIT.stroke();
+        // Final trazo.
+        paintIT.closePath();
+    }
+}
+
+//-- Dibujando la raqueta.
+paintIT.beginPath();
+    //-- Definimos las dimensiones de la raqueta: (posición x, posición y, ancho, alto).
+    paintIT.rect(raqX,raqY,anchoRAQ,altoRAQ);
+    //-- Definimos un color para la raqueta.
+    paintIT.fillStyle = 'white';
+    //-- Lo coloreamos.
+    paintIT.fill();
+    //-- Mostramos el trazo.
+    paintIT.stroke();
+paintIT.closePath();
+
+//-- Dibujando la bola.
+paintIT.beginPath();
+    if(actBola == true)
+    {
+        //-- Definimos las dimensiones de la bola: 
+        // (posición x, posición y, radio, ángulo inicial, ángulo final).
+        paintIT.arc(bolaX,bolaY,radio,ang0,angF);
+    }
+    //-- Definimos un color para la bola.
+    paintIT.fillStyle = 'purple';
+    //-- Lo coloreamos.
+    paintIT.fill();
+    //-- Mostramos el trazo.
+    paintIT.stroke();
+paintIT.closePath();
+
+//-- Dibujamos los ladrillos, si está activado su visibilidad a true. Si no, desaparecen.
+for(let i=1; i<=LADRILLO.FILA; i++)
+{
+    for(let j=1; j<=LADRILLO.COLUM; j++)
+    {
+        if (ladrillos[i][j].active == true) 
         {
-            //-- Si ganamos, el mensaje que saldrá en el centro es el siguiente.
-            paintIT.font = "100px Arial Black";
-            paintIT.fillStyle = 'green';
-            paintIT.fillText("¡VICTORIA!",(pantalla.width-15)/2, pantalla.height/2);
-            paintIT.fillText("¡ENHORABUENA!",(pantalla.width-15)/2,(pantalla.height-10)/2);
+            paintIT.beginPath();
+            // Diseñamos ladrillo a ladrillo.
+            paintIT.rect(ladrillos[i][j].posX, ladrillos[i][j].posY, LADRILLO.ANCHO, LADRILLO.ALTO);
+            paintIT.fillStyle = 'yellow';
+            //-- Lo coloreamos.
+            paintIT.fill();
+            paintIT.closePath();
         }
         else
         {
-            //-- Si perdemos, el mensaje que saldrá en el centro es el siguiente.
-            paintIT.font = "100px Arial Black";
-            paintIT.fillStyle = 'red';
-            paintIT.fillText("¡GAME OVER!",(pantalla.width-15)/2, pantalla.height/2);
+            ladrillos[i][j] = [];
         }
     }
-    else
-    {
-        // Mensaje de aviso.
-        console.log("PROCESO NO VÁLIDO, LO SIENTO.");
-    }
-
-    // Trazamos la línea de separación: cabecera de textos - juego en sí,
-    // a través del bucle for. Usando líneas discontinuas.
-    for(let i=separX; i<=pantalla.width; i += 100)
-    {
-        for(let j=separX+60; j<pantalla.width; j += 100)
-        {
-            // Inicio trazo.
-            paintIT.beginPath();
-            //-- Trazo de la línea horizontal desde el pto inicial al final.
-            paintIT.moveTo(i,separY);
-            paintIT.lineTo(j, separY);
-            // Coloreamos de blanco la línea.
-            paintIT.strokeStyle = 'white';
-            //-- Le ponemos un tamaño visible al trazo.
-            paintIT.lineWidth = 4;
-            //-- Mostrar el trazo.
-            paintIT.stroke();
-            // Final trazo.
-            paintIT.closePath();
-            // Parte o trazo invisible.
-            paintIT.beginPath();
-            //-- Trazo de la línea horizontal desde el pto inicial al final.
-            paintIT.moveTo(j,separY);
-            paintIT.lineTo(j+=40, separY);
-            // Coloreamos de blanco la línea.
-            paintIT.strokeStyle = 'black';
-            //-- Mostrar el trazo.
-            paintIT.stroke();
-            // Final trazo.
-            paintIT.closePath();
-        }
-    }
-
-    // Dibujando la raqueta.
-    paintIT.beginPath();
-        //-- Definimos las dimensiones de la raqueta: (posición x, posición y, ancho, alto).
-        paintIT.rect(raqX,raqY,anchoRAQ,altoRAQ);
-        //-- Definimos un color para la raqueta.
-        paintIT.fillStyle = 'white';
-        //-- Lo coloreamos.
-        paintIT.fill();
-        //-- Mostramos el trazo.
-        paintIT.stroke();
-    paintIT.closePath();
-
-    // Dibujamos cada ladrillo, si está activado su visibilidad a true. Si no, desaparecen.
-    for(let i=1; i<=LADRILLO.FILA; i++)
-    {
-        for(let j=1; j<=LADRILLO.COLUM; j++)
-        {
-            if (ladrillos[i][j].active == true) 
-            {
-                paintIT.beginPath();
-                // Diseñamos ladrillo a ladrillo.
-                paintIT.rect(ladrillos[i][j].posX, ladrillos[i][j].posY, LADRILLO.w, LADRILLO.h);
-                paintIT.fillStyle = 'yellow';
-                //-- Lo coloreamos.
-                paintIT.fill();
-                //-- Mostramos el trazo.
-                paintIT.stroke();
-                paintIT.closePath();
-            }
-            else
-            {
-                ladrillos[i][j] = [];
-            }
-        }
-    }
-
-    //-- Colisión de la bola con cada ladrillo.
-    if (fase == ESTADO.PLAYING)
-    {
-        for (let i=1; i<=LADRILLO.FILA; i++) 
-        {
-            for (let j=1; j<=LADRILLO.COLUM; j++) 
-            {
-                if (ladrillos[i][j].active == true)
-                {
-                    if ((bolaX + radio) >= ladrillos[i][j].posX && bolaX <=(ladrillos[i][j].posX + ladrillos[i][j].w) &&
-                        (bolaY + radio) >= ladrillos[i][j].posY && bolaY <=(ladrillos[i][j].posY + ladrillos[i][j].h))
-                    {
-                        ladrillos[i][j].active = false;
-                        velY_bol = -velY_bol;
-                        //-- Incrementar la puntuación.
-                        score += 1;
-                        if (score == 45) 
-                        {
-                            fase = ESTADO.FINAL;
-                        }
-                    }
-                }     
-            }
-        }
-    }
-
-    //-- 4) Repetir el proceso de ejecución con la función update de nuevo.
-    requestAnimationFrame(update);
 }
 
-//-- Punto de entrada de la animación del videojuego.
-update();
+// // Para pulsar la tecla flecha derecha, flecha izquierda o espacio, según proceda.
+// window.onkeydown = (e) => {
+//     switch(e.keyCode)
+//     {
+//         // Pulsar espacio.
+//         case 32:
+//             if(fase == ESTADO.SAQUE)
+//             {
+//                 console.log("Saque");
+//                 // Aparición de la bola.
+//                 actBola = true;
+//                 // Pasamos al estado Playing.
+//                 fase = ESTADO.PLAYING;
+//             }
+//             break;
+//         // Pulsar Arrow Left.
+//         case 37:
+//             if(fase == ESTADO.PLAYING)
+//             {
+//                 // Condición para que la raqueta no se salga por la pared vertical izquierda.
+//                 if(raqX > 0)
+//                 {
+//                     raqX = raqX - velX_raq;
+//                 }
+//                 console.log("Moviendo hacia la izquierda.");
+//             }
+//             else
+//             {
+//                 // Mensaje de aviso.
+//                 console.log("NO SE PUEDE AVANZAR MÁS A LA IZQUIERDA");
+//             }
+//             break;
+//         // Pulsar Arrow Right.
+//         case 39:
+//             if(fase == ESTADO.PLAYING)
+//             {
+//                 // Condición para que la raqueta no se salga por la pared vertical derecha.
+//                 if(raqX <= pantalla.width-anchoRAQ)
+//                 {
+//                     raqX = raqX + velX_raq; 
+//                 }
+//                 console.log("Moviendo hacia la derecha.");
+//             }
+//             else
+//             {
+//                 // Mensaje de aviso.
+//                 console.log("NO SE PUEDE AVANZAR MÁS A LA DERECHA");
+//             }
+//             break;
+//         default:
+//             // Mensaje aviso, no es válido pulsar otra tecla.
+//             console.log("NO ES VÁLIDO PULSAR UNA TECLA DIFERENTE");
+//     }
+// }
+
+// // Pulsar el botón PLAY para iniciar el juego.
+// play.onclick = () => {
+//     if(fase == ESTADO.INIT)
+//     {
+//         // Cambiamos a la fase de saque.
+//         fase = ESTADO.SAQUE;
+//     }
+//     else
+//     {
+//         // Mensaje de aviso en consola del Navegador Web.
+//         console.log("PROCESO NO VÁLIDO. PLAY SÓLO ES PARA INICIAR EL JUEGO.");
+//     } 
+// }
+
+// // Pulsar el botón RESTART para reiniciar el juego.
+// restart.onclick = () => {
+//     // Cambiamos a la fase de saque.
+//     fase = ESTADO.INIT;
+// }
