@@ -99,30 +99,15 @@ for(let i=1; i<=LADRILLO.FILA; i++)
     ladrillos[i] = [];
     for(let j=1; j<=LADRILLO.COLUM; j++)
     {
-        if(j == 1)
+        ladrillos[i][j] = 
         {
-            ladrillos[i][j] =
-            {
-                posX: LADRILLO.relleno,
-                posY: (LADRILLO.origen_y + 20) + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
-                ancho: LADRILLO.ANCHO,
-                alto: LADRILLO.ALTO,
-                relleno: LADRILLO.relleno,
-                active: LADRILLO.activacion
-            };
-        }
-        else
-        {
-            ladrillos[i][j] = 
-            {
-                posX: (LADRILLO.ANCHO * (j-1)) + (LADRILLO.relleno * j),
-                posY: (LADRILLO.origen_y + 20) + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
-                ancho: LADRILLO.ANCHO,
-                alto: LADRILLO.ALTO,
-                relleno: LADRILLO.relleno,
-                active: LADRILLO.activacion
-            };
-        }
+            posX: (LADRILLO.ANCHO * (j-1)) + (LADRILLO.relleno * j),
+            posY: (LADRILLO.origen_y + 20) + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
+            ancho: LADRILLO.ANCHO,
+            alto: LADRILLO.ALTO,
+            relleno: LADRILLO.relleno,
+            active: LADRILLO.activacion
+        };
     }
 }
 
