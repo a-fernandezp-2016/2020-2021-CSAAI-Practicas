@@ -112,25 +112,6 @@ for(let i=1; i<=LADRILLO.FILA; i++)
     }
 }
 
-// Dibujamos los ladrillos si está activado su visibilidad a true.
-for(let i=1; i<=LADRILLO.FILA; i++)
-{
-    for(let j=1; j<=LADRILLO.COLUM; j++)
-    {
-        if (ladrillos[i][j].active) {
-            paintIT.beginPath();
-            // Diseñamos ladrillo a ladrillo.
-            paintIT.rect(ladrillos[i][j].posX, ladrillos[i][j].posY, LADRILLO.w, LADRILLO.h);
-            paintIT.fillStyle = 'yellow';
-            //-- Lo coloreamos.
-            paintIT.fill();
-            //-- Mostramos el trazo.
-            paintIT.stroke();
-            paintIT.closePath();
-        }
-    }
-}
-
 // Función donde se procesa la animación de la raqueta, bola y ladrillos.
 function update() 
 {
@@ -238,7 +219,7 @@ function update()
             paintIT.arc(bolaX,bolaY,radio,ang0,angF);
         }
         //-- Definimos un color para la bola.
-        paintIT.fillStyle = 'white';
+        paintIT.fillStyle = 'purple';
         //-- Lo coloreamos.
         paintIT.fill();
         //-- Mostramos el trazo.
@@ -330,6 +311,30 @@ function update()
         //-- Mostramos el trazo.
         paintIT.stroke();
     paintIT.closePath();
+
+    // Dibujamos cada ladrillo, si está activado su visibilidad a true.
+    for(let i=1; i<=LADRILLO.FILA; i++)
+    {
+        for(let j=1; j<=LADRILLO.COLUM; j++)
+        {
+            if (ladrillos[i][j].active == true) 
+            {
+                paintIT.beginPath();
+                // Diseñamos ladrillo a ladrillo.
+                paintIT.rect(ladrillos[i][j].posX, ladrillos[i][j].posY, LADRILLO.w, LADRILLO.h);
+                paintIT.fillStyle = 'yellow';
+                //-- Lo coloreamos.
+                paintIT.fill();
+                //-- Mostramos el trazo.
+                paintIT.stroke();
+                paintIT.closePath();
+            }
+            else
+            {
+                ladrillos[i][j] = [];
+            }
+        }
+    }
 
     //-- 4) Repetir el proceso de ejecución con la función update de nuevo.
     requestAnimationFrame(update);
