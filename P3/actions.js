@@ -266,9 +266,22 @@ function update()
     }
     // Condición para que la bola rebote entre la pared horizontal inferior y la línea 
     // discontinua de separación entre la cabecera y el juego.
-    if(((bolaY + velY_bol) > (pantalla.height-radio)) || ((bolaY + velY_bol) < (separY-radio))) 
+    if((bolaY + velY_bol) < (separY-radio)) 
     {
         velY_bol = -velY_bol;
+    }
+    else if((bolaY + velY_bol) > (pantalla.height-radio))
+    {
+        // Condición para que rebote la bola en la raqueta.
+        if((bolaX > raqX) && (bolaX < (raqX + anchoRAQ)))
+        {
+            velY_bol = -velY_bol;
+        }
+        else
+        {
+            alert("¡GAME OVER!");
+            document.location.reload();
+        }
     }
     // Condición para que al pulsar la tecla: flecha derecha, avance la raqueta 
     // hacia la derecha, sin salirse de pantalla.
