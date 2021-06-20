@@ -85,7 +85,7 @@ const ladrillos = [];
 // Definimos la estructura del bloque de ladrillos.
 const LADRILLO = {
     FILA: 5,   //-- Filas.
-    COLUM: 11,   //-- Columnas.
+    COLUM: 9,   //-- Columnas.
     ANCHO: 55,  //-- Anchura.
     ALTO: 15,  //-- Altura.
     origen_y: separY,    //-- De donde parten los ladrillos en el eje y.
@@ -102,7 +102,7 @@ for(let i=1; i<=LADRILLO.FILA; i++)
         ladrillos[i][j] = 
         {
             posX: (LADRILLO.ANCHO + LADRILLO.relleno) * j,
-            posY: LADRILLO.origen_y + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
+            posY: (LADRILLO.origen_y + 10) + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
             ancho: LADRILLO.ANCHO,
             alto: LADRILLO.ALTO,
             relleno: LADRILLO.relleno,
@@ -116,12 +116,12 @@ for(let i=1; i<=LADRILLO.FILA; i++)
         paintIT.font = "35px Arial";
         paintIT.fillStyle = 'white';
         paintIT.fillText("Puntuación: ",puntX,puntY);
-        paintIT.fillText(puntuacion, puntX+130,puntY);
+        paintIT.fillText(puntuacion, puntX+170,puntY);
         // De vidas.
         paintIT.font = "35px Arial";
         paintIT.fillStyle = 'white';
         paintIT.fillText("Vidas: ",vidX,vidY);
-        paintIT.fillText(vidas, vidX+70,vidY);
+        paintIT.fillText(vidas, vidX+130,vidY);
         // De tiempo.
         paintIT.font = "35px Arial";
         paintIT.fillStyle = 'white';
