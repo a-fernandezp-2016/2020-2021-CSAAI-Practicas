@@ -50,13 +50,14 @@ h4 {
     color: black;
     text-align: center;
     font: bold 25px Tahoma;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 /* Diseño de la fila de la descripción del control de la raqueta del canvas y su inicio con espacio. */
 p {
     color: darkblue;
     text-align: center;
     font: bold 18px Tahoma;
+    margin-left: 100px;
 }
 /* Diseño del botón: play. */
 #play {
