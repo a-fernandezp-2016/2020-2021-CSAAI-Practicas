@@ -96,8 +96,6 @@ const LADRILLO = {
 }
 
 // Estructura inicial de los ladrillos.
-const ladrillos = [];
-
 for(let i=1; i<=LADRILLO.FILA; i++)
 {
     ladrillos[i] = [];
