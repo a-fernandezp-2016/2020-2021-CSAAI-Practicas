@@ -101,8 +101,8 @@ for(let i=1; i<=LADRILLO.FILA; i++)
     {
         ladrillos[i][j] = 
         {
-            posX: (LADRILLO.ANCHO + LADRILLO.relleno) * j,
-            posY: (LADRILLO.origen_y + 10) + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
+            posX: LADRILLO.ANCHO * j,
+            posY: (LADRILLO.origen_y + 20) + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
             ancho: LADRILLO.ANCHO,
             alto: LADRILLO.ALTO,
             relleno: LADRILLO.relleno,
@@ -116,12 +116,12 @@ for(let i=1; i<=LADRILLO.FILA; i++)
         paintIT.font = "35px Arial";
         paintIT.fillStyle = 'white';
         paintIT.fillText("Puntuación: ",puntX,puntY);
-        paintIT.fillText(puntuacion, puntX+170,puntY);
+        paintIT.fillText(puntuacion, puntX+200,puntY);
         // De vidas.
         paintIT.font = "35px Arial";
         paintIT.fillStyle = 'white';
         paintIT.fillText("Vidas: ",vidX,vidY);
-        paintIT.fillText(vidas, vidX+130,vidY);
+        paintIT.fillText(vidas, vidX+120,vidY);
         // De tiempo.
         paintIT.font = "35px Arial";
         paintIT.fillStyle = 'white';
