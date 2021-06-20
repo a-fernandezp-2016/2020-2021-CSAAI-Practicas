@@ -84,8 +84,6 @@ let fase = ESTADO.INIT;
     let velX_bol = 5;
     let velY_bol = -5;
 
-// Definimos la cte o array donde almacenar los ladrillos.
-const ladrillos = [];
 // Definimos la estructura del bloque de ladrillos.
 const LADRILLO = {
     FILA: 7,   //-- Filas.
@@ -96,6 +94,8 @@ const LADRILLO = {
     relleno: 6,  //-- Espacio alrededor del ladrillo.
     activacion: true //-- Estado del ladrillo: activo (true) o no (false).
 }
+// Definimos la cte o array donde almacenar los ladrillos.
+const ladrillos = [];
 
 // Estructura inicial de los ladrillos.
 for(let i=1; i<=LADRILLO.FILA; i++)
@@ -236,24 +236,27 @@ function drawBola()
     paintIT.closePath();
 }
 
-//-- Dibujamos los ladrillos, si está activado su visibilidad a true. Si no, desaparecen.
-for(let i=1; i<=LADRILLO.FILA; i++)
+// Función que dibuja los ladrillos, si está activado su visibilidad a true. Si no, desaparecen.
+function drawLadrillos()
 {
-    for(let j=1; j<=LADRILLO.COLUM; j++)
+    for(let i=1; i<=LADRILLO.FILA; i++)
     {
-        if (ladrillos[i][j].active == true) 
+        for(let j=1; j<=LADRILLO.COLUM; j++)
         {
-            paintIT.beginPath();
-            // Diseñamos ladrillo a ladrillo.
-            paintIT.rect(ladrillos[i][j].posX, ladrillos[i][j].posY, LADRILLO.ANCHO, LADRILLO.ALTO);
-            paintIT.fillStyle = 'yellow';
-            //-- Lo coloreamos.
-            paintIT.fill();
-            paintIT.closePath();
-        }
-        else
-        {
-            ladrillos[i][j] = [];
+            if (ladrillos[i][j].active == true) 
+            {
+                paintIT.beginPath();
+                // Diseñamos ladrillo a ladrillo.
+                paintIT.rect(ladrillos[i][j].posX, ladrillos[i][j].posY, LADRILLO.ANCHO, LADRILLO.ALTO);
+                paintIT.fillStyle = 'yellow';
+                //-- Lo coloreamos.
+                paintIT.fill();
+                paintIT.closePath();
+            }
+            else
+            {
+                ladrillos[i][j] = [];
+            }
         }
     }
 }
@@ -313,6 +316,8 @@ function update()
     drawBola();
     // La raqueta.
     drawRaqueta();
+    // Los ladrillos.
+    drawLadrillos();
 
     //-- 4) Repetir de nuevo el proceso de animación del juego.
     requestAnimationFrame(update);
