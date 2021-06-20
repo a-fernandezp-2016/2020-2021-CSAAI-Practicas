@@ -59,8 +59,8 @@ let fase = ESTADO.INIT;
 
 // Características de la raqueta.
     // Dimensiones de la raqueta.
-    let anchoRAQ = 100;
-    let altoRAQ = 15;
+    let anchoRAQ = 80;
+    let altoRAQ = 12;
     // Definimos las coordenadas de la raqueta.
     let raqX = 250;
     let raqY = 900;
@@ -76,7 +76,7 @@ let fase = ESTADO.INIT;
     let bolaX = 300;
     let bolaY = 889;
     // Definimos el radio de la bola.
-    let radio = 11;
+    let radio = 10;
     // Definimos los ángulos de la bola.
     let ang0 = 0;
     let angF = 2 * Math.PI;
@@ -91,11 +91,10 @@ const LADRILLO = {
     ANCHO: 60,  //-- Anchura.
     ALTO: 15,  //-- Altura.
     origen_y: separY,    //-- De donde parten los ladrillos en el eje y.
-    relleno: 6,  //-- Espacio alrededor del ladrillo.
-    activacion: true //-- Estado del ladrillo: activo (true) o no (false).
+    relleno: 6  //-- Espacio alrededor del ladrillo.
 }
-// Definimos la cte o array donde almacenar los ladrillos.
-const ladrillos = [];
+// Definimos la variable o array donde almacenar los ladrillos.
+var ladrillos = [];
 
 // Estructura inicial de los ladrillos.
 for(let i=1; i<=LADRILLO.FILA; i++)
@@ -109,8 +108,7 @@ for(let i=1; i<=LADRILLO.FILA; i++)
             posY: (LADRILLO.origen_y + 20) + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
             ancho: LADRILLO.ANCHO,
             alto: LADRILLO.ALTO,
-            relleno: LADRILLO.relleno,
-            active: LADRILLO.activacion
+            relleno: LADRILLO.relleno
         };
     }
 }
@@ -245,6 +243,10 @@ function drawLadrillos()
         {
             if (ladrillos[i][j].active == true) 
             {
+                if(bolaX == ladrillos[i][j].posX && bolaY == ladrillos[i][j].posY)
+                {
+                    ladrillos[i][j].active = false;
+                }
                 paintIT.beginPath();
                 // Diseñamos ladrillo a ladrillo.
                 paintIT.rect(ladrillos[i][j].posX, ladrillos[i][j].posY, LADRILLO.ANCHO, LADRILLO.ALTO);
@@ -256,6 +258,22 @@ function drawLadrillos()
             else
             {
                 ladrillos[i][j] = [];
+            }
+        }
+    }
+}
+
+// Función que produce la colisión de la bola con el ladrillo y, en cuyo caso, desaparece éste último.
+function colisionLadrillos()
+{
+    for(let i=1; i<=LADRILLO.FILA; i++)
+    {
+        for(let j=1; j<=LADRILLO.COLUM; j++)
+        {
+            var ladrillo = ladrillos[i][j];
+            if((bolaX > ladrillo.posX) && (bolaX < ladrillo.posX+ANCHO) && (bolaY > ladrillo.posY) && (bolaY < ladrillo.posY+ALTO))
+            {
+                velY_bol = -velY_bol;
             }
         }
     }
