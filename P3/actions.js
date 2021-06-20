@@ -65,7 +65,7 @@ let fase = ESTADO.INIT;
     let raqX = 250;
     let raqY = 900;
     // Definimos la variable velocidad del eje x de la raqueta.
-    let velX_raq = 60;
+    let velX_raq = 5;
     // Activación de la flecha der/izq.
     let pulsadorDer = false;
     let pulsadorIzq = false;
@@ -115,52 +115,58 @@ for(let i=1; i<=LADRILLO.FILA; i++)
     }
 }
 
-// Estructuramos el texto sólido.
-        // De puntuación.
-        paintIT.font = "35px Arial";
-        paintIT.fillStyle = 'white';
-        paintIT.fillText("Puntuación: ",puntX,puntY);
-        paintIT.fillText(puntuacion, puntX+200,puntY);
-        // De vidas.
-        paintIT.font = "35px Arial";
-        paintIT.fillStyle = 'white';
-        paintIT.fillText("Vidas: ",vidX,vidY);
-        paintIT.fillText(vidas, vidX+120,vidY);
-        // De tiempo.
-        paintIT.font = "35px Arial";
-        paintIT.fillStyle = 'white';
-        paintIT.fillText("Tiempo: ",timeX,timeY);
-
-// Trazamos la línea de separación: cabecera de textos - juego en sí,
-// a través del bucle for. Usando líneas discontinuas.
-for(let i=separX; i<=pantalla.width; i += 100)
+// Función para establecer la cabecera de los textos sólidos.
+function drawCabecera()
 {
-    for(let j=separX+60; j<pantalla.width; j += 100)
+    // Texto sólido de puntuación.
+    paintIT.font = "35px Arial";
+    paintIT.fillStyle = 'white';
+    paintIT.fillText("Puntuación: ",puntX,puntY);
+    paintIT.fillText(puntuacion, puntX+200,puntY);
+    // Texto sólido de vidas.
+    paintIT.font = "35px Arial";
+    paintIT.fillStyle = 'white';
+    paintIT.fillText("Vidas: ",vidX,vidY);
+    paintIT.fillText(vidas, vidX+120,vidY);
+    // Texto sólido de tiempo.
+    paintIT.font = "35px Arial";
+    paintIT.fillStyle = 'white';
+    paintIT.fillText("Tiempo: ",timeX,timeY);
+}
+
+// Función para trazar la línea de separación: cabecera de textos - juego en sí,
+// a través del bucle for. Usando líneas discontinuas.
+function drawSeparacion()
+{
+    for(let i=separX; i<=pantalla.width; i += 100)
     {
-        // Inicio trazo.
-        paintIT.beginPath();
-        //-- Trazo de la línea horizontal desde el pto inicial al final.
-        paintIT.moveTo(i,separY);
-        paintIT.lineTo(j, separY);
-        // Coloreamos de blanco la línea.
-        paintIT.strokeStyle = 'white';
-        //-- Le ponemos un tamaño visible al trazo.
-        paintIT.lineWidth = 4;
-        //-- Mostrar el trazo.
-        paintIT.stroke();
-        // Final trazo.
-        paintIT.closePath();
-        // Parte o trazo invisible.
-        paintIT.beginPath();
-        //-- Trazo de la línea horizontal desde el pto inicial al final.
-        paintIT.moveTo(j,separY);
-        paintIT.lineTo(j+=40, separY);
-        // Coloreamos de blanco la línea.
-        paintIT.strokeStyle = 'black';
-        //-- Mostrar el trazo.
-        paintIT.stroke();
-        // Final trazo.
-        paintIT.closePath();
+        for(let j=separX+60; j<pantalla.width; j += 100)
+        {
+            // Inicio trazo.
+            paintIT.beginPath();
+            //-- Trazo de la línea horizontal desde el pto inicial al final.
+            paintIT.moveTo(i,separY);
+            paintIT.lineTo(j, separY);
+            // Coloreamos de blanco la línea.
+            paintIT.strokeStyle = 'white';
+            //-- Le ponemos un tamaño visible al trazo.
+            paintIT.lineWidth = 4;
+            //-- Mostrar el trazo.
+            paintIT.stroke();
+            // Final trazo.
+            paintIT.closePath();
+            // Parte o trazo invisible.
+            paintIT.beginPath();
+            //-- Trazo de la línea horizontal desde el pto inicial al final.
+            paintIT.moveTo(j,separY);
+            paintIT.lineTo(j+=40, separY);
+            // Coloreamos de blanco la línea.
+            paintIT.strokeStyle = 'black';
+            //-- Mostrar el trazo.
+            paintIT.stroke();
+            // Final trazo.
+            paintIT.closePath();
+        }
     }
 }
 
@@ -301,14 +307,18 @@ function update()
     bolaY += velY_bol;
 
     //-- 2) Borrar la pantalla del juego.
-    pantalla.clearRect(0,0,pantalla.width, pantalla.height);
+    paintIT.clearRect(0,0,pantalla.width, pantalla.height);
 
     //-- 3) Pintar todos y cada uno de los elementos en la pantalla.
+    // El texto sólido de la cabecera.
+    drawCabecera();
+    // La línea discontinua de separación entre: cabecera de textos sólidos - juego en sí.
+    drawSeparacion();
     // La bola.
     drawBola();
     // La raqueta.
     drawRaqueta();
-
+    
     //-- 4) Repetir de nuevo el proceso de animación del juego.
     requestAnimationFrame(update);
 }
