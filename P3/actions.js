@@ -70,7 +70,7 @@ let fase = ESTADO.INIT;
 // Características de la bola.
     // Definimos las coordenadas de la bola.
     let bolaX = 300;
-    let bolaY = 888;
+    let bolaY = 889;
     // Definimos el radio de la bola.
     let radio = 11;
     // Definimos los ángulos de la bola.
@@ -178,7 +178,7 @@ paintIT.beginPath();
     // (posición x, posición y, radio, ángulo inicial, ángulo final).
     paintIT.arc(bolaX,bolaY,radio,ang0,angF);
     //-- Definimos un color para la bola.
-    paintIT.fillStyle = 'fuctsia';
+    paintIT.fillStyle = '#FF0066'; //-- Color Fuctsia.
     //-- Lo coloreamos.
     paintIT.fill();
     //-- Mostramos el trazo.
