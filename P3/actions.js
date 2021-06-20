@@ -147,7 +147,7 @@ function update()
     // Condición para que la raqueta no se salga por las paredes verticales.
     if((raqX>2) && (raqX<=pantalla.width-anchoRAQ))
     {
-        document.onkeydown = (e) => {
+        window.onkeydown = (e) => {
             if(vidas != 0)
             {
                 switch(e.keyCode)
@@ -157,6 +157,8 @@ function update()
                         if(fase == ESTADO.SAQUE)
                         {
                             console.log("Saque");
+                            // Aparición de la bola.
+                            actBola = true;
                             // Si cae la bola, hay que volver a sacar y con 1 vida menos.
                             vidas -= 1;
                             // Pasamos al estado Playing.
@@ -380,29 +382,3 @@ function update()
 
 //-- Punto de entrada de la animación del videojuego.
 update();
-
-// Darle a play para iniciar la partida y cambiar de fase.
-play.onclick = () => {
-    if(fase == ESTADO.INIT)
-    {
-        // Mensaje de inicio del juego.
-        paintIT.font = "100px Arial";
-        paintIT.fillStyle = 'blue';
-        paintIT.fillText("'QUÉ COMIENCE EL JUEGO! ",(pantalla.width-10)/2,pantalla.height/2);
-        // Cambio a la fase 1 del saque.
-        fase = ESTADO.SAQUE;
-        // Aparición de la bola.
-        actBola = true;
-    }
-    else
-    {
-        // Mensaje de aviso.
-        console.log("El botón PLAY sólo es para iniciar la partida y cambiar a la fase 1 del saque.");
-    }
-}
-
-// Recargar la página
-function restart() 
-{
-    document.location.reload();
-}
