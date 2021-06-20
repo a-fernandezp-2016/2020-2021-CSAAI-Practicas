@@ -147,13 +147,13 @@ function update()
     // Condición para que la raqueta no se salga por las paredes verticales.
     if((raqX>2) && (raqX<=pantalla.width-anchoRAQ))
     {
-        window.onkeydown = (e) => {
+        document.onkeydown = (e) => {
             if(vidas != 0)
             {
                 switch(e.keyCode)
                 {
                     // Pulsar espacio.
-                    case '32':
+                    case 32:
                         if(fase == ESTADO.SAQUE)
                         {
                             console.log("Saque");
@@ -164,7 +164,7 @@ function update()
                         }
                         break;
                     // Pulsar Arrow Left.
-                    case '37':
+                    case 37:
                         if(fase == ESTADO.PLAYING)
                         {
                             raqX = raqX - velX_raq;
@@ -177,7 +177,7 @@ function update()
                         }
                         break;
                     // Pulsar Arrow Right.
-                    case '39':
+                    case 39:
                         if(fase == ESTADO.PLAYING)
                         {
                             raqX = raqX + velX_raq;
@@ -399,4 +399,10 @@ play.onclick = () => {
         // Mensaje de aviso.
         console.log("El botón PLAY sólo es para iniciar la partida y cambiar a la fase 1 del saque.");
     }
+}
+
+// Recargar la página
+function restart() 
+{
+    document.location.reload();
 }
