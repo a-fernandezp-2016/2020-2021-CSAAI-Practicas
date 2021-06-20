@@ -57,7 +57,8 @@ p {
     color: darkblue;
     text-align: center;
     font: bold 18px Tahoma;
-    margin-left: 100px;
+    margin-left: 390px;
+    margin-right: -300px;
 }
 /* Diseño del botón: play. */
 #play {
