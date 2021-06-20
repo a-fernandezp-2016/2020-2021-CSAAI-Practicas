@@ -11,11 +11,6 @@ const pantalla = document.getElementById("canvas");
 pantalla.width = 600;
 pantalla.height = 1000;
 
-// Creamos el elemento ID del botón play para poder pulsarlo.
-const play = document.getElementById("play");
-// Creamos el elemento ID del botón restart para poder pulsarlo.
-const restart = document.getElementById("restart");
-
 // Definimos el contenido de la pantalla o canvas para poder dibujar en ello.
 const paintIT = pantalla.getContext("2d");
 
@@ -84,7 +79,7 @@ let fase = ESTADO.INIT;
 const ladrillos = [];
 // Definimos la estructura del bloque de ladrillos.
 const LADRILLO = {
-    FILA: 6,   //-- Filas.
+    FILA: 7,   //-- Filas.
     COLUM: 9,   //-- Columnas.
     ANCHO: 60,  //-- Anchura.
     ALTO: 15,  //-- Altura.
