@@ -14,6 +14,11 @@ pantalla.height = 1000;
 // Definimos el contenido de la pantalla o canvas para poder dibujar en ello.
 const paintIT = pantalla.getContext("2d");
 
+// Evento de pulsar una tecla.
+document.addEventListener("keydown", pulsarTecla, false);
+// Evento de dejar de pulsar la tecla.
+document.addEventListener("keyup", dejarPulsarTecla, false);
+
 // Diagrama de estados. Hay 4 estados: 0, 1, 2 y 3.
 // El Estado 0 es el inicial, que cambia al Estado 1 cuando pulsamos espacio.
 // Después viene el Estado 1, donde empezamos a jugar con 3 vidas. Y cuando no conseguimos
@@ -61,6 +66,10 @@ let fase = ESTADO.INIT;
     let raqY = 900;
     // Definimos la variable velocidad del eje x de la raqueta.
     let velX_raq = 60;
+    // Activación de la flecha der/izq.
+    let pulsadorDer = false;
+    let pulsadorIzq = false;
+    let pulsadorEsp = false;
 
 // Características de la bola.
     // Definimos las coordenadas de la bola.
@@ -72,7 +81,7 @@ let fase = ESTADO.INIT;
     let ang0 = 0;
     let angF = 2 * Math.PI;
     // Definimos la variable velocidad del eje x e y de la bola.
-    let velX_bol = -10;
+    let velX_bol = 5;
     let velY_bol = -5;
 
 // Definimos la cte o array donde almacenar los ladrillos.
@@ -155,30 +164,71 @@ for(let i=separX; i<=pantalla.width; i += 100)
     }
 }
 
-//-- Dibujando la raqueta.
-paintIT.beginPath();
-    //-- Definimos las dimensiones de la raqueta: (posición x, posición y, ancho, alto).
-    paintIT.rect(raqX,raqY,anchoRAQ,altoRAQ);
-    //-- Definimos un color para la raqueta.
-    paintIT.fillStyle = 'white';
-    //-- Lo coloreamos.
-    paintIT.fill();
-    //-- Mostramos el trazo.
-    paintIT.stroke();
-paintIT.closePath();
+// Función para poder pulsar una tecla.
+function pulsarTecla(e)
+{
+    switch(e.keyCode)
+    {
+        // Tecla: espacio.
+        case 32:
+            pulsadorEsp = true;
+            break;
+        // Tecla: Izquierda.
+        case 37:
+            pulsadorIzq = true;
+            break;
+        // Tecla: Derecha.
+        case 39:
+            pulsadorDer = true;
+            break;
+    }
+}
+// Función para poder dejar de pulsar una tecla.
+function dejarPulsarTecla(e)
+{
+    switch(e.keyCode)
+    {
+        // Tecla: espacio.
+        case 32:
+            pulsadorEsp = false;
+            break;
+        // Tecla: Izquierda.
+        case 37:
+            pulsadorIzq = false;
+            break;
+        // Tecla: Derecha.
+        case 39:
+            pulsadorDer = false;
+            break;
+    }
+}
 
-//-- Dibujando la bola.
-paintIT.beginPath();
-    //-- Definimos las dimensiones de la bola: 
-    // (posición x, posición y, radio, ángulo inicial, ángulo final).
-    paintIT.arc(bolaX,bolaY,radio,ang0,angF);
-    //-- Definimos un color para la bola.
-    paintIT.fillStyle = '#FF0066'; //-- Color Fuctsia.
-    //-- Lo coloreamos.
-    paintIT.fill();
-    //-- Mostramos el trazo.
-    paintIT.stroke();
-paintIT.closePath();
+//-- Función que dibuja la raqueta.
+function drawRaqueta()
+{
+    paintIT.beginPath();
+        //-- Definimos las dimensiones de la raqueta: (posición x, posición y, ancho, alto).
+        paintIT.rect(raqX,raqY,anchoRAQ,altoRAQ);
+        //-- Definimos un color para la raqueta.
+        paintIT.fillStyle = 'white';
+        //-- Lo coloreamos.
+        paintIT.fill();
+    paintIT.closePath();
+}
+
+//-- Función que dibuja la bola.
+function drawBola()
+{
+    paintIT.beginPath();
+        //-- Definimos las dimensiones de la bola: 
+        // (posición x, posición y, radio, ángulo inicial, ángulo final).
+        paintIT.arc(bolaX,bolaY,radio,ang0,angF);
+        //-- Definimos un color para la bola.
+        paintIT.fillStyle = '#FF0066'; //-- Color Fuctsia.
+        //-- Lo coloreamos.
+        paintIT.fill();
+    paintIT.closePath();
+}
 
 //-- Dibujamos los ladrillos, si está activado su visibilidad a true. Si no, desaparecen.
 for(let i=1; i<=LADRILLO.FILA; i++)
@@ -201,3 +251,54 @@ for(let i=1; i<=LADRILLO.FILA; i++)
         }
     }
 }
+
+//-- Función para llevar a cabo la animación del juego.
+function update() 
+{
+    //-- Implementación del algoritmo de animación con mensaje en consola:
+    console.log("Proceso de animación del juego");
+
+    //-- 1) Actualizar las posiciones de la raqueta, la bola, los ladrillos y otros ajustes.
+    // Condición para que la bola rebote entre las paredes verticales.
+    if(((bolaX + velX_bol) > (pantalla.width-radio)) || ((bolaX - velX_bol) < radio))
+    {
+        velX_bol = -velX_bol;
+    }
+    // Condición para que la bola rebote entre la pared horizontal inferior y la línea 
+    // discontinua de separación entre la cabecera y el juego.
+    if(((bolaY + velY_bol) > (pantalla.height-radio)) || ((bolaY + velY_bol) < (separY-radio))) 
+    {
+        velY_bol = -velY_bol;
+    }
+    // Condición para que al pulsar la tecla: flecha derecha, avance la raqueta 
+    // hacia la derecha, sin salirse de pantalla.
+    if(pulsadorDer && (raqX < (pantalla.width-anchoRAQ))) 
+    {
+        raqX += velX_raq;
+    }
+    // Condición para que al pulsar la tecla: flecha izquierda, avance la raqueta 
+    // hacia la izquierda, sin salirse de pantalla.
+    else if(pulsadorIzq && (raqX > 0)) 
+    {
+        raqX -= velX_raq;
+    }
+    // Movimiento de la bola en el eje x.
+    bolaX += velX_bol;
+    // Movimiento de la bola en el eje y.
+    bolaY += velY_bol;
+
+    //-- 2) Borrar la pantalla del juego.
+    pantalla.clearRect(0,0,pantalla.width, pantalla.height);
+
+    //-- 3) Pintar todos y cada uno de los elementos en la pantalla.
+    // La bola.
+    drawBola();
+    // La raqueta.
+    drawRaqueta();
+
+    //-- 4) Repetir de nuevo el proceso de animación del juego.
+    requestAnimationFrame(update);
+}
+
+//-- Punto de entrada de la función update.
+update();
