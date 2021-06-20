@@ -85,7 +85,7 @@ const ladrillos = [];
 // Definimos la estructura del bloque de ladrillos.
 const LADRILLO = {
     FILA: 5,   //-- Filas.
-    COLUM: 9,   //-- Columnas.
+    COLUM: 10,   //-- Columnas.
     ANCHO: 55,  //-- Anchura.
     ALTO: 15,  //-- Altura.
     origen_y: separY,    //-- De donde parten los ladrillos en el eje y.
@@ -115,7 +115,7 @@ for(let i=1; i<=LADRILLO.FILA; i++)
         {
             ladrillos[i][j] = 
             {
-                posX: (LADRILLO.ANCHO + LADRILLO.relleno) * j,
+                posX: (LADRILLO.ANCHO * (j-1)) + (LADRILLO.relleno * j),
                 posY: (LADRILLO.origen_y + 20) + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
                 ancho: LADRILLO.ANCHO,
                 alto: LADRILLO.ALTO,
