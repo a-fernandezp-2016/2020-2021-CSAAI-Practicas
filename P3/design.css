@@ -60,24 +60,3 @@ p {
     margin-left: 390px;
     margin-right: -300px;
 }
-/* Diseño del botón: play. */
-#play {
-    /* Para centrar los botones. */
-    margin-left: 550px;
-    margin-right: 10px;
-    display: block;
-    /* Otros ajustes. */
-    width: 100px;
-    height: 40px;
-    border-style: 15px;
-}
-/* Diseño del botón: restart. */
-#restart {
-    /* Para centrar los botones. */
-    margin-left: 10px;
-    display: block;
-    /* Otros ajustes. */
-    width: 100px;
-    height: 40px;
-    border-style: 15px;
-}
