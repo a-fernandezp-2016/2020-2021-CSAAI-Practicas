@@ -118,7 +118,7 @@ for(let i=1; i<=LADRILLO.FILA; i++)
         paintIT.font = "35px Arial";
         paintIT.fillStyle = 'white';
         paintIT.fillText("Puntuación: ",puntX,puntY);
-        paintIT.fillText(score, puntX+10,puntY);
+        paintIT.fillText(puntuacion, puntX+10,puntY);
         // De vidas.
         paintIT.font = "35px Arial";
         paintIT.fillStyle = 'white';
