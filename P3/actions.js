@@ -79,15 +79,13 @@ let fase = ESTADO.INIT;
     // Definimos la variable velocidad del eje x e y de la bola.
     let velX_bol = -10;
     let velY_bol = -5;
-    // Pintar o borrar bola.
-    let actBola = false;
 
 // Definimos la cte o array donde almacenar los ladrillos.
 const ladrillos = [];
 // Definimos la estructura del bloque de ladrillos.
 const LADRILLO = {
     FILA: 5,   //-- Filas.
-    COLUM: 10,   //-- Columnas.
+    COLUM: 11,   //-- Columnas.
     ANCHO: 55,  //-- Anchura.
     ALTO: 15,  //-- Altura.
     origen_y: separY,    //-- De donde parten los ladrillos en el eje y.
@@ -118,12 +116,12 @@ for(let i=1; i<=LADRILLO.FILA; i++)
         paintIT.font = "35px Arial";
         paintIT.fillStyle = 'white';
         paintIT.fillText("Puntuación: ",puntX,puntY);
-        paintIT.fillText(puntuacion, puntX+10,puntY);
+        paintIT.fillText(puntuacion, puntX+130,puntY);
         // De vidas.
         paintIT.font = "35px Arial";
         paintIT.fillStyle = 'white';
         paintIT.fillText("Vidas: ",vidX,vidY);
-        paintIT.fillText(vidas, vidX+10,vidY);
+        paintIT.fillText(vidas, vidX+70,vidY);
         // De tiempo.
         paintIT.font = "35px Arial";
         paintIT.fillStyle = 'white';
@@ -176,12 +174,9 @@ paintIT.closePath();
 
 //-- Dibujando la bola.
 paintIT.beginPath();
-    if(actBola == true)
-    {
-        //-- Definimos las dimensiones de la bola: 
-        // (posición x, posición y, radio, ángulo inicial, ángulo final).
-        paintIT.arc(bolaX,bolaY,radio,ang0,angF);
-    }
+    //-- Definimos las dimensiones de la bola: 
+    // (posición x, posición y, radio, ángulo inicial, ángulo final).
+    paintIT.arc(bolaX,bolaY,radio,ang0,angF);
     //-- Definimos un color para la bola.
     paintIT.fillStyle = 'purple';
     //-- Lo coloreamos.
