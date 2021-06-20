@@ -28,26 +28,27 @@
     <!-- Tabla donde se muestran los controles del juego (2 primeras filas) y, los tres
     botones de: play | pause | restart. -->
     <table>
-        <!-- 1º fila: Explicación del inicio del juego. -->
+        <!-- 1º fila: Título de las instrucciones. -->
         <tr>
-            <p> Pulsa "Play" para iniciar la partida </p>
+            <h4> INSTRUCCCIONES: </h4>
         </tr>
-        <!-- 2º fila: Explicación del control del mvto de la raqueta hacia la izq. -->
-        <tr>
-            <p> Pulsa la tecla "<=" para mover la raqueta hacia la izquierda </p>
-        </tr>
-        <!-- 3º fila: Explicación del control del mvto de la raqueta hacia la der. -->
-        <tr>
-            <p> Pulsa la tecla "=>" para mover la raqueta hacia la derecha </p>
-        </tr>
-        <!-- 4º fila: Explicación del saque. -->
+        <!-- 2º fila: Explicación del saque. -->
         <tr>
             <p> Pulsa "Tecla_espacio" para sacar </p>
         </tr>
-        <!-- 5º fila: Botones de play y restart. -->
+        <!-- 3º fila: Explicación de la tecla del inicio y del reinicio del juego. -->
         <tr>
-            <td> <input id="play" type="button" value="PLAY"> </td>
-            <td> <input id="restart" type="button" value="RESTART"> </td>
+            <!-- 1º columna: Explicación de la tecla del inicio del juego. -->
+            <td> <p> Pulsa la tecla "s" o "S" para iniciar la partida </p> </td>
+            <!-- 2º columna: Explicación de la tecla del reinicio del juego. -->
+            <td> <p> Pulsa la tecla "q" o "Q" para reiniciar la partida </p> </td>
+        </tr>
+        <!-- 4º fila: Explicación del control del mvto de la raqueta. -->
+        <tr>
+            <!-- Hacia la izquierda. -->
+            <td> <p> Pulsa la tecla "<=" para mover la raqueta hacia la izquierda </p> </td>
+            <!-- Hacia la derecha. -->
+            <td> <p> Pulsa la tecla "=>" para mover la raqueta hacia la derecha </p> </td>
         </tr>
     </table>
 </body>

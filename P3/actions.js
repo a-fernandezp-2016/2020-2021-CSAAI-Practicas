@@ -72,7 +72,7 @@ let fase = ESTADO.INIT;
     let bolaX = 300;
     let bolaY = 888;
     // Definimos el radio de la bola.
-    let radio = 12;
+    let radio = 11;
     // Definimos los ángulos de la bola.
     let ang0 = 0;
     let angF = 2 * Math.PI;
