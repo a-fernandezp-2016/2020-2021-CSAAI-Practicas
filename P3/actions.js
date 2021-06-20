@@ -99,15 +99,30 @@ for(let i=1; i<=LADRILLO.FILA; i++)
     ladrillos[i] = [];
     for(let j=1; j<=LADRILLO.COLUM; j++)
     {
-        ladrillos[i][j] = 
+        if(j == 1)
         {
-            posX: (LADRILLO.ANCHO + LADRILLO.relleno) * j,
-            posY: (LADRILLO.origen_y + 20) + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
-            ancho: LADRILLO.ANCHO,
-            alto: LADRILLO.ALTO,
-            relleno: LADRILLO.relleno,
-            active: LADRILLO.activacion
-        };
+            ladrillos[i][j] =
+            {
+                posX: LADRILLO.relleno,
+                posY: (LADRILLO.origen_y + 20) + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
+                ancho: LADRILLO.ANCHO,
+                alto: LADRILLO.ALTO,
+                relleno: LADRILLO.relleno,
+                active: LADRILLO.activacion
+            };
+        }
+        else
+        {
+            ladrillos[i][j] = 
+            {
+                posX: (LADRILLO.ANCHO + LADRILLO.relleno) * j,
+                posY: (LADRILLO.origen_y + 20) + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
+                ancho: LADRILLO.ANCHO,
+                alto: LADRILLO.ALTO,
+                relleno: LADRILLO.relleno,
+                active: LADRILLO.activacion
+            };
+        }
     }
 }
 
@@ -178,7 +193,7 @@ paintIT.beginPath();
     // (posición x, posición y, radio, ángulo inicial, ángulo final).
     paintIT.arc(bolaX,bolaY,radio,ang0,angF);
     //-- Definimos un color para la bola.
-    paintIT.fillStyle = 'purple';
+    paintIT.fillStyle = 'fuctsia';
     //-- Lo coloreamos.
     paintIT.fill();
     //-- Mostramos el trazo.
