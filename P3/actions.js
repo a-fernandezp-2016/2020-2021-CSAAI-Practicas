@@ -14,6 +14,9 @@ pantalla.height = 1000;
 // Definimos el contenido de la pantalla o canvas para poder dibujar en ello.
 const paintIT = pantalla.getContext("2d");
 
+// Creamos el elemento para poder pulsar el botón PLAY, a través del ID play.
+const PLAY = document.getElementById("play");
+
 // Diagrama de estados. Hay 4 estados: 0, 1, 2 y 3.
 // El Estado 0 es el inicial, que cambia al Estado 1 cuando pulsamos espacio.
 // Después viene el Estado 1, donde empezamos a jugar con 3 vidas. Y cuando no conseguimos
@@ -326,14 +329,6 @@ function update()
     if((raqX > 0) && (raqX < (pantalla.width-anchoRAQ))) 
     {
         window.onkeydown = (e) => {
-            if(fase == ESTADO.INIT)
-            {
-                // Cambiamos a la fase 1 o de saque.
-                fase = ESTADO.SAQUE;
-                // Establecemos a true, para que aparezca la bola.
-                viewBola = true;
-            }
-            
             if(vidas != 0)
             {
                 switch(e.keyCode)
@@ -410,7 +405,15 @@ function update()
 }
 
 // Para poder iniciar la partida, es necesario pulsar al botón de PLAY.
-
+PLAY.onclick = () => {
+    if(fase == ESTADO.INIT)
+    {
+        // Cambiamos a la fase 1 o de saque.
+        fase = ESTADO.SAQUE;
+        // Establecemos a true, para que aparezca la bola.
+        viewBola = true;
+    }
+}
 
 //-- Punto de entrada de la función update.
 update();
