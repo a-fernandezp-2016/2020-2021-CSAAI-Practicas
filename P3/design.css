@@ -49,34 +49,54 @@ h1 {
 h4 {
     color: black;
     text-align: center;
-    font: bold 25px Tahoma;
-    margin-top: 50px;
+    font: bold 35px Tahoma;
+    margin-top: 80px;
 }
 /* Diseño de la explicación del botón play. */
 #inicio {
     color: darkblue;
     text-align: center;
-    font: bold 18px Tahoma;
+    font: bold 25px Tahoma;
+    margin-left: 800px;
+    margin-right: -200px;
 }
 /* Diseño de la explicación de las instrucciones de recarga pág. */
 #reinicio {
     color: darkblue;
     text-align: center;
-    font: bold 18px Tahoma;
+    font: bold 25px Tahoma;
+    margin-left: 300px;
+    margin-right: -200px;
 }
-/* Instrucciones del control de la raqueta y su saque. */
-.resto {
+/* Diseño de las instrucciones del control de la raqueta y su saque. */
+#resto1 {
     color: darkblue;
     text-align: center;
-    font: bold 18px Tahoma;
+    font: bold 25px Tahoma;
+    margin-left: 500px;
+    margin-right: -400px;
+}
+#resto2 {
+    color: darkblue;
+    text-align: center;
+    font: bold 25px Tahoma;
+    margin-left: 500px;
+    margin-right: -400px;
+}
+#resto3 {
+    color: darkblue;
+    text-align: center;
+    font: bold 25px Tahoma;
+    margin-left: 500px;
+    margin-right: -400px;
 }
 /* Diseño del botón PLAY. */
 #play {
     background-color: green;
     text-align: center;
-    font: bold 14px Tahoma;
+    font: bold 22px Tahoma;
     color: white;
-    width: 70px;
-    height: 40px;
-    border-radius: 5px;
+    width: 130px;
+    height: 70px;
+    border-radius: 10px;
 }
