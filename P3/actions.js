@@ -286,7 +286,7 @@ function update()
             velX_bol = -velX_bol;
         }
         // Condición para que la bola rebote con la parte superior de la pantalla.
-        if(bolaY < (separY-50-radio)) 
+        if(bolaY < (separY+20+radio)) 
         {
             velY_bol = -velY_bol;
         }
@@ -294,8 +294,7 @@ function update()
         if(((bolaX+radio) >= raqX) && ((bolaX-radio) <= (raqX + anchoRAQ)) && 
         ((bolaY+radio) >= raqY) && ((bolaY-radio) <= (raqY + altoRAQ)))
         {
-            // Cálculo del rebote en eje x e y.
-            velX_bol = -velX_bol;
+            // Cálculo del rebote bola - raqueta.
             velY_bol = -velY_bol;
         }
         // Condición para que la bola no circule más abajo de por donde se mueve la raqueta.
@@ -315,13 +314,10 @@ function update()
                 fase = ESTADO.FINAL;
             }
         }
-        else
-        {
-            // Movimiento de la bola en el eje x.
-            bolaX += velX_bol;
-            // Movimiento de la bola en el eje y.
-            bolaY += velY_bol;
-        }
+        // Movimiento de la bola en el eje x.
+        bolaX += velX_bol;
+        // Movimiento de la bola en el eje y.
+        bolaY += velY_bol;
     }
     // Condición para que al pulsar la tecla: flecha der/izq, la raqueta no se salga de la pantalla.
     if((raqX > 0) && (raqX < (pantalla.width-anchoRAQ))) 
