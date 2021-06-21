@@ -46,6 +46,8 @@ let fase = ESTADO.INIT;
     let vidY = 60;
     // Variable de las vidas totales.
     let vidas = 3;
+    // CTE vidas.
+    const VIDAS = 3;
     // Coordenadas del tiempo.
     let timeX = 50;
     let timeY = 120;
@@ -333,6 +335,13 @@ function update()
                     case 32:
                         if(fase == ESTADO.SAQUE)
                         {
+                            if(vidas <= (VIDAS-1))
+                            {
+                                // Establecemos a true, para que aparezca la bola.
+                                viewBola = true;
+                                // Dibujamos la bola.
+                                drawBola();
+                            }
                             // Cambiamos a la fase 2 o del juego.
                             fase = ESTADO.PLAYING;
                             // Mensaje del saque en consola.
