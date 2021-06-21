@@ -49,15 +49,15 @@ h1 {
 h4 {
     color: black;
     text-align: center;
-    font: bold 35px Tahoma;
-    margin-top: 80px;
+    font: bold 40px Tahoma;
+    margin-top: 100px;
 }
 /* Diseño de la explicación del botón play. */
 #inicio {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
-    margin-left: 800px;
+    margin-left: 780px;
     margin-right: -200px;
 }
 /* Diseño de la explicación de las instrucciones de recarga pág. */
@@ -73,21 +73,21 @@ h4 {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
-    margin-left: 500px;
+    margin-left: 200px;
     margin-right: -400px;
 }
 #resto2 {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
-    margin-left: 500px;
+    margin-left: -650px;
     margin-right: -400px;
 }
 #resto3 {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
-    margin-left: 500px;
+    margin-left: -320px;
     margin-right: -400px;
 }
 /* Diseño del botón PLAY. */
