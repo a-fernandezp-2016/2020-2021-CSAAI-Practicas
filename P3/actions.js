@@ -138,9 +138,9 @@ function drawVictoria()
 {
     paintIT.font = "25px Arial Black";
     paintIT.fillStyle = 'green';
-    paintIT.fillText("¡MUY BIEN! LLEGASTE A LA PUNTUACIÓN MÁXIMA DE",(pantalla.width-260)/2,pantalla.height/2);
-    paintIT.fillText(puntuacion,(pantalla.width-260)/2,(pantalla.height+100)/2);
-    paintIT.fillText("¡  F E L I C I D A D E S  !",(pantalla.width-260)/2,(pantalla.height+200)/2);
+    paintIT.fillText("¡MUY BIEN! LLEGASTE A LA PUNTUACIÓN MÁXIMA DE",(pantalla.width-450)/2,pantalla.height/2);
+    paintIT.fillText(puntuacion,(pantalla.width-450)/2,(pantalla.height+100)/2);
+    paintIT.fillText("¡  F E L I C I D A D E S  !",(pantalla.width-450)/2,(pantalla.height+200)/2);
 }
 
 // Función de la derrota.
@@ -148,9 +148,9 @@ function drawDerrota()
 {
     paintIT.font = "25px Arial Black";
     paintIT.fillStyle = 'red';
-    paintIT.fillText("¡  G A M E   O V E R  !",(pantalla.width-260)/2,pantalla.height/2);
-    paintIT.fillText("EL Nº DE PTOS QUE TE HA QUEDADO, HA SIDO DE ",(pantalla.width-260)/2,(pantalla.height+100)/2);
-    paintIT.fillText(punt_max-puntuacion,(pantalla.width-260)/2,(pantalla.height+200)/2);
+    paintIT.fillText("¡  G A M E   O V E R  !",(pantalla.width-450)/2,pantalla.height/2);
+    paintIT.fillText("EL Nº DE PTOS QUE TE HA QUEDADO, HA SIDO DE ",(pantalla.width-450)/2,(pantalla.height+100)/2);
+    paintIT.fillText(punt_max-puntuacion,(pantalla.width-450)/2,(pantalla.height+200)/2);
 
 }
 
@@ -284,6 +284,10 @@ function update()
     //-- 1) Actualizar las posiciones de la raqueta, la bola, los ladrillos y otros ajustes.
     if(fase == ESTADO.PLAYING)
     {
+        // Movimiento de la bola en el eje x.
+        bolaX += velX_bol;
+        // Movimiento de la bola en el eje y.
+        bolaY += velY_bol;
         // Condición para que la bola rebote entre las paredes verticales.
         if((bolaX > (pantalla.width-radio)) || (bolaX < radio))
         {
@@ -314,6 +318,9 @@ function update()
                 // Que la raqueta vuelva a la posición inicial.
                 raqX = raqX_init;
                 raqY = raqY_init;
+                // Que la bola vuelva a la posición inicial.
+                bolaX = bolaX_init;
+                bolaY = bolaY_init;
                 // Dibujamos la raqueta en su posición inicial.
                 drawRaqueta();
             }
@@ -325,10 +332,11 @@ function update()
                 viewBola = false;
             }
         }
-        // Movimiento de la bola en el eje x.
-        bolaX += velX_bol;
-        // Movimiento de la bola en el eje y.
-        bolaY += velY_bol;
+        if((vidas <= (VIDAS-1)) && (fase == ESTADO.SAQUE))
+        {
+            // Establecemos a true, para que aparezca la bola.
+            viewBola = true;
+        }
     }
     // Condición para que al pulsar la tecla: flecha der/izq, la raqueta no se salga de la pantalla.
     window.onkeydown = (e) => 
@@ -339,14 +347,6 @@ function update()
             case 32:
                 if(fase == ESTADO.SAQUE)
                 {
-                    if(vidas <= (VIDAS-1))
-                    {
-                        // Establecemos a true, para que aparezca la bola.
-                        viewBola = true;
-                        // Que la bola vuelva a la posición inicial.
-                        bolaX = bolaX_init;
-                        bolaY = bolaY_init;
-                    }
                     // Cambiamos a la fase 2 o del juego.
                     fase = ESTADO.PLAYING;
                     // Mensaje del saque en consola.
@@ -400,11 +400,15 @@ function update()
         if(puntuacion == (LADRILLO.FILA * LADRILLO.COLUM))
         {
             drawVictoria();
+            // Función que carga la página, sin necesidad de dar al botón de recargar del navegador.
+            document.location.reload();
         }
         // Derrota.
         else
         {
             drawDerrota();
+            // Función que carga la página, sin necesidad de dar al botón de recargar del navegador.
+            document.location.reload();
         }
     }
 
