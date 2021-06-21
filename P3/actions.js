@@ -14,11 +14,6 @@ pantalla.height = 1000;
 // Definimos el contenido de la pantalla o canvas para poder dibujar en ello.
 const paintIT = pantalla.getContext("2d");
 
-// Evento de pulsar una tecla.
-document.addEventListener("keydown", pulsarTecla, false);
-// Evento de dejar de pulsar la tecla.
-document.addEventListener("keyup", dejarPulsarTecla, false);
-
 // Diagrama de estados. Hay 4 estados: 0, 1, 2 y 3.
 // El Estado 0 es el inicial, que cambia al Estado 1 cuando pulsamos espacio.
 // Después viene el Estado 1, donde empezamos a jugar con 3 vidas. Y cuando no conseguimos
@@ -83,6 +78,8 @@ let fase = ESTADO.INIT;
     // Definimos la variable velocidad del eje x e y de la bola.
     let velX_bol = 5;
     let velY_bol = -5;
+    // Visibilidad de la bola.
+    let viewBola = false;
 
 // Definimos la estructura del bloque de ladrillos.
 const LADRILLO = {
@@ -134,6 +131,24 @@ function drawCabecera()
     paintIT.fillText("Tiempo: ",timeX,timeY);
 }
 
+// Función de la victoria.
+function drawVictoria()
+{
+    paintIT.font = "120px Arial Black";
+    paintIT.fillStyle = 'green';
+    paintIT.fillText("¡MUY BIEN! LLEGASTE A LA PUNTUACIÓN MÁXIMA DE",(pantalla.width-100)/2,pantalla.height/2);
+    paintIT.fillText(puntuacion,(pantalla.width-100)/2,(pantalla.height+100)/2);
+    paintIT.fillText("¡  F E L I C I D A D E S  !",(pantalla.width-100)/2,(pantalla.height+200)/2);
+}
+
+// Función de la derrota.
+function drawDerrota()
+{
+    paintIT.font = "120px Arial Black";
+    paintIT.fillStyle = 'red';
+    paintIT.fillText("¡  G A M E   O V E R  !",(pantalla.width-100)/2,pantalla.height/2);
+}
+
 // Función para trazar la línea de separación: cabecera de textos - juego en sí,
 // a través del bucle for. Usando líneas discontinuas.
 function drawSeparacion()
@@ -170,45 +185,6 @@ function drawSeparacion()
     }
 }
 
-// Función para poder pulsar una tecla.
-function pulsarTecla(e)
-{
-    switch(e.keyCode)
-    {
-        // Tecla: espacio.
-        case 32:
-            pulsadorEsp = true;
-            break;
-        // Tecla: Izquierda.
-        case 37:
-            pulsadorIzq = true;
-            break;
-        // Tecla: Derecha.
-        case 39:
-            pulsadorDer = true;
-            break;
-    }
-}
-// Función para poder dejar de pulsar una tecla.
-function dejarPulsarTecla(e)
-{
-    switch(e.keyCode)
-    {
-        // Tecla: espacio.
-        case 32:
-            pulsadorEsp = false;
-            break;
-        // Tecla: Izquierda.
-        case 37:
-            pulsadorIzq = false;
-            break;
-        // Tecla: Derecha.
-        case 39:
-            pulsadorDer = false;
-            break;
-    }
-}
-
 //-- Función que dibuja la raqueta.
 function drawRaqueta()
 {
@@ -225,15 +201,18 @@ function drawRaqueta()
 //-- Función que dibuja la bola.
 function drawBola()
 {
-    paintIT.beginPath();
-        //-- Definimos las dimensiones de la bola: 
-        // (posición x, posición y, radio, ángulo inicial, ángulo final).
-        paintIT.arc(bolaX,bolaY,radio,ang0,angF);
-        //-- Definimos un color para la bola.
-        paintIT.fillStyle = '#FF0066'; //-- Color Fuctsia.
-        //-- Lo coloreamos.
-        paintIT.fill();
-    paintIT.closePath();
+    if(viewBola == true)
+    {
+        paintIT.beginPath();
+            //-- Definimos las dimensiones de la bola: 
+            // (posición x, posición y, radio, ángulo inicial, ángulo final).
+            paintIT.arc(bolaX,bolaY,radio,ang0,angF);
+            //-- Definimos un color para la bola.
+            paintIT.fillStyle = '#FF0066'; //-- Color Fuctsia.
+            //-- Lo coloreamos.
+            paintIT.fill();
+        paintIT.closePath();
+    }
 }
 
 // Función que dibuja los ladrillos, si está activado su visibilidad a true. Si no, desaparecen.
@@ -275,8 +254,9 @@ function colisionLadrillos()
                 {
                     ladrillos[i][j].status = false;
                     velY_bol = -velY_bol;
-                    // Si se llega a la puntuación final, se pasa al último estado (3).
+                    // Incrementamos en función vayamos dando con la bola en cada ladrillo.
                     puntuacion += 1;
+                    // Si se llega a la puntuación final, se pasa al último estado (3).
                     if(puntuacion == (LADRILLO.FILA * LADRILLO.COLUM))
                     {
                         // Mensaje de que se ha llegado a la max puntuación.
@@ -297,44 +277,101 @@ function update()
     console.log("Proceso de animación del juego");
 
     //-- 1) Actualizar las posiciones de la raqueta, la bola, los ladrillos y otros ajustes.
-    // Condición para que la bola rebote entre las paredes verticales.
-    if(((bolaX + velX_bol) > (pantalla.width-radio)) || ((bolaX - velX_bol) < radio))
+    if(fase == ESTADO.PLAYING)
     {
-        velX_bol = -velX_bol;
-    }
-    // Condición para que la bola rebote entre la pared horizontal inferior y la línea 
-    // discontinua de separación entre la cabecera y el juego.
-    if((bolaY + velY_bol) < (separY-radio)) 
-    {
-        velY_bol = -velY_bol;
-    }
-    else if((bolaY + velY_bol) > (pantalla.height-radio))
-    {
-        // Condición para que rebote la bola en la raqueta.
-        if((bolaX > raqX) && (bolaX < (raqX + anchoRAQ)))
+        // Condición para que la bola rebote entre las paredes verticales.
+        if((bolaX > (pantalla.width-radio)) || (bolaX < radio))
         {
-            if(bolaY == (bolaY - altoRAQ))
+            velX_bol = -velX_bol;
+        }
+        // Condición para que la bola rebote con la parte superior de la pantalla.
+        if(bolaY < (separY-50-radio)) 
+        {
+            velY_bol = -velY_bol;
+        }
+        // Condición para que rebote la bola en la raqueta.
+        if(((bolaX-radio) >= raqX) && ((bolaX-radio) <= (raqX + anchoRAQ)) && ((bolaY-radio) >= raqY) && ((bolaY-radio) <= (raqY + altoRAQ)))
+        {
+            // Cálculo del rebote en eje x e y.
+            velX_bol = -velX_bol;
+            velY_bol = -velY_bol;
+            // Reajustamos la posición de la bola.
+            bolaX += velX_bol;
+            bolaY += velY_bol;
+        }
+        // Condición para que la bola no circule más abajo de por donde se mueve la raqueta.
+        else if((bolaY-radio) < raqY)
+        {
+            // Movimiento de la bola en el eje x.
+            bolaX += velX_bol;
+            // Movimiento de la bola en el eje y.
+            bolaY += velY_bol;
+        }
+        else
+        {
+            if(vidas > 0)
             {
-                velY_bol = -velY_bol;
+                // Pasamos a la fase 1 de saque y perdemos vida.
+                fase = ESTADO.SAQUE;
+                vidas -= 1;
+            }
+            else if(vidas == 0)
+            {
+                // Pasamos a la fase 3 final.
+                fase = ESTADO.FINAL;
             }
         }
     }
-    // Condición para que al pulsar la tecla: flecha derecha, avance la raqueta 
-    // hacia la derecha, sin salirse de pantalla.
-    if(pulsadorDer && (raqX < (pantalla.width-anchoRAQ))) 
+    // Condición para que al pulsar la tecla: flecha der/izq, la raqueta no se salga de la pantalla.
+    if((raqX > 0) && (raqX < (pantalla.width-anchoRAQ))) 
     {
-        raqX += velX_raq;
+        window.onkeydown = (e) => {
+            if(fase == ESTADO.INIT)
+            {
+                // Cambiamos a la fase 1 o de saque.
+                fase = ESTADO.SAQUE;
+                // Establecemos a true, para que aparezca la bola.
+                viewBola = true;
+            }
+            
+            if(vidas != 0)
+            {
+                switch(e.keyCode)
+                {
+                    // Tecla: espacio.
+                    case 32:
+                        if(fase == ESTADO.SAQUE)
+                        {
+                            // Cambiamos a la fase 2 o del juego.
+                            fase = ESTADO.PLAYING;
+                            // Mensaje del saque en consola.
+                            console.log("Saque realizado");
+                        }
+                        break;
+                    // Tecla: Izquierda.
+                    case 37:
+                        if(fase == ESTADO.PLAYING)
+                        {
+                            // Cálculo para mover hacia la izquierda.
+                            raqX -= velX_raq;
+                            // Mensaje del mvto de la raqueta hacia la izquierda.
+                            console.log("Moviendo la raqueta hacia la izquierda");
+                        }
+                        break;
+                    // Tecla: Derecha.
+                    case 39:
+                        if(fase == ESTADO.PLAYING)
+                        {
+                            // Cálculo para mover hacia la derecha.
+                            raqX += velX_raq;
+                            // Mensaje del mvto de la raqueta hacia la derecha.
+                            console.log("Moviendo la raqueta hacia la derecha");
+                        }
+                        break;
+                }
+            }
+        }
     }
-    // Condición para que al pulsar la tecla: flecha izquierda, avance la raqueta 
-    // hacia la izquierda, sin salirse de pantalla.
-    else if(pulsadorIzq && (raqX > 0)) 
-    {
-        raqX -= velX_raq;
-    }
-    // Movimiento de la bola en el eje x.
-    bolaX += velX_bol;
-    // Movimiento de la bola en el eje y.
-    bolaY += velY_bol;
 
     //-- 2) Borrar la pantalla del juego.
     paintIT.clearRect(0,0,pantalla.width, pantalla.height);
@@ -352,10 +389,28 @@ function update()
     drawLadrillos();
     // La colisión de la bola con los ladrillos.
     colisionLadrillos();
+    // Mensaje de victoria si has llegado al máximo de puntuación sin que se acaben las vidas.
+    // Mensaje de derrota si has perdido las 3 vidas que tenías antes de llegar a la máxima de puntuación.
+    if(fase == ESTADO.FINAL)
+    {
+        // Victoria.
+        if(puntuacion == (LADRILLO.FILA * LADRILLO.COLUM))
+        {
+            drawVictoria();
+        }
+        // Derrota.
+        else
+        {
+            drawDerrota();
+        }
+    }
 
     //-- 4) Repetir de nuevo el proceso de animación del juego.
     requestAnimationFrame(update);
 }
+
+// Para poder iniciar la partida, es necesario pulsar al botón de PLAY.
+
 
 //-- Punto de entrada de la función update.
 update();
