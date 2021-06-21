@@ -59,7 +59,7 @@ let fase = ESTADO.INIT;
     let anchoRAQ = 80;
     let altoRAQ = 12;
     // Definimos las coordenadas de la raqueta.
-    let raqX = 250;
+    let raqX = 260;
     let raqY = 900;
     // Definimos la variable velocidad del eje x de la raqueta.
     let velX_raq = 25;
@@ -151,7 +151,7 @@ function drawDerrota()
     paintIT.fillStyle = 'red';
     paintIT.fillText("¡  G A M E   O V E R  !",(pantalla.width-400)/2,pantalla.height/2);
     paintIT.fillText("EL Nº DE PTOS QUE TE HA QUEDADO",(pantalla.width-570)/2,(pantalla.height+100)/2);
-    paintIT.fillText("HA SIDO DE ",(pantalla.width-70)/2,pantalla.height+200/2);
+    paintIT.fillText("HA SIDO DE ",(pantalla.width-70)/2,(pantalla.height+200)/2);
     paintIT.fillText(punt_max-puntuacion,pantalla.width/2,(pantalla.height+200)/2);
 
 }
@@ -401,17 +401,11 @@ function update()
         if(puntuacion == (LADRILLO.FILA * LADRILLO.COLUM))
         {
             drawVictoria();
-            // Función que carga la página, sin necesidad de dar al botón de recargar del navegador.
-            alert("PULSE PARA RECARGAR LA PAG....");
-            document.location.reload();
         }
         // Derrota.
         else
         {
             drawDerrota();
-            // Función que carga la página, sin necesidad de dar al botón de recargar del navegador.
-            alert("PULSE PARA RECARGAR LA PAG....");
-            document.location.reload();
         }
     }
 
