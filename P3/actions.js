@@ -95,6 +95,8 @@ const LADRILLO = {
     RELLENO: 6,  //-- Espacio alrededor del ladrillo.
     STATUS: true    //-- Activado o desactivado del ladrillo.
 }
+// Puntuación máxima que se puede conseguir.
+let punt_max = LADRILLO.FILA * LADRILLO.COLUM;
 // Definimos la variable o array donde almacenar los ladrillos.
 var ladrillos = [];
 
@@ -134,19 +136,22 @@ function drawCabecera()
 // Función de la victoria.
 function drawVictoria()
 {
-    paintIT.font = "35px Arial Black";
+    paintIT.font = "25px Arial Black";
     paintIT.fillStyle = 'green';
-    paintIT.fillText("¡MUY BIEN! LLEGASTE A LA PUNTUACIÓN MÁXIMA DE",(pantalla.width-220)/2,pantalla.height/2);
-    paintIT.fillText(puntuacion,(pantalla.width-100)/2,(pantalla.height+100)/2);
-    paintIT.fillText("¡  F E L I C I D A D E S  !",(pantalla.width-220)/2,(pantalla.height+200)/2);
+    paintIT.fillText("¡MUY BIEN! LLEGASTE A LA PUNTUACIÓN MÁXIMA DE",(pantalla.width-260)/2,pantalla.height/2);
+    paintIT.fillText(puntuacion,(pantalla.width-260)/2,(pantalla.height+100)/2);
+    paintIT.fillText("¡  F E L I C I D A D E S  !",(pantalla.width-260)/2,(pantalla.height+200)/2);
 }
 
 // Función de la derrota.
 function drawDerrota()
 {
-    paintIT.font = "35px Arial Black";
+    paintIT.font = "25px Arial Black";
     paintIT.fillStyle = 'red';
-    paintIT.fillText("¡  G A M E   O V E R  !",(pantalla.width-220)/2,pantalla.height/2);
+    paintIT.fillText("¡  G A M E   O V E R  !",(pantalla.width-260)/2,pantalla.height/2);
+    paintIT.fillText("EL Nº DE PTOS QUE TE HA QUEDADO, HA SIDO DE ",(pantalla.width-260)/2,(pantalla.height+100)/2);
+    paintIT.fillText(punt_max-puntuacion,(pantalla.width-260)/2,(pantalla.height+200)/2);
+
 }
 
 // Función para trazar la línea de separación: cabecera de textos - juego en sí,
