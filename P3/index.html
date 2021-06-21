@@ -25,30 +25,30 @@
     </h1>
     <!-- Creamos el canvas, donde va a estar el videojuego en sí. -->
     <canvas id="canvas"></canvas>
-    <!-- Tabla donde se muestran los controles del juego (2 primeras filas) y, los tres
-    botones de: play | pause | restart. -->
+    <!-- Tabla donde se muestran los controles del juego. -->
     <table>
-        <!-- 1º fila: Título de las instrucciones. -->
+        <!-- 1º fila: Título de los controles. -->
         <tr>
             <h4> CONTROLES: </h4>
         </tr>
-        <!-- 2º fila: Explicación de la tecla del inicio y del reinicio del juego. -->
-        <tr>
-            <!-- 1º columna: Explicación de la tecla del inicio del juego. -->
-            <td> <p> Pulsa la tecla "s" o "S" <br> para iniciar la partida </p> </td>
-            <!-- 2º columna: Explicación de la tecla del reinicio del juego. -->
-            <td> <p> Pulsa la tecla "q" o "Q" <br> para reiniciar la partida </p> </td>
+        <!-- 2º fila: Pulsar PLAY para iniciar el videojuego y recarga la página para reiniciar. -->
+        <tr id="fila1">
+            <td>
+                <div>
+                    Pulsa el PLAY si quieres jugar:
+                    <scan> <input type="button" id="play" value="PLAY"> </scan>
+                </div>
+            </td>
+            <td> Recarga la Página, <br> si quieres reiniciar el juego </td>
         </tr>
-        <!-- 3º fila: Explicación del control del mvto de la raqueta. -->
-        <tr>
-            <!-- Hacia la izquierda. -->
+        <!-- 3º fila: Resto de controles. -->
+        <tr id="fila2">
+            <!-- Botón de ir hacia la izquierda. -->
             <td> <p> Pulsa la tecla "<=" <br> para mover la raqueta <br> hacia la izquierda </p> </td>
-            <!-- Hacia la derecha. -->
-            <td> <p> Pulsa la tecla "=>" <br> para mover la raqueta <br> hacia la derecha </p> </td>
-        </tr>
-        <!-- 4º fila: Explicación del saque. -->
-        <tr>
+            <!-- Botón de saque. -->
             <td> <p> Pulsa "Tecla_espacio" para sacar </p> </td>
+            <!-- Botón de ir hacia la derecha. -->
+            <td> <p> Pulsa la tecla "=>" <br> para mover la raqueta <br> hacia la derecha </p> </td>
         </tr>
     </table>
 </body>

@@ -45,18 +45,34 @@ h1 {
     margin-right: auto;
     display: block;
 }
-/* Diseño del título de las instrucciones de juego. */
+/* Diseño del título de los controles de juego. */
 h4 {
     color: black;
     text-align: center;
     font: bold 25px Tahoma;
     margin-top: 50px;
 }
-/* Diseño de la fila de la descripción del control de la raqueta del canvas y su inicio con espacio. */
-p {
+/* Diseño de la fila donde está el botón play y las instrucciones de recarga pág. */
+#fila1 {
+    color: darkblue;
+    text-align: center;
+    font: bold 18px Tahoma;
+}
+/* Instrucciones del control de la raqueta y su saque. */
+#fila2 {
     color: darkblue;
     text-align: center;
     font: bold 18px Tahoma;
     margin-left: 420px;
     margin-right: -340px;
+}
+/* Diseño del botón PLAY. */
+#play {
+    background-color: green;
+    text-align: center;
+    font: bold 14px Tahoma;
+    color: white;
+    width: 70px;
+    height: 40px;
+    border-radius: 5px;
 }
