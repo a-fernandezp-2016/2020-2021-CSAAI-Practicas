@@ -91,7 +91,8 @@ const LADRILLO = {
     ANCHO: 60,  //-- Anchura.
     ALTO: 15,  //-- Altura.
     origen_y: separY,    //-- De donde parten los ladrillos en el eje y.
-    relleno: 6  //-- Espacio alrededor del ladrillo.
+    RELLENO: 6,  //-- Espacio alrededor del ladrillo.
+    STATUS: true    //-- Activado o desactivado del ladrillo.
 }
 // Definimos la variable o array donde almacenar los ladrillos.
 var ladrillos = [];
@@ -104,11 +105,12 @@ for(let i=1; i<=LADRILLO.FILA; i++)
     {
         ladrillos[i][j] = 
         {
-            posX: (LADRILLO.ANCHO * (j-1)) + (LADRILLO.relleno * j),
-            posY: (LADRILLO.origen_y + 20) + ((LADRILLO.ALTO + LADRILLO.relleno) * i),
+            posX: (LADRILLO.ANCHO * (j-1)) + (LADRILLO.RELLENO * j),
+            posY: (LADRILLO.origen_y + 20) + ((LADRILLO.ALTO + LADRILLO.RELLENO) * i),
             ancho: LADRILLO.ANCHO,
             alto: LADRILLO.ALTO,
-            relleno: LADRILLO.relleno
+            relleno: LADRILLO.RELLENO,
+            status: LADRILLO.STATUS
         };
     }
 }
@@ -241,12 +243,8 @@ function drawLadrillos()
     {
         for(let j=1; j<=LADRILLO.COLUM; j++)
         {
-            if (ladrillos[i][j].active == true) 
+            if(ladrillos[i][j].status == true)
             {
-                if(bolaX == ladrillos[i][j].posX && bolaY == ladrillos[i][j].posY)
-                {
-                    ladrillos[i][j].active = false;
-                }
                 paintIT.beginPath();
                 // Diseñamos ladrillo a ladrillo.
                 paintIT.rect(ladrillos[i][j].posX, ladrillos[i][j].posY, LADRILLO.ANCHO, LADRILLO.ALTO);
@@ -270,10 +268,23 @@ function colisionLadrillos()
     {
         for(let j=1; j<=LADRILLO.COLUM; j++)
         {
-            var ladrillo = ladrillos[i][j];
-            if((bolaX > ladrillo.posX) && (bolaX < ladrillo.posX+ANCHO) && (bolaY > ladrillo.posY) && (bolaY < ladrillo.posY+ALTO))
+            if(ladrillos[i][j].status == true)
             {
-                velY_bol = -velY_bol;
+                if(((bolaX + radio) >= ladrillos[i][j].posX) && (bolaX <= (ladrillos[i][j].posX + ladrillos[i][j].ancho)) &&
+                ((bolaY + radio) >= ladrillos[i][j].posY) && (bolaY <= (ladrillos[i][j].posY + ladrillos[i][j].alto)))
+                {
+                    ladrillos[i][j].status = false;
+                    velY_bol = -velY_bol;
+                    // Si se llega a la puntuación final, se pasa al último estado (3).
+                    puntuacion += 1;
+                    if(puntuacion == (LADRILLO.FILA * LADRILLO.COLUM))
+                    {
+                        // Mensaje de que se ha llegado a la max puntuación.
+                        console.log("¡HEMOS LLEGADO A LA MÁXIMA PUNTUACIÓN!");
+                        // Cambio de fase, a la final o 3.
+                        fase = ESTADO.FINAL;
+                    }
+                }
             }
         }
     }
@@ -302,7 +313,10 @@ function update()
         // Condición para que rebote la bola en la raqueta.
         if((bolaX > raqX) && (bolaX < (raqX + anchoRAQ)))
         {
-            velY_bol = -velY_bol;
+            if(bolaY == (bolaY - altoRAQ))
+            {
+                velY_bol = -velY_bol;
+            }
         }
     }
     // Condición para que al pulsar la tecla: flecha derecha, avance la raqueta 
@@ -336,6 +350,8 @@ function update()
     drawRaqueta();
     // Los ladrillos.
     drawLadrillos();
+    // La colisión de la bola con los ladrillos.
+    colisionLadrillos();
 
     //-- 4) Repetir de nuevo el proceso de animación del juego.
     requestAnimationFrame(update);
