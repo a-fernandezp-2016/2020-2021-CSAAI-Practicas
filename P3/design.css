@@ -52,14 +52,20 @@ h4 {
     font: bold 25px Tahoma;
     margin-top: 50px;
 }
-/* Diseño de la fila donde está el botón play y las instrucciones de recarga pág. */
-#fila1 {
+/* Diseño de la explicación del botón play. */
+#inicio {
+    color: darkblue;
+    text-align: center;
+    font: bold 18px Tahoma;
+}
+/* Diseño de la explicación de las instrucciones de recarga pág. */
+#reinicio {
     color: darkblue;
     text-align: center;
     font: bold 18px Tahoma;
 }
 /* Instrucciones del control de la raqueta y su saque. */
-#fila2 {
+.resto {
     color: darkblue;
     text-align: center;
     font: bold 18px Tahoma;
