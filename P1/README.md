@@ -1,4 +1,4 @@
- # Práctica 1.
+ # Práctica 1: CV de un personaje ficticio.
 
  ### **Especificaciones de la práctica.**
 <br>
