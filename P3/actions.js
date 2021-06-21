@@ -151,8 +151,8 @@ function drawDerrota()
     paintIT.fillStyle = 'red';
     paintIT.fillText("¡  G A M E   O V E R  !",(pantalla.width-400)/2,pantalla.height/2);
     paintIT.fillText("EL Nº DE PTOS QUE TE HA QUEDADO",(pantalla.width-570)/2,(pantalla.height+100)/2);
-    paintIT.fillText("HA SIDO DE ",(pantalla.width-170)/2,(pantalla.height+200)/2);
-    paintIT.fillText(punt_max-puntuacion,(pantalla.width+50)/2,(pantalla.height+200)/2);
+    paintIT.fillText("HA SIDO DE ",(pantalla.width-210)/2,(pantalla.height+200)/2);
+    paintIT.fillText(punt_max-puntuacion,(pantalla.width+170)/2,(pantalla.height+200)/2);
 }
 
 // Función para trazar la línea de separación: cabecera de textos - juego en sí,
