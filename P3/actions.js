@@ -63,7 +63,7 @@ let fase = ESTADO.INIT;
     let raqX = 250;
     let raqY = 900;
     // Definimos la variable velocidad del eje x de la raqueta.
-    let velX_raq = 10;
+    let velX_raq = 20;
 
 // Características de la bola.
     // Definimos las coordenadas de la bola.
@@ -75,8 +75,8 @@ let fase = ESTADO.INIT;
     let ang0 = 0;
     let angF = 2 * Math.PI;
     // Definimos la variable velocidad del eje x e y de la bola.
-    let velX_bol = 5;
-    let velY_bol = -5;
+    let velX_bol = 4;
+    let velY_bol = -4;
     // Visibilidad de la bola.
     let viewBola = false;
 
@@ -289,15 +289,15 @@ function update()
             velY_bol = -velY_bol;
         }
         // Condición para que rebote la bola en la raqueta.
-        if((((bolaX-radio) >= raqX) && ((bolaX-radio) <= (raqX + anchoRAQ))) && 
-        (((bolaY-radio) >= raqY) && ((bolaY-radio) <= (raqY + altoRAQ))))
+        if(((bolaX-radio) > raqX) && ((bolaX-radio) < (raqX + anchoRAQ)) && 
+        ((bolaY-radio) > raqY) && ((bolaY-radio) < (raqY + altoRAQ)))
         {
             // Cálculo del rebote en eje x e y.
             velX_bol = -velX_bol;
             velY_bol = -velY_bol;
         }
         // Condición para que la bola no circule más abajo de por donde se mueve la raqueta.
-        else if((bolaY-radio) >= (raqY + altoRAQ))
+        else if((bolaY-radio) > (raqY + altoRAQ))
         {
             if(vidas > 0)
             {
