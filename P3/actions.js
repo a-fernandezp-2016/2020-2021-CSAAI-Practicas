@@ -311,6 +311,11 @@ function update()
                 vidas -= 1;
                 // Establecemos a false, para que desaparezca la bola.
                 viewBola = false;
+                // Que la raqueta vuelva a la posición inicial.
+                raqX = raqX_init;
+                raqY = raqY_init;
+                // Dibujamos la raqueta en su posición inicial.
+                drawRaqueta();
             }
             else if(vidas == 0)
             {
@@ -338,11 +343,9 @@ function update()
                     {
                         // Establecemos a true, para que aparezca la bola.
                         viewBola = true;
-                        // Que la raqueta y la bola vuelvan a la posición inicial.
+                        // Que la bola vuelva a la posición inicial.
                         bolaX = bolaX_init;
                         bolaY = bolaY_init;
-                        raqX = raqX_init;
-                        raqY = raqY_init;
                     }
                     // Cambiamos a la fase 2 o del juego.
                     fase = ESTADO.PLAYING;
