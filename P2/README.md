@@ -1,4 +1,4 @@
- # Práctica 2
+ # Práctica 2: Calculadora Huawei Web.
 
 ### **Especificaciones de la práctica.**
 <br>
