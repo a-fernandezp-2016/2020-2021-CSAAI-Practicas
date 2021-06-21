@@ -14,7 +14,7 @@ pantalla.height = 1000;
 // Definimos el contenido de la pantalla o canvas para poder dibujar en ello.
 const paintIT = pantalla.getContext("2d");
 
-// Creamos el elemento para poder pulsar el botón PLAY, a través del ID play.
+// Creamos el elemento para poder pulsar el botón PLAY e iniciar el juego, a través del ID play.
 const PLAY = document.getElementById("play");
 
 // Diagrama de estados. Hay 4 estados: 0, 1, 2 y 3.
@@ -151,9 +151,8 @@ function drawDerrota()
     paintIT.fillStyle = 'red';
     paintIT.fillText("¡  G A M E   O V E R  !",(pantalla.width-400)/2,pantalla.height/2);
     paintIT.fillText("EL Nº DE PTOS QUE TE HA QUEDADO",(pantalla.width-570)/2,(pantalla.height+100)/2);
-    paintIT.fillText("HA SIDO DE ",(pantalla.width-70)/2,(pantalla.height+200)/2);
-    paintIT.fillText(punt_max-puntuacion,pantalla.width/2,(pantalla.height+200)/2);
-
+    paintIT.fillText("HA SIDO DE ",(pantalla.width-170)/2,(pantalla.height+200)/2);
+    paintIT.fillText(punt_max-puntuacion,(pantalla.width+50)/2,(pantalla.height+200)/2);
 }
 
 // Función para trazar la línea de separación: cabecera de textos - juego en sí,
