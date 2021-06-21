@@ -296,7 +296,7 @@ function update()
             velY_bol = -velY_bol;
         }
         // Condición para que la bola no circule más abajo de por donde se mueve la raqueta.
-        else if((bolaY-radio) < raqY)
+        else if((bolaY-radio) < (raqY + altoRAQ))
         {
             // Movimiento de la bola en el eje x.
             bolaX += velX_bol;
