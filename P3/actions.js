@@ -297,13 +297,6 @@ function update()
             velY_bol = -velY_bol;
         }
         // Condición para que la bola no circule más abajo de por donde se mueve la raqueta.
-        else if((bolaY-radio) <= raqY)
-        {
-            // Movimiento de la bola en el eje x.
-            bolaX += velX_bol;
-            // Movimiento de la bola en el eje y.
-            bolaY += velY_bol;
-        }
         else if((bolaY-radio) >= (raqY + altoRAQ))
         {
             if(vidas > 0)
@@ -319,6 +312,13 @@ function update()
                 // Pasamos a la fase 3 final.
                 fase = ESTADO.FINAL;
             }
+        }
+        else
+        {
+            // Movimiento de la bola en el eje x.
+            bolaX += velX_bol;
+            // Movimiento de la bola en el eje y.
+            bolaY += velY_bol;
         }
     }
     // Condición para que al pulsar la tecla: flecha der/izq, la raqueta no se salga de la pantalla.
