@@ -291,15 +291,15 @@ function update()
             velY_bol = -velY_bol;
         }
         // Condición para que rebote la bola en la raqueta.
-        if(((bolaX-radio) > raqX) && ((bolaX-radio) < (raqX + anchoRAQ)) && 
-        ((bolaY-radio) > raqY) && ((bolaY-radio) < (raqY + altoRAQ)))
+        if(((bolaX+radio) >= raqX) && ((bolaX-radio) <= (raqX + anchoRAQ)) && 
+        ((bolaY+radio) >= raqY) && ((bolaY-radio) <= (raqY + altoRAQ)))
         {
             // Cálculo del rebote en eje x e y.
             velX_bol = -velX_bol;
             velY_bol = -velY_bol;
         }
         // Condición para que la bola no circule más abajo de por donde se mueve la raqueta.
-        else if((bolaY-radio) > (raqY + altoRAQ))
+        else if((bolaY+radio) > (raqY + altoRAQ))
         {
             if(vidas > 0)
             {
