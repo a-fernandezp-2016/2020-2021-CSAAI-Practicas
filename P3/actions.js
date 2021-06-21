@@ -48,14 +48,11 @@ let fase = ESTADO.INIT;
     let vidas = 3;
     // CTE vidas.
     const VIDAS = 3;
-    // Coordenadas del tiempo.
-    let timeX = 50;
-    let timeY = 120;
 
 // Características de la línea de separación trazada para separar la cabecera del juego en sí.
     // Coordenadas de la separación de la cabecera con el juego en sí.
     let separX = 0;
-    let separY = 165;
+    let separY = 100;
 
 // Características de la raqueta.
     // Dimensiones de la raqueta.
@@ -90,7 +87,7 @@ const raqY_init = 900;
 
 // Definimos la estructura del bloque de ladrillos.
 const LADRILLO = {
-    FILA: 7,   //-- Filas.
+    FILA: 9,   //-- Filas.
     COLUM: 9,   //-- Columnas.
     ANCHO: 60,  //-- Anchura.
     ALTO: 15,  //-- Altura.
@@ -132,28 +129,24 @@ function drawCabecera()
     paintIT.fillStyle = 'white';
     paintIT.fillText("Vidas: ",vidX,vidY);
     paintIT.fillText(vidas, vidX+120,vidY);
-    // Texto sólido de tiempo.
-    paintIT.font = "35px Arial";
-    paintIT.fillStyle = 'white';
-    paintIT.fillText("Tiempo: ",timeX,timeY);
 }
 
 // Función de la victoria.
 function drawVictoria()
 {
-    paintIT.font = "60px Arial Black";
+    paintIT.font = "35px Arial Black";
     paintIT.fillStyle = 'green';
-    paintIT.fillText("¡MUY BIEN! LLEGASTE A LA PUNTUACIÓN MÁXIMA DE",(pantalla.width-100)/2,pantalla.height/2);
+    paintIT.fillText("¡MUY BIEN! LLEGASTE A LA PUNTUACIÓN MÁXIMA DE",(pantalla.width-220)/2,pantalla.height/2);
     paintIT.fillText(puntuacion,(pantalla.width-100)/2,(pantalla.height+100)/2);
-    paintIT.fillText("¡  F E L I C I D A D E S  !",(pantalla.width-100)/2,(pantalla.height+200)/2);
+    paintIT.fillText("¡  F E L I C I D A D E S  !",(pantalla.width-220)/2,(pantalla.height+200)/2);
 }
 
 // Función de la derrota.
 function drawDerrota()
 {
-    paintIT.font = "60px Arial Black";
+    paintIT.font = "35px Arial Black";
     paintIT.fillStyle = 'red';
-    paintIT.fillText("¡  G A M E   O V E R  !",(pantalla.width-100)/2,pantalla.height/2);
+    paintIT.fillText("¡  G A M E   O V E R  !",(pantalla.width-220)/2,pantalla.height/2);
 }
 
 // Función para trazar la línea de separación: cabecera de textos - juego en sí,
@@ -313,11 +306,6 @@ function update()
                 vidas -= 1;
                 // Establecemos a false, para que desaparezca la bola.
                 viewBola = false;
-                // Que la raqueta y la bola vuelvan a la posición inicial.
-                bolaX = bolaX_init;
-                bolaY = bolaY_init;
-                raqX = raqX_init;
-                raqY = raqY_init;
             }
             else if(vidas == 0)
             {
@@ -345,6 +333,11 @@ function update()
                     {
                         // Establecemos a true, para que aparezca la bola.
                         viewBola = true;
+                        // Que la raqueta y la bola vuelvan a la posición inicial.
+                        bolaX = bolaX_init;
+                        bolaY = bolaY_init;
+                        raqX = raqX_init;
+                        raqY = raqY_init;
                     }
                     // Cambiamos a la fase 2 o del juego.
                     fase = ESTADO.PLAYING;
