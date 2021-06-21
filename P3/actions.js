@@ -82,7 +82,7 @@ let fase = ESTADO.INIT;
 // Posiciones de la bola y de la raqueta iniciales.
 const bolaX_init = 300;
 const bolaY_init = 889;
-const raqX_init = 250;
+const raqX_init = 260;
 const raqY_init = 900;
 
 // Definimos la estructura del bloque de ladrillos.
