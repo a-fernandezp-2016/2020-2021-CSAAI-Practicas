@@ -63,11 +63,7 @@ let fase = ESTADO.INIT;
     let raqX = 250;
     let raqY = 900;
     // Definimos la variable velocidad del eje x de la raqueta.
-    let velX_raq = 5;
-    // Activación de la flecha der/izq.
-    let pulsadorDer = false;
-    let pulsadorIzq = false;
-    let pulsadorEsp = false;
+    let velX_raq = 10;
 
 // Características de la bola.
     // Definimos las coordenadas de la bola.
@@ -298,9 +294,6 @@ function update()
             // Cálculo del rebote en eje x e y.
             velX_bol = -velX_bol;
             velY_bol = -velY_bol;
-            // Reajustamos la posición de la bola.
-            bolaX += velX_bol;
-            bolaY += velY_bol;
         }
         // Condición para que la bola no circule más abajo de por donde se mueve la raqueta.
         else if((bolaY-radio) < raqY)
@@ -317,6 +310,8 @@ function update()
                 // Pasamos a la fase 1 de saque y perdemos vida.
                 fase = ESTADO.SAQUE;
                 vidas -= 1;
+                // Establecemos a false, para que desaparezca la bola.
+                viewBola = false;
             }
             else if(vidas == 0)
             {
