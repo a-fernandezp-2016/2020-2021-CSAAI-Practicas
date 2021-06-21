@@ -65,7 +65,7 @@ let fase = ESTADO.INIT;
     let raqX = 250;
     let raqY = 900;
     // Definimos la variable velocidad del eje x de la raqueta.
-    let velX_raq = 20;
+    let velX_raq = 25;
 
 // Características de la bola.
     // Definimos las coordenadas de la bola.
@@ -81,6 +81,12 @@ let fase = ESTADO.INIT;
     let velY_bol = -4;
     // Visibilidad de la bola.
     let viewBola = false;
+
+// Posiciones de la bola y de la raqueta iniciales.
+const bolaX_init = 300;
+const bolaY_init = 889;
+const raqX_init = 250;
+const raqY_init = 900;
 
 // Definimos la estructura del bloque de ladrillos.
 const LADRILLO = {
@@ -135,7 +141,7 @@ function drawCabecera()
 // Función de la victoria.
 function drawVictoria()
 {
-    paintIT.font = "120px Arial Black";
+    paintIT.font = "60px Arial Black";
     paintIT.fillStyle = 'green';
     paintIT.fillText("¡MUY BIEN! LLEGASTE A LA PUNTUACIÓN MÁXIMA DE",(pantalla.width-100)/2,pantalla.height/2);
     paintIT.fillText(puntuacion,(pantalla.width-100)/2,(pantalla.height+100)/2);
@@ -145,7 +151,7 @@ function drawVictoria()
 // Función de la derrota.
 function drawDerrota()
 {
-    paintIT.font = "120px Arial Black";
+    paintIT.font = "60px Arial Black";
     paintIT.fillStyle = 'red';
     paintIT.fillText("¡  G A M E   O V E R  !",(pantalla.width-100)/2,pantalla.height/2);
 }
@@ -302,20 +308,23 @@ function update()
         {
             if(vidas > 0)
             {
-                // Rebota.
-                velY_bol = -velY_bol;
                 // Pasamos a la fase 1 de saque y perdemos vida.
                 fase = ESTADO.SAQUE;
                 vidas -= 1;
                 // Establecemos a false, para que desaparezca la bola.
                 viewBola = false;
+                // Que la raqueta y la bola vuelvan a la posición inicial.
+                bolaX = bolaX_init;
+                bolaY = bolaY_init;
+                raqX = raqX_init;
+                raqY = raqY_init;
             }
             else if(vidas == 0)
             {
-                // Rebota.
-                velY_bol = -velY_bol;
                 // Pasamos a la fase 3 final.
                 fase = ESTADO.FINAL;
+                // Establecemos a false, para que desaparezca la bola.
+                viewBola = false;
             }
         }
         // Movimiento de la bola en el eje x.
@@ -324,47 +333,45 @@ function update()
         bolaY += velY_bol;
     }
     // Condición para que al pulsar la tecla: flecha der/izq, la raqueta no se salga de la pantalla.
-    if((raqX > 0) && (raqX < (pantalla.width-anchoRAQ))) 
+    window.onkeydown = (e) => 
     {
-        window.onkeydown = (e) => {
-            switch(e.keyCode)
-            {
-                // Tecla: espacio.
-                case 32:
-                    if(fase == ESTADO.SAQUE)
+        switch(e.keyCode)
+        {
+            // Tecla: espacio.
+            case 32:
+                if(fase == ESTADO.SAQUE)
+                {
+                    if(vidas <= (VIDAS-1))
                     {
-                        if(vidas <= (VIDAS-1))
-                        {
-                            // Establecemos a true, para que aparezca la bola.
-                            viewBola = true;
-                        }
-                        // Cambiamos a la fase 2 o del juego.
-                        fase = ESTADO.PLAYING;
-                        // Mensaje del saque en consola.
-                        console.log("Saque realizado");
+                        // Establecemos a true, para que aparezca la bola.
+                        viewBola = true;
                     }
-                    break;
-                // Tecla: Izquierda.
-                case 37:
-                    if(fase == ESTADO.PLAYING)
-                    {
-                        // Cálculo para mover hacia la izquierda.
-                        raqX -= velX_raq;
-                        // Mensaje del mvto de la raqueta hacia la izquierda.
-                        console.log("Moviendo la raqueta hacia la izquierda");
-                    }
-                    break;
-                // Tecla: Derecha.
-                case 39:
-                    if(fase == ESTADO.PLAYING)
-                    {
-                        // Cálculo para mover hacia la derecha.
-                        raqX += velX_raq;
-                        // Mensaje del mvto de la raqueta hacia la derecha.
-                        console.log("Moviendo la raqueta hacia la derecha");
-                    }
-                    break;
-            }
+                    // Cambiamos a la fase 2 o del juego.
+                    fase = ESTADO.PLAYING;
+                    // Mensaje del saque en consola.
+                    console.log("Saque realizado");
+                }
+                break;
+            // Tecla: Izquierda.
+            case 37:
+                if((fase == ESTADO.PLAYING) && (raqX > 0))
+                {
+                    // Cálculo para mover hacia la izquierda.
+                    raqX -= velX_raq;
+                    // Mensaje del mvto de la raqueta hacia la izquierda.
+                    console.log("Moviendo la raqueta hacia la izquierda");
+                }
+                break;
+            // Tecla: Derecha.
+            case 39:
+                if((fase == ESTADO.PLAYING) && (raqX < (pantalla.width-anchoRAQ)))
+                {
+                    // Cálculo para mover hacia la derecha.
+                    raqX += velX_raq;
+                    // Mensaje del mvto de la raqueta hacia la derecha.
+                    console.log("Moviendo la raqueta hacia la derecha");
+                }
+                break;
         }
     }
 
