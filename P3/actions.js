@@ -138,8 +138,9 @@ function drawVictoria()
 {
     paintIT.font = "25px Arial Black";
     paintIT.fillStyle = 'green';
-    paintIT.fillText("¡MUY BIEN! LLEGASTE A LA PUNTUACIÓN MÁXIMA DE",(pantalla.width-450)/2,pantalla.height/2);
-    paintIT.fillText(puntuacion,(pantalla.width-450)/2,(pantalla.height+100)/2);
+    paintIT.fillText(" ¡  M U Y   B I E N  ! ",(pantalla.width-400)/2,pantalla.height/2);
+    paintIT.fillText("LLEGASTE A LA PUNTUACIÓN MÁXIMA DE ",(pantalla.width-570)/2,pantalla.height+100/2);
+    paintIT.fillText(puntuacion,(pantalla.width+100)/2,(pantalla.height+100)/2);
     paintIT.fillText("¡  F E L I C I D A D E S  !",(pantalla.width-450)/2,(pantalla.height+200)/2);
 }
 
@@ -148,9 +149,10 @@ function drawDerrota()
 {
     paintIT.font = "25px Arial Black";
     paintIT.fillStyle = 'red';
-    paintIT.fillText("¡  G A M E   O V E R  !",(pantalla.width-450)/2,pantalla.height/2);
-    paintIT.fillText("EL Nº DE PTOS QUE TE HA QUEDADO, HA SIDO DE ",(pantalla.width-450)/2,(pantalla.height+100)/2);
-    paintIT.fillText(punt_max-puntuacion,(pantalla.width-450)/2,(pantalla.height+200)/2);
+    paintIT.fillText("¡  G A M E   O V E R  !",(pantalla.width-400)/2,pantalla.height/2);
+    paintIT.fillText("EL Nº DE PTOS QUE TE HA QUEDADO",(pantalla.width-570)/2,(pantalla.height+100)/2);
+    paintIT.fillText("HA SIDO DE ",(pantalla.width-70)/2,pantalla.height+200/2);
+    paintIT.fillText(punt_max-puntuacion,pantalla.width/2,(pantalla.height+200)/2);
 
 }
 
@@ -299,8 +301,7 @@ function update()
             velY_bol = -velY_bol;
         }
         // Condición para que rebote la bola en la raqueta.
-        if(((bolaX+radio) >= raqX) && ((bolaX-radio) <= (raqX + anchoRAQ)) && 
-        ((bolaY+radio) >= raqY) && ((bolaY-radio) <= (raqY + altoRAQ)))
+        if(((bolaX+radio) >= raqX) && ((bolaX-radio) <= (raqX + anchoRAQ)) && ((bolaY+radio) >= raqY))
         {
             // Cálculo del rebote bola - raqueta.
             velY_bol = -velY_bol;
@@ -401,6 +402,7 @@ function update()
         {
             drawVictoria();
             // Función que carga la página, sin necesidad de dar al botón de recargar del navegador.
+            alert("PULSE PARA RECARGAR LA PAG....");
             document.location.reload();
         }
         // Derrota.
@@ -408,6 +410,7 @@ function update()
         {
             drawDerrota();
             // Función que carga la página, sin necesidad de dar al botón de recargar del navegador.
+            alert("PULSE PARA RECARGAR LA PAG....");
             document.location.reload();
         }
     }
