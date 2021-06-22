@@ -14,6 +14,16 @@ pantalla.height = 1000;
 // Definimos el contenido de la pantalla o canvas para poder dibujar en ello.
 const paintIT = pantalla.getContext("2d");
 
+// Sonidos del juego.
+// Creación del elemento para que se escuche el sonido principal de fondo.
+const AUDIO_PRINC = document.getElementById("audiofondo");
+const Sonido_Victoria = new Audio("Winner.mp3");
+const Sonido_Derrota = new Audio("Game_over.mp3");
+const Sonido_Saque = new Audio("Al_sacar.mp3");
+const Sonido_PierdeVida = new Audio("Pierde_vida.mp3");
+const Sonido_Rebote = new Audio("Rebote_bola_raqueta_pared.mp3");
+const Sonido_Romper = new Audio("Romper_ladrillo.mp3");
+
 // Creamos el elemento para poder pulsar el botón PLAY e iniciar el juego, a través del ID play.
 const PLAY = document.getElementById("play");
 
@@ -283,6 +293,9 @@ function colisionLadrillos()
                     velY_bol = -velY_bol;
                     // Incrementamos en función vayamos dando con la bola en cada ladrillo.
                     puntuacion += 1;
+                    // Se activa el audio de ROMPER LOS LADRILLOS.
+                    Sonido_Romper.currentTime = 0;
+                    Sonido_Romper.play();
                     // Si se llega a la puntuación final, se pasa al último estado (3).
                     if(puntuacion == (LADRILLO.FILA * LADRILLO.COLUM))
                     {
@@ -314,11 +327,17 @@ function update()
         if((bolaX > (pantalla.width-radio)) || (bolaX < radio))
         {
             velX_bol = -velX_bol;
+            // Se activa el audio del REBOTE.
+            Sonido_Rebote.currentTime = 0;
+            Sonido_Rebote.play();
         }
         // Condición para que la bola rebote con la parte superior de la pantalla.
         if(bolaY < (separY+20+radio)) 
         {
             velY_bol = -velY_bol;
+            // Se activa el audio del REBOTE.
+            Sonido_Rebote.currentTime = 0;
+            Sonido_Rebote.play();
         }
         // Condición para que rebote la bola en la raqueta.
         if(((bolaX+radio) >= raqX) && ((bolaX-radio) <= (raqX + anchoRAQ)) 
@@ -326,6 +345,9 @@ function update()
         {
             // Cálculo del rebote bola - raqueta.
             velY_bol = -velY_bol;
+            // Se activa el audio del REBOTE.
+            Sonido_Rebote.currentTime = 0;
+            Sonido_Rebote.play();
         }
         // Condición para que, si la bola toca el mar, ésta desaparezca y, haya que sacar de nuevo.
         if((bolaY + radio) > (raqY + altoRAQ))
@@ -335,6 +357,9 @@ function update()
                 // Pasamos a la fase 1 de saque y perdemos vida.
                 fase = ESTADO.SAQUE;
                 vidas -= 1;
+                // Se activa el audio de una VIDA MENOS.
+                Sonido_PierdeVida.currentTime = 0;
+                Sonido_PierdeVida.play();
                 // Establecemos la bola a false, cuando llega al mar, para que desaparezca la bola.
                 viewBola = false;
                 // Que la raqueta vuelva a la posición inicial.
@@ -371,6 +396,9 @@ function update()
                 {
                     // Cambiamos a la fase 2 o del juego.
                     fase = ESTADO.PLAYING;
+                    // Se activa el audio de saque.
+                    Sonido_Saque.currentTime = 0;
+                    Sonido_Saque.play();
                     // Mensaje del saque en consola.
                     console.log("Saque realizado");
                 }
@@ -424,11 +452,17 @@ function update()
         if(puntuacion == (LADRILLO.FILA * LADRILLO.COLUM))
         {
             drawVictoria();
+            // Se activa el audio de VICTORIA.
+            Sonido_Victoria.currentTime = 0;
+            Sonido_Victoria.play();
         }
         // Derrota.
         else
         {
             drawDerrota();
+            // Se activa el audio de DERROTA.
+            Sonido_Derrota.currentTime = 0;
+            Sonido_Derrota.play();
         }
     }
 
@@ -444,6 +478,9 @@ PLAY.onclick = () => {
         fase = ESTADO.SAQUE;
         // Establecemos a true, para que aparezca la bola.
         viewBola = true;
+        // Se activa el audio principal del juego retro, desde el principio.
+        AUDIO_PRINC.currentTime = 0;
+        AUDIO_PRINC.play();
     }
 }
 

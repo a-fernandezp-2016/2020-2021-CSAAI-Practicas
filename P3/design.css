@@ -90,8 +90,8 @@ h4 {
     margin-left: -320px;
     margin-right: -400px;
 }
-/* Diseño del botón PLAY. */
-#play {
+/* Diseño del botón de PLAY y el de REINICIAR. */
+input {
     background-color: green;
     text-align: center;
     font: bold 22px Tahoma;
