@@ -21,7 +21,7 @@ Por último, hay que saber que, si vas a ejecutar el archivo index.html en el na
 Espero que se tenga en cuenta. Hay muchos navegadores, tipos de pantalla, PCs y, es complicado ajustarse a todos. Para conseguir que saliera perfecto en todos, tendríamos que tener un buen programa de CSS.
 <br>
 <br>
-Aparte de esto, si lo quieres ver por el móvil, te recomiendo el Navegador "Brave" para Android (no creo que en la tienda de Apple lo encuentres).
+Aparte de esto, si lo quieres ver por el móvil, utiliza el Navegador "Brave" para Android (no creo que en la tienda de Apple lo encuentres).
 <br>
 <br>
 
