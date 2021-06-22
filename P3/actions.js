@@ -301,7 +301,7 @@ function update()
         }
         // Condición para que rebote la bola en la raqueta.
         if(((bolaX+radio) >= raqX) && ((bolaX-radio) <= (raqX + anchoRAQ)) 
-        && ((bolaY+radio) >= raqY))
+        && ((bolaY+radio) > raqY))
         {
             // Cálculo del rebote bola - raqueta.
             velY_bol = -velY_bol;
@@ -315,10 +315,13 @@ function update()
                 // Pasamos a la fase 1 de saque y perdemos vida.
                 fase = ESTADO.SAQUE;
                 vidas -= 1;
-                // Que la bola siga moviéndose.
-                bolaY += velY_bol;
+                // Que la bola siga moviéndose hasta la pared inferior de la pantalla.
+                for(let i=bolaY+radio; i<=pantalla.height; i+=4)
+                {
+                    bolaY += i;
+                }
                 // Establecemos la bola a false, cuando llegue a la pared inferior de la pantalla.
-                if((bolaY + radio) >= pantalla.height)
+                if(bolaY >= (pantalla.height - radio))
                 {
                     // Establecemos a false, para que desaparezca la bola.
                     viewBola = false;
