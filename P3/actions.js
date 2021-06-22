@@ -454,10 +454,7 @@ function update()
     // La colisión de la bola con los ladrillos.
     colisionLadrillos();
     // Llamar a la función del audio principal de nuevo, si ha acabado de sonar
-    if(AUDIO_PRINC.currentTime == 2)
-    {
-        soundPrincipal();
-    }
+    soundPrincipal();
     // Mensaje de victoria si has llegado al máximo de puntuación sin que se acaben las vidas.
     // Mensaje de derrota si has perdido las 3 vidas que tenías antes de llegar a la máxima de puntuación.
     if(fase == ESTADO.FINAL)
@@ -465,18 +462,18 @@ function update()
         // Victoria.
         if(puntuacion == (LADRILLO.FILA * LADRILLO.COLUM))
         {
-            drawVictoria();
             // Se activa el audio de VICTORIA.
             Sonido_Victoria.currentTime = 0;
             Sonido_Victoria.play();
+            drawVictoria();
         }
         // Derrota.
         else
         {
-            drawDerrota();
             // Se activa el audio de DERROTA.
             Sonido_Derrota.currentTime = 0;
             Sonido_Derrota.play();
+            drawDerrota();
         }
     }
 
