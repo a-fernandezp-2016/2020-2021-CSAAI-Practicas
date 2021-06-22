@@ -85,6 +85,14 @@ const bolaY_init = 890;
 const raqX_init = 260;
 const raqY_init = 900;
 
+// Características del mar.
+    // Coordenadas del mar.
+    let marX = 0;
+    marY = raqY + altoRAQ;
+    // Dimensión del mar.
+    anchoMAR = pantalla.width;
+    altoMAR = pantalla.height - (raqY + altoRAQ);
+
 // Definimos la estructura del bloque de ladrillos.
 const LADRILLO = {
     FILA: 9,   //-- Filas.
@@ -221,6 +229,19 @@ function drawBola()
     }
 }
 
+// Función que dibuja el mar de la parte inferior.
+function drawMar()
+{
+    paintIT.beginPath();
+        //-- Definimos las dimensiones del mar: (posición x, posición y, ancho, alto).
+        paintIT.rect(marX,marY,anchoMAR,altoMAR);
+        //-- Definimos un color para el mar.
+        paintIT.fillStyle = 'blue'; //-- Color azul.
+        //-- Lo coloreamos.
+        paintIT.fill();
+    paintIT.closePath();
+}
+
 // Función que dibuja los ladrillos, si está activado su visibilidad a true. Si no, desaparecen.
 function drawLadrillos()
 {
@@ -306,26 +327,16 @@ function update()
             // Cálculo del rebote bola - raqueta.
             velY_bol = -velY_bol;
         }
-        // Condición para que, si la bola está por debajo de la raqueta, 
-        // ésta desaparezca y, haya que sacar de nuevo.
-        if((bolaY + radio) >= (raqY + altoRAQ))
+        // Condición para que, si la bola toca el mar, ésta desaparezca y, haya que sacar de nuevo.
+        if((bolaY + radio) > (raqY + altoRAQ))
         {
             if(vidas > 0)
             {
                 // Pasamos a la fase 1 de saque y perdemos vida.
                 fase = ESTADO.SAQUE;
                 vidas -= 1;
-                // Que la bola siga moviéndose hasta la pared inferior de la pantalla.
-                for(let i=bolaY+radio; i<=pantalla.height; i+=4)
-                {
-                    bolaY += i;
-                }
-                // Establecemos la bola a false, cuando llegue a la pared inferior de la pantalla.
-                if(bolaY >= (pantalla.height - radio))
-                {
-                    // Establecemos a false, para que desaparezca la bola.
-                    viewBola = false;
-                }
+                // Establecemos la bola a false, cuando llega al mar, para que desaparezca la bola.
+                viewBola = false;
                 // Que la raqueta vuelva a la posición inicial.
                 raqX = raqX_init;
                 raqY = raqY_init;
@@ -399,6 +410,8 @@ function update()
     drawBola();
     // La raqueta.
     drawRaqueta();
+    // El mar.
+    drawMar();
     // Los ladrillos.
     drawLadrillos();
     // La colisión de la bola con los ladrillos.
