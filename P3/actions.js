@@ -285,14 +285,10 @@ function update()
     //-- 1) Actualizar las posiciones de la raqueta, la bola, los ladrillos y otros ajustes.
     if(fase == ESTADO.PLAYING)
     {
-        if((((bolaX+radio) < raqX) || ((bolaX-radio) > (raqX + anchoRAQ))) 
-        && ((bolaY+radio) < (raqY + altoRAQ)))
-        {
-            // Movimiento de la bola en el eje x.
-            bolaX += velX_bol;
-            // Movimiento de la bola en el eje y.
-            bolaY += velY_bol;
-        }
+        // Movimiento de la bola en el eje x.
+        bolaX += velX_bol;
+        // Movimiento de la bola en el eje y.
+        bolaY += velY_bol;
         // Condición para que la bola rebote entre las paredes verticales.
         if((bolaX > (pantalla.width-radio)) || (bolaX < radio))
         {
