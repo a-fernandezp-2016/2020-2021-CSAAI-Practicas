@@ -285,10 +285,14 @@ function update()
     //-- 1) Actualizar las posiciones de la raqueta, la bola, los ladrillos y otros ajustes.
     if(fase == ESTADO.PLAYING)
     {
-        // Movimiento de la bola en el eje x.
-        bolaX += velX_bol;
-        // Movimiento de la bola en el eje y.
-        bolaY += velY_bol;
+        if((((bolaX+radio) < raqX) || ((bolaX-radio) > (raqX + anchoRAQ))) 
+        && ((bolaY+radio) < (raqY + altoRAQ)))
+        {
+            // Movimiento de la bola en el eje x.
+            bolaX += velX_bol;
+            // Movimiento de la bola en el eje y.
+            bolaY += velY_bol;
+        }
         // Condición para que la bola rebote entre las paredes verticales.
         if((bolaX > (pantalla.width-radio)) || (bolaX < radio))
         {
@@ -301,22 +305,28 @@ function update()
         }
         // Condición para que rebote la bola en la raqueta.
         if(((bolaX+radio) >= raqX) && ((bolaX-radio) <= (raqX + anchoRAQ)) 
-        && ((bolaY+radio) >= raqY) && ((bolaY-radio) <= (raqY + altoRAQ)))
+        && ((bolaY+radio) >= raqY))
         {
             // Cálculo del rebote bola - raqueta.
             velY_bol = -velY_bol;
         }
         // Condición para que, si la bola está por debajo de la raqueta, 
         // ésta desaparezca y, haya que sacar de nuevo.
-        if((bolaY + radio) > (raqY + altoRAQ))
+        if((bolaY + radio) >= (raqY + altoRAQ))
         {
             if(vidas > 0)
             {
                 // Pasamos a la fase 1 de saque y perdemos vida.
                 fase = ESTADO.SAQUE;
                 vidas -= 1;
-                // Establecemos a false, para que desaparezca la bola.
-                viewBola = false;
+                // Que la bola siga moviéndose.
+                bolaY += velY_bol;
+                // Establecemos la bola a false, cuando llegue a la pared inferior de la pantalla.
+                if((bolaY + radio) >= pantalla.height)
+                {
+                    // Establecemos a false, para que desaparezca la bola.
+                    viewBola = false;
+                }
                 // Que la raqueta vuelva a la posición inicial.
                 raqX = raqX_init;
                 raqY = raqY_init;
