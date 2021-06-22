@@ -1,6 +1,9 @@
 # 2020-2021-CSAAI-Practicas
 
-### Página Principal de Mis Prácticas de CSAAI.
+### Página Principal de Mis Prácticas de CSAAI.  
+
+<br>
+<br>
 
 Mis prácticas de la asignatura Construcción de Servicios y Aplicaciones Audiovisuales en Internet Curso 2020-2021
 <br>
@@ -8,7 +11,7 @@ Mis prácticas de la asignatura Construcción de Servicios y Aplicaciones Audiov
 Aquí comienzan mis proyectos de las prácticas de CSAAI (Construcción de Servicios y Aplicaciones Audiovisuales en Internet).
 <br>
 <br>
-![](ProgWeb.png)
+![](Iconos_WebDevelopmt.png)
 <br>
 <br>
 ### Son 5 prácticas en total: P1, P2, P3, P4 Y P5.
