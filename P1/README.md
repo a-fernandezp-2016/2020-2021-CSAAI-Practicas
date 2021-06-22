@@ -86,10 +86,14 @@ Nota: Todas las imágenes puestas, tanto en el Readme, como en el CV de Peeta Me
 7)Para finalizar, como se puede observar, está todo bien alineado y cuidado.
 <br>
 <br>
-Por cierto, respecto al ZOOM al mostrar la P1 en el Navegador, déjalo en la configuración por defecto o estándar, que suele ser 100%.
+Por cierto, respecto al ZOOM, al mostrar la P1 en el Navegador, déjalo en la configuración por defecto, o estándar, que suele ser 100%.
 <br>
 <br>
-¡MUCHAS GRACIAS POR SU ATENCIÓN Y SU TIEMPO!
+Muchas gracias por su tiempo y atención.
 <br>
 <br>
-ESPEREMOS QUE LE GUSTE MI PRÁCTICA 1: CV DE PEETA MELLARK (HECHO POR: ALEJANDRO FERNÁNDEZ PÉREZ).
+Atentamente.
+<br>
+<br>
+
+El autor del programa: **CV de un personaje ficticio** =es> **Alejandro Fernández Pérez**, alumno de GISAM (URJC).
