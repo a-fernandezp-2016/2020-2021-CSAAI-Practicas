@@ -142,6 +142,7 @@ function soundPrincipal()
     // Se activa el audio principal del juego retro, desde el principio.
     AUDIO_PRINC.currentTime = 0;
     AUDIO_PRINC.play();
+    AUDIO_PRINC.volume = 0.5;
 }
 
 // Función para establecer la cabecera de los textos sólidos.
@@ -453,7 +454,7 @@ function update()
     drawLadrillos();
     // La colisión de la bola con los ladrillos.
     colisionLadrillos();
-    // Llamar a la función del audio principal de nuevo, si ha acabado de sonar
+    // Llamar a la función del audio principal de nuevo, si ha acabado de sonar.
     soundPrincipal();
     // Mensaje de victoria si has llegado al máximo de puntuación sin que se acaben las vidas.
     // Mensaje de derrota si has perdido las 3 vidas que tenías antes de llegar a la máxima de puntuación.
@@ -462,18 +463,18 @@ function update()
         // Victoria.
         if(puntuacion == (LADRILLO.FILA * LADRILLO.COLUM))
         {
+            drawVictoria();
             // Se activa el audio de VICTORIA.
             Sonido_Victoria.currentTime = 0;
             Sonido_Victoria.play();
-            drawVictoria();
         }
         // Derrota.
         else
         {
+            drawDerrota();
             // Se activa el audio de DERROTA.
             Sonido_Derrota.currentTime = 0;
             Sonido_Derrota.play();
-            drawDerrota();
         }
     }
 
@@ -490,7 +491,7 @@ PLAY.onclick = () => {
         // Establecemos a true, para que aparezca la bola.
         viewBola = true;
         // Llamar a la función del audio principal, para que empiece a sonar dicho audio.
-        soundPrincipal();
+        // soundPrincipal();
     }
 }
 
