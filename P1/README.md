@@ -86,6 +86,7 @@ Nota: Todas las imágenes puestas, tanto en el Readme, como en el CV de Peeta Me
 7)Para finalizar, como se puede observar, está todo bien alineado y cuidado.
 <br>
 <br>
+Por cierto, respecto al ZOOM al mostrar la P1 en el Navegador, déjalo en la configuración por defecto o estándar, que suele ser 100%.
 <br>
 <br>
 ¡MUCHAS GRACIAS POR SU ATENCIÓN Y SU TIEMPO!
