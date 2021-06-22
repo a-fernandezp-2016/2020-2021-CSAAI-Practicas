@@ -118,7 +118,11 @@ Para hallar el cubo hay que multiplicar: el valor que haya en el Operando 1 o en
 <br>
 
 Y, esto es todo el programa de la Calculadora Huawei Web en HTML, CSS y JS. Espero que la valoración que se haga sea buena, o incluso, muy buena. Es un trabajo con bastante esfuerzo, sacrificio y horas.
-
+<br>
+<br>
+Por cierto, respecto al ZOOM, al mostrar la P2 en el Navegador, déjalo en la configuración por defecto, o estándar, que suele ser 100%.
+<br>
+<br>
 Muchas gracias por su tiempo y atención.
 
 Atentamente.
