@@ -67,7 +67,7 @@ let fase = ESTADO.INIT;
 // Características de la bola.
     // Definimos las coordenadas de la bola.
     let bolaX = 300;
-    let bolaY = 889;
+    let bolaY = 890;
     // Definimos el radio de la bola.
     let radio = 10;
     // Definimos los ángulos de la bola.
@@ -81,7 +81,7 @@ let fase = ESTADO.INIT;
 
 // Posiciones de la bola y de la raqueta iniciales.
 const bolaX_init = 300;
-const bolaY_init = 889;
+const bolaY_init = 890;
 const raqX_init = 260;
 const raqY_init = 900;
 
@@ -139,8 +139,8 @@ function drawVictoria()
     paintIT.font = "25px Arial Black";
     paintIT.fillStyle = 'green';
     paintIT.fillText(" ¡  M U Y   B I E N  ! ",(pantalla.width-400)/2,pantalla.height/2);
-    paintIT.fillText("LLEGASTE A LA PUNTUACIÓN MÁXIMA DE ",(pantalla.width-570)/2,pantalla.height+100/2);
-    paintIT.fillText(puntuacion,(pantalla.width+100)/2,(pantalla.height+100)/2);
+    paintIT.fillText("LLEGASTE A LA PUNTUACIÓN MÁXIMA DE ",(pantalla.width-570)/2,(pantalla.height+100)/2);
+    paintIT.fillText(puntuacion,(pantalla.width+170)/2,(pantalla.height+100)/2);
     paintIT.fillText("¡  F E L I C I D A D E S  !",(pantalla.width-450)/2,(pantalla.height+200)/2);
 }
 
@@ -300,13 +300,15 @@ function update()
             velY_bol = -velY_bol;
         }
         // Condición para que rebote la bola en la raqueta.
-        if(((bolaX+radio) >= raqX) && ((bolaX-radio) <= (raqX + anchoRAQ)) && ((bolaY+radio) >= raqY))
+        if(((bolaX+radio) >= raqX) && ((bolaX-radio) <= (raqX + anchoRAQ)) 
+        && ((bolaY+radio) >= raqY) && ((bolaY-radio) <= (raqY + altoRAQ)))
         {
             // Cálculo del rebote bola - raqueta.
             velY_bol = -velY_bol;
         }
-        // Condición para que si la bola da en la pared de abajo, desaparezca y haya que sacar de nuevo.
-        if(bolaY >= pantalla.height-radio)
+        // Condición para que, si la bola está por debajo de la raqueta, 
+        // ésta desaparezca y, haya que sacar de nuevo.
+        if((bolaY + radio) > (raqY + altoRAQ))
         {
             if(vidas > 0)
             {
