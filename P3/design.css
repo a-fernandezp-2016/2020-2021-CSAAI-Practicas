@@ -9,21 +9,21 @@ body {
 }
 /* Diseño del icono o favicon del videojuego retro. */
 #icon {
-    width: 700px;
-    height: 680px;
+    width: 800px;
+    height: 780px;
 }
 /* Diseño del logo del título del juego en pag HTML. */
 #logo {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
 }
 /* Diseño del título del videojuego retro: Kick Blocks Game. */
 h1 {
     text-align: center;
-    font: bold 60px Tahoma;
+    font: bold 70px Tahoma;
     color: red;
-    margin-bottom: 60px;
-    margin-top: 60px;
+    margin-bottom: 70px;
+    margin-top: 70px;
 }
 /* Diseño del subtítulo del videojuego retro: Kick Blocks Game. */
 #subtitle {
@@ -45,7 +45,6 @@ h1 {
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -240px;
     display: block;
 }
 /* Diseño del título de los controles de juego. */
@@ -53,37 +52,41 @@ h4 {
     color: black;
     text-align: center;
     font: bold 40px Tahoma;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 /* Diseño de la explicación del botón play. */
 #inicio {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
+    margin-left: 680px;
 }
 /* Diseño de la explicación de las instrucciones de recarga pág. */
 #reinicio {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
+    margin-left: 60px;
 }
 /* Diseño de las instrucciones del control de la raqueta y su saque. */
 #resto1 {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
+    margin-top: 60px;
+    margin-left: 500px;
 }
 #resto2 {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
+    margin-left: -800px;
 }
 #resto3 {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
-    margin-left: -420px;
-    margin-right: -400px;
+    margin-left: -720px;
 }
 /* Diseño del botón de PLAY y el de REINICIAR. */
 input {
