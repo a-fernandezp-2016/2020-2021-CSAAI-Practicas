@@ -50,12 +50,7 @@ h1 {
     height: 70px;
     border-radius: 10px;
     margin-left: 2900px;
-    margin-top: 10px;
-    margin-bottom: -250px;
-}
-/* Separación pause - play del sound. */
-#pauseSound {
-    margin-left: 3080px;
+    margin-right: 120px;
 }
 /* Diseño de los ajustes del volumen del sonido. */
 #volumen {
