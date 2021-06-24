@@ -34,10 +34,14 @@ const DeslizaVol = document.getElementById("volumen");
 // Creamos el elemento para poder ver a que nivel se ha puesto.
 const DisplayVol = document.getElementById("displayDesliza");
 
-// Creamos el elemento para ajustar el nivel de dificultad a Fácil, Medio o Difícil. Por defecto: Fácil.
+// Creamos tres elementos para poder pulsar un botón de entre los tres nivel de dificultad: 
+// Fácil, Medio y Difícil. Por defecto: Fácil.
 const L_FACIL = document.getElementById("facil");
 const L_MEDIO = document.getElementById("medio");
 const L_DIFICIL = document.getElementById("dificil");
+
+// Creamos la variable OPCION, para elegir entre 3 dificultades.
+let OPCION = 0;
 
 // Diagrama de estados. Hay 4 estados: 0, 1, 2 y 3.
 // El Estado 0 es el inicial, que cambia al Estado 1 cuando pulsamos espacio.
@@ -117,23 +121,22 @@ const raqY_init = 900;
 
 // Definimos la estructura del bloque de ladrillos.
 const LADRILLO = {
-    FILA: 10,   //-- Filas.
-    COLUM: 9,   //-- Columnas: Sólo caben 9 columnas (este nº no se cambia).
+    FILA: 10,   //-- Filas: yo he puesto 10, pero puede ser variable.
+    COLUM: 9,   //-- Columnas: Sólo caben 9 columnas (este nº no se puede cambiar).
     ANCHO: 60,  //-- Anchura.
     ALTO: 15,  //-- Altura.
     origen_y: separY,    //-- De donde parten los ladrillos en el eje y.
     RELLENO: 6,  //-- Espacio alrededor del ladrillo.
     STATUS: true    //-- Activado o desactivado del ladrillo.
 }
+
 // Puntuación máxima que se puede conseguir.
 let punt_max = LADRILLO.FILA * LADRILLO.COLUM;
-// Variable Fila de Ladrillos.
-let fila_lad = LADRILLO.FILA;
 // Definimos la variable o array donde almacenar los ladrillos.
 var ladrillos = [];
 
 // Estructura inicial de los ladrillos.
-for(let i=1; i<=fila_lad; i++)
+for(let i=1; i<=LADRILLO.FILA; i++)
 {
     ladrillos[i] = [];
     for(let j=1; j<=LADRILLO.COLUM; j++)
@@ -279,7 +282,7 @@ function drawMar()
 // Función que dibuja los ladrillos, si está activado su visibilidad a true. Si no, desaparecen.
 function drawLadrillos()
 {
-    for(let i=1; i<=fila_lad; i++)
+    for(let i=1; i<=LADRILLO.FILA; i++)
     {
         for(let j=1; j<=LADRILLO.COLUM; j++)
         {
@@ -304,7 +307,7 @@ function drawLadrillos()
 // Función que produce la colisión de la bola con el ladrillo y, en cuyo caso, desaparece éste último.
 function colisionLadrillos()
 {
-    for(let i=1; i<=fila_lad; i++)
+    for(let i=1; i<=LADRILLO.FILA; i++)
     {
         for(let j=1; j<=LADRILLO.COLUM; j++)
         {
@@ -327,6 +330,9 @@ function colisionLadrillos()
                         console.log("¡HEMOS LLEGADO A LA MÁXIMA PUNTUACIÓN!");
                         // Cambio de fase, a la final o 3.
                         fase = ESTADO.FINAL;
+                        // Si se llega a la puntuación MÁXIMA, se activa el audio de VICTORIA.
+                        Sonido_Victoria.currentTime = 0;
+                        Sonido_Victoria.play();
                     }
                 }
             }
@@ -337,28 +343,26 @@ function colisionLadrillos()
 //-- Función para llevar a cabo la animación del juego.
 function update() 
 {
-    // Ajustamos el Nivel de Dificultad. Por defecto, es FÁCIL. Sólo si estamos en la fase 0 o inicial.
     if(fase == ESTADO.INIT)
     {
-        L_FACIL.onchange = () => {
-            fila_lad += 0;
-            velX_bol *= 1;
-            velY_bol *= 1;
-        }
+        switch(OPCION)
+        {
+            case 1:
+                velX_bol *= 2;
+                velY_bol *= 2;
+                break;
+            
+            case 2:
+                velX_bol *= 3;
+                velY_bol *= 3;
+                break;
 
-        L_MEDIO.onchange = () => {
-            fila_lad += 1;
-            velX_bol *= 2;
-            velY_bol *= 2;
-        }
-
-        L_DIFICIL.onchange = () => {
-            fila_lad += 2;
-            velX_bol *= 3;
-            velY_bol *= 3;
+            default:
+                velX_bol *= 1;
+                velY_bol *= 1;
         }
     }
-
+    
     //-- Implementación del algoritmo de animación con mensaje en consola:
     console.log("Proceso de animación del juego");
 
@@ -423,6 +427,11 @@ function update()
                 fase = ESTADO.FINAL;
                 // Establecemos a false, para que desaparezca la bola.
                 viewBola = false;
+                // Acabar el audio, para que pueda sonar el sonido de Victoria o Derrota.
+                AUDIO_PRINC.currentTime = 2;
+                // Si la bola cae al agua cuando se tiene 0 vidas, se activa el audio de DERROTA.
+                Sonido_Derrota.currentTime = 0;
+                Sonido_Derrota.play();
             }
         }
         if((vidas <= (VIDAS-1)) && (fase == ESTADO.SAQUE))
@@ -494,21 +503,14 @@ function update()
     // Mensaje de derrota si has perdido las 3 vidas que tenías antes de llegar a la máxima de puntuación.
     if(fase == ESTADO.FINAL)
     {
-        AUDIO_PRINC.currentTime = 2;
-        // Victoria.
-        if(puntuacion == (fila_lad * LADRILLO.COLUM))
+        // Mensaje Victoria.
+        if(puntuacion == (LADRILLO.FILA * LADRILLO.COLUM))
         {
-            // Se activa el audio de VICTORIA.
-            Sonido_Victoria.currentTime = 0;
-            Sonido_Victoria.play();
             drawVictoria();
         }
-        // Derrota.
+        // Mensaje Derrota.
         else
         {
-            // Se activa el audio de DERROTA.
-            Sonido_Derrota.currentTime = 0;
-            Sonido_Derrota.play();
             drawDerrota();
         }
     }
@@ -532,13 +534,34 @@ PLAY.onclick = () => {
 
 // Para volver a escuchar el sonido de fondo o el sonido principal.
 PLAYSOUND.onclick = () => {
-    AUDIO_PRINC.play();
+    // Llamar a la función del audio principal, para que empiece a sonar dicho audio.
+    soundPrincipal();
 }
 
 // Para ajustar el nivel de volumen del sonido de fondo o sonido principal.
 DeslizaVol.onclick = (ev) => {
     AUDIO_PRINC.volume = ev.currentTarget.value;
     DisplayVol.innerHTML = ev.currentTarget.value;
+}
+
+// Para elegir el nivel de dificultad.
+L_FACIL.onclick = () => {
+    if(fase == ESTADO.INIT)
+    {
+        OPCION = 0;
+    }
+}
+L_MEDIO.onclick = () => {
+    if(fase == ESTADO.INIT)
+    {
+        OPCION = 1;
+    }
+}
+L_DIFICIL.onclick = () => {
+    if(fase == ESTADO.INIT)
+    {
+        OPCION = 2;
+    }
 }
 
 //-- Punto de entrada de la función update.
