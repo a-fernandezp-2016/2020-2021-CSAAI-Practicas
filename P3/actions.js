@@ -1,5 +1,3 @@
-const { SSL_OP_EPHEMERAL_RSA } = require("constants");
-
 // Aquí empieza el programa, con la consola del Navegador Web.
 console.log("Comienza: KICK BLOCKS Game!!!!!!");
 // Empezamos en la fase inicial.
