@@ -1,0 +1,140 @@
+/* Diseño del cuerpo genérico y ajuste. */
+body {
+    background-color: burlywood;
+    background-size: 25px 50px;
+    background-size: 50% 50%;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+/* Diseño del icono o favicon del videojuego retro. */
+#icon {
+    width: 700px;
+    height: 680px;
+}
+/* Diseño del logo del título del juego en pag HTML. */
+#logo {
+    width: 50px;
+    height: 50px;
+}
+/* Diseño del título del videojuego retro: Kick Blocks Game. */
+h1 {
+    text-align: center;
+    font: bold 60px Tahoma;
+    color: red;
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+/* Diseño del subtítulo del videojuego retro: Kick Blocks Game. */
+#subtitle {
+    text-align: center;
+    font: bold 40px Tahoma;
+    color: red;
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+/* Damos estilo a nuestro canvas (lienzo) del videojuego retro. */
+#canvas {
+    background-color: black;
+    border-color:chocolate;
+    border-width: 8px;
+    border-style: solid;
+    border-radius: 15px;
+    /* Para centrar el lienzo. */
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -240px;
+    display: block;
+}
+/* Diseño del título de los controles de juego. */
+h4 {
+    color: black;
+    text-align: center;
+    font: bold 40px Tahoma;
+    margin-top: 100px;
+}
+/* Diseño de la explicación del botón play. */
+#inicio {
+    color: darkblue;
+    text-align: center;
+    font: bold 25px Tahoma;
+}
+/* Diseño de la explicación de las instrucciones de recarga pág. */
+#reinicio {
+    color: darkblue;
+    text-align: center;
+    font: bold 25px Tahoma;
+}
+/* Diseño de las instrucciones del control de la raqueta y su saque. */
+#resto1 {
+    color: darkblue;
+    text-align: center;
+    font: bold 25px Tahoma;
+}
+#resto2 {
+    color: darkblue;
+    text-align: center;
+    font: bold 25px Tahoma;
+}
+#resto3 {
+    color: darkblue;
+    text-align: center;
+    font: bold 25px Tahoma;
+    margin-left: -420px;
+    margin-right: -400px;
+}
+/* Diseño del botón de PLAY y el de REINICIAR. */
+input {
+    background-color: green;
+    text-align: center;
+    font: bold 22px Tahoma;
+    color: white;
+    width: 130px;
+    height: 70px;
+    border-radius: 10px;
+}
+/* Diseño de los ajustes de sonido. */
+#tituloSound {
+    text-align: center;
+    color: black;
+    font: bold 40px Tahoma;
+}
+/* Diseño de los botones de control del sonido. */
+#playSound {
+    background-color:cyan;
+    font: bold 22px Tahoma;
+    color: black;
+    width: 180px;
+    height: 70px;
+    border-radius: 10px;
+}
+/* Diseño de los ajustes del volumen del sonido. */
+#volumen {
+    width: 500px;
+    height: 100px;
+}
+/* Mensaje del volumen. */
+#msg_volum {
+    font: bold 25px Tahoma;
+    color: black;
+}
+/* Antes de comenzar. */
+#previa {
+    color: black;
+    text-align: center;
+    font: bold 25px Tahoma;
+}
+/* Nivel de dificultad. */
+#level {
+    text-align: center;
+    color: black;
+    font: bold 40px Tahoma;
+}
+#medio {
+    margin-left: 10px;
+}
+#dificil {
+    margin-left: 10px;
+}
