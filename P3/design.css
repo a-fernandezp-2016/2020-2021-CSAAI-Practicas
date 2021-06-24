@@ -37,7 +37,7 @@ h1 {
     color: black;
     font: bold 40px Tahoma;
     margin-top: 80px;
-    margin-left: 2000px;
+    margin-left: 1500px;
     margin-right: -900px;
 }
 /* Diseño de los botones de control del sonido. */
@@ -48,11 +48,11 @@ h1 {
     width: 140px;
     height: 70px;
     border-radius: 10px;
-    margin-left: 2650px;
+    margin-left: 2800px;
 }
 /* Separación botones pause - play. */
 #pauseSound {
-    margin-left: 2850px;
+    margin-left: 3050px;
     margin-top: -70px;
     margin-bottom: 10px;
 }
@@ -62,16 +62,16 @@ h1 {
 /* Diseño de los ajustes del volumen del sonido. */
 #volumen {
     width: 380px;
-    height: 40px;
-    margin-left: 160px;
-    margin-top: -20px;
+    height: 50px;
+    margin-left: 40px;
+    margin-top: -10px;
 }
 /* Mensaje del volumen. */
 #msg_volum {
     font: bold 25px Tahoma;
     color: black;
-    margin-left: 2520px;
-    margin-top: 30px;
+    margin-left: 2720px;
+    margin-top: 20px;
 }
 /* Damos estilo a nuestro canvas (lienzo) del videojuego retro. */
 #canvas {
@@ -148,7 +148,7 @@ input {
     color: black;
     text-align: center;
     font: bold 25px Tahoma;
-    margin-left: -2000px;
+    margin-left: -2800px;
     margin-top: -300px;
 }
 /* Nivel de dificultad. */
@@ -157,7 +157,7 @@ input {
     color: black;
     font: bold 40px Tahoma;
     margin-top: 80px;
-    margin-left: -2000px;
+    margin-left: -2800px;
 }
 /* Dificultades. */
 #niveles {
@@ -165,5 +165,5 @@ input {
     color: black;
     font: bold 25px Tahoma;
     margin-top: 10px;
-    margin-left: -1850px;
+    margin-left: -2700px;
 }
