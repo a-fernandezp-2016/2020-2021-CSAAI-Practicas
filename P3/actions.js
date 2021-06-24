@@ -343,26 +343,6 @@ function colisionLadrillos()
 //-- Función para llevar a cabo la animación del juego.
 function update() 
 {
-    if(fase == ESTADO.INIT)
-    {
-        switch(OPCION)
-        {
-            case 1:
-                velX_bol *= 2;
-                velY_bol *= 2;
-                break;
-            
-            case 2:
-                velX_bol *= 3;
-                velY_bol *= 3;
-                break;
-
-            default:
-                velX_bol *= 1;
-                velY_bol *= 1;
-        }
-    }
-    
     //-- Implementación del algoritmo de animación con mensaje en consola:
     console.log("Proceso de animación del juego");
 
@@ -546,21 +526,39 @@ DeslizaVol.onclick = (ev) => {
 
 // Para elegir el nivel de dificultad.
 L_FACIL.onclick = () => {
-    if(fase == ESTADO.INIT)
+    if(fase == ESTADO.INIT && velX_bol == 4 && velY_bol == -4)
     {
-        OPCION = 0;
+        velX_bol *= 1;
+        velY_bol *= 1;
+    }
+    else
+    {
+        // Mensaje en consola de aviso.
+        console.log("PROCESO NO VÁLIDO");
     }
 }
 L_MEDIO.onclick = () => {
-    if(fase == ESTADO.INIT)
+    if(fase == ESTADO.INIT && velX_bol == 4 && velY_bol == -4)
     {
-        OPCION = 1;
+        velX_bol *= 2;
+        velY_bol *= 2;
+    }
+    else
+    {
+        // Mensaje en consola de aviso.
+        console.log("PROCESO NO VÁLIDO");
     }
 }
 L_DIFICIL.onclick = () => {
-    if(fase == ESTADO.INIT)
+    if(fase == ESTADO.INIT && velX_bol == 4 && velY_bol == -4)
     {
-        OPCION = 2;
+        velX_bol *= 3;
+        velY_bol *= 3;
+    }
+    else
+    {
+        // Mensaje en consola de aviso.
+        console.log("PROCESO NO VÁLIDO");
     }
 }
 
