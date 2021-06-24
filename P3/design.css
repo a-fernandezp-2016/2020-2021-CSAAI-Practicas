@@ -41,7 +41,7 @@ h1 {
     margin-right: -900px;
 }
 /* Diseño de los botones de control del sonido. */
-.control_sound {
+#playSound {
     background-color:cyan;
     font: bold 22px Tahoma;
     color: black;
@@ -49,14 +49,6 @@ h1 {
     height: 70px;
     border-radius: 10px;
     margin-left: 2300px;
-}
-/* Separación botones stop - play. */
-#stopSound {
-    margin-left: 2540px;
-    margin-top: -70px;
-    margin-bottom: 50px;
-}
-#playSound {
     margin-bottom: -50px;
 }
 /* Diseño de los ajustes del volumen del sonido. */

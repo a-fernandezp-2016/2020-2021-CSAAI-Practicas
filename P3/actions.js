@@ -1,3 +1,5 @@
+const { SSL_OP_EPHEMERAL_RSA } = require("constants");
+
 // Aquí empieza el programa, con la consola del Navegador Web.
 console.log("Comienza: KICK BLOCKS Game!!!!!!");
 // Empezamos en la fase inicial.
@@ -26,10 +28,9 @@ const Sonido_Romper = new Audio("Romper_ladrillo.mp3");
 
 // Creamos el elemento para poder pulsar el botón PLAY e iniciar el juego, a través del ID play.
 const PLAY = document.getElementById("play");
-// Creamos el elemento para poder pulsar el botón PLAY o STOP de los ajustes de sonido y, que haya
+// Creamos el elemento para poder pulsar el botón PLAY de los ajustes de sonido y, que haya
 // interactividad entre el usuario y el sonido del juego.
 const PLAYSOUND = document.getElementById("playSound");
-const STOPSOUND = document.getElementById("stopSound");
 // Creamos el elemento para poder ajustar el nivel de volumen que se quiera.
 const DeslizaVol = document.getElementById("volumen");
 // Creamos el elemento para poder ver a que nivel se ha puesto.
@@ -473,6 +474,8 @@ function update()
     // Mensaje de derrota si has perdido las 3 vidas que tenías antes de llegar a la máxima de puntuación.
     if(fase == ESTADO.FINAL)
     {
+        // SIlenciar audio.
+        await sleep(5000);
         // Victoria.
         if(puntuacion == (fila_lad * LADRILLO.COLUM))
         {
@@ -508,11 +511,6 @@ PLAY.onclick = () => {
     }
 }
 
-// Para parar el sonido de fondo o el sonido principal.
-STOPSOUND.onclick = () => {
-    AUDIO_PRINC.pause();
-}
-
 // Para volver a escuchar el sonido de fondo o el sonido principal.
 PLAYSOUND.onclick = () => {
     AUDIO_PRINC.play();
@@ -540,6 +538,8 @@ L_MEDIO.onchange = () => {
         fila_lad += 1;
         velX_bol *= 2;
         velY_bol *= 2;
+        // Establecemos a true, para que aparezca la bola.
+        viewBola = true;
     }
 }
 
@@ -549,6 +549,8 @@ L_DIFICIL.onchange = () => {
         fila_lad += 2;
         velX_bol *= 3;
         velY_bol *= 3;
+        // Establecemos a true, para que aparezca la bola.
+        viewBola = true;
     }
 }
 
