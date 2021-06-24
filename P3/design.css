@@ -62,24 +62,16 @@ h1 {
 /* Diseño de los ajustes del volumen del sonido. */
 #volumen {
     width: 380px;
-    height: 70px;
+    height: 40px;
     margin-left: 160px;
-    margin-top: -50px;
+    margin-top: -20px;
 }
 /* Mensaje del volumen. */
 #msg_volum {
     font: bold 25px Tahoma;
     color: black;
-    margin-left: 2580px;
-    margin-bottom: -40px;
-}
-/* Mensaje del volumen MAX. */
-#msg_volumMAX {
-    font: bold 25px Tahoma;
-    color: black;
-    margin-left: 30px;
-    margin-top: -20px;
-    margin-bottom: 20px;
+    margin-left: 2520px;
+    margin-top: 30px;
 }
 /* Damos estilo a nuestro canvas (lienzo) del videojuego retro. */
 #canvas {
