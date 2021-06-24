@@ -31,6 +31,52 @@ h1 {
     margin-bottom: 60px;
     margin-top: 60px;
 }
+/* Diseño de los ajustes de sonido. */
+#tituloSound {
+    text-align: center;
+    color: black;
+    font: bold 40px Tahoma;
+    margin-top: 80px;
+    margin-left: 800px;
+    margin-right: -800px;
+}
+/* Diseño de los botones de control del sonido. */
+.control_sound {
+    background-color:cyan;
+    text-align: center;
+    font: bold 22px Tahoma;
+    color: black;
+    width: 130px;
+    height: 70px;
+    border-radius: 10px;
+    margin-left: 900px;
+    margin-right: -870px;
+}
+/* Diseño de los ajustes del volumen del sonido. */
+#volumen {
+    width: 280px;
+    height: 40px;
+    margin-left: 70px;
+    margin-right: -840px;
+    margin-top: -40px;
+    margin-bottom: 40px;
+}
+/* Mensaje del volumen. */
+#msg_volum {
+    font: bold 14px Tahoma;
+    color: black;
+    margin-left: 870px;
+    margin-top: 40px;
+    margin-bottom: -40px;
+}
+/* Mensaje del volumen MAX. */
+#msg_volumMAX {
+    font: bold 14px Tahoma;
+    color: black;
+    margin-left: 30px;
+    margin-top: 40px;
+    margin-bottom: -40px;
+}
 /* Damos estilo a nuestro canvas (lienzo) del videojuego retro. */
 #canvas {
     background-color: black;
@@ -43,6 +89,7 @@ h1 {
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
+    margin-top: -90px;
     display: block;
 }
 /* Diseño del título de los controles de juego. */

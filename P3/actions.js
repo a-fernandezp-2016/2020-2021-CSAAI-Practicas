@@ -461,18 +461,18 @@ function update()
         // Victoria.
         if(puntuacion == (LADRILLO.FILA * LADRILLO.COLUM))
         {
-            drawVictoria();
             // Se activa el audio de VICTORIA.
             Sonido_Victoria.currentTime = 0;
             Sonido_Victoria.play();
+            drawVictoria();
         }
         // Derrota.
         else
         {
-            drawDerrota();
             // Se activa el audio de DERROTA.
             Sonido_Derrota.currentTime = 0;
             Sonido_Derrota.play();
+            drawDerrota();
         }
     }
 
