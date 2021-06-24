@@ -474,8 +474,7 @@ function update()
     // Mensaje de derrota si has perdido las 3 vidas que tenías antes de llegar a la máxima de puntuación.
     if(fase == ESTADO.FINAL)
     {
-        // SIlenciar audio.
-        await sleep(5000);
+        AUDIO_PRINC.pause();
         // Victoria.
         if(puntuacion == (fila_lad * LADRILLO.COLUM))
         {
