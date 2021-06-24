@@ -29,18 +29,13 @@
     <!-- Ajustes del sonido de fondo. -->
     <h4 id="tituloSound"> Ajustes de sonido: </h4>
     <!-- Botones de control del sonido. -->
-    <table>
-        <tr>
-            <div>
-                <input type="button" class="control_sound" id="playSound" value="PLAY">
-                <input type="button" class="control_sound" id="pauseSound" value="PAUSE">
-            </div>
-        </tr>
-        <tr>
-            <p id="msg_volum"> Volumen: <input type="range" id="volumen"> 
-                <scan id="msg_volumMAX"> máx: 10 </scan> </p>
-        </tr>
-    </table>
+    <div>
+        <input type="button" class="control_sound" id="playSound" value="PLAY">
+        <input type="button" class="control_sound" id="pauseSound" value="PAUSE">
+    </div>
+    <!-- Deslizador del control de volumen. -->
+    <p id="msg_volum"> Volumen: <input type="range" id="volumen"> 
+        <scan id="msg_volumMAX"> máx: 10 </scan> </p>
     <!-- Creamos el canvas, donde va a estar el videojuego en sí. -->
     <canvas id="canvas"></canvas>
     <!-- Tabla donde se muestran los controles del juego. -->
