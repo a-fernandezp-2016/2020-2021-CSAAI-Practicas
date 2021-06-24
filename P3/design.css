@@ -6,6 +6,8 @@ body {
     margin-bottom: 100px;
     width: 2540px;
     height: 1634px;
+    margin-right: -500px;
+    padding-right: -500px;
 }
 /* Diseño del icono o favicon del videojuego retro. */
 #icon {
@@ -157,7 +159,17 @@ input {
 #niveles {
     background-color: blueviolet;
     color: white;
-    font: bold 25px Tahoma;
+    text-align: center;
+    font: bold 22px Tahoma;
     margin-top: 10px;
     margin-left: -1850px;
+    width: 130px;
+    height: 70px;
+    border-radius: 10px;
+}
+#medio {
+    margin-left: 10px;
+}
+#dificil {
+    margin-left: 10px;
 }
