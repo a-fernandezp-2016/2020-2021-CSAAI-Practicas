@@ -100,8 +100,8 @@ let fase = ESTADO.INIT;
     let ang0 = 0;
     let angF = 2 * Math.PI;
     // Definimos la variable velocidad del eje x e y de la bola.
-    let velX_bol = 4;
-    let velY_bol = -4;
+    let velX_bol = 3;
+    let velY_bol = -3;
     // Visibilidad de la bola.
     let viewBola = false;
 
@@ -526,7 +526,7 @@ DeslizaVol.onclick = (ev) => {
 
 // Para elegir el nivel de dificultad.
 L_FACIL.onclick = () => {
-    if(fase == ESTADO.INIT && velX_bol == 4 && velY_bol == -4)
+    if(fase == ESTADO.INIT && velX_bol == 3 && velY_bol == -3)
     {
         velX_bol *= 1;
         velY_bol *= 1;
@@ -538,7 +538,7 @@ L_FACIL.onclick = () => {
     }
 }
 L_MEDIO.onclick = () => {
-    if(fase == ESTADO.INIT && velX_bol == 4 && velY_bol == -4)
+    if(fase == ESTADO.INIT && velX_bol == 3 && velY_bol == -3)
     {
         velX_bol *= 2;
         velY_bol *= 2;
@@ -550,7 +550,7 @@ L_MEDIO.onclick = () => {
     }
 }
 L_DIFICIL.onclick = () => {
-    if(fase == ESTADO.INIT && velX_bol == 4 && velY_bol == -4)
+    if(fase == ESTADO.INIT && velX_bol == 3 && velY_bol == -3)
     {
         velX_bol *= 3;
         velY_bol *= 3;
