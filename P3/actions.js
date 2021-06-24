@@ -40,8 +40,8 @@ const L_FACIL = document.getElementById("facil");
 const L_MEDIO = document.getElementById("medio");
 const L_DIFICIL = document.getElementById("dificil");
 
-// Creamos la variable OPCION, para elegir entre 3 dificultades.
-let OPCION = 0;
+// Creamos la variable CAPAR = 0, para capar si elegimos el nivel de dificultad: fácil.
+let CAPAR = 0;
 
 // Diagrama de estados. Hay 4 estados: 0, 1, 2 y 3.
 // El Estado 0 es el inicial, que cambia al Estado 1 cuando pulsamos espacio.
@@ -106,10 +106,14 @@ let fase = ESTADO.INIT;
     let viewBola = false;
 
 // Posiciones de la bola y de la raqueta iniciales.
-const bolaX_init = 300;
-const bolaY_init = 890;
-const raqX_init = 260;
-const raqY_init = 900;
+bolaX_init = bolaX;
+bolaY_init = bolaY;
+raqX_init = raqX;
+raqY_init = raqY;
+
+// Incógnitas de la velocidad en x e y de la bola, inicialmente.
+VX = velX_bol;
+VY = velY_bol;
 
 // Características del mar.
     // Coordenadas del mar.
@@ -407,8 +411,6 @@ function update()
                 fase = ESTADO.FINAL;
                 // Establecemos a false, para que desaparezca la bola.
                 viewBola = false;
-                // Acabar el audio, para que pueda sonar el sonido de Victoria o Derrota.
-                AUDIO_PRINC.currentTime = 2;
                 // Si la bola cae al agua cuando se tiene 0 vidas, se activa el audio de DERROTA.
                 Sonido_Derrota.currentTime = 0;
                 Sonido_Derrota.play();
@@ -526,10 +528,11 @@ DeslizaVol.onclick = (ev) => {
 
 // Para elegir el nivel de dificultad.
 L_FACIL.onclick = () => {
-    if(fase == ESTADO.INIT && velX_bol == 3 && velY_bol == -3)
+    if(fase == ESTADO.INIT && velX_bol == VX && velY_bol == VY && CAPAR == 0)
     {
         velX_bol *= 1;
         velY_bol *= 1;
+        CAPAR = 1;
     }
     else
     {
@@ -538,10 +541,10 @@ L_FACIL.onclick = () => {
     }
 }
 L_MEDIO.onclick = () => {
-    if(fase == ESTADO.INIT && velX_bol == 3 && velY_bol == -3)
+    if(fase == ESTADO.INIT && velX_bol == VX && velY_bol == VY && CAPAR == 0)
     {
-        velX_bol *= 2;
-        velY_bol *= 2;
+        velX_bol *= 1.5;
+        velY_bol *= 1.5;
     }
     else
     {
@@ -550,10 +553,10 @@ L_MEDIO.onclick = () => {
     }
 }
 L_DIFICIL.onclick = () => {
-    if(fase == ESTADO.INIT && velX_bol == 3 && velY_bol == -3)
+    if(fase == ESTADO.INIT && velX_bol == VX && velY_bol == VY && CAPAR == 0)
     {
-        velX_bol *= 3;
-        velY_bol *= 3;
+        velX_bol *= 2.5;
+        velY_bol *= 2.5;
     }
     else
     {
