@@ -59,7 +59,7 @@ h4 {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
-    margin-left: 680px;
+    margin-left: 650px;
 }
 /* Diseño de la explicación de las instrucciones de recarga pág. */
 #reinicio {
@@ -75,18 +75,21 @@ h4 {
     font: bold 25px Tahoma;
     margin-top: 60px;
     margin-left: 500px;
+    margin-bottom: 20px;
 }
 #resto2 {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
     margin-left: -800px;
+    margin-bottom: 20px;
 }
 #resto3 {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
     margin-left: -720px;
+    margin-bottom: 20px;
 }
 /* Diseño del botón de PLAY y el de REINICIAR. */
 input {
@@ -100,9 +103,11 @@ input {
 }
 /* Diseño de los ajustes de sonido. */
 #tituloSound {
-    text-align: center;
+    text-align: left;
     color: black;
     font: bold 40px Tahoma;
+    margin-left: 150px;
+    margin-top: -1400px;
 }
 /* Diseño de los botones de control del sonido. */
 #playSound {
@@ -112,32 +117,50 @@ input {
     width: 180px;
     height: 70px;
     border-radius: 10px;
+    margin-left: 380px;
 }
 /* Diseño de los ajustes del volumen del sonido. */
 #volumen {
     width: 500px;
     height: 100px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: -40px;
 }
 /* Mensaje del volumen. */
 #msg_volum {
     font: bold 25px Tahoma;
     color: black;
+    margin-left: 120px;
 }
 /* Antes de comenzar. */
 #previa {
     color: black;
     text-align: center;
     font: bold 25px Tahoma;
+    margin-left: 1600px;
+    margin-top: -310px;
 }
 /* Nivel de dificultad. */
 #level {
     text-align: center;
     color: black;
     font: bold 40px Tahoma;
+    margin-left: 1600px;
+}
+/* Diseño de los botones: fácil, medio y difícil. */
+#facil {
+    margin-left: 1900px;
+    background-color: violet;
+    color: black;
 }
 #medio {
-    margin-left: 10px;
+    margin-left: 50px;
+    background-color: violet;
+    color: black;
 }
 #dificil {
-    margin-left: 10px;
+    margin-left: 50px;
+    background-color: violet;
+    color: black;
 }
