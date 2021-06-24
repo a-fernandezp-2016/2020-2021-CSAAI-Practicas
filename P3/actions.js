@@ -337,6 +337,28 @@ function colisionLadrillos()
 //-- Función para llevar a cabo la animación del juego.
 function update() 
 {
+    // Ajustamos el Nivel de Dificultad. Por defecto, es FÁCIL. Sólo si estamos en la fase 0 o inicial.
+    if(fase == ESTADO.INIT)
+    {
+        L_FACIL.onchange = () => {
+            fila_lad += 0;
+            velX_bol *= 1;
+            velY_bol *= 1;
+        }
+
+        L_MEDIO.onchange = () => {
+            fila_lad += 1;
+            velX_bol *= 2;
+            velY_bol *= 2;
+        }
+
+        L_DIFICIL.onchange = () => {
+            fila_lad += 2;
+            velX_bol *= 3;
+            velY_bol *= 3;
+        }
+    }
+
     //-- Implementación del algoritmo de animación con mensaje en consola:
     console.log("Proceso de animación del juego");
 
@@ -472,7 +494,7 @@ function update()
     // Mensaje de derrota si has perdido las 3 vidas que tenías antes de llegar a la máxima de puntuación.
     if(fase == ESTADO.FINAL)
     {
-        AUDIO_PRINC.pause();
+        AUDIO_PRINC.currentTime = 2;
         // Victoria.
         if(puntuacion == (fila_lad * LADRILLO.COLUM))
         {
@@ -517,38 +539,6 @@ PLAYSOUND.onclick = () => {
 DeslizaVol.onclick = (ev) => {
     AUDIO_PRINC.volume = ev.currentTarget.value;
     DisplayVol.innerHTML = ev.currentTarget.value;
-}
-
-// Ajustamos el Nivel de Dificultad. Por defecto, es FÁCIL.
-L_FACIL.onchange = () => {
-    if(fase == ESTADO.INIT)
-    {
-        fila_lad += 0;
-        velX_bol *= 1;
-        velY_bol *= 1;
-    }
-}
-
-L_MEDIO.onchange = () => {
-    if(fase == ESTADO.INIT)
-    {
-        fila_lad += 1;
-        velX_bol *= 2;
-        velY_bol *= 2;
-        // Establecemos a true, para que aparezca la bola.
-        viewBola = true;
-    }
-}
-
-L_DIFICIL.onchange = () => {
-    if(fase == ESTADO.INIT)
-    {
-        fila_lad += 2;
-        velX_bol *= 3;
-        velY_bol *= 3;
-        // Establecemos a true, para que aparezca la bola.
-        viewBola = true;
-    }
 }
 
 //-- Punto de entrada de la función update.
