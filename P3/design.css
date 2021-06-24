@@ -54,9 +54,11 @@ h1 {
 #pauseSound {
     margin-left: 3100px;
     margin-top: -700px;
+    margin-right: -500px;
 }
 #playSound {
     margin-bottom: -700px;
+    margin-right: -50px;
 }
 /* Diseño de los ajustes del volumen del sonido. */
 #volumen {
