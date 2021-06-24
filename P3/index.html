@@ -32,7 +32,18 @@
     <input type="button" class="control_sound" id="playSound" value="PLAY">
     <input type="button" class="control_sound" id="pauseSound" value="PAUSE">
     <!-- Deslizador del control de volumen. -->
-    <p id="msg_volum"> Volumen: <input type="range" id="volumen"> </p>
+    <p id="msg_volum"> Volumen: <input type="range" id="volumen"> 
+        <span id="deslizador"> </span> </p>
+    <p id="previa"> Antes de comenzar..... </p>
+    <h4 id="level"> NIVEL DE DIFICULTAD: </h4>
+    <div id="niveles">
+        FÁCIL:
+        <span> <input type="radio" name="grupo1" id="facil" checked> </span>
+        MEDIO:
+        <span> <input type="radio" name="grupo1" id="medio"> </span>
+        DIFÍCIL:
+        <span> <input type="radio" name="grupo1" id="dificil"> </span>
+    </div>
     <!-- Creamos el canvas, donde va a estar el videojuego en sí. -->
     <canvas id="canvas"></canvas>
     <!-- Tabla donde se muestran los controles del juego. -->

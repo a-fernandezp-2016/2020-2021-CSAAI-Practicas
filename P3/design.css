@@ -143,3 +143,27 @@ input {
     height: 70px;
     border-radius: 10px;
 }
+/* Antes de comenzar. */
+#previa {
+    color: black;
+    text-align: center;
+    font: bold 18px Tahoma;
+    margin-left: -300px;
+    margin-top: 80px;
+}
+/* Nivel de dificultad. */
+#level {
+    text-align: center;
+    color: black;
+    font: bold 40px Tahoma;
+    margin-top: 10px;
+    margin-left: -300px;
+}
+/* Dificultades. */
+#niveles {
+    text-align: center;
+    color: black;
+    font: bold 25px Tahoma;
+    margin-top: 10px;
+    margin-left: -300px;
+}
