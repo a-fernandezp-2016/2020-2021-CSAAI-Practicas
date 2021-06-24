@@ -128,11 +128,13 @@ const LADRILLO = {
 }
 // Puntuación máxima que se puede conseguir.
 let punt_max = LADRILLO.FILA * LADRILLO.COLUM;
+// Variable Fila de Ladrillos.
+let fila_lad = LADRILLO.FILA;
 // Definimos la variable o array donde almacenar los ladrillos.
 var ladrillos = [];
 
 // Estructura inicial de los ladrillos.
-for(let i=1; i<=LADRILLO.FILA; i++)
+for(let i=1; i<=fila_lad; i++)
 {
     ladrillos[i] = [];
     for(let j=1; j<=LADRILLO.COLUM; j++)
@@ -278,7 +280,7 @@ function drawMar()
 // Función que dibuja los ladrillos, si está activado su visibilidad a true. Si no, desaparecen.
 function drawLadrillos()
 {
-    for(let i=1; i<=LADRILLO.FILA; i++)
+    for(let i=1; i<=fila_lad; i++)
     {
         for(let j=1; j<=LADRILLO.COLUM; j++)
         {
@@ -303,7 +305,7 @@ function drawLadrillos()
 // Función que produce la colisión de la bola con el ladrillo y, en cuyo caso, desaparece éste último.
 function colisionLadrillos()
 {
-    for(let i=1; i<=LADRILLO.FILA; i++)
+    for(let i=1; i<=fila_lad; i++)
     {
         for(let j=1; j<=LADRILLO.COLUM; j++)
         {
@@ -472,7 +474,7 @@ function update()
     if(fase == ESTADO.FINAL)
     {
         // Victoria.
-        if(puntuacion == (LADRILLO.FILA * LADRILLO.COLUM))
+        if(puntuacion == (fila_lad * LADRILLO.COLUM))
         {
             // Se activa el audio de VICTORIA.
             Sonido_Victoria.currentTime = 0;
@@ -508,7 +510,7 @@ PLAY.onclick = () => {
 
 // Para parar el sonido de fondo o el sonido principal.
 STOPSOUND.onclick = () => {
-    AUDIO_PRINC.paused();
+    AUDIO_PRINC.pause();
 }
 
 // Para volver a escuchar el sonido de fondo o el sonido principal.
@@ -526,7 +528,7 @@ DeslizaVol.onclick = (ev) => {
 L_FACIL.onchange = () => {
     if(fase == ESTADO.INIT)
     {
-        LADRILLO.FILA += 0;
+        fila_lad += 0;
         velX_bol *= 1;
         velY_bol *= 1;
     }
@@ -535,7 +537,7 @@ L_FACIL.onchange = () => {
 L_MEDIO.onchange = () => {
     if(fase == ESTADO.INIT)
     {
-        LADRILLO.FILA += 1;
+        fila_lad += 1;
         velX_bol *= 2;
         velY_bol *= 2;
     }
@@ -544,7 +546,7 @@ L_MEDIO.onchange = () => {
 L_DIFICIL.onchange = () => {
     if(fase == ESTADO.INIT)
     {
-        LADRILLO.FILA += 2;
+        fila_lad += 2;
         velX_bol *= 3;
         velY_bol *= 3;
     }
