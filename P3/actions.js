@@ -26,6 +26,19 @@ const Sonido_Romper = new Audio("Romper_ladrillo.mp3");
 
 // Creamos el elemento para poder pulsar el botón PLAY e iniciar el juego, a través del ID play.
 const PLAY = document.getElementById("play");
+// Creamos el elemento para poder pulsar el botón PLAY o STOP de los ajustes de sonido y, que haya
+// interactividad entre el usuario y el sonido del juego.
+const PLAYSOUND = document.getElementById("playSound");
+const STOPSOUND = document.getElementById("stopSound");
+// Creamos el elemento para poder ajustar el nivel de volumen que se quiera.
+const DeslizaVol = document.getElementById("volumen");
+// Creamos el elemento para poder ver a que nivel se ha puesto.
+const DisplayVol = document.getElementById("displayDesliza");
+
+// Creamos el elemento para ajustar el nivel de dificultad a Fácil, Medio o Difícil. Por defecto: Fácil.
+const L_FACIL = document.getElementById("facil");
+const L_MEDIO = document.getElementById("medio");
+const L_DIFICIL = document.getElementById("dificil");
 
 // Diagrama de estados. Hay 4 estados: 0, 1, 2 y 3.
 // El Estado 0 es el inicial, que cambia al Estado 1 cuando pulsamos espacio.
@@ -72,7 +85,7 @@ let fase = ESTADO.INIT;
     let raqX = 260;
     let raqY = 900;
     // Definimos la variable velocidad del eje x de la raqueta.
-    let velX_raq = 25;
+    let velX_raq = 30;
 
 // Características de la bola.
     // Definimos las coordenadas de la bola.
@@ -105,8 +118,8 @@ const raqY_init = 900;
 
 // Definimos la estructura del bloque de ladrillos.
 const LADRILLO = {
-    FILA: 9,   //-- Filas.
-    COLUM: 9,   //-- Columnas.
+    FILA: 10,   //-- Filas.
+    COLUM: 9,   //-- Columnas: Sólo caben 9 columnas (este nº no se cambia).
     ANCHO: 60,  //-- Anchura.
     ALTO: 15,  //-- Altura.
     origen_y: separY,    //-- De donde parten los ladrillos en el eje y.
@@ -490,6 +503,50 @@ PLAY.onclick = () => {
         viewBola = true;
         // Llamar a la función del audio principal, para que empiece a sonar dicho audio.
         soundPrincipal();
+    }
+}
+
+// Para parar el sonido de fondo o el sonido principal.
+STOPSOUND.onclick = () => {
+    AUDIO_PRINC.paused();
+}
+
+// Para volver a escuchar el sonido de fondo o el sonido principal.
+PLAYSOUND.onclick = () => {
+    AUDIO_PRINC.play();
+}
+
+// Para ajustar el nivel de volumen del sonido de fondo o sonido principal.
+DeslizaVol.onclick = (ev) => {
+    AUDIO_PRINC.volume = ev.currentTarget.value;
+    DisplayVol.innerHTML = ev.currentTarget.value;
+}
+
+// Ajustamos el Nivel de Dificultad. Por defecto, es FÁCIL.
+L_FACIL.onchange = () => {
+    if(fase == ESTADO.INIT)
+    {
+        LADRILLO.FILA += 0;
+        velX_bol *= 1;
+        velY_bol *= 1;
+    }
+}
+
+L_MEDIO.onchange = () => {
+    if(fase == ESTADO.INIT)
+    {
+        LADRILLO.FILA += 1;
+        velX_bol *= 2;
+        velY_bol *= 2;
+    }
+}
+
+L_DIFICIL.onchange = () => {
+    if(fase == ESTADO.INIT)
+    {
+        LADRILLO.FILA += 2;
+        velX_bol *= 3;
+        velY_bol *= 3;
     }
 }
 

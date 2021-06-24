@@ -50,8 +50,8 @@ h1 {
     border-radius: 10px;
     margin-left: 2300px;
 }
-/* Separación botones pause - play. */
-#pauseSound {
+/* Separación botones stop - play. */
+#stopSound {
     margin-left: 2540px;
     margin-top: -70px;
     margin-bottom: 50px;
