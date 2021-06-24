@@ -85,7 +85,7 @@ h1 {
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -320px;
+    margin-top: -280px;
     display: block;
 }
 /* Diseño del título de los controles de juego. */
@@ -147,17 +147,17 @@ input {
 #previa {
     color: black;
     text-align: center;
-    font: bold 18px Tahoma;
-    margin-left: -300px;
-    margin-top: 80px;
+    font: bold 25px Tahoma;
+    margin-left: -2000px;
+    margin-top: -300px;
 }
 /* Nivel de dificultad. */
 #level {
     text-align: center;
     color: black;
     font: bold 40px Tahoma;
-    margin-top: 10px;
-    margin-left: -300px;
+    margin-top: 80px;
+    margin-left: -2000px;
 }
 /* Dificultades. */
 #niveles {
@@ -165,5 +165,5 @@ input {
     color: black;
     font: bold 25px Tahoma;
     margin-top: 10px;
-    margin-left: -300px;
+    margin-left: -1850px;
 }
