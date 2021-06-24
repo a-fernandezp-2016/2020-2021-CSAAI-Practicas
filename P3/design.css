@@ -49,38 +49,35 @@ h1 {
     width: 130px;
     height: 70px;
     border-radius: 10px;
-    margin-left: 2500px;
-    margin-right: -900px;
+    margin-left: 2900px;
+    margin-top: 10px;
+    margin-bottom: -250px;
 }
 /* Separación pause - play del sound. */
 #pauseSound {
-    margin-left: 30px;
+    margin-left: 3080px;
 }
 /* Diseño de los ajustes del volumen del sonido. */
 #volumen {
     width: 280px;
-    height: 40px;
-    margin-left: 70px;
-    margin-right: -840px;
+    height: 60px;
+    margin-left: 100px;
     margin-top: -40px;
     margin-bottom: 40px;
 }
 /* Mensaje del volumen. */
 #msg_volum {
-    font: bold 14px Tahoma;
+    font: bold 25px Tahoma;
     color: black;
-    margin-left: 2500px;
+    margin-left: 2900px;
     margin-top: 40px;
     margin-bottom: -40px;
 }
 /* Mensaje del volumen MAX. */
 #msg_volumMAX {
-    font: bold 14px Tahoma;
+    font: bold 25px Tahoma;
     color: black;
-    margin-left: 560px;
-    width: 600px;
-    margin-top: 40px;
-    margin-bottom: -40px;
+    margin-left: 30px;
 }
 /* Damos estilo a nuestro canvas (lienzo) del videojuego retro. */
 #canvas {
@@ -109,7 +106,7 @@ h4 {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
-    margin-left: 780px;
+    margin-left: 600px;
     margin-right: -200px;
 }
 /* Diseño de la explicación de las instrucciones de recarga pág. */
