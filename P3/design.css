@@ -59,7 +59,7 @@ h4 {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
-    margin-left: 650px;
+    margin-left: 850px;
 }
 /* Diseño de la explicación de las instrucciones de recarga pág. */
 #reinicio {
@@ -81,15 +81,17 @@ h4 {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
-    margin-left: -800px;
+    margin-left: -700px;
     margin-bottom: 20px;
+    margin-top: 60px;
 }
 #resto3 {
     color: darkblue;
     text-align: center;
     font: bold 25px Tahoma;
-    margin-left: -720px;
+    margin-left: -360px;
     margin-bottom: 20px;
+    margin-top: 60px;
 }
 /* Diseño del botón de PLAY y el de REINICIAR. */
 input {
@@ -97,7 +99,7 @@ input {
     text-align: center;
     font: bold 22px Tahoma;
     color: white;
-    width: 130px;
+    width: 140px;
     height: 70px;
     border-radius: 10px;
 }
@@ -106,7 +108,7 @@ input {
     text-align: left;
     color: black;
     font: bold 40px Tahoma;
-    margin-left: 150px;
+    margin-left: 180px;
     margin-top: -1400px;
 }
 /* Diseño de los botones de control del sonido. */
@@ -131,7 +133,7 @@ input {
 #msg_volum {
     font: bold 25px Tahoma;
     color: black;
-    margin-left: 120px;
+    margin-left: 140px;
 }
 /* Antes de comenzar. */
 #previa {
@@ -150,7 +152,7 @@ input {
 }
 /* Diseño de los botones: fácil, medio y difícil. */
 #facil {
-    margin-left: 1900px;
+    margin-left: 2080px;
     background-color: violet;
     color: black;
 }
