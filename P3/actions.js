@@ -545,7 +545,7 @@ L_MEDIO.onclick = () => {
     {
         velX_bol *= 1.5;
         velY_bol *= 1.5;
-        velX_raq += 5;
+        velX_raq += 10;
     }
     else
     {
@@ -558,7 +558,7 @@ L_DIFICIL.onclick = () => {
     {
         velX_bol *= 2.5;
         velY_bol *= 2.5;
-        velX_raq += 10;
+        velX_raq += 20;
     }
     else
     {
