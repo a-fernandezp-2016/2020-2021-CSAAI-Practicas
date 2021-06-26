@@ -526,7 +526,7 @@ DeslizaVol.onclick = (ev) => {
     DisplayVol.innerHTML = ev.currentTarget.value;
 }
 
-// Para elegir el nivel de dificultad.
+// Para elegir el nivel de dificultad. Por defecto es fácil.
 L_FACIL.onclick = () => {
     if(fase == ESTADO.INIT && velX_bol == VX && velY_bol == VY && CAPAR == 0)
     {
@@ -545,6 +545,7 @@ L_MEDIO.onclick = () => {
     {
         velX_bol *= 1.5;
         velY_bol *= 1.5;
+        velX_raq += 5;
     }
     else
     {
@@ -557,6 +558,7 @@ L_DIFICIL.onclick = () => {
     {
         velX_bol *= 2.5;
         velY_bol *= 2.5;
+        velX_raq += 10;
     }
     else
     {
