@@ -82,28 +82,28 @@ let fase = ESTADO.INIT;
 
 // Características de la raqueta.
     // Dimensiones de la raqueta.
-    let anchoRAQ = 80;
-    let altoRAQ = 12;
-    // Definimos las coordenadas de la raqueta.
-    let raqX = 260;
-    let raqY = 900;
+    let anchoRAQ = 80;      //-- Valor fijo, que NO se puede cambiar.
+    let altoRAQ = 12;       //-- Valor fijo, que NO se puede cambiar.
+    // Definimos las coordenadas iniciales de la raqueta.
+    let raqX = 260;     //-- Posición fija en el eje X, que NO se puede cambiar.
+    let raqY = 900;     //-- Posición fija en el eje Y, que NO se puede cambiar.
     // Definimos la variable velocidad del eje x de la raqueta.
-    let velX_raq = 30;
+    let velX_raq = 30;  //-- Velocidad fija de la raqueta en X, es decir, NO se puede cambiar.
 
 // Características de la bola.
     // Definimos las coordenadas de la bola.
-    let bolaX = 300;
-    let bolaY = 890;
+    let bolaX = 300;    //-- Posición fija en el eje X, que NO se puede cambiar.
+    let bolaY = 890;    //-- Posición fija en el eje Y, que NO se puede cambiar.
     // Definimos el radio de la bola.
-    let radio = 10;
+    let radio = 10;     //-- Valor fijo, que NO se puede cambiar.
     // Definimos los ángulos de la bola.
-    let ang0 = 0;
-    let angF = 2 * Math.PI;
+    let ang0 = 0;       //-- Valor fijo, que NO se puede cambiar.
+    let angF = 2 * Math.PI;     //-- Valor fijo, que NO se puede cambiar.
     // Definimos la variable velocidad del eje x e y de la bola.
-    let velX_bol = 4;
-    let velY_bol = -4;
+    let velX_bol = 4;   //-- La variable velocidad de la bola en X, si quieres la puedes cambiar a tu gusto.
+    let velY_bol = -4;  //-- La variable velocidad de la bola en Y, si quieres la puedes cambiar a tu gusto.
     // Visibilidad de la bola.
-    let viewBola = false;
+    let viewBola = false;   //-- Estado o fase fija, que NO se puede cambiar.
 
 // Posiciones de la bola y de la raqueta iniciales.
 bolaX_init = bolaX;
@@ -442,22 +442,58 @@ function update()
                 break;
             // Tecla: Izquierda.
             case 37:
-                if((fase == ESTADO.PLAYING) && (raqX > 0))
+                if((fase == ESTADO.PLAYING) && (raqX >= velX_raq))
                 {
-                    // Cálculo para mover hacia la izquierda.
-                    raqX -= velX_raq;
-                    // Mensaje del mvto de la raqueta hacia la izquierda.
-                    console.log("Moviendo la raqueta hacia la izquierda");
+                    if((velX_raq/2 > raqX) && (raqX < 2*velX_raq))
+                    {
+                        if(velX_raq <= 40)
+                        {
+                            // Cálculo para mover hacia la izquierda.
+                            raqX -= (velX_raq+20);
+                        }
+                        else if(velX_raq > 40)
+                        {
+                            // Cálculo para mover hacia la izquierda.
+                            raqX -= (velX_raq+10);
+                        }
+                        // Mensaje del mvto de la raqueta hacia la izquierda.
+                        console.log("Último movimiento de la raqueta hacia la izquierda");
+                    }
+                    else
+                    {
+                        // Cálculo para mover hacia la izquierda.
+                        raqX -= velX_raq;
+                        // Mensaje del mvto de la raqueta hacia la izquierda.
+                        console.log("Moviendo la raqueta hacia la izquierda");
+                    }
                 }
                 break;
             // Tecla: Derecha.
             case 39:
-                if((fase == ESTADO.PLAYING) && (raqX < (pantalla.width-anchoRAQ)))
+                if((fase == ESTADO.PLAYING) && (raqX < (pantalla.width-anchoRAQ-velX_raq)))
                 {
-                    // Cálculo para mover hacia la derecha.
-                    raqX += velX_raq;
-                    // Mensaje del mvto de la raqueta hacia la derecha.
-                    console.log("Moviendo la raqueta hacia la derecha");
+                    if((pantalla.width-anchoRAQ-2*velX_raq > raqX) && (raqX < pantalla.width-anchoRAQ-velX_raq))
+                    {
+                        if(velX_raq <= 40)
+                        {
+                            // Cálculo para mover hacia la derecha.
+                            raqX += (velX_raq + 20);
+                        }
+                        else if(velX_raq > 40)
+                        {
+                            // Cálculo para mover hacia la derecha.
+                            raqX += (velX_raq + 10);
+                        }
+                        // Mensaje del mvto de la raqueta hacia la derecha.
+                        console.log("Último movimiento de la raqueta hacia la derecha");
+                    }
+                    else
+                    {
+                        // Cálculo para mover hacia la derecha.
+                        raqX += velX_raq;
+                        // Mensaje del mvto de la raqueta hacia la derecha.
+                        console.log("Moviendo la raqueta hacia la derecha");
+                    }
                 }
                 break;
         }
