@@ -26,13 +26,15 @@ El desarrollo del videojuego se divide en dos partes:
     1. La parte Obligatoria.
     2. La parte de Mejoras.
 
+<br>
+
 #### 1. LA PARTE OBLIGATORIA:
 
 El juego consta de cuatro Etapas o Estados, que están explicadas gráficamente en la siguiente imagen:
 
-![]()
+![](Diagrama_Estados.jpg)
 
-Etapas o Estados: 
+Etapas o Estados:
 
     1) ESTADO 0 => INIT.
     2) ESTADO 1 => SAQUE.
@@ -54,4 +56,19 @@ Explicación de los nº en rojo:
 8. El juego se mantendrá en el Estado Final, es decir, con el mensaje de victoria o de derrota, hasta que se pulse la tecla REINICIAR para volver a optar a jugar de nuevo.
 9. Siempre, independientemente del Estado en que estés, podrás pulsar a REINICIAR, para volver al Estado Inicial.
 10. Independientemente del Estado en que estés, puedes pulsar PLAY SOUND, para volver a iniciar la canción/sonido de fondo y, ajustar el volumen al nivel sonoro que desees (ten en cuenta que si lo subes a un nivel alto-medio, puede que los sonidos del golpeo de la bola con las paredes y la raqueta, el sonido de los ladrillos rompiéndose, el sonido de saque inicial, el de victoria o el de derrota, no se escuchen porque solapen los sonidos). Darle a PLAY SOUND o ajustar el nivel sonoro con el deslizador del volumen, NO implica cambiar de Estado.
+
+La estructura del código HTML (código y archivo principal) es la siguiente:
+
+![](EstructuraHTML_grafica.jpg)
+
+El código y archivo .CSS, es para dar estilo, colores, formato y formas a nuestro videojuego retro y página HTML.
+
+El código y archivo .JS, es para llevar a cabo todas las acciones y movimientos del videojuego retro y, mostrarlos en la página HTML.
+
+La cabecera o pestaña del Navegador Mozilla Firefox es la siguiente:
+
+![](CabeceraPestaña_W10.PNG)
+
+    1. Logo o icono del videojuego retro.
+    2. Siglas del Título del videojuego retro: KB Game = Kick Blocks Game.
 
