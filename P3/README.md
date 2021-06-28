@@ -30,3 +30,28 @@ El desarrollo del videojuego se divide en dos partes:
 
 El juego consta de cuatro Etapas o Estados, que están explicadas gráficamente en la siguiente imagen:
 
+![]()
+
+Etapas o Estados: 
+
+    1) ESTADO 0 => INIT.
+    2) ESTADO 1 => SAQUE.
+    3) ESTADO 2 => PLAYING.
+    4) ESTADO 3 => FINAL.
+
+Explicación de los nº en rojo:
+
+1. Para volver al Estado Inicial o permanecer en dicho estado, hay que darle a Reiniciar (volver a jugar desde el principio), o eligiendo un nivel de dificultad (esto sólo se puede hacer en el Estado Inicial y sólo se puede elegir 1. Una vez das a PLAY, ya no sirve pulsar un nivel de dificultad, a no ser que reinicies y vuelvas de nuevo al Estado Inicial).
+2. Para pasar del Estado Init al de Saque, hay que pulsar el PLAY y, así, iniciar el juego/videojuego. Si no pulsas el PLAY, no podrás empezar a jugar.
+3. Para pasar del Estado de Saque al de Playing, hay que pulsar la **tecla de saque**, que es el ESPACIO del teclado QWERTY de tu PC. Si no pulsas dicha tecla, la bola no sacará y no comenzará a moverse.
+4. El juego vuelve de nuevo al Estado de Saque, cada vez que pierdas una vida, hasta que te queden 0 vidas.
+5. El juego se mantendrá en el Estado Playing, mientras tengas vidas y al tener 0 vidas no te caigas al agua, o hasta que rompas todos los ladrillos amarillos. El Estado Playing es el Estado interactivo, donde el usuario podrá usar los controles que se explican debajo del Canvas o Pantalla de juego. Los controles del Estado Playing son: 
+    1) Tecla <=.
+    2) Tecla =>.
+
+6. El juego pasará al Estado Final, cuando se llegue a la puntuación máxima (que es igual al nº de filas por el nº de columnas de ladrillos, ya que cada uno de ellos vale 1), o que la bola se caíga al agua, quedando 0 vidas. En el primer caso, sonará un sonido de victoria y, saldrá un mensaje de victoria. En el segundo caso, sonará un sonido de derrota y, saldrá un mensaje de derrota.
+7. PROCESO NO VÁLIDO. El juego no puede volver del Estado Final al Estado Playing.
+8. El juego se mantendrá en el Estado Final, es decir, con el mensaje de victoria o de derrota, hasta que se pulse la tecla REINICIAR para volver a optar a jugar de nuevo.
+9. Siempre, independientemente del Estado en que estés, podrás pulsar a REINICIAR, para volver al Estado Inicial.
+10. Independientemente del Estado en que estés, puedes pulsar PLAY SOUND, para volver a iniciar la canción/sonido de fondo y, ajustar el volumen al nivel sonoro que desees (ten en cuenta que si lo subes a un nivel alto-medio, puede que los sonidos del golpeo de la bola con las paredes y la raqueta, el sonido de los ladrillos rompiéndose, el sonido de saque inicial, el de victoria o el de derrota, no se escuchen porque solapen los sonidos). Darle a PLAY SOUND o ajustar el nivel sonoro con el deslizador del volumen, NO implica cambiar de Estado.
+
