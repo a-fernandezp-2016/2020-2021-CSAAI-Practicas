@@ -142,4 +142,5 @@ El autor del programa: **KICK BLOCKS Game** =es> **Alejandro Fernández Pérez**
 <br>
 <br>
 
+Archivo .webp (lo que se conoce como GIF):
 ![](Mvto_Bola.webp)
