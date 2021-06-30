@@ -1,3 +1,10 @@
 #imagesrc {
     display:none;
 }
+#scale_gray {
+    background-color: aqua;
+    color: black;
+    font-size: 12px;
+    width: 15px;
+    height: 10px;
+}
