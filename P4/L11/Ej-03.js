@@ -41,7 +41,7 @@ img.onload = function () {
   //-- Colocar un pixel rojo en (200,50)
 
   //-- Obtener el numero de pixel a partir de su posicion
-  let i = 200 + 50*canvas.width;
+  let i = 500 + 20*canvas.width;
 
   //-- Pixel rojo: canal rojo a tope. Resto de colores a 0
   //-- La transparencia no se modifica
