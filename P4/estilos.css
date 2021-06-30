@@ -1,0 +1,12 @@
+/* Diseño del icono o favicon de la Pag HTML. */
+#icon {
+    width: 500px;
+    height: 500px;
+}
+/* Diseño del icono o favicon de la pestaña de la Pag HTML. */
+#cabecera {
+    font-style: italic;
+    font-size: large;
+    color: black;
+    background-color: blanchedalmond;
+}
