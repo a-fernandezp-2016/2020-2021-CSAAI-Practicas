@@ -39,6 +39,8 @@ h1 {
 #imgA {
     display:block;
     margin:auto;
+    width: 300px;
+    height: 168px;
 }
 /* Diseño de la imagen B. */
 #imgB {
