@@ -29,7 +29,7 @@ function insertImgA()
     //-- Se establece el tamaño de la imagen A en la imagen manipulada.
     LienzoImgManipulada.width = ImagenA.width;
     LienzoImgManipulada.height = ImagenA.height;
-    
+
     //-- Insertar la imagen A como imagen manipulada, sin hacer manipulaciones todavía.
     paintImgManipulate.drawImage(ImagenA,0,0);
 
