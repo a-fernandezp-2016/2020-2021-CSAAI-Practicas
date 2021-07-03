@@ -27,7 +27,7 @@ h1 {
     font: bold 22px Tahoma;
     margin-top: 30px;
     color: yellow;
-    margin-left: 140px;
+    margin-left: 110px;
 }
 /* Diseño del título de la imagen B. */
 #titleB {
@@ -41,7 +41,7 @@ h1 {
 #imgA {
     display:block;
     margin:auto;
-    margin-left: 140px;
+    margin-left: 110px;
 }
 /* Diseño de la imagen B. */
 #imgB {
@@ -55,7 +55,7 @@ h1 {
     font: bold 20px Tahoma;
     margin-top: 30px;
     color: white;
-    margin-left: -480px;
+    margin-left: -500px;
 }
 /* Diseño del botón elección imagen A. */
 #butA {
@@ -84,13 +84,13 @@ h1 {
     text-align: center;
     font: bold 24px Tahoma;
     margin-top: 40px;
-    color: lawngreen;
-    margin-left: -490px;
+    color: snow;
+    margin-left: -500px;
 }
 /* Diseño del canvas de la imagen manipulada. */
 #canvasManip {
     /* Para centrar el canvas. */
-    margin-left: -100px;
+    margin-left: -190px;
     margin-top: 40px;
     display: block;
 }
