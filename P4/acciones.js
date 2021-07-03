@@ -26,13 +26,10 @@ let fase = ESTADO.INIT;
 // Función que dibuja la imagen de A en la imagen manipulada.
 function insertImgA()
 {
-    // Definimos un tamaño de la imagen manipulada de 480px x 348px.
-    LienzoImgManipulada.width = 480;
-    LienzoImgManipulada.height = 348;
     //-- Se establece el tamaño de la imagen A en la imagen manipulada.
     LienzoImgManipulada.width = ImagenA.width;
     LienzoImgManipulada.height = ImagenA.height;
-    
+
     //-- Insertar la imagen A como imagen manipulada, sin hacer manipulaciones todavía.
     paintImgManipulate.drawImage(ImagenA,0,0);
 
