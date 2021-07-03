@@ -144,3 +144,72 @@ h1 {
     width: 80px;
     height: 50px;
 }
+/* Diseño de la explicación de los controles de R, G y B. */
+#explainR {
+    text-align: center;
+    font: bold 20px Tahoma;
+    color: black;
+    margin-top: 20px;
+}
+#explainG {
+    text-align: center;
+    font: bold 20px Tahoma;
+    color: black;
+    margin-top: 10px;
+}
+#explainB {
+    text-align: center;
+    font: bold 20px Tahoma;
+    color: black;
+    margin-top: 10px;
+}
+/* Diseño de los controles de R, G y B. */
+#red {
+    width: 200px;
+    height: 50px;
+}
+#green {
+    width: 200px;
+    height: 50px;
+}
+#blue {
+    width: 200px;
+    height: 50px;
+}
+/* Diseño del display de los controles de R, G y B. */
+#displayRed {
+    font: bold 20px Tahoma;
+    color: black;
+}
+#displayGreen {
+    font: bold 20px Tahoma;
+    color: black;
+}
+#displayBlue {
+    font: bold 20px Tahoma;
+    color: black;
+}
+/* Diseño de la explicación de "Más ajustes". */
+#ajustes2 {
+    text-align: center;
+    font: bold 20px Tahoma;
+    color: black;
+}
+#rotatBut {
+    background-color: orange;
+    color: black;
+    text-align: center;
+    font: bold 17px Tahoma;
+    width: 160px;
+    height: 50px;
+    border-radius: 8px;
+}
+#especBut {
+    background-color: orange;
+    color: black;
+    text-align: center;
+    font: bold 17px Tahoma;
+    width: 160px;
+    height: 50px;
+    border-radius: 8px;
+}

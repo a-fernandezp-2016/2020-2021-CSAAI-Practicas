@@ -63,7 +63,33 @@
         <tr>
             <td> <input type="button" id="grayBut" value="En Gray Scale"> </td>
             <td> <input type="button" id="rgbBut" value="En RGB"> </td>
+            <!-- El botón home forma parte de las mejoras. -->
             <td> <button id="homeBut"> <img id="home" src="home.png" alt="Home"> </button> </td>
+        </tr>
+        <!-- 6º fila: Controles deslizantes de R, G y B. -->
+        <tr>
+            <td>
+                <!-- Deslizador del control de R (Rojo = Red). -->
+                <p id="explainR"> R: <input type="range" id="red" min="0" max="255" step="1">
+                <span id="displayRed"></span> </p>
+                <!-- Deslizador del control de G (Verde = Green). -->
+                <p id="explainG"> G: <input type="range" id="green" min="0" max="255" step="1">
+                    <span id="displayGreen"></span> </p>
+                <!-- Deslizador del control de B (Azul = Blue). -->
+                <p id="explainB"> B: <input type="range" id="blue" min="0" max="255" step="1">
+                    <span id="displayBlue"></span> </p>
+            </td>
+        </tr>
+        <!-- 7º fila: Más ajustes (parte de mejoras). -->
+        <tr>
+            <td>
+                <p id="ajustes2"> Más ajustes: </p>
+            </td>
+        </tr>
+        <!-- 8º fila: Botones del resto de los ajustes. -->
+        <tr>
+            <td> <input type="button" id="rotatBut" value="Imagen volteada 180º"> </td>
+            <td> <input type="button" id="especBut" value="Imagen especular"> </td>
         </tr>
     </table>
 </body>
