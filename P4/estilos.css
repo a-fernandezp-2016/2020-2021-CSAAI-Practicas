@@ -59,6 +59,7 @@ h1 {
     font: bold 20px Tahoma;
     margin-top: 30px;
     color: white;
+    margin-left: -480px;
 }
 /* Diseño del botón elección imagen A. */
 #butA {
@@ -69,6 +70,7 @@ h1 {
     width: 140px;
     height: 50px;
     border-radius: 8px;
+    margin-left: -120px;
 }
 /* Diseño del botón elección imagen B. */
 #butB {
@@ -79,4 +81,5 @@ h1 {
     width: 140px;
     height: 50px;
     border-radius: 8px;
+    margin-left: 50px;
 }
