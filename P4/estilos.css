@@ -41,8 +41,6 @@ h1 {
 #imgA {
     display:block;
     margin:auto;
-    width: 656px;
-    height: 370px;
     margin-left: 140px;
 }
 /* Diseño de la imagen B. */
@@ -50,8 +48,6 @@ h1 {
     display:block;
     margin:auto;
     margin-left: 110px;
-    width: 656px;
-    height: 370px;
 }
 /* Diseño de la explicación de elegir 1 de 2 imágenes. */
 #explain {
