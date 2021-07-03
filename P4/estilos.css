@@ -3,3 +3,9 @@
     width: 118px;
     height: 114px;
 }
+/* Diseño del fondo de la P4 con una imagen. */
+body {
+    background-image: url('Fondo.jpg');
+    background-size: cover;
+    position: absolute;
+}
