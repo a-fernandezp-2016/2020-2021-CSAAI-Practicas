@@ -56,25 +56,27 @@ h1 {
 /* Diseño de la explicación de elegir 1 de 2 imágenes. */
 #explain {
     text-align: center;
-    font: bold 22px Tahoma;
-    margin-top: 20px;
-    color: black;
+    font: bold 20px Tahoma;
+    margin-top: 30px;
+    color: white;
 }
 /* Diseño del botón elección imagen A. */
 #butA {
     background-color: yellow;
     color: black;
     text-align: center;
-    font: bold 20px Tahoma;
-    width: 30px;
-    height: 18px;
+    font: bold 17px Tahoma;
+    width: 140px;
+    height: 50px;
+    border-radius: 8px;
 }
 /* Diseño del botón elección imagen B. */
 #butB {
     background-color: yellow;
     color: black;
     text-align: center;
-    font: bold 20px Tahoma;
-    width: 30px;
-    height: 18px;
+    font: bold 17px Tahoma;
+    width: 140px;
+    height: 50px;
+    border-radius: 8px;
 }
