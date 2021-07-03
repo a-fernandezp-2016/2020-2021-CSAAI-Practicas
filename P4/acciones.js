@@ -23,6 +23,9 @@ const ESTADO = {
 // Inicializar la variable fase con el objeto literal Estado de 0.
 let fase = ESTADO.INIT;
 
+// Variable que indica si estamos trabajando con la imagen A = 1, o la imagen B = 2.
+let choice = 1;
+
 // Función que dibuja la imagen de A en la imagen manipulada.
 function insertImgA()
 {
@@ -50,6 +53,15 @@ function insertImgB()
     console.log("Imagen B lista para manipular.....");
 }
 
+// Función que borra la imagen A y de B.
+function borraImgs()
+{
+    // Se borra la imagen del lienzo de la imagen manipulada.
+    paintImgManipulate.clearRect(0,0,LienzoImgManipulada.width, LienzoImgManipulada.height);
+    // Mensaje en consola.
+    console.log("Imagen borrada de nuevo....");
+}
+
 // Se pulsa el botón de la imagen A para añadir dicha imagen en el lienzo de la imagen manipulada.
 BotonA.onclick = () => 
 {
@@ -59,6 +71,8 @@ BotonA.onclick = () =>
         fase = ESTADO.MANIPULATE;
         // Cargamos la función de la imagen de A (es decir, cargamos la imagen en su posición).
         ImagenA.onload = insertImgA();
+        // Ponemos variable choice a 1.
+        choice = 1;
     }
     else
     {
@@ -75,6 +89,8 @@ BotonB.onclick = () =>
         fase = ESTADO.MANIPULATE;
         // Cargamos la función de la imagen de B (es decir, cargamos la imagen en su posición).
         ImagenB.onload = insertImgB();
+        // Ponemos variable choice a 2.
+        choice = 2;
     }
     else
     {
@@ -91,6 +107,16 @@ BotonInicio.onclick = () =>
         fase = ESTADO.INIT;
         // Mensaje indicando que se ha vuelto a la fase inicial, a elegir imagen de nuevo.
         console.log("Vuelve a elegir una imagen.....");
+        if(choice == 1)
+        {
+            // Descargamos la función de la imagen de A (es decir, quitamos la imagen de su posición).
+            ImagenA.onUnLoad = borraImgs();
+        }
+        else if(choice == 2)
+        {
+            // Descargamos la función de la imagen de B (es decir, quitamos la imagen de su posición).
+            ImagenB.onUnLoad = borraImgs();
+        }
     }
     else
     {
