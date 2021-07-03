@@ -2,14 +2,14 @@
 console.log("Empieza el PROCESADO DE LAS 2 IMÁGENES");
 
 // Interconexión de elementos de HTML con elementos de JS.
-const Lienzo_Img_Manipulada = document.getElementById('canvasManip');
+const LienzoImgManipulada = document.getElementById('canvasManip');
 const BotonA = document.getElementById('butA');
 const BotonB = document.getElementById('butB');
 const ImagenA = document.getElementById('imgA');
 const ImagenB = document.getElementById('imgB');
 
 // Para insertar imágenes en el canvas o en el Lienzo de la Imagen Manipulada.
-const paintImgManipulate = Lienzo_Img_Manipulada.getContext('2d');
+const paintImgManipulate = LienzoImgManipulada.getContext('2d');
 
 // Configuración de Estados o fases para llevar un orden.
 // Estado INIT => 0 => donde elegimos si manipular la imagen A o la B.
@@ -27,9 +27,9 @@ let fase = ESTADO.INIT;
 function insertImgA()
 {
     //-- Se establece el tamaño de la imagen A en la imagen manipulada.
-    Lienzo_Img_Manipulada.width = ImagenA.width;
-    Lienzo_Img_Manipulada.height = ImagenA.height;
-
+    LienzoImgManipulada.width = ImagenA.width;
+    LienzoImgManipulada.height = ImagenA.height;
+    
     //-- Insertar la imagen A como imagen manipulada, sin hacer manipulaciones todavía.
     paintImgManipulate.drawImage(ImagenA,0,0);
 
@@ -40,8 +40,8 @@ function insertImgA()
 function insertImgB()
 {
     //-- Se establece el tamaño de la imagen B en la imagen manipulada.
-    Lienzo_Img_Manipulada.width = ImagenB.width;
-    Lienzo_Img_Manipulada.height = ImagenB.height;
+    LienzoImgManipulada.width = ImagenB.width;
+    LienzoImgManipulada.height = ImagenB.height;
 
     //-- Insertar la imagen B como imagen manipulada, sin hacer manipulaciones todavía.
     paintImgManipulate.drawImage(ImagenB,0,0);
