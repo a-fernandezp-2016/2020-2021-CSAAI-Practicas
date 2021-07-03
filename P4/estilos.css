@@ -8,6 +8,7 @@ body {
     background-image: url('Fondo.png');
     background-size: cover;
     position: absolute;
+    margin-bottom: 80px;
 }
 /* Diseño del título del procesado de imágenes. */
 h1 {
@@ -202,7 +203,7 @@ h1 {
     color: black;
     margin-left: 390px;
     margin-right: -390px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 #rotatBut {
     background-color: orange;
