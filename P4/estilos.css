@@ -5,7 +5,7 @@
 }
 /* Diseño del fondo de la P4 con una imagen. */
 body {
-    background-image: url('Fondo.jpg');
+    background-image: url('Fondo.png');
     background-size: cover;
     position: absolute;
 }
