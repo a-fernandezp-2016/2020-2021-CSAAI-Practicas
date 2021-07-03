@@ -53,3 +53,28 @@ h1 {
     width: 480px;
     height: 348px;
 }
+/* Diseño de la explicación de elegir 1 de 2 imágenes. */
+#explain {
+    text-align: center;
+    font: bold 22px Tahoma;
+    margin-top: 20px;
+    color: black;
+}
+/* Diseño del botón elección imagen A. */
+#butA {
+    background-color: yellow;
+    color: black;
+    text-align: center;
+    font: bold 20px Tahoma;
+    width: 30px;
+    height: 18px;
+}
+/* Diseño del botón elección imagen B. */
+#butB {
+    background-color: yellow;
+    color: black;
+    text-align: center;
+    font: bold 20px Tahoma;
+    width: 30px;
+    height: 18px;
+}
