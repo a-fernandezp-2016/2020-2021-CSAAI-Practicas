@@ -24,26 +24,32 @@ h1 {
 /* Diseño del título de la imagen A. */
 #titleA {
     text-align: center;
-    font: bold 15px Tahoma;
+    font: bold 22px Tahoma;
     margin-top: 30px;
-    color: black;
+    color: yellow;
+    margin-left: 140px;
 }
 /* Diseño del título de la imagen B. */
 #titleB {
     text-align: center;
-    font: bold 15px Tahoma;
+    font: bold 22px Tahoma;
     margin-top: 30px;
     color: black;
+    margin-left: 110px;
 }
 /* Diseño de la imagen A. */
 #imgA {
     display:block;
     margin:auto;
-    width: 300px;
-    height: 168px;
+    width: 480px;
+    height: 348px;
+    margin-left: 140px;
 }
 /* Diseño de la imagen B. */
 #imgB {
     display:block;
     margin:auto;
+    margin-left: 110px;
+    width: 480px;
+    height: 348px;
 }
