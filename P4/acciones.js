@@ -1,14 +1,34 @@
 // Mensaje de inicio del procesado de las 2 imágenes.
 console.log("Empieza el PROCESADO DE LAS 2 IMÁGENES");
 
-// Interconexión de elementos de HTML con elementos de JS.
-const LienzoImgManipulada = document.getElementById('canvasManip');
-const BotonA = document.getElementById('butA');
-const BotonB = document.getElementById('butB');
-const BotonInicio = document.getElementById('homeBut');
+// Elementos o ctes de las propias imágenes a manipular.
 const ImagenA = document.getElementById('imgA');
 const ImagenB = document.getElementById('imgB');
-const EscalaGrises = document.getElementById('grayBut');
+
+// Elemento o cte del canvas o del lienzo donde estará la imagen a manipular.
+const LienzoImgManipulada = document.getElementById('canvasManip');
+
+// Elementos o ctes de los botones para poder elegir la imagen a manipular.
+const BotonA = document.getElementById('butA');
+const BotonB = document.getElementById('butB');
+
+// Elemento o cte del botón de inicio, para volver al estado inicial y poder elegir de nuevo imagen.
+const BotonInicio = document.getElementById('homeBut');
+
+// Elementos o ctes de los ajustes de la manipulación de la imagen elegida.
+const botonScaleGrises = document.getElementById('grayBut');
+const botonRGB = document.getElementById('rgbBut');
+
+// Elementos o ctes de los deslizadores de R, G y B.
+const deslizaR = document.getElementById('red');
+const deslizaG = document.getElementById('green');
+const deslizaB = document.getElementById('blue');
+// Elementos o ctes de los Displays de los deslizadores de R, G y B.
+const displayR = document.getElementById('displayRed');
+const displayG = document.getElementById('displayGreen');
+const displayB = document.getElementById('displayBlue');
+// Ocultación de los deslizadores hasta que se pulse el botón de RGB.
+document.getElementById('deslizador').style.display = 'none';
 
 // Para insertar imágenes en el canvas o en el Lienzo de la Imagen Manipulada.
 const paintImgManipulate = LienzoImgManipulada.getContext('2d');
@@ -23,7 +43,6 @@ const ESTADO = {
 }
 // Inicializar la variable fase con el objeto literal Estado de 0.
 let fase = ESTADO.INIT;
-
 // Variable que indica si estamos trabajando con la imagen A = 1, o la imagen B = 2.
 let choice = 1;
 
@@ -61,15 +80,12 @@ function borraImgs()
     paintImgManipulate.clearRect(0,0,LienzoImgManipulada.width, LienzoImgManipulada.height);
     // Mensaje en consola.
     console.log("Imagen borrada de nuevo....");
+    console.log("Vuelve a elegir una imagen...");
 }
-// Función que accede a los px de la imagen.
+// Función que accede a los px de la imagen para convertirla en escala de grises.
 function EscaladeGrises()
 {
     let gris_Scale = 0;
-    // Variable que accede a los datos o px de la imagen.
-    let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
-    // Variable que accede px a px de la imagen.
-    let data = imgData.data;
     //-- Bucle for para modificar a grises cada pixel de la imagen.
     for(let i=0; i<data.length; i+=4)
     {
@@ -83,6 +99,76 @@ function EscaladeGrises()
     paintImgManipulate.putImageData(imgData, 0, 0);
     // Mensaje de finzalización imagen en escala de grises.
     console.log("Imagen en ESCALA DE GRISES...");
+}
+// Función para obtener el umbral de R, G o B elegido con su deslizador.
+function filtroColores(data)
+{
+    // Creamos tres variables R G B, para dar valor a los canales de cada px.
+    let red = deslizaR.value;
+    let green = deslizaG.value;
+    let blue = deslizaB.value;
+    // Filtramos la imagen según el nuevo umbral.
+    for(let i=0; i<data.length; i+=4)
+    {
+        if (data[i] > red)
+        {
+            data[i] = red;
+        }
+        if (data[i+1] > green)
+        {
+            data[i+1] = green;
+        }
+        if (data[i+2] > blue)
+        {
+            data[i+2] = blue;
+        }
+    }
+}
+// Función que accede a los px de la imagen para convertirla en RGB.
+function deslizadoresRGB()
+{
+    // Al mover el deslizador de R.
+    deslizaR.oninput = () =>
+    {
+        // Mostramos en display el valor del R.
+        displayR.innerHTML = deslizaR.value;
+        // Variable que accede a los datos o px de la imagen.
+        let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
+        // Variable que accede px a px de la imagen.
+        let data = imgData.data;
+        // Obtener el umbral del deslizador R.
+        filtroColores(data);
+        //-- Poner la imagen modificada en el canvas.
+        paintImgManipulate.putImageData(imgData, 0, 0);
+    }
+    // Al mover el deslizador de G.
+    deslizaG.oninput = () =>
+    {
+        displayG.innerHTML = deslizaG.value;
+        // Variable que accede a los datos o px de la imagen.
+        let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
+        // Variable que accede px a px de la imagen.
+        let data = imgData.data;
+        // Obtener el umbral del deslizador G.
+        filtroColores(data);
+        //-- Poner la imagen modificada en el canvas.
+        paintImgManipulate.putImageData(imgData, 0, 0);
+    }
+    // Al mover el deslizador de B.
+    deslizaB.oninput = () =>
+    {
+        displayB.innerHTML = deslizaB.value;
+        // Variable que accede a los datos o px de la imagen.
+        let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
+        // Variable que accede px a px de la imagen.
+        let data = imgData.data;
+        // Obtener el umbral del deslizador B.
+        filtroColores(data);
+        //-- Poner la imagen modificada en el canvas.
+        paintImgManipulate.putImageData(imgData, 0, 0);
+    }
+    // Mensaje de configuración imagen RGB acabado.
+    console.log("LA NUEVA IMAGEN RGB YA ESTÁ LISTA....");
 }
 
 // Se pulsa el botón de la imagen A para añadir dicha imagen en el lienzo de la imagen manipulada.
@@ -132,6 +218,7 @@ BotonInicio.onclick = () =>
         console.log("Vuelve a elegir una imagen.....");
         if(choice == 1)
         {
+
             // Descargamos la función de la imagen de A (es decir, quitamos la imagen de su posición).
             ImagenA.onUnLoad = borraImgs();
         }
@@ -148,12 +235,12 @@ BotonInicio.onclick = () =>
     }
 }
 // Se pulsa el botón escala de grises, para transformar la imagen elegida en escala de grises.
-EscalaGrises.onclick = () =>
+botonScaleGrises.onclick = () =>
 {
     if(fase == ESTADO.MANIPULATE)
     {
         // Mensaje de selección de imagen en escala de grises.
-        console.log("Aplicando FILTRO a escala de grises...");
+        console.log("Aplicando FILTRO escala de grises...");
         if(choice == 1)
         {
             // Pintamos la imagen de A en escala de grises, accediendo a los px de la imagen.
@@ -163,6 +250,34 @@ EscalaGrises.onclick = () =>
         {
             // Pintamos la imagen de B en escala de grises, accediendo a los px de la imagen.
             ImagenB.onload = EscaladeGrises();
+        }
+    }
+    else
+    {
+        // Mensaje de acción inválida.
+        console.log("PROCESO NO VÁLIDO, LO SIENTO.");
+    }
+}
+// Se pulsa el botón RGB, para transformar la imagen elegida en una imagen en RGB.
+botonRGB.onclick = () =>
+{
+    if(fase == ESTADO.MANIPULATE)
+    {
+        // Mensaje de selección de imagen en RGB.
+        console.log("Aplicando FILTRO RGB...");
+        // Activamos los deslizadores al pulsar el botón de RGB.
+        document.getElementById('deslizador').style.display = 'block';
+        // Mensaje en consola.
+        console.log("Deslizadores activados.....");
+        if(choice == 1)
+        {
+            // Pintamos la imagen de A en RGB, accediendo a los px de la imagen.
+            ImagenA.onload = deslizadoresRGB();
+        }
+        else if(choice == 2)
+        {
+            // Pintamos la imagen de B en RGB, accediendo a los px de la imagen.
+            ImagenB.onload = deslizadoresRGB();
         }
     }
     else
