@@ -48,9 +48,9 @@ let fase = ESTADO.INIT;
 // Variable que indica si estamos trabajando con la imagen A = 1, o la imagen B = 2.
 let choice = 1;
 // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
-let red = deslizaR.ev.target.value;
-let green = deslizaG.ev.target.value;
-let blue = deslizaB.ev.target.value;
+let red = deslizaR.value;
+let green = deslizaG.value;
+let blue = deslizaB.value;
 
 // Función que dibuja la imagen de A en la imagen manipulada.
 function insertImgA()
