@@ -77,6 +77,8 @@ function accesoPxenGrises()
     data[i*4] = gris_Scale;    
     data[i*4 + 1] = gris_Scale;  
     data[i*4 + 2] = gris_Scale;
+    //-- Poner la imagen modificada en el canvas.
+    paintImgManipulate.putImageData(imgData, 0, 0);
 }
 
 // Se pulsa el botón de la imagen A para añadir dicha imagen en el lienzo de la imagen manipulada.
