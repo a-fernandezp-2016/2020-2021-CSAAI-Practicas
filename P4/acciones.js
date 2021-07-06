@@ -47,6 +47,8 @@ const ESTADO = {
 let fase = ESTADO.INIT;
 // Variable que indica si estamos trabajando con la imagen A = 1, o la imagen B = 2.
 let choice = 1;
+// Variable activación filtro RGB.
+let pressRGB = false;
 // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
 let red = deslizaR.value;
 let green = deslizaG.value;
@@ -179,21 +181,24 @@ function deslizadoresRGB(red, green, blue)
 // Función encargada de voltear 180º la imagen elegida en rgb o en grises.
 function drawVolteo()
 {
-    paintImgManipulate.translate(0,2*(LienzoImgManipulada.height)/2);
+    paintImgManipulate.translate(2*(LienzoImgManipulada.height)/2);
     paintImgManipulate.scale(1,-1);
 }
 // Función encargada de poner la imagen elegida en rgb o en grises en espejo o especular.
 function drawEspecular()
 {
-    paintImgManipulate.translate(2*(LienzoImgManipulada.width)/2,0);
+    paintImgManipulate.translate(2*(LienzoImgManipulada.width)/2);
     paintImgManipulate.scale(-1,1);
 }
 
 // Se pulsa el botón de la imagen A para añadir dicha imagen en el lienzo de la imagen manipulada.
 BotonA.onclick = () => 
 {
+    pressRGB = false;
     if(fase == ESTADO.INIT)
     {
+        // Desactivamos los deslizadores.
+        document.getElementById('deslizador').style.display = 'none';
         // Pasamos a la fase de manipulación o Estado 1.
         fase = ESTADO.MANIPULATE;
         // Cargamos la función de la imagen de A (es decir, cargamos la imagen en su posición).
@@ -210,8 +215,11 @@ BotonA.onclick = () =>
 // Se pulsa el botón de la imagen B para añadir dicha imagen en el lienzo de la imagen manipulada.
 BotonB.onclick = () => 
 {
+    pressRGB = false;
     if(fase == ESTADO.INIT)
     {
+        // Desactivamos los deslizadores.
+        document.getElementById('deslizador').style.display = 'none';
         // Pasamos a la fase de manipulación o Estado 1.
         fase = ESTADO.MANIPULATE;
         // Cargamos la función de la imagen de B (es decir, cargamos la imagen en su posición).
@@ -230,10 +238,13 @@ BotonInicio.onclick = () =>
 {
     if(fase == ESTADO.MANIPULATE)
     {
+        pressRGB = false;
         // Pasamos a la fase inicial o Estado 0.
         fase = ESTADO.INIT;
         // Mensaje indicando que se ha vuelto a la fase inicial, a elegir imagen de nuevo.
         console.log("Vuelve a elegir una imagen.....");
+        // Desactivamos los deslizadores.
+        document.getElementById('deslizador').style.display = 'none';
         if(choice == 1)
         {
 
@@ -257,6 +268,9 @@ botonScaleGrises.onclick = () =>
 {
     if(fase == ESTADO.MANIPULATE)
     {
+        pressRGB = false;
+        // Desactivamos los deslizadores.
+        document.getElementById('deslizador').style.display = 'none';
         // Mensaje de selección de imagen en escala de grises.
         console.log("Aplicando FILTRO escala de grises...");
         if(choice == 1)
@@ -285,6 +299,7 @@ botonRGB.onclick = (red, green, blue) =>
 {
     if(fase == ESTADO.MANIPULATE)
     {
+        pressRGB = true;
         // Mensaje de selección de imagen en RGB.
         console.log("Aplicando FILTRO RGB...");
         // Activamos los deslizadores al pulsar el botón de RGB.
@@ -316,6 +331,16 @@ botonRGB.onclick = (red, green, blue) =>
 // lo que estaba arriba, pasa a estar abajo y, lo de abajo, a arriba.
 botonVolteo.onclick = () =>
 {
+    if(pressRGB == false)
+    {
+        // Desactivamos los deslizadores.
+        document.getElementById('deslizador').style.display = 'none';
+    }
+    else
+    {
+        // Activamos los deslizadores al pulsar el botón de RGB.
+        document.getElementById('deslizador').style.display = 'block';
+    }
     if(fase == ESTADO.MANIPULATE)
     {
         // Mensaje de volteo 180º de la imagen en RGB o en escala de grises.
@@ -340,6 +365,16 @@ botonVolteo.onclick = () =>
 // Se pulsa el botón Imagen especular, para mostrar la imagen como si se viera en un espejo.
 botonEspec.onclick = () =>
 {
+    if(pressRGB == false)
+    {
+        // Desactivamos los deslizadores.
+        document.getElementById('deslizador').style.display = 'none';
+    }
+    else
+    {
+        // Activamos los deslizadores al pulsar el botón de RGB.
+        document.getElementById('deslizador').style.display = 'block';
+    }
     if(fase == ESTADO.MANIPULATE)
     {
         // Mensaje de volteo 180º de la imagen en RGB o en escala de grises.
