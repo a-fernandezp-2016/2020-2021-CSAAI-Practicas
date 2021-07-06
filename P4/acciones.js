@@ -86,6 +86,10 @@ function borraImgs()
 function EscaladeGrises()
 {
     let gris_Scale = 0;
+    // Variable que accede a los datos o px de la imagen.
+    let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
+    // Variable que accede px a px de la imagen.
+    let data = imgData.data;
     //-- Bucle for para modificar a grises cada pixel de la imagen.
     for(let i=0; i<data.length; i+=4)
     {
