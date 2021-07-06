@@ -247,13 +247,17 @@ botonScaleGrises.onclick = () =>
         console.log("Aplicando FILTRO escala de grises...");
         if(choice == 1)
         {
+            // Restablecemos la imagen A en su inicio.
+            insertImgA();
             // Pintamos la imagen de A en escala de grises, accediendo a los px de la imagen.
-            ImagenA.onload = EscaladeGrises();
+            EscaladeGrises();
         }
         else if(choice == 2)
         {
+            // Restablecemos la imagen B en su inicio.
+            insertImgB();
             // Pintamos la imagen de B en escala de grises, accediendo a los px de la imagen.
-            ImagenB.onload = EscaladeGrises();
+            EscaladeGrises();
         }
     }
     else
