@@ -8,6 +8,7 @@ const BotonB = document.getElementById('butB');
 const BotonInicio = document.getElementById('homeBut');
 const ImagenA = document.getElementById('imgA');
 const ImagenB = document.getElementById('imgB');
+const EscalaGrises = document.getElementById('grayBut');
 
 // Para insertar imágenes en el canvas o en el Lienzo de la Imagen Manipulada.
 const paintImgManipulate = LienzoImgManipulada.getContext('2d');
@@ -60,6 +61,22 @@ function borraImgs()
     paintImgManipulate.clearRect(0,0,LienzoImgManipulada.width, LienzoImgManipulada.height);
     // Mensaje en consola.
     console.log("Imagen borrada de nuevo....");
+}
+// Función que accede a los px de la imagen.
+function accesoPxenGrises()
+{
+    // Variable que accede a los datos o px de la imagen.
+    let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
+    // Variable que accede px a px de la imagen.
+    let data = imgData.data
+    //-- Obtener el numero de pixel a partir de su posicion
+    let i = 200 + 50*LienzoImgManipulada.width;
+    // Creamos el elemento de la escala de grises.
+    gris_Scale = parseInt((data[i*4] + data[i*4 + 1] + data[i*4 + 2]) / 3);
+    // Actualizar px a px en escala de grises.
+    data[i*4] = gris_Scale;    
+    data[i*4 + 1] = gris_Scale;  
+    data[i*4 + 2] = gris_Scale;
 }
 
 // Se pulsa el botón de la imagen A para añadir dicha imagen en el lienzo de la imagen manipulada.
@@ -116,6 +133,34 @@ BotonInicio.onclick = () =>
         {
             // Descargamos la función de la imagen de B (es decir, quitamos la imagen de su posición).
             ImagenB.onUnLoad = borraImgs();
+        }
+    }
+    else
+    {
+        // Mensaje de acción inválida.
+        console.log("PROCESO NO VÁLIDO, LO SIENTO.");
+    }
+}
+// Se pulsa el botón escala de grises, para transformar la imagen elegida en escala de grises.
+EscalaGrises.onclick = () =>
+{
+    if(fase == ESTADO.MANIPULATE)
+    {
+        // Mensaje de selección de imagen en escala de grises.
+        console.log("Transformando la imagen a escala de grises...");
+        if(choice == 1)
+        {
+            // Partiendo de la imagen A del inicio, la volvemos a dibujar.
+            ImagenA.onload = insertImgA();
+            // Pintamos la imagen de A en escala de grises, accediendo a los px de la imagen.
+            ImagenA.onload = accesoPxenGrises();
+        }
+        else if(choice == 2)
+        {
+            // Partiendo de la imagen B del inicio, la volvemos a dibujar.
+            ImagenB.onload = insertImgB();
+            // Pintamos la imagen de B en escala de grises, accediendo a los px de la imagen.
+            ImagenB.onload = accesoPxenGrises();
         }
     }
     else
