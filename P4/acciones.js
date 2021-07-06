@@ -279,13 +279,17 @@ botonRGB.onclick = () =>
         console.log("Deslizadores activados.....");
         if(choice == 1)
         {
+            // Restablecemos la imagen A en su inicio.
+            insertImgA();
             // Pintamos la imagen de A en RGB, accediendo a los px de la imagen.
-            ImagenA.onload = deslizadoresRGB();
+            deslizadoresRGB();
         }
         else if(choice == 2)
         {
+            // Restablecemos la imagen B en su inicio.
+            insertImgB();
             // Pintamos la imagen de B en RGB, accediendo a los px de la imagen.
-            ImagenB.onload = deslizadoresRGB();
+            deslizadoresRGB();
         }
     }
     else
