@@ -28,7 +28,7 @@ const displayR = document.getElementById('displayRed');
 const displayG = document.getElementById('displayGreen');
 const displayB = document.getElementById('displayBlue');
 // Ocultación de los deslizadores hasta que se pulse el botón de RGB.
-document.getElementsByClassName('deslizador').style.display = 'none';
+document.getElementById('deslizador').style.display = 'none';
 
 // Para insertar imágenes en el canvas o en el Lienzo de la Imagen Manipulada.
 const paintImgManipulate = LienzoImgManipulada.getContext('2d');
@@ -270,7 +270,7 @@ botonRGB.onclick = () =>
         // Mensaje de selección de imagen en RGB.
         console.log("Aplicando FILTRO RGB...");
         // Activamos los deslizadores al pulsar el botón de RGB.
-        document.getElementsByClassName('deslizador').style.display = 'block';
+        document.getElementById('deslizador').style.display = 'block';
         // Mensaje en consola.
         console.log("Deslizadores activados.....");
         if(choice == 1)
