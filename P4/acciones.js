@@ -335,16 +335,9 @@ botonRGB.onclick = (red, green, blue) =>
 // lo que estaba arriba, pasa a estar abajo y, lo de abajo, a arriba.
 botonVolteo.onclick = () =>
 {
-    if(pressRGB == false)
-    {
-        // Desactivamos los deslizadores.
-        document.getElementById('deslizador').style.display = 'none';
-    }
-    else
-    {
-        // Activamos los deslizadores al pulsar el botón de RGB.
-        document.getElementById('deslizador').style.display = 'block';
-    }
+    pressRGB == false;
+    // Desactivamos los deslizadores.
+    document.getElementById('deslizador').style.display = 'none';
     if(fase == ESTADO.MANIPULATE)
     {
         // Mensaje de volteo 180º de la imagen en RGB o en escala de grises.
@@ -371,16 +364,9 @@ botonVolteo.onclick = () =>
 // Se pulsa el botón Imagen especular, para mostrar la imagen como si se viera en un espejo.
 botonEspec.onclick = () =>
 {
-    if(pressRGB == false)
-    {
-        // Desactivamos los deslizadores.
-        document.getElementById('deslizador').style.display = 'none';
-    }
-    else
-    {
-        // Activamos los deslizadores al pulsar el botón de RGB.
-        document.getElementById('deslizador').style.display = 'block';
-    }
+    pressRGB == false;
+    // Desactivamos los deslizadores.
+    document.getElementById('deslizador').style.display = 'none';
     if(fase == ESTADO.MANIPULATE)
     {
         // Mensaje de volteo 180º de la imagen en RGB o en escala de grises.
