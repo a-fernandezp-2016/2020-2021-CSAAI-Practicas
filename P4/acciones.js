@@ -181,14 +181,18 @@ function deslizadoresRGB(red, green, blue)
 // Función encargada de voltear 180º la imagen elegida en rgb o en grises.
 function drawVolteo()
 {
-    paintImgManipulate.translate(2*(LienzoImgManipulada.height)/2);
+    paintImgManipulate.drawImage(Imagen,0,0);
+    paintImgManipulate.translate(0,2*(LienzoImgManipulada.height)/2);
     paintImgManipulate.scale(1,-1);
+    paintImgManipulate.drawImage(Imagen,0,0);
 }
 // Función encargada de poner la imagen elegida en rgb o en grises en espejo o especular.
 function drawEspecular()
 {
-    paintImgManipulate.translate(2*(LienzoImgManipulada.width)/2);
+    paintImgManipulate.drawImage(Imagen,0,0);
+    paintImgManipulate.translate(2*(LienzoImgManipulada.width)/2,0);
     paintImgManipulate.scale(-1,1);
+    paintImgManipulate.drawImage(Imagen,0,0);
 }
 
 // Se pulsa el botón de la imagen A para añadir dicha imagen en el lienzo de la imagen manipulada.
@@ -347,11 +351,13 @@ botonVolteo.onclick = () =>
         console.log("Aplicando el ajuste de voltear la imagen 180º...");
         if(choice == 1)
         {
+            Imagen = ImagenA;
             // Volteamos 180º la imagen de A.
             drawVolteo();
         }
         else if(choice == 2)
         {
+            Imagen = ImagenB;
             // Volteamos 180º la imagen de B.
             drawVolteo();
         }
