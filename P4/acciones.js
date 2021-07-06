@@ -81,6 +81,8 @@ function EscaladeGrises()
     }
     //-- Poner la imagen modificada en el canvas.
     paintImgManipulate.putImageData(imgData, 0, 0);
+    // Mensaje de finzalización imagen en escala de grises.
+    console.log("Imagen en ESCALA DE GRISES...");
 }
 
 // Se pulsa el botón de la imagen A para añadir dicha imagen en el lienzo de la imagen manipulada.
