@@ -18,6 +18,8 @@ const BotonInicio = document.getElementById('homeBut');
 // Elementos o ctes de los ajustes de la manipulación de la imagen elegida.
 const botonScaleGrises = document.getElementById('grayBut');
 const botonRGB = document.getElementById('rgbBut');
+const botonVolteo = document.getElementById('rotatBut');
+const botonEspec = document.getElementById('especBut');
 
 // Elementos o ctes de los deslizadores de R, G y B.
 const deslizaR = document.getElementById('red');
@@ -174,6 +176,18 @@ function deslizadoresRGB(red, green, blue)
     // Mensaje de configuración imagen RGB acabado.
     console.log("LA NUEVA IMAGEN RGB YA ESTÁ LISTA....");
 }
+// Función encargada de voltear 180º la imagen elegida en rgb o en grises.
+function drawVolteo()
+{
+    paintImgManipulate.translate(0,2*(LienzoImgManipulada.height)/2);
+    paintImgManipulate.scale(1,-1);
+}
+// Función encargada de poner la imagen elegida en rgb o en grises en espejo o especular.
+function drawEspecular()
+{
+    paintImgManipulate.translate(2*(LienzoImgManipulada.width)/2,0);
+    paintImgManipulate.scale(-1,1);
+}
 
 // Se pulsa el botón de la imagen A para añadir dicha imagen en el lienzo de la imagen manipulada.
 BotonA.onclick = () => 
@@ -290,6 +304,55 @@ botonRGB.onclick = (red, green, blue) =>
             insertImgB();
             // Pintamos la imagen de B en RGB, accediendo a los px de la imagen.
             deslizadoresRGB(red, green, blue);
+        }
+    }
+    else
+    {
+        // Mensaje de acción inválida.
+        console.log("PROCESO NO VÁLIDO, LO SIENTO.");
+    }
+}
+// Se pulsa el botón voltear 180º, para dar la vuelta a la imagen verticalmente:
+// lo que estaba arriba, pasa a estar abajo y, lo de abajo, a arriba.
+botonVolteo.onclick = () =>
+{
+    if(fase == ESTADO.MANIPULATE)
+    {
+        // Mensaje de volteo 180º de la imagen en RGB o en escala de grises.
+        console.log("Aplicando el ajuste de voltear la imagen 180º...");
+        if(choice == 1)
+        {
+            // Volteamos 180º la imagen de A.
+            drawVolteo();
+        }
+        else if(choice == 2)
+        {
+            // Volteamos 180º la imagen de B.
+            drawVolteo();
+        }
+    }
+    else
+    {
+        // Mensaje de acción inválida.
+        console.log("PROCESO NO VÁLIDO, LO SIENTO.");
+    }
+}
+// Se pulsa el botón Imagen especular, para mostrar la imagen como si se viera en un espejo.
+botonEspec.onclick = () =>
+{
+    if(fase == ESTADO.MANIPULATE)
+    {
+        // Mensaje de volteo 180º de la imagen en RGB o en escala de grises.
+        console.log("Aplicando el ajuste de convertir en imagen especular...");
+        if(choice == 1)
+        {
+            // Imagen especular de la imagen de A.
+            drawEspecular();
+        }
+        else if(choice == 2)
+        {
+            // Imagen especular de la imagen de B.
+            drawEspecular();
         }
     }
     else
