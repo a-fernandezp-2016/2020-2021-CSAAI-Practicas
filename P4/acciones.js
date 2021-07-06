@@ -45,6 +45,10 @@ const ESTADO = {
 let fase = ESTADO.INIT;
 // Variable que indica si estamos trabajando con la imagen A = 1, o la imagen B = 2.
 let choice = 1;
+// Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
+let red = deslizaR.ev.target.value;
+let green = deslizaG.ev.target.value;
+let blue = deslizaB.ev.target.value;
 
 // Función que dibuja la imagen de A en la imagen manipulada.
 function insertImgA()
@@ -105,12 +109,8 @@ function EscaladeGrises()
     console.log("Imagen en ESCALA DE GRISES...");
 }
 // Función para obtener el umbral de R, G o B elegido con su deslizador.
-function filtroColores(data)
+function filtroColores(data, red, green, blue)
 {
-    // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
-    let red = deslizaR.ev.target.value;
-    let green = deslizaG.ev.target.value;
-    let blue = deslizaB.ev.target.value;
     // Filtramos la imagen según el nuevo umbral.
     for(let i=0; i<data.length; i+=4)
     {
@@ -129,45 +129,45 @@ function filtroColores(data)
     }
 }
 // Función que accede a los px de la imagen para convertirla en RGB.
-function deslizadoresRGB()
+function deslizadoresRGB(red, green, blue)
 {
     // Al mover el deslizador de R.
-    deslizaR.oninput = () =>
+    deslizaR.oninput = (red, green, blue) =>
     {
         // Mostramos en display el valor del R.
-        displayR.innerHTML = deslizaR.ev.target.value;
+        displayR.innerHTML = red;
         // Variable que accede a los datos o px de la imagen.
         let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
         // Variable que accede px a px de la imagen.
         let data = imgData.data;
         // Obtener el umbral del deslizador R.
-        filtroColores(data);
+        filtroColores(data, red, green, blue);
         //-- Poner la imagen modificada en el canvas.
         paintImgManipulate.putImageData(imgData, 0, 0);
     }
     // Al mover el deslizador de G.
-    deslizaG.oninput = () =>
+    deslizaG.oninput = (red, green, blue) =>
     {
-        displayG.innerHTML = deslizaG.ev.target.value;
+        displayG.innerHTML = green;
         // Variable que accede a los datos o px de la imagen.
         let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
         // Variable que accede px a px de la imagen.
         let data = imgData.data;
         // Obtener el umbral del deslizador G.
-        filtroColores(data);
+        filtroColores(data, red, green, blue);
         //-- Poner la imagen modificada en el canvas.
         paintImgManipulate.putImageData(imgData, 0, 0);
     }
     // Al mover el deslizador de B.
-    deslizaB.oninput = () =>
+    deslizaB.oninput = (red, green, blue) =>
     {
-        displayB.innerHTML = deslizaB.ev.target.value;
+        displayB.innerHTML = blue;
         // Variable que accede a los datos o px de la imagen.
         let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
         // Variable que accede px a px de la imagen.
         let data = imgData.data;
         // Obtener el umbral del deslizador B.
-        filtroColores(data);
+        filtroColores(data, red, green, blue);
         //-- Poner la imagen modificada en el canvas.
         paintImgManipulate.putImageData(imgData, 0, 0);
     }
@@ -267,7 +267,7 @@ botonScaleGrises.onclick = () =>
     }
 }
 // Se pulsa el botón RGB, para transformar la imagen elegida en una imagen en RGB.
-botonRGB.onclick = () =>
+botonRGB.onclick = (red, green, blue) =>
 {
     if(fase == ESTADO.MANIPULATE)
     {
@@ -282,14 +282,14 @@ botonRGB.onclick = () =>
             // Restablecemos la imagen A en su inicio.
             insertImgA();
             // Pintamos la imagen de A en RGB, accediendo a los px de la imagen.
-            deslizadoresRGB();
+            deslizadoresRGB(red, green, blue);
         }
         else if(choice == 2)
         {
             // Restablecemos la imagen B en su inicio.
             insertImgB();
             // Pintamos la imagen de B en RGB, accediendo a los px de la imagen.
-            deslizadoresRGB();
+            deslizadoresRGB(red, green, blue);
         }
     }
     else
