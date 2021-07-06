@@ -107,10 +107,10 @@ function EscaladeGrises()
 // Función para obtener el umbral de R, G o B elegido con su deslizador.
 function filtroColores(data)
 {
-    // Creamos tres variables R G B, para dar valor a los canales de cada px.
-    let red = deslizaR.value;
-    let green = deslizaG.value;
-    let blue = deslizaB.value;
+    // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
+    let red = deslizaR.ev.target.value;
+    let green = deslizaG.ev.target.value;
+    let blue = deslizaB.ev.target.value;
     // Filtramos la imagen según el nuevo umbral.
     for(let i=0; i<data.length; i+=4)
     {
@@ -135,7 +135,7 @@ function deslizadoresRGB()
     deslizaR.oninput = () =>
     {
         // Mostramos en display el valor del R.
-        displayR.innerHTML = deslizaR.value;
+        displayR.innerHTML = deslizaR.ev.target.value;
         // Variable que accede a los datos o px de la imagen.
         let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
         // Variable que accede px a px de la imagen.
@@ -148,7 +148,7 @@ function deslizadoresRGB()
     // Al mover el deslizador de G.
     deslizaG.oninput = () =>
     {
-        displayG.innerHTML = deslizaG.value;
+        displayG.innerHTML = deslizaG.ev.target.value;
         // Variable que accede a los datos o px de la imagen.
         let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
         // Variable que accede px a px de la imagen.
@@ -161,7 +161,7 @@ function deslizadoresRGB()
     // Al mover el deslizador de B.
     deslizaB.oninput = () =>
     {
-        displayB.innerHTML = deslizaB.value;
+        displayB.innerHTML = deslizaB.ev.target.value;
         // Variable que accede a los datos o px de la imagen.
         let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
         // Variable que accede px a px de la imagen.
