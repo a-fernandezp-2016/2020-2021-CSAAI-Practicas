@@ -63,20 +63,22 @@ function borraImgs()
     console.log("Imagen borrada de nuevo....");
 }
 // Función que accede a los px de la imagen.
-function accesoPxenGrises()
+function EscaladeGrises()
 {
+    let gris_Scale = 0;
     // Variable que accede a los datos o px de la imagen.
     let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
     // Variable que accede px a px de la imagen.
-    let data = imgData.data
-    //-- Obtener el numero de pixel a partir de su posicion
-    let i = 200 + 50*LienzoImgManipulada.width;
-    // Creamos el elemento de la escala de grises.
-    gris_Scale = parseInt((data[i*4] + data[i*4 + 1] + data[i*4 + 2]) / 3);
-    // Actualizar px a px en escala de grises.
-    data[i*4] = gris_Scale;    
-    data[i*4 + 1] = gris_Scale;  
-    data[i*4 + 2] = gris_Scale;
+    let data = imgData.data;
+    //-- Bucle for para modificar a grises cada pixel de la imagen.
+    for(let i=0; i<data.length; i+=4)
+    {
+        gris_Scale = (3*data[i] + 4*data[i+1] + data[i+2])/8;
+        // Actualizar px a px en escala de grises.
+        data[i] = gris_Scale;    
+        data[i + 1] = gris_Scale;  
+        data[i + 2] = gris_Scale;
+    }
     //-- Poner la imagen modificada en el canvas.
     paintImgManipulate.putImageData(imgData, 0, 0);
 }
@@ -149,20 +151,16 @@ EscalaGrises.onclick = () =>
     if(fase == ESTADO.MANIPULATE)
     {
         // Mensaje de selección de imagen en escala de grises.
-        console.log("Transformando la imagen a escala de grises...");
+        console.log("Aplicando FILTRO a escala de grises...");
         if(choice == 1)
         {
-            // Partiendo de la imagen A del inicio, la volvemos a dibujar.
-            ImagenA.onload = insertImgA();
             // Pintamos la imagen de A en escala de grises, accediendo a los px de la imagen.
-            ImagenA.onload = accesoPxenGrises();
+            ImagenA.onload = EscaladeGrises();
         }
         else if(choice == 2)
         {
-            // Partiendo de la imagen B del inicio, la volvemos a dibujar.
-            ImagenB.onload = insertImgB();
             // Pintamos la imagen de B en escala de grises, accediendo a los px de la imagen.
-            ImagenB.onload = accesoPxenGrises();
+            ImagenB.onload = EscaladeGrises();
         }
     }
     else
