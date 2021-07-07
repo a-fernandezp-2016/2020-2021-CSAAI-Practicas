@@ -125,14 +125,17 @@ function filtroColores(data)
         if(data[i] > red)
         {
             data[i] = red;
+            console.log("El valor de RED es de: " + red);
         }
         if(data[i] > green)
         {
             data[i+1] = green;
+            console.log("El valor de GREEN es de: " + green);
         }
         if(data[i] > blue)
         {
             data[i+2] = blue;
+            console.log("El valor de BLUE es de: " + blue);
         }
     }
 }
