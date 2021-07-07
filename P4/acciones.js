@@ -87,8 +87,6 @@ function borraImgs()
 // Función que accede a los px de la imagen para convertirla en escala de grises.
 function EscaladeGrises()
 {
-    // Retrollamada al lienzo.
-    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
     let gris_Scale = 0;
     // Variable que accede a los datos o px de la imagen.
     let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
@@ -107,8 +105,6 @@ function EscaladeGrises()
     paintImgManipulate.putImageData(imgData, 0, 0);
     // Mensaje de finzalización imagen en escala de grises.
     console.log("Imagen en ESCALA DE GRISES...");
-    // Retrollamada al lienzo.
-    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
 }
 // Función para obtener el umbral de R, G o B elegido con su deslizador.
 function filtroColores(data)
@@ -183,8 +179,6 @@ function deslizadoresRGB()
     }
     // Mensaje de configuración imagen RGB acabado.
     console.log("LA NUEVA IMAGEN RGB YA ESTÁ LISTA....");
-    // Retrollamada al lienzo.
-    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
 }
 // Función encargada de voltear 180º la imagen elegida en rgb o en grises.
 function drawVolteo()
