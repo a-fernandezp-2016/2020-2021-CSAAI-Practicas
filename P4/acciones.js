@@ -311,11 +311,13 @@ botonRGB.onclick = () =>
         if(choice == 1)
         {
             // Pintamos la imagen de A en RGB, accediendo a los px de la imagen.
+            paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
             deslizadoresRGB();
         }
         else if(choice == 2)
         {
             // Pintamos la imagen de B en RGB, accediendo a los px de la imagen.
+            paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
             deslizadoresRGB();
         }
     }
