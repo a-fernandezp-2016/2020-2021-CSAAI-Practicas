@@ -120,18 +120,9 @@ function filtroColores(data)
     // Filtramos la imagen según el nuevo umbral.
     for(let i=0; i<data.length; i+=4)
     {
-        if (data[i] > red)
-        {
-            data[i] = red;
-        }
-        if (data[i+1] > green)
-        {
-            data[i+1] = green;
-        }
-        if (data[i+2] > blue)
-        {
-            data[i+2] = blue;
-        }
+        data[i] = red;
+        data[i+1] = green;
+        data[i+2] = blue;
     }
 }
 // Función encargada de voltear 180º la imagen elegida en rgb o en grises.
