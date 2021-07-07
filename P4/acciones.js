@@ -262,9 +262,9 @@ botonRGB.onclick = () =>
             if(choice == 1)
             {
                 insertImgA();
-                deslizaR = 255;
-                deslizaG = 255;
-                deslizaB = 255;
+                deslizaR.value = 255;
+                deslizaG.value = 255;
+                deslizaB.value = 255;
                 displayR = 255;
                 displayG = 255;
                 displayB = 255;
@@ -272,9 +272,9 @@ botonRGB.onclick = () =>
             else
             {
                 insertImgB();
-                deslizaR = 255;
-                deslizaG = 255;
-                deslizaB = 255;
+                deslizaR.value = 255;
+                deslizaG.value = 255;
+                deslizaB.value = 255;
                 displayR = 255;
                 displayG = 255;
                 displayB = 255;
