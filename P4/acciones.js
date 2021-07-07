@@ -49,6 +49,8 @@ let fase = ESTADO.INIT;
 let choice = 1;
 // Variable que avisa si se ha pulsado filtrado en escala de grises o no.
 let pressGrises = false;
+// Variable que avisa si se ha pulsado filtrado en RGB.
+let pressRGB = false;
 
 // Función que dibuja la imagen de A en la imagen manipulada.
 function insertImgA()
@@ -217,10 +219,23 @@ BotonInicio.onclick = () =>
 // Se pulsa el botón escala de grises, para transformar la imagen elegida en escala de grises.
 botonScaleGrises.onclick = () =>
 {
+    // Activo pressGrises.
+    pressGrises = true;
     if(fase == ESTADO.MANIPULATE)
     {
-        // Activo pressGrises.
-        pressGrises = true;
+        if(pressRGB == true)
+        {
+            console.log("Reinicio, convirtiendo la imagen A o B del inicio en Escala de Grises.");
+            if(choice == 1)
+            {
+                insertImgA();
+            }
+            else
+            {
+                insertImgB();
+            }
+            pressRGB = false;
+        }
         // Desactivamos los deslizadores.
         document.getElementById('deslizador').style.display = 'none';
         // Mensaje de selección de imagen en escala de grises.
@@ -237,10 +252,13 @@ botonScaleGrises.onclick = () =>
 // Se pulsa el botón RGB, para activar los deslizadores de RGB y para resetear la imagen elegida en RGB.
 botonRGB.onclick = () =>
 {
+    // Activo pressRGB.
+    pressRGB = true;
     if(fase == ESTADO.MANIPULATE)
     {
         if(pressGrises == true)
         {
+            console.log("Reinicio, convirtiendo la imagen A o B del inicio en RGB.");
             if(choice == 1)
             {
                 insertImgA();
@@ -251,12 +269,12 @@ botonRGB.onclick = () =>
             }
             pressGrises = false;
         }
-        // Mensaje de selección de imagen en RGB.
-        console.log("Aplicando FILTRO RGB...");
         // Activamos los deslizadores al pulsar el botón de RGB.
         document.getElementById('deslizador').style.display = 'block';
         // Mensaje en consola.
         console.log("Deslizadores activados.....");
+        // Mensaje de selección de imagen en RGB.
+        console.log("Aplicando FILTRO RGB...");
     }
     else
     {
@@ -267,6 +285,8 @@ botonRGB.onclick = () =>
 // Al mover el deslizador de R.
 deslizaR.oninput = () =>
 {
+    // Retrollamada al lienzo de la imagen elegida en RGB.
+    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
     // Mostramos en display el valor del R.
     displayR.innerHTML = deslizaR.value;
     // Variable que accede a los datos o px de la imagen.
@@ -283,6 +303,8 @@ deslizaR.oninput = () =>
 // Al mover el deslizador de G.
 deslizaG.oninput = () =>
 {
+    // Retrollamada al lienzo de la imagen elegida en RGB.
+    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
     // Mostramos en display el valor del G.
     displayG.innerHTML = deslizaG.value;
     // Variable que accede a los datos o px de la imagen.
@@ -299,6 +321,8 @@ deslizaG.oninput = () =>
 // Al mover el deslizador de B.
 deslizaB.oninput = () =>
 {
+    // Retrollamada al lienzo de la imagen elegida en RGB.
+    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
     // Mostramos en display el valor del B.
     displayB.innerHTML = deslizaB.value;
     // Variable que accede a los datos o px de la imagen.
