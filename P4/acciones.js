@@ -51,6 +51,10 @@ let choice = 1;
 let pressGrises = false;
 // Variable que avisa si se ha pulsado filtrado en RGB.
 let pressRGB = false;
+// Variable que reinicia posición de los deslizadores RGB.
+let controlDesR = false;
+let controlDesG = false;
+let controlDesB = false;
 
 // Función que dibuja la imagen de A en la imagen manipulada.
 function insertImgA()
@@ -254,6 +258,10 @@ botonRGB.onclick = () =>
 {
     // Activo pressRGB.
     pressRGB = true;
+    // Activo controlDes de RGB.
+    controlDesR = true;
+    controlDesG = true;
+    controlDesB = true;
     if(fase == ESTADO.MANIPULATE)
     {
         if(pressGrises == true)
@@ -285,6 +293,13 @@ botonRGB.onclick = () =>
 // Al mover el deslizador de R.
 deslizaR.oninput = () =>
 {
+    if(controlDesR == true)
+    {
+        // Mostramos en display el valor del R inicializado a 255.
+        deslizaR.value = 255;
+        // Se vuelve a desactivar.
+        controlDesR = false;
+    }
     // Mostramos en display el valor del R.
     displayR.innerHTML = deslizaR.value;
     // Variable que accede a los datos o px de la imagen.
@@ -301,6 +316,13 @@ deslizaR.oninput = () =>
 // Al mover el deslizador de G.
 deslizaG.oninput = () =>
 {
+    if(controlDesG == true)
+    {
+        // Mostramos en display el valor del R inicializado a 255.
+        deslizaG.value = 255;
+        // Se vuelve a desactivar.
+        controlDesG = false;
+    }
     // Mostramos en display el valor del G.
     displayG.innerHTML = deslizaG.value;
     // Variable que accede a los datos o px de la imagen.
@@ -317,6 +339,13 @@ deslizaG.oninput = () =>
 // Al mover el deslizador de B.
 deslizaB.oninput = () =>
 {
+    if(controlDesB == true)
+    {
+        // Mostramos en display el valor del R inicializado a 255.
+        deslizaB.value = 255;
+        // Se vuelve a desactivar.
+        controlDesB = false;
+    }
     // Mostramos en display el valor del B.
     displayB.innerHTML = deslizaB.value;
     // Variable que accede a los datos o px de la imagen.
