@@ -23,9 +23,9 @@ Por otro lado, como ya se ha podido apreciar, el Sistema Operativo - S.O que se 
 5) Los umbrales de los deslizadores RGB van de 0 a 255. Siendo R=0, G=0 y B=0 => el color negro. Lo opuesto es lo contrario.
 6) En el filtro de escala de grises, no funcionan los deslizadores, ya que no hay, ni tampoco hay canales, en ese tipo de filtro.
 7) Es importante saber, que tanto el filtro de grises, como el de color, se aplican a la imagen original y, no a la imagen resultado de otro filtro.
-
 <br>
-Cuando pulses el botón RGB para poder ajustar los valores RGB a tu gusto con los deslizadores, para ir de 255 a 0 bien, pero luego, no se que pasa que no detecta, se "booggea". Espero que se tenga en cuenta. Todo lo demás, PERFECTO.
+
+El único problema surgido es, que al pulsar el botón **en RGB** y que aparezcan los deslizadores de R, G y B, para así poder ajustar los valores RGB a gusto del usuario, resulta que, si vas reduciendo uno, dos o todos los deslizadores desde 255 (el máx) a 0 (el min), funciona bien, se elimina el color primario RGB que reduces. Pero luego, cuando ya estás en 0 y, quieres aumentar hacia 255, no sé que pasa, que no detecta el cambio y se queda igual. La verdad, no entiendo por qué. He buscado por internet (en guías de HTML y JS, en vídeos de YouTube, en blogs, en PDFs y por otras páginas web), he pedido ayuda a compañeros para ver si se resolvía este único problema que me pasa, he comparado con sus prácticas y nada, se sigue *boogueando*. Horas y horas de búsqueda, de prueba - error y, éste ha sido el resultado final. Espero que se tenga en cuenta. Todo lo demás, PERFECTO.
 <br>
 
 ### **La parte de mejoras se compone de lo siguiente:**
