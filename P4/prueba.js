@@ -24,8 +24,8 @@ document.getElementById('invertidores').style.display = 'none';
 
 //imagen de antes 
 //empezamos con la imagen 1 aunq hay que seleecionarla para empezar
-var test = new Image(450,300);
-test.src = 'pp.jpg';
+var test = new Image(500,283);
+test.src = 'Avatar1.jpg';
 
 test.onload = function(){
   canvas.width = test.width;
