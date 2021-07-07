@@ -138,8 +138,6 @@ function deslizadoresRGB()
     {
         // Mostramos en display el valor del R.
         displayR.innerHTML = deslizaR.value;
-        // Retrollamada al lienzo para ajustar su R.
-        paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
         // Variable que accede a los datos o px de la imagen.
         let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
         // Variable que accede px a px de la imagen.
@@ -154,8 +152,6 @@ function deslizadoresRGB()
     {
         // Mostramos en display el valor del G.
         displayG.innerHTML = deslizaG.value;
-        // Retrollamada al lienzo para ajustar su G.
-        paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
         // Variable que accede a los datos o px de la imagen.
         let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
         // Variable que accede px a px de la imagen.
@@ -170,8 +166,6 @@ function deslizadoresRGB()
     {
         // Mostramos en display el valor del B.
         displayB.innerHTML = deslizaB.value;
-        // Retrollamada al lienzo para ajustar su B.
-        paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
         // Variable que accede a los datos o px de la imagen.
         let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
         // Variable que accede px a px de la imagen.
@@ -309,11 +303,15 @@ botonRGB.onclick = () =>
         console.log("Deslizadores activados.....");
         if(choice == 1)
         {
+            // Retrollamada al lienzo.
+            paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
             // Pintamos la imagen de A en RGB, accediendo a los px de la imagen.
             deslizadoresRGB();
         }
         else if(choice == 2)
         {
+            // Retrollamada al lienzo.
+            paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
             // Pintamos la imagen de B en RGB, accediendo a los px de la imagen.
             deslizadoresRGB();
         }
