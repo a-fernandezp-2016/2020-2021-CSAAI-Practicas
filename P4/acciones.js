@@ -112,33 +112,6 @@ function EscaladeGrises()
     // Mensaje de finzalización imagen en escala de grises.
     console.log("Imagen en ESCALA DE GRISES...");
 }
-// Función para obtener el umbral de R, G o B elegido con su deslizador.
-function filtroColores(data)
-{
-    // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
-    let red = deslizaR.value;
-    let green = deslizaG.value;
-    let blue = deslizaB.value;
-    // Filtramos la imagen según el nuevo umbral.
-    for(let i=0; i<=data.length; i+=4)
-    {
-        if(data[i] > red)
-        {
-            data[i] = red;
-            console.log("El valor de RED es de: " + red);
-        }
-        if(data[i] > green)
-        {
-            data[i+1] = green;
-            console.log("El valor de GREEN es de: " + green);
-        }
-        if(data[i] > blue)
-        {
-            data[i+2] = blue;
-            console.log("El valor de BLUE es de: " + blue);
-        }
-    }
-}
 // Función encargada de voltear 180º la imagen elegida en rgb o en grises.
 function drawVolteo()
 {
@@ -301,8 +274,17 @@ deslizaR.oninput = () =>
     let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
     // Variable que accede px a px de la imagen.
     let data = imgData.data;
-    // Obtener el umbral del deslizador R.
-    filtroColores(data);
+    // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
+    let red = deslizaR.value;
+    // Filtramos la imagen según el nuevo umbral.
+    for(let i=0; i<=data.length; i+=4)
+    {
+        if(data[i] > red)
+        {
+            data[i] = red;
+            console.log("El valor de RED es de: " + red);
+        }
+    }
     //-- Poner la imagen modificada en el canvas.
     paintImgManipulate.putImageData(imgData, 0, 0);
 }
@@ -315,8 +297,17 @@ deslizaG.oninput = () =>
     let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
     // Variable que accede px a px de la imagen.
     let data = imgData.data;
-    // Obtener el umbral del deslizador G.
-    filtroColores(data);
+    // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
+    let green = deslizaG.value;
+    // Filtramos la imagen según el nuevo umbral.
+    for(let i=0; i<=data.length; i+=4)
+    {
+        if(data[i+1] > green)
+        {
+            data[i+1] = green;
+            console.log("El valor de GREEN es de: " + green);
+        }
+    }
     //-- Poner la imagen modificada en el canvas.
     paintImgManipulate.putImageData(imgData, 0, 0);
 }
@@ -329,8 +320,17 @@ deslizaB.oninput = () =>
     let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
     // Variable que accede px a px de la imagen.
     let data = imgData.data;
-    // Obtener el umbral del deslizador B.
-    filtroColores(data);
+    // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
+    let blue = deslizaB.value;
+    // Filtramos la imagen según el nuevo umbral.
+    for(let i=0; i<=data.length; i+=4)
+    {
+        if(data[i+2] > blue)
+        {
+            data[i+2] = blue;
+            console.log("El valor de BLUE es de: " + blue);
+        }
+    }
     //-- Poner la imagen modificada en el canvas.
     paintImgManipulate.putImageData(imgData, 0, 0);
 }
