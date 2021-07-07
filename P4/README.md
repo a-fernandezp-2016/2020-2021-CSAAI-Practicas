@@ -65,7 +65,17 @@ Las mejoras son las siguientes:
 2. Se ha añadido el botón CASA, para volver a elegir imagen a manipular.
 3. Se han añadido dos filtros más, aparte del de escala de grises y del de colorm RGB: 1) El filtro de volteo 180º y 2) el filtro de imagen especular.
 4. La P4 está diseñada en un fondo de imagen editado en Adobe Photoshop, bastante trabajado, por medio de My Apps URJC.
+
+Imagen de fondo:
+![](Fondo.png)
+
 5. El título tiene los estilos configurados en CSS, para que se vea perfectamente (visualmente hablando).
+
+![](Titulo.png)
+
+6. La pestaña de la página HTML de Image Processing, con su icono multicolor:
+
+![](Cab_Image_Processing.png)
 
 <br>
 
