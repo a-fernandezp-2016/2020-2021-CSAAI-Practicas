@@ -282,7 +282,6 @@ deslizaR.oninput = () =>
         if(data[i] > red)
         {
             data[i] = red;
-            console.log("El valor de RED es de: " + red);
         }
     }
     //-- Poner la imagen modificada en el canvas.
@@ -302,10 +301,9 @@ deslizaG.oninput = () =>
     // Filtramos la imagen según el nuevo umbral.
     for(let i=0; i<=data.length; i+=4)
     {
-        if(data[i+1] > green)
+        if(data[i] > green)
         {
             data[i+1] = green;
-            console.log("El valor de GREEN es de: " + green);
         }
     }
     //-- Poner la imagen modificada en el canvas.
@@ -325,10 +323,9 @@ deslizaB.oninput = () =>
     // Filtramos la imagen según el nuevo umbral.
     for(let i=0; i<=data.length; i+=4)
     {
-        if(data[i+2] > blue)
+        if(data[i] > blue)
         {
             data[i+2] = blue;
-            console.log("El valor de BLUE es de: " + blue);
         }
     }
     //-- Poner la imagen modificada en el canvas.
