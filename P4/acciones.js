@@ -303,9 +303,7 @@ deslizaR.oninput = () =>
 {
     // Mostramos en display el valor del R.
     displayR.innerHTML = deslizaR.value;
-    // Situamos la imagen RGB en función del deslizador de R.
-    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
-    // Variable que accede a los datos o px de la imagen.
+    // Variable que accede a los datos o px del canal R=Red de la imagen.
     let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
     // Variable que accede px a px de la imagen.
     let data = imgData.data;
@@ -327,9 +325,7 @@ deslizaG.oninput = () =>
 {
     // Mostramos en display el valor del G.
     displayG.innerHTML = deslizaG.value;
-    // Situamos la imagen RGB en función del deslizador de G.
-    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
-    // Variable que accede a los datos o px de la imagen.
+    // Variable que accede a los datos o px del canal G=Green de la imagen.
     let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
     // Variable que accede px a px de la imagen.
     let data = imgData.data;
@@ -351,9 +347,7 @@ deslizaB.oninput = () =>
 {
     // Mostramos en display el valor del B.
     displayB.innerHTML = deslizaB.value;
-    // Situamos la imagen RGB en función del deslizador de B.
-    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
-    // Variable que accede a los datos o px de la imagen.
+    // Variable que accede a los datos o px del canal B=Blue de la imagen.
     let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
     // Variable que accede px a px de la imagen.
     let data = imgData.data;
