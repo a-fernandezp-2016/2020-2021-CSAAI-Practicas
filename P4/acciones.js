@@ -130,56 +130,6 @@ function filtroColores(data)
         }
     }
 }
-// Función que accede a los px de la imagen para convertirla en RGB.
-function deslizadoresRGB()
-{
-    // Retrollamada al lienzo.
-    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
-    // Al mover el deslizador de R.
-    deslizaR.oninput = () =>
-    {
-        // Mostramos en display el valor del R.
-        displayR.innerHTML = deslizaR.value;
-        // Variable que accede a los datos o px de la imagen.
-        let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
-        // Variable que accede px a px de la imagen.
-        let data = imgData.data;
-        // Obtener el umbral del deslizador R.
-        filtroColores(data);
-        //-- Poner la imagen modificada en el canvas.
-        paintImgManipulate.putImageData(imgData, 0, 0);
-    }
-    // Al mover el deslizador de G.
-    deslizaG.oninput = () =>
-    {
-        // Mostramos en display el valor del G.
-        displayG.innerHTML = deslizaG.value;
-        // Variable que accede a los datos o px de la imagen.
-        let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
-        // Variable que accede px a px de la imagen.
-        let data = imgData.data;
-        // Obtener el umbral del deslizador G.
-        filtroColores(data);
-        //-- Poner la imagen modificada en el canvas.
-        paintImgManipulate.putImageData(imgData, 0, 0);
-    }
-    // Al mover el deslizador de B.
-    deslizaB.oninput = () =>
-    {
-        // Mostramos en display el valor del B.
-        displayB.innerHTML = deslizaB.value;
-        // Variable que accede a los datos o px de la imagen.
-        let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
-        // Variable que accede px a px de la imagen.
-        let data = imgData.data;
-        // Obtener el umbral del deslizador B.
-        filtroColores(data);
-        //-- Poner la imagen modificada en el canvas.
-        paintImgManipulate.putImageData(imgData, 0, 0);
-    }
-    // Mensaje de configuración imagen RGB acabado.
-    console.log("LA NUEVA IMAGEN RGB YA ESTÁ LISTA....");
-}
 // Función encargada de voltear 180º la imagen elegida en rgb o en grises.
 function drawVolteo()
 {
@@ -202,8 +152,6 @@ BotonA.onclick = () =>
 {
     if(fase == ESTADO.INIT)
     {
-        // Desactivamos los deslizadores.
-        document.getElementById('deslizador').style.display = 'none';
         // Pasamos a la fase de manipulación o Estado 1.
         fase = ESTADO.MANIPULATE;
         // Cargamos la función de la imagen de A (es decir, cargamos la imagen en su posición).
@@ -222,8 +170,6 @@ BotonB.onclick = () =>
 {
     if(fase == ESTADO.INIT)
     {
-        // Desactivamos los deslizadores.
-        document.getElementById('deslizador').style.display = 'none';
         // Pasamos a la fase de manipulación o Estado 1.
         fase = ESTADO.MANIPULATE;
         // Cargamos la función de la imagen de B (es decir, cargamos la imagen en su posición).
@@ -275,16 +221,8 @@ botonScaleGrises.onclick = () =>
         document.getElementById('deslizador').style.display = 'none';
         // Mensaje de selección de imagen en escala de grises.
         console.log("Aplicando FILTRO escala de grises...");
-        if(choice == 1)
-        {
-            // Pintamos la imagen de A en escala de grises, accediendo a los px de la imagen.
-            EscaladeGrises();
-        }
-        else if(choice == 2)
-        {
-            // Pintamos la imagen de B en escala de grises, accediendo a los px de la imagen.
-            EscaladeGrises();
-        }
+        // Pintamos la imagen de A o de B en escala de grises, accediendo a los px de la imagen.
+        EscaladeGrises();
     }
     else
     {
@@ -292,7 +230,7 @@ botonScaleGrises.onclick = () =>
         console.log("PROCESO NO VÁLIDO, LO SIENTO.");
     }
 }
-// Se pulsa el botón RGB, para transformar la imagen elegida en una imagen en RGB.
+// Se pulsa el botón RGB, para activar los deslizadores de RGB.
 botonRGB.onclick = () =>
 {
     if(fase == ESTADO.MANIPULATE)
@@ -303,22 +241,60 @@ botonRGB.onclick = () =>
         document.getElementById('deslizador').style.display = 'block';
         // Mensaje en consola.
         console.log("Deslizadores activados.....");
-        if(choice == 1)
-        {
-            // Pintamos la imagen de A en RGB, accediendo a los px de la imagen.
-            deslizadoresRGB();
-        }
-        else if(choice == 2)
-        {
-            // Pintamos la imagen de B en RGB, accediendo a los px de la imagen.
-            deslizadoresRGB();
-        }
     }
     else
     {
         // Mensaje de acción inválida.
         console.log("PROCESO NO VÁLIDO, LO SIENTO.");
     }
+}
+// Al mover el deslizador de R.
+deslizaR.oninput = () =>
+{
+    // Mostramos en display el valor del R.
+    displayR.innerHTML = deslizaR.value;
+    // Variable que accede a los datos o px de la imagen.
+    let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
+    // Variable que accede px a px de la imagen.
+    let data = imgData.data;
+    // Obtener el umbral del deslizador R.
+    filtroColores(data);
+    //-- Poner la imagen modificada en el canvas.
+    paintImgManipulate.putImageData(imgData, 0, 0);
+    // Mensaje de configuración imagen RGB acabado.
+    console.log("LA NUEVA IMAGEN RGB YA ESTÁ LISTA....");
+}
+// Al mover el deslizador de G.
+deslizaG.oninput = () =>
+{
+    // Mostramos en display el valor del G.
+    displayG.innerHTML = deslizaG.value;
+    // Variable que accede a los datos o px de la imagen.
+    let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
+    // Variable que accede px a px de la imagen.
+    let data = imgData.data;
+    // Obtener el umbral del deslizador G.
+    filtroColores(data);
+    //-- Poner la imagen modificada en el canvas.
+    paintImgManipulate.putImageData(imgData, 0, 0);
+    // Mensaje de configuración imagen RGB acabado.
+    console.log("LA NUEVA IMAGEN RGB YA ESTÁ LISTA....");
+}
+// Al mover el deslizador de B.
+deslizaB.oninput = () =>
+{
+    // Mostramos en display el valor del B.
+    displayB.innerHTML = deslizaB.value;
+    // Variable que accede a los datos o px de la imagen.
+    let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
+    // Variable que accede px a px de la imagen.
+    let data = imgData.data;
+    // Obtener el umbral del deslizador B.
+    filtroColores(data);
+    //-- Poner la imagen modificada en el canvas.
+    paintImgManipulate.putImageData(imgData, 0, 0);
+    // Mensaje de configuración imagen RGB acabado.
+    console.log("LA NUEVA IMAGEN RGB YA ESTÁ LISTA....");
 }
 // Se pulsa el botón voltear 180º, para dar la vuelta a la imagen verticalmente:
 // lo que estaba arriba, pasa a estar abajo y, lo de abajo, a arriba.
@@ -328,16 +304,8 @@ botonVolteo.onclick = () =>
     {
         // Mensaje de volteo 180º de la imagen en RGB o en escala de grises.
         console.log("Aplicando el ajuste de voltear la imagen 180º...");
-        if(choice == 1)
-        {
-            // Volteamos 180º la imagen de A.
-            drawVolteo();
-        }
-        else if(choice == 2)
-        {
-            // Volteamos 180º la imagen de B.
-            drawVolteo();
-        }
+        // Volteamos 180º la imagen de A o de B.
+        drawVolteo();
     }
     else
     {
@@ -352,16 +320,8 @@ botonEspec.onclick = () =>
     {
         // Mensaje de volteo 180º de la imagen en RGB o en escala de grises.
         console.log("Aplicando el ajuste de convertir en imagen especular...");
-        if(choice == 1)
-        {
-            // Imagen especular de la imagen de A.
-            drawEspecular();
-        }
-        else if(choice == 2)
-        {
-            // Imagen especular de la imagen de B.
-            drawEspecular();
-        }
+        // Imagen especular de la imagen de A o de B.
+        drawEspecular();
     }
     else
     {
