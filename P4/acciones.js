@@ -118,13 +118,9 @@ function filtroColores(data)
     let green = deslizaG.value;
     let blue = deslizaB.value;
     // Filtramos la imagen según el nuevo umbral.
-    for(let i=0; i<data.length; i+=4)
+    for(let i=0; i<=data.length; i+=4)
     {
         if(data[i] >= red)
-        {
-            data[i] = red;
-        }
-        else
         {
             data[i] = red;
         }
@@ -132,15 +128,7 @@ function filtroColores(data)
         {
             data[i+1] = green;
         }
-        else
-        {
-            data[i+1] = green;
-        }
         if(data[i] >= blue)
-        {
-            data[i+2] = blue;
-        }
-        else
         {
             data[i+2] = blue;
         }
