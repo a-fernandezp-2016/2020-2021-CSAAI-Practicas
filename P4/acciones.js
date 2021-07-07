@@ -51,6 +51,8 @@ let choice = 1;
 let pressGrises = false;
 // Variable que avisa si se ha pulsado filtrado en RGB.
 let pressRGB = false;
+// Variable para impedir que se pulse dos veces seguidas el botón RGB.
+let dosVeces = false;
 
 // Función que dibuja la imagen de A en la imagen manipulada.
 function insertImgA()
@@ -124,34 +126,13 @@ function filtroColores(data)
         {
             data[i] = red;
         }
-        else if(red == 0)
-        {
-            if(data[i] < red)
-            {
-                data[i] = red;
-            }
-        }
         if(data[i] > green)
         {
             data[i+1] = green;
         }
-        else if(green == 0)
-        {
-            if(data[i] < green)
-            {
-                data[i+1] = green;
-            }
-        }
         if(data[i] > blue)
         {
             data[i+2] = blue;
-        }
-        else if(blue == 0)
-        {
-            if(data[i] < blue)
-            {
-                data[i+2] = blue;
-            }
         }
     }
 }
@@ -177,6 +158,7 @@ BotonA.onclick = () =>
 {
     if(fase == ESTADO.INIT)
     {
+        dosVeces = true;
         // Pasamos a la fase de manipulación o Estado 1.
         fase = ESTADO.MANIPULATE;
         // Cargamos la función de la imagen de A (es decir, cargamos la imagen en su posición).
@@ -195,6 +177,7 @@ BotonB.onclick = () =>
 {
     if(fase == ESTADO.INIT)
     {
+        dosVeces = true;
         // Pasamos a la fase de manipulación o Estado 1.
         fase = ESTADO.MANIPULATE;
         // Cargamos la función de la imagen de B (es decir, cargamos la imagen en su posición).
@@ -213,6 +196,7 @@ BotonInicio.onclick = () =>
 {
     if(fase == ESTADO.MANIPULATE)
     {
+        dosVeces = true;
         // Pasamos a la fase inicial o Estado 0.
         fase = ESTADO.INIT;
         // Mensaje indicando que se ha vuelto a la fase inicial, a elegir imagen de nuevo.
@@ -240,10 +224,11 @@ BotonInicio.onclick = () =>
 // Se pulsa el botón escala de grises, para transformar la imagen elegida en escala de grises.
 botonScaleGrises.onclick = () =>
 {
-    // Activo pressGrises.
-    pressGrises = true;
     if(fase == ESTADO.MANIPULATE)
     {
+        dosVeces = true;
+        // Activo pressGrises.
+        pressGrises = true;
         if(pressRGB == true)
         {
             console.log("Reinicio, convirtiendo la imagen A o B del inicio en Escala de Grises.");
@@ -275,7 +260,7 @@ botonRGB.onclick = () =>
 {
     // Activo pressRGB.
     pressRGB = true;
-    if(fase == ESTADO.MANIPULATE)
+    if(fase == ESTADO.MANIPULATE && dosVeces == true)
     {
         if(pressGrises == true)
         {
@@ -296,6 +281,7 @@ botonRGB.onclick = () =>
         console.log("Deslizadores activados.....");
         // Mensaje de selección de imagen en RGB.
         console.log("Aplicando FILTRO RGB...");
+        dosVeces = false;
     }
     else
     {
@@ -316,8 +302,6 @@ deslizaR.oninput = () =>
     filtroColores(data);
     //-- Poner la imagen modificada en el canvas.
     paintImgManipulate.putImageData(imgData, 0, 0);
-    // Mensaje de configuración imagen RGB acabado.
-    console.log("LA NUEVA IMAGEN RGB YA ESTÁ LISTA....");
 }
 // Al mover el deslizador de G.
 deslizaG.oninput = () =>
@@ -332,8 +316,6 @@ deslizaG.oninput = () =>
     filtroColores(data);
     //-- Poner la imagen modificada en el canvas.
     paintImgManipulate.putImageData(imgData, 0, 0);
-    // Mensaje de configuración imagen RGB acabado.
-    console.log("LA NUEVA IMAGEN RGB YA ESTÁ LISTA....");
 }
 // Al mover el deslizador de B.
 deslizaB.oninput = () =>
@@ -348,8 +330,6 @@ deslizaB.oninput = () =>
     filtroColores(data);
     //-- Poner la imagen modificada en el canvas.
     paintImgManipulate.putImageData(imgData, 0, 0);
-    // Mensaje de configuración imagen RGB acabado.
-    console.log("LA NUEVA IMAGEN RGB YA ESTÁ LISTA....");
 }
 // Se pulsa el botón voltear 180º, para dar la vuelta a la imagen verticalmente:
 // lo que estaba arriba, pasa a estar abajo y, lo de abajo, a arriba.
