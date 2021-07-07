@@ -262,16 +262,10 @@ botonRGB.onclick = () =>
             if(choice == 1)
             {
                 insertImgA();
-                displayR = 255;
-                displayG = 255;
-                displayB = 255;
             }
             else
             {
                 insertImgB();
-                displayR = 255;
-                displayG = 255;
-                displayB = 255;
             }
             pressGrises = false;
         }
