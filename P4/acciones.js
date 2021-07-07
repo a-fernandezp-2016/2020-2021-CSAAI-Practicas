@@ -54,6 +54,80 @@ let pressRGB = false;
 // Variable para impedir que se pulse dos veces seguidas el botón RGB.
 let dosVeces = false;
 
+// Función para configurar el valor de R, G y B.
+function deslizadoresRGB()
+{
+    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
+    // Al mover el deslizador de R.
+    deslizaR.oninput = () =>
+    {
+        // Mostramos en display el valor del R.
+        displayR.innerHTML = deslizaR.value;
+        paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
+        // Variable que accede a los datos o px de la imagen.
+        let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
+        // Variable que accede px a px de la imagen.
+        let data = imgData.data;
+        // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
+        let red = deslizaR.value;
+        // Filtramos la imagen según el nuevo umbral.
+        for(let i=0; i<=data.length; i+=4)
+        {
+            if(data[i] > red)
+            {
+                data[i] = red;
+            }
+        }
+        //-- Poner la imagen modificada en el canvas.
+        paintImgManipulate.putImageData(imgData, 0, 0);
+    }
+    // Al mover el deslizador de G.
+    deslizaG.oninput = () =>
+    {
+        // Mostramos en display el valor del G.
+        displayG.innerHTML = deslizaG.value;
+        paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
+        // Variable que accede a los datos o px de la imagen.
+        let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
+        // Variable que accede px a px de la imagen.
+        let data = imgData.data;
+        // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
+        let green = deslizaG.value;
+        // Filtramos la imagen según el nuevo umbral.
+        for(let i=0; i<=data.length; i+=4)
+        {
+            if(data[i] > green)
+            {
+                data[i+1] = green;
+            }
+        }
+        //-- Poner la imagen modificada en el canvas.
+        paintImgManipulate.putImageData(imgData, 0, 0);
+    }
+    // Al mover el deslizador de B.
+    deslizaB.oninput = () =>
+    {
+        // Mostramos en display el valor del B.
+        displayB.innerHTML = deslizaB.value;
+        paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
+        // Variable que accede a los datos o px de la imagen.
+        let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
+        // Variable que accede px a px de la imagen.
+        let data = imgData.data;
+        // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
+        let blue = deslizaB.value;
+        // Filtramos la imagen según el nuevo umbral.
+        for(let i=0; i<=data.length; i+=4)
+        {
+            if(data[i] > blue)
+            {
+                data[i+2] = blue;
+            }
+        }
+        //-- Poner la imagen modificada en el canvas.
+        paintImgManipulate.putImageData(imgData, 0, 0);
+    }
+}
 // Función que dibuja la imagen de A en la imagen manipulada.
 function insertImgA()
 {
@@ -66,6 +140,9 @@ function insertImgA()
 
     // Mensaje indicando que la imagen A ya está puesta en el canvas o en el Lienzo de la Imagen Manipulada.
     console.log("Imagen A lista para manipular.....");
+
+    // Manejo de los deslizadores RGB.
+    deslizadoresRGB();
 }
 // Función que dibuja la imagen de B en la imagen manipulada.
 function insertImgB()
@@ -79,6 +156,9 @@ function insertImgB()
 
     // Mensaje indicando que la imagen B ya está puesta en el canvas o en el Lienzo de la Imagen Manipulada.
     console.log("Imagen B lista para manipular.....");
+
+    // Manejo de los deslizadores RGB.
+    deslizadoresRGB();
 }
 
 // Función que borra la imagen A y de B.
@@ -264,72 +344,6 @@ botonRGB.onclick = () =>
         // Mensaje de acción inválida.
         console.log("PROCESO NO VÁLIDO, LO SIENTO.");
     }
-}
-// Al mover el deslizador de R.
-deslizaR.oninput = () =>
-{
-    // Mostramos en display el valor del R.
-    displayR.innerHTML = deslizaR.value;
-    // Variable que accede a los datos o px de la imagen.
-    let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
-    // Variable que accede px a px de la imagen.
-    let data = imgData.data;
-    // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
-    let red = deslizaR.value;
-    // Filtramos la imagen según el nuevo umbral.
-    for(let i=0; i<=data.length; i+=4)
-    {
-        if(data[i] > red)
-        {
-            data[i] = red;
-        }
-    }
-    //-- Poner la imagen modificada en el canvas.
-    paintImgManipulate.putImageData(imgData, 0, 0);
-}
-// Al mover el deslizador de G.
-deslizaG.oninput = () =>
-{
-    // Mostramos en display el valor del G.
-    displayG.innerHTML = deslizaG.value;
-    // Variable que accede a los datos o px de la imagen.
-    let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
-    // Variable que accede px a px de la imagen.
-    let data = imgData.data;
-    // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
-    let green = deslizaG.value;
-    // Filtramos la imagen según el nuevo umbral.
-    for(let i=0; i<=data.length; i+=4)
-    {
-        if(data[i] > green)
-        {
-            data[i+1] = green;
-        }
-    }
-    //-- Poner la imagen modificada en el canvas.
-    paintImgManipulate.putImageData(imgData, 0, 0);
-}
-// Al mover el deslizador de B.
-deslizaB.oninput = () =>
-{
-    // Mostramos en display el valor del B.
-    displayB.innerHTML = deslizaB.value;
-    // Variable que accede a los datos o px de la imagen.
-    let imgData = paintImgManipulate.getImageData(0, 0, LienzoImgManipulada.width, LienzoImgManipulada.height);
-    // Variable que accede px a px de la imagen.
-    let data = imgData.data;
-    // Creamos las variables de R G B para dar valor a los canales de cada uno de sus px.
-    let blue = deslizaB.value;
-    // Filtramos la imagen según el nuevo umbral.
-    for(let i=0; i<=data.length; i+=4)
-    {
-        if(data[i] > blue)
-        {
-            data[i+2] = blue;
-        }
-    }
-    //-- Poner la imagen modificada en el canvas.
-    paintImgManipulate.putImageData(imgData, 0, 0);
 }
 // Se pulsa el botón voltear 180º, para dar la vuelta a la imagen verticalmente:
 // lo que estaba arriba, pasa a estar abajo y, lo de abajo, a arriba.
