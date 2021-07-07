@@ -47,6 +47,8 @@ const ESTADO = {
 let fase = ESTADO.INIT;
 // Variable que indica si estamos trabajando con la imagen A = 1, o la imagen B = 2.
 let choice = 1;
+// Variable que avisa si se ha pulsado filtrado en escala de grises o no.
+let pressGrises = false;
 
 // Función que dibuja la imagen de A en la imagen manipulada.
 function insertImgA()
@@ -217,6 +219,8 @@ botonScaleGrises.onclick = () =>
 {
     if(fase == ESTADO.MANIPULATE)
     {
+        // Activo pressGrises.
+        pressGrises = true;
         // Desactivamos los deslizadores.
         document.getElementById('deslizador').style.display = 'none';
         // Mensaje de selección de imagen en escala de grises.
@@ -230,11 +234,23 @@ botonScaleGrises.onclick = () =>
         console.log("PROCESO NO VÁLIDO, LO SIENTO.");
     }
 }
-// Se pulsa el botón RGB, para activar los deslizadores de RGB.
+// Se pulsa el botón RGB, para activar los deslizadores de RGB y para resetear la imagen elegida en RGB.
 botonRGB.onclick = () =>
 {
     if(fase == ESTADO.MANIPULATE)
     {
+        if(pressGrises == true)
+        {
+            if(choice == 1)
+            {
+                insertImgA();
+            }
+            else
+            {
+                insertImgB();
+            }
+            pressGrises = false;
+        }
         // Mensaje de selección de imagen en RGB.
         console.log("Aplicando FILTRO RGB...");
         // Activamos los deslizadores al pulsar el botón de RGB.
