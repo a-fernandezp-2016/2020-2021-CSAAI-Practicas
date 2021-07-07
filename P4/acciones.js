@@ -120,15 +120,27 @@ function filtroColores(data)
     // Filtramos la imagen según el nuevo umbral.
     for(let i=0; i<data.length; i+=4)
     {
-        if(data[i] < red)
+        if(data[i] >= red)
         {
             data[i] = red;
         }
-        if(data[i] < green)
+        else
+        {
+            data[i] = red;
+        }
+        if(data[i] >= green)
         {
             data[i+1] = green;
         }
-        if(data[i] < blue)
+        else
+        {
+            data[i+1] = green;
+        }
+        if(data[i] >= blue)
+        {
+            data[i+2] = blue;
+        }
+        else
         {
             data[i+2] = blue;
         }
