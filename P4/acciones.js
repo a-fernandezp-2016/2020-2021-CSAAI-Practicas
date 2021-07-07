@@ -48,16 +48,15 @@ let fase = ESTADO.INIT;
 // Variable que indica si estamos trabajando con la imagen A = 1, o la imagen B = 2.
 let choice = 1;
 // Variable que avisa si se ha pulsado filtrado en escala de grises o no.
-// let pressGrises = false;
-// // Variable que avisa si se ha pulsado filtrado en RGB.
-// let pressRGB = false;
-// // Variable para impedir que se pulse dos veces seguidas el botón RGB.
-// let dosVeces = false;
+let pressGrises = false;
+// Variable que avisa si se ha pulsado filtrado en RGB.
+let pressRGB = false;
+// Variable para impedir que se pulse dos veces seguidas el botón RGB.
+let dosVeces = false;
 
 // Función para configurar el valor de R, G y B.
 function deslizadoresRGB()
 {
-    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
     // Al mover el deslizador de R.
     deslizaR.oninput = () =>
     {
@@ -282,22 +281,22 @@ botonScaleGrises.onclick = () =>
 {
     if(fase == ESTADO.MANIPULATE)
     {
-        // dosVeces = true;
+        dosVeces = true;
         // Activo pressGrises.
-        // pressGrises = true;
-        // if(pressRGB == true)
-        // {
-        //     console.log("Reinicio, convirtiendo la imagen A o B del inicio en Escala de Grises.");
-        //     if(choice == 1)
-        //     {
-        //         insertImgA();
-        //     }
-        //     else
-        //     {
-        //         insertImgB();
-        //     }
-        //     pressRGB = false;
-        // }
+        pressGrises = true;
+        if(pressRGB == true)
+        {
+            console.log("Reinicio, convirtiendo la imagen A o B del inicio en Escala de Grises.");
+            if(choice == 1)
+            {
+                insertImgA();
+            }
+            else
+            {
+                insertImgB();
+            }
+            pressRGB = false;
+        }
         // Desactivamos los deslizadores.
         document.getElementById('deslizador').style.display = 'none';
         // Mensaje de selección de imagen en escala de grises.
@@ -315,22 +314,22 @@ botonScaleGrises.onclick = () =>
 botonRGB.onclick = () =>
 {
     // Activo pressRGB.
-    // pressRGB = true;
-    if(fase == ESTADO.MANIPULATE) //&& dosVeces == true)
+    pressRGB = true;
+    if(fase == ESTADO.MANIPULATE && dosVeces == true)
     {
-        // if(pressGrises == true)
-        // {
-        //     console.log("Reinicio, convirtiendo la imagen A o B del inicio en RGB.");
-        //     if(choice == 1)
-        //     {
-        //         insertImgA();
-        //     }
-        //     else
-        //     {
-        //         insertImgB();
-        //     }
-        //     pressGrises = false;
-        // }
+        if(pressGrises == true)
+        {
+            console.log("Reinicio, convirtiendo la imagen A o B del inicio en RGB.");
+            if(choice == 1)
+            {
+                insertImgA();
+            }
+            else
+            {
+                insertImgB();
+            }
+            pressGrises = false;
+        }
         // Activamos los deslizadores al pulsar el botón de RGB.
         document.getElementById('deslizador').style.display = 'block';
         // Mensaje en consola.
