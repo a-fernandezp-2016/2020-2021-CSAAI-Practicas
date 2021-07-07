@@ -115,6 +115,7 @@ function EscaladeGrises()
 // Función encargada de voltear 180º la imagen elegida en rgb o en grises.
 function drawVolteo()
 {
+    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
     paintImgManipulate.translate(0,2*(LienzoImgManipulada.height)/2);
     paintImgManipulate.scale(1,-1);
     paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
@@ -122,6 +123,7 @@ function drawVolteo()
 // Función encargada de poner la imagen elegida en rgb o en grises en espejo o especular.
 function drawEspecular()
 {
+    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
     paintImgManipulate.translate(2*(LienzoImgManipulada.width)/2,0);
     paintImgManipulate.scale(-1,1);
     paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
