@@ -285,8 +285,6 @@ botonRGB.onclick = () =>
 // Al mover el deslizador de R.
 deslizaR.oninput = () =>
 {
-    // Retrollamada al lienzo de la imagen elegida en RGB.
-    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
     // Mostramos en display el valor del R.
     displayR.innerHTML = deslizaR.value;
     // Variable que accede a los datos o px de la imagen.
@@ -303,8 +301,6 @@ deslizaR.oninput = () =>
 // Al mover el deslizador de G.
 deslizaG.oninput = () =>
 {
-    // Retrollamada al lienzo de la imagen elegida en RGB.
-    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
     // Mostramos en display el valor del G.
     displayG.innerHTML = deslizaG.value;
     // Variable que accede a los datos o px de la imagen.
@@ -321,8 +317,6 @@ deslizaG.oninput = () =>
 // Al mover el deslizador de B.
 deslizaB.oninput = () =>
 {
-    // Retrollamada al lienzo de la imagen elegida en RGB.
-    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
     // Mostramos en display el valor del B.
     displayB.innerHTML = deslizaB.value;
     // Variable que accede a los datos o px de la imagen.
