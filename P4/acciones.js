@@ -133,6 +133,7 @@ function filtroColores(data)
 // Función que accede a los px de la imagen para convertirla en RGB.
 function deslizadoresRGB()
 {
+    paintImgManipulate.drawImage(LienzoImgManipulada,0,0);
     // Al mover el deslizador de R.
     deslizaR.oninput = () =>
     {
