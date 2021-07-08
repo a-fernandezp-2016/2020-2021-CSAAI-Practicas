@@ -26,7 +26,7 @@
     <!-- Título del vídeo en emisión en directo. -->
     <h3 id="title1"> Emisión en directo: </h3>
     <!-- Canvas del vídeo en directo. -->
-    <iframe id="videoDirecto" autoplay loop mute></iframe>
+    <video id="videoDirecto" autoplay loop></video>
     <!-- Tabla de controles del Realizador de TV. -->
     <h3 id="title2"> Panel de Control: </h3>
     <table id="panelControl">
@@ -59,22 +59,19 @@
         <tr>
             <!-- Establecer la fuente del vídeo del Pádel y sus dimensiones. -->
             <td>
-            <p class="other"> Vídeo de Pádel: </p>
-            <iframe id="vidPadel" width="426" height="240"
-                src="https://www.youtube.com/embed/7HPBipFv4_I" autoplay loop mute>
-            </iframe> </td>
+                <p class="other"> Vídeo de Pádel: </p>
+                <video id="vidPadel" autoplay loop></video> 
+            </td>
             <!-- Establecer la fuente del vídeo del Tenis y sus dimensiones. -->
             <td>
-            <p class="other"> Vídeo de Tenis: </p>
-            <iframe id="vidTenis" width="426" height="240"
-                src="https://www.youtube.com/embed/3bnmkMx2x_8" autoplay loop mute>
-            </iframe> </td>
+                <p class="other"> Vídeo de Tenis: </p>
+                <video id="vidTenis" autoplay loop></video> 
+            </td>
             <!-- Establecer la fuente del vídeo del Fútbol y sus dimensiones. -->
             <td>
-            <p class="other"> Vídeo de Fútbol: </p>
-            <iframe id="vidFutbol" width="426" height="240"
-                src="https://www.youtube.com/embed/hpIyRpVQjUY" autoplay loop mute>
-            </iframe> </td>
+                <p class="other"> Vídeo de Fútbol: </p>
+                <video id="vidFutbol" autoplay loop></video>
+            </td>
         </tr>
     </table>
 </body>
