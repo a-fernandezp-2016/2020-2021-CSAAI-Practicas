@@ -61,9 +61,9 @@ botonCamON.onclick = () =>
         // Se establece por defecto la imagen estática en la emisión del vídeo en directo.
         vidPrincipal.poster = ImgStatic;
         // Se establecen en los 3 vídeos a elegir, sus propios vídeos, sacados de mi Google Drive (son públicos).
-        VidPadel.src="https://drive.google.com/file/d/1RNi4ng6pxVvLT9-ZSbQvPE0lZO-qXp8V/view?usp=sharing";
-        VidTenis.src="https://drive.google.com/file/d/1SY0V5l7IQyKuOY03kn8CAn-nPBGY6liK/view?usp=sharing";
-        VidFutbol.src="https://drive.google.com/file/d/1NyyECSKU0jOwiUbVSvuGw9SIuLT8of6D/view?usp=sharing";
+        VidPadel.src="https://drive.google.com/uc?export=download&id=1RNi4ng6pxVvLT9-ZSbQvPE0lZO-qXp8V";
+        VidTenis.src="https://drive.google.com/uc?export=download&id=1SY0V5l7IQyKuOY03kn8CAn-nPBGY6liK";
+        VidFutbol.src="https://drive.google.com/uc?export=download&id=1NyyECSKU0jOwiUbVSvuGw9SIuLT8of6D";
         // Los vídeos en segundo plano, se reproducen desde el principio.
         VidPadel.currentTime = 0;
         VidPadel.play();
