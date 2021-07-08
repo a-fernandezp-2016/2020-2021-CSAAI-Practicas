@@ -36,3 +36,19 @@ h1 {
     font: bold 40px Tahoma;
     color:rgb(139, 9, 9);
 }
+/* Diseño del canvas del vídeo en directo del Realizador de TV: Fitness Férez TV. */
+#canvas {
+    background-color: transparent;
+    border-color: goldenrod;
+    border-width: 8px;
+    border-style: solid;
+    border-radius: 12px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    /* Para centrar el lienzo. */
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
