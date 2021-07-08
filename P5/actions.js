@@ -62,9 +62,9 @@ botonCamON.onclick = () =>
         vidPrincipal.poster = ImgStatic;
         // Se establecen en los 3 vídeos a elegir, sus propios vídeos, sacados del repositorio "videos" que he creado en mi usuario,
         // para poder acceder a ellos, ya que por Google drive no me dejaba.
-        VidPadel.src="https://github.com/a-fernandezp-2016/videos/raw/main/videodePadel.mp4";
-        VidTenis.src="https://github.com/a-fernandezp-2016/videos/raw/main/videodeTenis.mp4";
-        VidFutbol.src="https://github.com/a-fernandezp-2016/videos/raw/main/videodeFutbol.mp4";
+        VidPadel.src="https://github.com/a-fernandezp-2016/videos/blob/66396c215d86776a306e99e753c0be365b41dd60/videodePadel.mp4";
+        VidTenis.src="https://github.com/a-fernandezp-2016/videos/blob/66396c215d86776a306e99e753c0be365b41dd60/videodeTenis.mp4";
+        VidFutbol.src="https://github.com/a-fernandezp-2016/videos/blob/66396c215d86776a306e99e753c0be365b41dd60/videodeFutbol.mp4";
         // Los vídeos en segundo plano, se reproducen desde el principio.
         VidPadel.currentTime = 0;
         VidPadel.play();
