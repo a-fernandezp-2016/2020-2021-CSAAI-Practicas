@@ -46,7 +46,7 @@ h1 {
     margin-bottom: 20px;
 }
 /* Diseño del canvas del vídeo en directo del Realizador de TV: Fitness Férez TV. */
-#canvas {
+#videoDirecto {
     background-color: transparent;
     border-color: goldenrod;
     border-width: 6px;
@@ -58,8 +58,6 @@ h1 {
     margin-left: 350px;
     margin-right: auto;
     display: block;
-    width: 640px;
-    height: 360px;
 }
 /* Diseño del título del panel de control del Realizador de TV: Fitness Férez TV. */
 #title2 {
@@ -112,5 +110,16 @@ button {
 /* Diseño de la 2º fila de los botones del Realizador de TV: Fitness Férez TV. */
 .fila2 {
     margin-bottom: 10px;
+    margin-left: 10px;
+}
+/* Formato de los vídeos muestra, para que el usuario pueda, primero ver y, luego, elegir. */
+#vidPadel {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+#vidTenis {
+    margin-left: 10px;
+}
+#vidFutbol {
     margin-left: 10px;
 }

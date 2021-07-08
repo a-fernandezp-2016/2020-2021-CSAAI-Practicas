@@ -26,7 +26,7 @@
     <!-- Título del vídeo en emisión en directo. -->
     <h3 id="title1"> Emisión en directo: </h3>
     <!-- Canvas del vídeo en directo. -->
-    <canvas id="canvas"></canvas>
+    <canvas id="videoDirecto"></canvas>
     <!-- Tabla de controles del Realizador de TV. -->
     <h3 id="title2"> Panel de Control: </h3>
     <table id="panelControl">
@@ -35,7 +35,7 @@
             <!-- Columna libre. -->
             <td></td>
             <!-- Botón para encender la cámara de TV. -->
-            <td> <button class="fila1"> Cámara TV ON </button> </td>
+            <td> <button class="fila1" id="camON"> Cámara TV ON </button> </td>
             <!-- Botón para apagar la cámara de TV. -->
             <td> <button class="fila1" id="camOFF"> Cámara TV OFF </button> </td>
             <!-- Columna libre. -->
@@ -44,13 +44,22 @@
         <!-- 2º fila de botones. -->
         <tr>
             <!-- Botón para ver el Pádel en directo. -->
-            <td> <button class="fila2"> Ver Pádel </button> </td>
+            <td> <button class="fila2" id="padel"> Ver Pádel </button> </td>
             <!-- Botón para ver el Tenis en directo. -->
-            <td> <button class="fila2"> Ver Tenis </button> </td>
+            <td> <button class="fila2" id="tenis"> Ver Tenis </button> </td>
             <!-- Botón para ver el Fútbol en directo. -->
-            <td> <button class="fila2"> Ver Fútbol </button> </td>
+            <td> <button class="fila2" id="futbol"> Ver Fútbol </button> </td>
             <!-- Botón para ver la imagen estática. -->
             <td> <button class="fila2" id="imgStatic"> Imagen <br> Estática </button> </td>
+        </tr>
+    </table>
+    <!-- Tabla de los tres vídeos a elegir para ver en directo. -->
+    <table>
+        <!-- Fila única donde se sitúan los tres vídeos embebidos de YouTube. -->
+        <tr>
+            <td> <video id="vidPadel"></video> </td>
+            <td> <video id="vidTenis"></video> </td>
+            <td> <video id="vidFutbol"></video> </td>
         </tr>
     </table>
 </body>
