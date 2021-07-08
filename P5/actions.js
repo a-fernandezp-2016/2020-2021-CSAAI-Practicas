@@ -20,20 +20,7 @@ const VidFutbol = document.getElementById("vidFutbol");
 
 // Imagen estática usada.
 const ImgStatic = "Imagen_static_FFTV.png";
-//-- Establecer la fuente del vídeo del Pádel.
-VidPadel.src="https://www.youtube.com/embed/7HPBipFv4_I";
-//-- Establecer la fuente del vídeo del Tenis.
-VidTenis.src="https://www.youtube.com/embed/3bnmkMx2x_8";
-//-- Establecer la fuente del vídeo del Fútbol.
-VidFutbol.src="https://www.youtube.com/embed/hpIyRpVQjUY";
 
-// Establecer las dimensiones del vídeo en directo y de los tres vídeos a elegir.
-// Obviamente, los tres a elegir son más pequeños y sin sonido porque el importante es el del directo.
+// Establecer las dimensiones del vídeo en directo.
 vidPrincipal.width = 640;
 vidPrincipal.height = 360;
-VidPadel.width = 426;
-VidPadel.height = 240;
-VidTenis.width = 426;
-VidTenis.height = 240;
-VidFutbol.width = 426;
-VidFutbol.height = 240;

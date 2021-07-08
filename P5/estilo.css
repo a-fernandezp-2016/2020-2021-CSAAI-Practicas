@@ -123,3 +123,9 @@ button {
 #vidFutbol {
     margin-left: 10px;
 }
+/* Formato de los títulos de los vídeos muestra. */
+.other {
+    color: black;
+    text-align: center;
+    font: bold 20px Tahoma;
+}
