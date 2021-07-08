@@ -18,9 +18,65 @@ const VidPadel = document.getElementById("vidPadel");
 const VidTenis = document.getElementById("vidTenis");
 const VidFutbol = document.getElementById("vidFutbol");
 
+// Imagen de barras verticales indicando que la cámara está apagada.
+const ImgBarrasVert = "barrasVerticales_multicolors.png";
 // Imagen estática usada.
 const ImgStatic = "Imagen_static_FFTV.png";
 
 // Establecer las dimensiones del vídeo en directo.
 vidPrincipal.width = 640;
 vidPrincipal.height = 360;
+
+// Fase de estados para indicar si partimos desde el inicio con cámara OFF o pasamos
+// al siguiente estado con cámara en ON.
+const ESTADO = {
+    INIT = 0,
+    EMISION = 1
+}
+
+// Variable fase inicializada en la fase 0 o inicial.
+let fase = ESTADO.INIT;
+
+// Por defecto, el vídeo principal y los otros 3 están apagados y su imagen son las barras verticales
+// multicolor.
+vidPrincipal.poster = ImgBarrasVert;
+VidPadel.poster = ImgBarrasVert;
+VidTenis.poster = ImgBarrasVert;
+VidFutbol.poster = ImgBarrasVert;
+
+// Pulsamos el botón de cámara ON para empezar a emitir el vídeo que queramos.
+botonCamON.onclick = () => 
+{
+    if(fase == ESTADO.INIT)
+    {
+        // Pasamos al estado siguiente.
+        fase = ESTADO.EMISION;
+        // Se establece por defecto la imagen estática en la emisión del vídeo en directo.
+        vidPrincipal.poster = ImgStatic;
+    }
+    else
+    {
+        // Mensaje indicando que pulsar el bóton en otro momento al estado inicial, es un proceso inválido.
+        console.log("PROCESO NO VÁLIDO, LO SIENTO.");
+    }
+}
+// Pulsamos el botón de cámara OFF para apagar la cámara de TV en emisión y los otros 3 vídeos.
+botonCamOFF.onclick = () => 
+{
+    if(fase == ESTADO.EMISION)
+    {
+        // Pasamos al estado inicial.
+        fase = ESTADO.INIT;
+        // Establecemos la imagen de las barras verticales multicolor en los 4 vídeos,
+        // lo que significa que las cámaras están apagadas.
+        vidPrincipal.poster = ImgBarrasVert;
+        VidPadel.poster = ImgBarrasVert;
+        VidTenis.poster = ImgBarrasVert;
+        VidFutbol.poster = ImgBarrasVert;
+    }
+    else
+    {
+        // Mensaje indicando que pulsar el bóton en otro momento al estado en emisión, es un proceso inválido.
+        console.log("PROCESO NO VÁLIDO, LO SIENTO.");
+    }
+}
