@@ -2,7 +2,7 @@
 console.log("Ejecutando el Realizador de TV....");
 
 // Obtención del elemento de vídeo principal de emisión en directo desde HTML para configurarlo con JavaScript.
-const vidPrincipal = document.getElementById("videoDirecto");
+let vidPrincipal = document.getElementById("videoDirecto");
 
 // Obtención de los elementos botones del panel de control.
 const botonCamON = document.getElementById("camON");
@@ -26,6 +26,13 @@ const ImgStatic = "Imagen_static_FFTV.png";
 // Establecer las dimensiones del vídeo en directo.
 vidPrincipal.width = 640;
 vidPrincipal.height = 360;
+// Establecer las dimensiones de los tres vídeos en segundo plano.
+VidPadel.width = 426;
+VidPadel.height = 240;
+VidTenis.width = 426;
+VidTenis.height = 240;
+VidFutbol.width = 426;
+VidFutbol.height = 240;
 
 // Fase de estados para indicar si partimos desde el inicio con cámara OFF o pasamos
 // al siguiente estado con cámara en ON.
@@ -53,10 +60,11 @@ botonCamON.onclick = () =>
         fase = ESTADO.EMISION;
         // Se establece por defecto la imagen estática en la emisión del vídeo en directo.
         vidPrincipal.poster = ImgStatic;
-        // Se establecen en los 3 vídeos a elegir, sus propios vídeos, sacados de mi Google Drive (son públicos).
-        VidPadel.src="https://drive.google.com/file/d/1RNi4ng6pxVvLT9-ZSbQvPE0lZO-qXp8V/preview";
-        VidTenis.src="https://drive.google.com/file/d/1SY0V5l7IQyKuOY03kn8CAn-nPBGY6liK/preview";
-        VidFutbol.src="https://drive.google.com/file/d/1NyyECSKU0jOwiUbVSvuGw9SIuLT8of6D/preview";
+        // Se establecen en los 3 vídeos a elegir, sus propios vídeos, sacados del repositorio "videos" que he creado en mi usuario,
+        // para poder acceder a ellos, ya que por Google drive no me dejaba.
+        VidPadel.src="https://github.com/a-fernandezp-2016/videos/raw/main/videodePadel.mp4";
+        VidTenis.src="https://github.com/a-fernandezp-2016/videos/raw/main/videodeTenis.mp4";
+        VidFutbol.src="https://github.com/a-fernandezp-2016/videos/raw/main/videodeFutbol.mp4";
         // Los vídeos en segundo plano, se reproducen desde el principio.
         VidPadel.currentTime = 0;
         VidPadel.play();
