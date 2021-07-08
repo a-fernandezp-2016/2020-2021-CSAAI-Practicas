@@ -114,18 +114,22 @@ button {
 }
 /* Formato de los vídeos muestra, para que el usuario pueda, primero ver y, luego, elegir. */
 #vidPadel {
-    margin-top: 20px;
-    margin-left: 10px;
+    margin-left: 15px;
+    margin-bottom: 50px;
 }
 #vidTenis {
     margin-left: 10px;
+    margin-bottom: 50px;
 }
 #vidFutbol {
     margin-left: 10px;
+    margin-bottom: 50px;
 }
 /* Formato de los títulos de los vídeos muestra. */
 .other {
     color: black;
     text-align: center;
     font: bold 20px Tahoma;
+    margin-bottom: 10px;
+    margin-top: 100px;
 }
