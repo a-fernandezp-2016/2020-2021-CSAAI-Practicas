@@ -35,9 +35,11 @@ VidFutbol.width = 426;
 VidFutbol.height = 240;
 
 // Obtener las URLs de los vídeos en segundo plano.
-url1 ="https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoPadel.mp4";
-url2 ="https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoTenis.mp4";
-url3 ="https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoFutbol.mp4";
+const url = require('url');
+const URL = url.URL;
+const url1 = new URL('https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoPadel.mp4');
+const url2 = new URL('https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoTenis.mp4');
+const url3 = new URL('https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoFutbol.mp4');
 
 // Fase de estados para indicar si partimos desde el inicio con cámara OFF o pasamos
 // al siguiente estado con cámara en ON.
