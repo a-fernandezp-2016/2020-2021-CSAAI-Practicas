@@ -34,6 +34,11 @@ VidTenis.height = 240;
 VidFutbol.width = 426;
 VidFutbol.height = 240;
 
+// Obtener las URLs de los vídeos en segundo plano.
+url1 ="https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoPadel.mp4";
+url2 ="https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoTenis.mp4";
+url3 ="https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoFutbol.mp4";
+
 // Fase de estados para indicar si partimos desde el inicio con cámara OFF o pasamos
 // al siguiente estado con cámara en ON.
 const ESTADO = {
@@ -62,9 +67,9 @@ botonCamON.onclick = () =>
         vidPrincipal.poster = ImgStatic;
         // Se establecen en los 3 vídeos a elegir, sus propios vídeos, sacados del repositorio "videos" que he creado en mi usuario,
         // para poder acceder a ellos, ya que por Google drive no me dejaba.
-        VidPadel.src="https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoPadel.mp4";
-        VidTenis.src="https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoTenis.mp4";
-        VidFutbol.src="https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoFutbol.mp4";
+        VidPadel.src=url1;
+        VidTenis.src=url2;
+        VidFutbol.src=url3;
         // Los vídeos en segundo plano, se reproducen desde el principio.
         VidPadel.currentTime = 0;
         VidPadel.play();
