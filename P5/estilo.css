@@ -3,6 +3,11 @@ body {
     background-image: url('fondo.jpeg');
     background-size: cover;
     position: absolute;
+    background-size: 25px 50px;
+    background-size: 100% 100%;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 /* Diseño del icono o favicon de la pestaña del Realizador de TV. */
 #icon {
