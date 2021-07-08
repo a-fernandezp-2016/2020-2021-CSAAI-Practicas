@@ -26,20 +26,6 @@ const ImgStatic = "Imagen_static_FFTV.png";
 // Establecer las dimensiones del vídeo en directo.
 vidPrincipal.width = 640;
 vidPrincipal.height = 360;
-// Establecer las dimensiones de los tres vídeos en segundo plano.
-VidPadel.width = 426;
-VidPadel.height = 240;
-VidTenis.width = 426;
-VidTenis.height = 240;
-VidFutbol.width = 426;
-VidFutbol.height = 240;
-
-// Obtener las URLs de los vídeos en segundo plano.
-const url = require('url');
-const URL = url.URL;
-const url1 = new URL('https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoPadel.mp4');
-const url2 = new URL('https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoTenis.mp4');
-const url3 = new URL('https://github.com/a-fernandezp-2016/VIDEOS/raw/main/videoFutbol.mp4');
 
 // Fase de estados para indicar si partimos desde el inicio con cámara OFF o pasamos
 // al siguiente estado con cámara en ON.
@@ -67,11 +53,6 @@ botonCamON.onclick = () =>
         fase = ESTADO.EMISION;
         // Se establece por defecto la imagen estática en la emisión del vídeo en directo.
         vidPrincipal.poster = ImgStatic;
-        // Se establecen en los 3 vídeos a elegir, sus propios vídeos, sacados del repositorio "videos" que he creado en mi usuario,
-        // para poder acceder a ellos, ya que por Google drive no me dejaba.
-        VidPadel.src=url1;
-        VidTenis.src=url2;
-        VidFutbol.src=url3;
         // Los vídeos en segundo plano, se reproducen desde el principio.
         VidPadel.currentTime = 0;
         VidPadel.play();
