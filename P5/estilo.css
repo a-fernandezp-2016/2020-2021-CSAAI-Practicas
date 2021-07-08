@@ -37,6 +37,15 @@ h1 {
     font: bold 40px Tahoma;
     color:rgb(139, 9, 9);
 }
+/* Diseño del título de la emisión en directo del Realizador de TV: Fitness Férez TV. */
+#title1 {
+    text-align: center;
+    font: bold 30px Tahoma;
+    color: black;
+    margin-left: 170px;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
 /* Diseño del canvas del vídeo en directo del Realizador de TV: Fitness Férez TV. */
 #canvas {
     background-color: transparent;
@@ -54,7 +63,7 @@ h1 {
     height: 360px;
 }
 /* Diseño del título del panel de control del Realizador de TV: Fitness Férez TV. */
-#title {
+#title2 {
     text-align: center;
     font: bold 40px Tahoma;
     color: black;
