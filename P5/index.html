@@ -26,8 +26,30 @@
     <!-- Canvas del vídeo en directo. -->
     <canvas id="canvas"></canvas>
     <!-- Tabla de controles del Realizador de TV. -->
+    <h3 id="titleControl"> Panel de Control: </h3>
     <table id="panelControl">
-        
+        <!-- 1º fila de botones. -->
+        <tr>
+            <!-- Columna libre. -->
+            <td></td>
+            <!-- Botón para encender la cámara de TV. -->
+            <td> <button class="fila1"> Cámara TV ON </button> </td>
+            <!-- Botón para apagar la cámara de TV. -->
+            <td> <button class="fila1" id="camOFF"> Cámara TV OFF </button> </td>
+            <!-- Columna libre. -->
+            <td></td>
+        </tr>
+        <!-- 2º fila de botones. -->
+        <tr>
+            <!-- Botón para ver el Pádel en directo. -->
+            <td> <button class="fila2"> Ver Pádel </button> </td>
+            <!-- Botón para ver el Tenis en directo. -->
+            <td> <button class="fila2"> Ver Tenis </button> </td>
+            <!-- Botón para ver el Fútbol en directo. -->
+            <td> <button class="fila2"> Ver Fútbol </button> </td>
+            <!-- Botón para ver la imagen estática. -->
+            <td> <button class="fila2" id="imgStatic"> Imagen <br> Estática </button> </td>
+        </tr>
     </table>
 </body>
 </html>

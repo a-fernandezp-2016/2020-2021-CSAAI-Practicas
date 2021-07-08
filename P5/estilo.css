@@ -52,20 +52,64 @@ h1 {
     margin-right: auto;
     display: block;
 }
+/* Diseño del título del panel de control del Realizador de TV: Fitness Férez TV. */
+#titleControl {
+    text-align: center;
+    font: bold 50px Tahoma;
+    color: black;
+}
 /* Diseño del panel de control del Realizador de TV: Fitness Férez TV. */
 #panelControl {
     background-color: grey;
     border-color: black;
     border-width: 8px;
     border-style: solid;
-    margin-top: 20px;
+    margin-top: 70px;
     margin-bottom: 25px;
-    /* Para centrar el lienzo. */
+    /* Para centrar el panel de control. */
     padding-left: 0;
     padding-right: 0;
-    margin-left: 300px;
+    margin-left: 280px;
     margin-right: auto;
     display: block;
-    width: 600px;
-    height: 50px;
+    width: 800px;
+    height: 200px;
+}
+/* Diseño de los botones del Realizador de TV: Fitness Férez TV. */
+button {
+    background-color: wheat;
+    color: rgb(139, 9, 9);
+    text-align: center;
+    font: bold 30px Tahoma;
+    border-color: rgb(139, 9, 9);
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 10px;
+    /* Para centrar los botones. */
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 180px;
+    height: 70px;
+}
+/* Diseño de la 1º fila de los botones del Realizador de TV: Fitness Férez TV. */
+.fila1 {
+    font: bold 28px Tahoma;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+/* Diseño de la 2º fila de los botones del Realizador de TV: Fitness Férez TV. */
+.fila2 {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+/* Formato del botón para apagar la cámara de TV. */
+#camOFF {
+    font: bold 27px Tahoma;
+}
+/* Formato del botón de la imagen estática. */
+#imgStatic {
+    font: bold 25px Tahoma;
 }
