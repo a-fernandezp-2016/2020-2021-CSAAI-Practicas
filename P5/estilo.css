@@ -12,8 +12,8 @@ body {
 /* Diseño del título de la pestaña del Realizador de TV. */
 #title {
     text-align: left;
-    font-size: 20px;
-    font-style: italic;
+    font-size: 25px;
+    font-style: bold;
 }
 /* Diseño del logo del Realizador de TV en pag HTML. */
 #logo {
