@@ -42,9 +42,8 @@ h1 {
     text-align: center;
     font: bold 30px Tahoma;
     color: black;
-    margin-left: 170px;
-    margin-top: 70px;
-    margin-bottom: 30px;
+    margin-left: 210px;
+    margin-bottom: 20px;
 }
 /* Diseño del canvas del vídeo en directo del Realizador de TV: Fitness Férez TV. */
 #canvas {
@@ -68,8 +67,8 @@ h1 {
     font: bold 40px Tahoma;
     color: black;
     margin-left: 170px;
-    margin-top: 70px;
-    margin-bottom: 30px;
+    margin-top: 60px;
+    margin-bottom: 20px;
 }
 /* Diseño del panel de control del Realizador de TV: Fitness Férez TV. */
 #panelControl {
