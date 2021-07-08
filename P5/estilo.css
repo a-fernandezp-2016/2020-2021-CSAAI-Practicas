@@ -19,14 +19,14 @@ body {
 #logo {
     width: 187px;
     height: 199px;
+    margin-left: 250px;
+    margin-top: 20px;
 }
 /* Diseño del título del Realizador de TV: Fitness Férez TV. */
 h1 {
     text-align: center;
     font: bold 70px Tahoma;
     color:rgb(139, 9, 9);
-    margin-bottom: 70px;
-    margin-top: 70px;
 }
 /* Diseño del subtítulo del Realizador de TV: Fitness Férez TV. */
 #subtitle {
