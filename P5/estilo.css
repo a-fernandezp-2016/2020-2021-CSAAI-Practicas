@@ -3,11 +3,9 @@ body {
     background-image: url('fondo.jpeg');
     background-size: cover;
     position: absolute;
-    background-size: 25px 50px;
-    background-size: 100% 100%;
     margin: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 /* Diseño del icono o favicon de la pestaña del Realizador de TV. */
 #icon {
@@ -24,13 +22,12 @@ body {
 #logo {
     width: 187px;
     height: 199px;
-    margin-left: 250px;
-    margin-top: 20px;
+    margin-left: 280px;
 }
 /* Diseño del título del Realizador de TV: Fitness Férez TV. */
 h1 {
     text-align: center;
-    font: bold 70px Tahoma;
+    font: bold 80px Tahoma;
     color:rgb(139, 9, 9);
 }
 /* Diseño del subtítulo del Realizador de TV: Fitness Férez TV. */
@@ -38,6 +35,4 @@ h1 {
     text-align: center;
     font: bold 40px Tahoma;
     color:rgb(139, 9, 9);
-    margin-bottom: 60px;
-    margin-top: 60px;
 }
