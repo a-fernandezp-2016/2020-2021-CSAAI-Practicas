@@ -1,0 +1,38 @@
+/* Diseño del fondo de la P5 con una imagen. */
+body {
+    background-image: url('fondo.jpeg');
+    background-size: cover;
+    position: absolute;
+}
+/* Diseño del icono o favicon de la pestaña del Realizador de TV. */
+#icon {
+    width: 187px;
+    height: 199px;
+}
+/* Diseño del título de la pestaña del Realizador de TV. */
+#title {
+    text-align: left;
+    font-size: 20px;
+    font-style: italic;
+}
+/* Diseño del logo del Realizador de TV en pag HTML. */
+#logo {
+    width: 187px;
+    height: 199px;
+}
+/* Diseño del título del Realizador de TV: Fitness Férez TV. */
+h1 {
+    text-align: center;
+    font: bold 70px Tahoma;
+    color:rgb(139, 9, 9);
+    margin-bottom: 70px;
+    margin-top: 70px;
+}
+/* Diseño del subtítulo del Realizador de TV: Fitness Férez TV. */
+#subtitle {
+    text-align: center;
+    font: bold 40px Tahoma;
+    color:rgb(139, 9, 9);
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
