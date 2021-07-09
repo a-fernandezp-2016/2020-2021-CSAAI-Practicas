@@ -32,7 +32,7 @@ Cada nº en rojo significa lo siguiente:
 3. El usuario se mantiene en el Estado de Emisión (1), al apretar el botón de: Select Camera 1, Select Camera 2, Select Camera 3 e Imagen estática.
 4. Finalmente, vamos al Estado Inicial (0) de nuevo, porque el usuario le ha dado a Cámara TV OFF.
 
-Vídeo en emisión en directo apagado:
+Vídeo de emisión en directo apagado:
 
 ![](EmisionLive_Muestra.png)
 
@@ -42,7 +42,7 @@ Imagen del Panel de Control del Realizador:
 
 ![](PanelControl_Muestra.png)
 
-Imagen de los tres vídeos en segundo plano sin sonido y apagados:
+Imagen de los tres vídeos en segundo plano, sin sonido y apagados:
 
 ![](VideosSecondPlane_Muestra.png)
 
