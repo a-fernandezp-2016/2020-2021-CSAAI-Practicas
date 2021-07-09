@@ -10,23 +10,23 @@
     <!-- Código CSS del Realizador de TV. -->
     <link rel="stylesheet" href="estilo.css">
     <!-- Título de la pestaña del Realizador de TV. -->
-    <title id="titleCab"> FWorldTV </title>
+    <title id="titleCab"> FFérezTV </title>
     <!-- Favicon o icono de la pestaña de la página HTML. -->
     <link id="icon" rel="icon" href="Icono_FFTV.png" type="image/png">
 </head>
-<!-- Aquí empieza la práctica del Realizador de TV: Férez World TV. -->
+<!-- Aquí empieza la práctica del Realizador de TV: Fitness Férez TV. -->
 <body>
-    <!-- Título del Realizador de TV: Férez World TV. -->
+    <!-- Título del Realizador de TV: Fitness Férez TV. -->
     <h1>
-        <!-- Logo del Realizador de TV. -->
+        <!-- Logo del Realizador de TV + Título + Subtítulo. -->
         <img id="logo" src="Icono_FFTV.png" alt="Logo FWTV">
-        Férez World
+        Fitness Férez
         <span id="subtitle"> TV </span>
     </h1>
     <!-- Título del vídeo en emisión en directo. -->
     <h3 id="title1"> Emisión en directo: </h3>
     <!-- Vídeo principal o en directo. -->
-    <video id="videoDirecto" autoplay loop></video>
+    <iframe id="videoDirecto"></iframe> 
     <!-- Tabla de controles del Realizador de TV. -->
     <h3 id="title2"> Panel de Control: </h3>
     <table id="panelControl">
@@ -43,12 +43,12 @@
         </tr>
         <!-- 2º fila de botones. -->
         <tr>
-            <!-- Botón para ver desde la Cámara de TV 1. -->
-            <td> <button class="fila2" id="Cam1"> Cámara 1 </button> </td>
-            <!-- Botón para ver desde la Cámara de TV 2. -->
-            <td> <button class="fila2" id="Cam2"> Cámara 2 </button> </td>
-            <!-- Botón para ver desde la Cámara de TV 3. -->
-            <td> <button class="fila2" id="Cam3"> Cámara 3 </button> </td>
+            <!-- Botón para ver la fuente del vídeo de la Cámara de TV de Pádel. -->
+            <td> <button class="fila2" id="Padel"> Ver Pádel </button> </td>
+            <!-- Botón para ver la fuente del vídeo de la Cámara de TV de Tenis. -->
+            <td> <button class="fila2" id="Cam2"> Ver Tenis </button> </td>
+            <!-- Botón para ver la fuente del vídeo de la Cámara de TV de Fútbol. -->
+            <td> <button class="fila2" id="Cam3"> Ver Fútbol </button> </td>
             <!-- Botón para ver la imagen estática. -->
             <td> <button class="fila2" id="imgStatic"> Imagen <br> Estática </button> </td>
         </tr>
@@ -57,20 +57,26 @@
     <table>
         <!-- Fila única donde se sitúan los tres vídeos embebidos de YouTube. -->
         <tr>
-            <!-- Establecer la fuente del vídeo desde la Cámara de TV 1. -->
+            <!-- Establecer la fuente del vídeo de la Cámara de TV de Pádel. -->
             <td>
-                <p class="other"> Vídeo de la Cámara 1: </p>
-                <video id="vidCam1" autoplay loop muted></video>
+                <p class="other"> Vídeo de Pádel: </p>
+                <iframe id="vidPadel" width="426" height="240"
+                src="https://www.youtube.com/embed/7HPBipFv4_I?autoplay=1&mute=1&loop=1controls=0">
+                </iframe> 
             </td>
-            <!-- Establecer la fuente del vídeo desde la Cámara de TV 2. -->
+            <!-- Establecer la fuente del vídeo de la Cámara de TV de Tenis. -->
             <td>
-                <p class="other"> Vídeo de la Cámara 2: </p>
-                <video id="vidCam2" autoplay loop muted></video>
+                <p class="other"> Vídeo de Tenis: </p>
+                <iframe id="vidTenis" width="426" height="240"
+                src="https://www.youtube.com/embed/">
+                </iframe> 
             </td>
-            <!-- Establecer la fuente del vídeo desde la Cámara de TV 3. -->
+            <!-- Establecer la fuente del vídeo de la Cámara de TV de Fútbol. -->
             <td>
-                <p class="other"> Vídeo de la Cámara 3: </p>
-                <video id="vidCam3" autoplay loop muted></video>
+                <p class="other"> Vídeo de Fútbol: </p>
+                <iframe id="vidFutbol" width="426" height="240"
+                src="https://www.youtube.com/embed/3bnmkMx2x_8?autoplay=1&mute=1&loop=1controls=0">
+                </iframe> 
             </td>
         </tr>
     </table>
