@@ -129,7 +129,5 @@ Atentamente.
 
 El autor del programa: **Calculadora Huawei Web** =es> **Alejandro Fernández Pérez**, alumno de GISAM (URJC).
 
-<br>
-<br>
 
 ![](End.gif)
