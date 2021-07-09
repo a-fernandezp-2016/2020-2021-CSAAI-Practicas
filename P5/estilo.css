@@ -113,13 +113,16 @@ button {
 }
 /* Formato de los vídeos muestra, para que el usuario pueda, primero ver y, luego, elegir. */
 #videoCam1 {
-    margin-left: 0px;
+    margin-left: 15px;
+    margin-bottom: 50px;
 }
 #videoCam2 {
     margin-left: 10px;
+    margin-bottom: 50px;
 }
 #videoCam3 {
     margin-left: 10px;
+    margin-bottom: 50px;
 }
 /* Formato de los títulos de los vídeos muestra. */
 .other {

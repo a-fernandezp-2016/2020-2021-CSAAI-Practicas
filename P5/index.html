@@ -53,16 +53,26 @@
             <td> <button class="fila2" id="imgStatic"> Imagen <br> Estática </button> </td>
         </tr>
     </table>
-    <!-- Parte donde están los tres vídeos a elegir para ver en directo, que son tres vídeos 
-    en remoto sacados de: GSYC URJC, en el directorio jmplaza/csaai. -->
-    <!-- Establecer la fuente del vídeo de la Cámara de TV 1. -->
-    <p class="other"> Vídeo de Pádel: </p>
-    <video id="videoCam1" autoplay loop muted></video> 
-    <!-- Establecer la fuente del vídeo de la Cámara de TV 2. -->
-    <p class="other"> Vídeo de Tenis: </p>
-    <video id="videoCam2" autoplay loop muted></video> 
-    <!-- Establecer la fuente del vídeo de la Cámara de TV 3. -->
-    <p class="other"> Vídeo de Fútbol: </p>
-    <video id="videoCam3" autoplay loop muted></video> 
+    <!-- Tabla donde están los tres vídeos a elegir para ver en directo. -->
+    <table>
+        <!-- Fila única donde están los tres vídeos en remoto sacados de: GSYC URJC, en el directorio jmplaza/csaai. -->
+        <tr>
+            <!-- Establecer la fuente del vídeo de la Cámara de TV 1. -->
+            <td>
+                <p class="other"> Vídeo de Pádel: </p>
+                <video id="videoCam1" autoplay loop muted></video> 
+            </td>
+            <!-- Establecer la fuente del vídeo de la Cámara de TV 2. -->
+            <td>
+                <p class="other"> Vídeo de Tenis: </p>
+                <video id="videoCam2" autoplay loop muted></video>
+            </td>
+            <!-- Establecer la fuente del vídeo de la Cámara de TV 3. -->
+            <td>
+                <p class="other"> Vídeo de Fútbol: </p>
+                <video id="videoCam3" autoplay loop muted></video>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
