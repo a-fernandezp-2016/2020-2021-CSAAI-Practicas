@@ -27,16 +27,16 @@ Diagrama de Estados:
 
 Cada nº en rojo significa lo siguiente:
 
-1. El usuario se mantiene en el Estado Inicial (0), 1) porque todavía no le ha dado al botón de Cámara TV ON. O, 2) porque el usuario le ha dado a Cámara TV OFF, es decir, ha vuelto al Estado Inicial (0) y no ha apretado el botón de Cámara TV ON, por eso se mantiene.
+1. El usuario se mantiene en el Estado Inicial (0), 1) porque todavía no le ha dado al botón de Cámara TV ON. O, 2) porque el usuario le ha dado a Cámara TV OFF, es decir, ha vuelto al Estado Inicial (0) y no ha apretado el botón de Cámara TV ON de nuevo, por eso se mantiene.
 2. Vamos al Estado de Emisión (1), al apretar el botón de: Cámara TV ON.
-3. El usuario se mantiene en el Estado de Emisión (1), al apretar el botón de: Select Camera 1, Select Camera 2, Select Camera 3 e Imagen estática.
+3. El usuario se mantiene en el Estado de Emisión (1), al apretar el botón de: Canal Deportes, Canal Noticias, Canal Series o Imagen estática.
 4. Finalmente, vamos al Estado Inicial (0) de nuevo, porque el usuario le ha dado a Cámara TV OFF.
 
 Vídeo de emisión en directo apagado:
 
 ![](EmisionLive_Muestra.png)
 
-El panel de control, desde donde el realizador (o usuario) controla los vídeos, se ha realizado en forma de tabla con 2 filas y 4 columnas, la 1º fila para los botones de: Cámara TV ON y Cámara TV OFF y, la 2º fila para los botones de: Select Camera 1, Select Camera 2, Select Camera 3 e Imagen estática.
+El panel de control, desde donde el realizador (o usuario) controla los vídeos, se ha realizado en forma de tabla con 2 filas y 4 columnas, la 1º fila para los botones de: Cámara TV ON y Cámara TV OFF y, la 2º fila para los botones de: Canal Deportes, Canal Noticias, Canal Series e Imagen estática.
 
 Cuando se pulsa el botón de Imagen estática, dicha imagen se situará en el vídeo en directo y en los otros tres vídeos en segundo plano.
 
@@ -44,7 +44,7 @@ Cuando se pulsa el botón de Cámara TV OFF, dicha imagen de barras verticales m
 
 Cuando se pulsa el botón de Cámara TV ON, en el vídeo en directo se situará la Imagen estática y, en el resto de vídeos en segundo plano se situará el vídeo propio de cada uno de ellos, muteado.
 
-Cuando se pulsa un botón de los tres vídeos, en función del botón que hayas pulsado, se sitúa el contenido de dicho botón pulsado en el vídeo en directo. Los otros tres vídeos en segundo plano, siguen cada uno con su vídeo muteado.
+Cuando se pulsa un botón de los tres vídeos, en función del botón que hayas pulsado, se sitúa el contenido de dicho botón pulsado en el vídeo en directo. Los otros dos vídeos siguen en segundo plano y, muteados.
 
 Imagen del Panel de Control del Realizador:
 
