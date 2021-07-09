@@ -48,6 +48,14 @@ Imagen de los tres vídeos en segundo plano sin sonido:
 
 <br>
 
+### **Las Mejoras son las siguientes:**
+
+Se ha procedido a la reproducción en bucle, en el que, al seleccionar una fuente, ésta se reproduce sólo durante 2 segundos y, se vuelve atrás (2 segundos), repitiéndose dicho trozo de dos segundos en bucle, constantemente. Se puede cambiar la fuente de vídeo ya que el bucle está puesto como **loop** en el HTML y da igual el link que tenga la fuente, el bucle funcionará siempre.
+
+<br>
+
+### **CONCLUSIÓN:**
+
 Y, esto es todo el programa del Realizador de TV: Férez World TV, en HTML, CSS y JS. Espero que la valoración que se haga sea buena, o incluso, muy buena. Es un trabajo con bastante esfuerzo, sacrificio y horas.
 <br>
 <br>
