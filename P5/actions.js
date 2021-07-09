@@ -60,8 +60,11 @@ function videosSecondPlane()
     // Se establacen por defecto, los tres vídeos en remoto de la URJC, en su propia posición de
     // segundo plano.
     Camera1.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+    Camera1.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
     Camera2.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
+    Camera2.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
     Camera3.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
+    Camera3.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
     // Los vídeos en segundo plano, se reproducen desde el principio.
     Camera1.currentTime = 0;
     Camera1.play();
@@ -92,6 +95,7 @@ botonCamON.onclick = () =>
         // Pasamos al estado siguiente.
         fase = ESTADO.EMISION;
         // Se establece por defecto la imagen estática en la emisión del vídeo en directo.
+        vidPrincipal.src = ImgStaticPrinc;
         vidPrincipal.poster = ImgStaticPrinc;
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
         videosSecondPlane();
@@ -112,10 +116,14 @@ botonCamOFF.onclick = () =>
         fase = ESTADO.INIT;
         // Establecemos la imagen de las barras verticales multicolor en los 4 vídeos,
         // lo que significa que las cámaras están apagadas.
+        vidPrincipal.src = ImgBarrasVertPrinc;
         vidPrincipal.poster = ImgBarrasVertPrinc;
         Camera1.src = ImgBarrasVertSecun;
+        Camera1.poster = ImgBarrasVertSecun;
         Camera2.src = ImgBarrasVertSecun;
+        Camera2.poster = ImgBarrasVertSecun;
         Camera3.src = ImgBarrasVertSecun;
+        Camera3.poster = ImgBarrasVertSecun;
     }
     else
     {
@@ -130,10 +138,14 @@ botonImgStatic.onclick = () =>
     {
         console.log("Imagen estática....");
         // Establecemos la imagen estática en los 4 vídeos.
+        vidPrincipal.src = ImgStaticPrinc;
         vidPrincipal.poster = ImgStaticPrinc;
         Camera1.src = ImgStaticSecun;
+        Camera1.poster = ImgStaticSecun;
         Camera2.src = ImgStaticSecun;
+        Camera2.poster = ImgStaticSecun;
         Camera3.src = ImgStaticSecun;
+        Camera3.poster = ImgStaticSecun;
     }
     else
     {
@@ -149,6 +161,7 @@ botonCamera1.onclick = () =>
         console.log("Cámara 1.");
         // Se establece en el vídeo en directo => el contenido de la cámara 1.
         vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+        vidPrincipal.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
         // Llamar a la función para establacer el vídeo en directo.
         videoOnLive();
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
@@ -168,6 +181,7 @@ botonCamera2.onclick = () =>
         console.log("Cámara 2.");
         // Se establece en el vídeo en directo => el contenido de la cámara 2.
         vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
+        vidPrincipal.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
         // Llamar a la función para establacer el vídeo en directo.
         videoOnLive();
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
@@ -187,6 +201,7 @@ botonCamera3.onclick = () =>
         console.log("Cámara 3.");
         // Se establece en el vídeo en directo => el contenido de la cámara 3.
         vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
+        vidPrincipal.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
         // Llamar a la función para establacer el vídeo en directo.
         videoOnLive();
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
