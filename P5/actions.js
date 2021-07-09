@@ -74,7 +74,16 @@ function videosSecondPlane()
     Camera2.muted = true;
     Camera3.muted = true;
 }
-
+// Función para establacer el vídeo en directo.
+function videoOnLive()
+{
+    // Reproducción con play desde el principio y con sonido.
+    vidPrincipal.currentTime = 0;
+    vidPrincipal.play();
+    vidPrincipal.muted = false;
+}
+Camera1.currentTime = 0;
+    Camera1.play();
 // Pulsamos el botón de cámara ON para empezar a emitir los videos en segundo plano y el vídeo en directo con imagen estática.
 botonCamON.onclick = () => 
 {
@@ -140,7 +149,7 @@ botonCamera1.onclick = () =>
     {
         console.log("ESTADO EN EMISIÓN: 1. Continuamos aquí....");
         // Se establece en el vídeo en directo => el contenido de la cámara 1.
-        vidPrincipal.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+        vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
         videosSecondPlane();
     }
@@ -157,7 +166,7 @@ botonCamera2.onclick = () =>
     {
         console.log("ESTADO EN EMISIÓN: 1. Continuamos aquí....");
         // Se establece en el vídeo en directo => el contenido de la cámara 2.
-        vidPrincipal.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+        vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
         videosSecondPlane();
     }
@@ -174,7 +183,9 @@ botonCamera3.onclick = () =>
     {
         console.log("ESTADO EN EMISIÓN: 1. Continuamos aquí....");
         // Se establece en el vídeo en directo => el contenido de la cámara 3.
-        vidPrincipal.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+        vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
+        // Llamar a la función para establacer el vídeo en directo.
+        videoOnLive();
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
         videosSecondPlane();
     }
