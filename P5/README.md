@@ -38,9 +38,18 @@ Vídeo de emisión en directo apagado:
 
 El panel de control, desde donde el realizador (o usuario) controla los vídeos, se ha realizado en forma de tabla con 2 filas y 4 columnas, la 1º fila para los botones de: Cámara TV ON y Cámara TV OFF y, la 2º fila para los botones de: Select Camera 1, Select Camera 2, Select Camera 3 e Imagen estática.
 
+Cuando se pulsa el botón de Imagen estática, dicha imagen se situará en el vídeo en directo y en los otros tres vídeos en segundo plano.
+
+Cuando se pulsa el botón de Cámara TV OFF, dicha imagen de barras verticales multicolores, se situará en el vídeo en directo y en los otros tres vídeos en segundo plano.
+
+Cuando se pulsa el botón de Cámara TV ON, en el vídeo en directo se situará la Imagen estática y, en el resto de vídeos en segundo plano se situará el vídeo propio de cada uno de ellos, muteado.
+
+Cuando se pulsa un botón de los tres vídeos, en función del botón que hayas pulsado, se sitúa el contenido de dicho botón pulsado en el vídeo en directo. Los otros tres vídeos en segundo plano, siguen cada uno con su vídeo muteado.
+
 Imagen del Panel de Control del Realizador:
 
 ![](PanelControl_Muestra.png)
+
 
 Imagen de los tres vídeos en segundo plano, sin sonido y apagados:
 
@@ -50,7 +59,7 @@ Imagen de los tres vídeos en segundo plano, sin sonido y apagados:
 
 ### **Las Mejoras son las siguientes:**
 
-Se ha procedido a la reproducción en bucle, en el que, al seleccionar una fuente, ésta se reproduce sólo durante 2 segundos y, se vuelve atrás (2 segundos), repitiéndose dicho trozo de dos segundos en bucle, constantemente. Se puede cambiar la fuente de vídeo ya que el bucle está puesto como **loop** en el HTML y da igual el link que tenga la fuente, el bucle funcionará siempre.
+Se ha procedido a la reproducción en bucle, en el que, al seleccionar una fuente, ésta se reproduce sólo durante 2 segundos y, se vuelve atrás (2 segundos), repitiéndose dicho trozo de dos segundos en bucle, constantemente. Se puede cambiar la fuente de vídeo ya que el bucle está puesto como **loop** en la etiqueta de vídeo de HTML y da igual el link que tenga la fuente, el bucle funcionará siempre.
 
 <br>
 
