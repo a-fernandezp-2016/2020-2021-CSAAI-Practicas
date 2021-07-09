@@ -27,10 +27,10 @@ Diagrama de Estados:
 
 Cada nº en rojo significa lo siguiente:
 
-1. El usuario se mantiene en el Estado Inicial, 1) porque todavía no le ha dado al botón de Cámara TV ON. O, 2) porque el usuario le ha dado a Cámara TV OFF, es decir, ha vuelto al Estado Inicial y no ha apretado el botón de Cámara TV ON, por eso se mantiene.
+1. El usuario se mantiene en el Estado Inicial (0), 1) porque todavía no le ha dado al botón de Cámara TV ON. O, 2) porque el usuario le ha dado a Cámara TV OFF, es decir, ha vuelto al Estado Inicial (0) y no ha apretado el botón de Cámara TV ON, por eso se mantiene.
 2. Vamos al Estado de Emisión (1), al apretar el botón de: Cámara TV ON.
 3. El usuario se mantiene en el Estado de Emisión (1), al apretar el botón de: Select Camera 1, Select Camera 2, Select Camera 3 e Imagen estática.
-4. Finalmente, vamos al Estado Inicial de nuevo, porque el usuario le ha dado a Cámara TV OFF.
+4. Finalmente, vamos al Estado Inicial (0) de nuevo, porque el usuario le ha dado a Cámara TV OFF.
 
 Vídeo en emisión en directo apagado:
 
