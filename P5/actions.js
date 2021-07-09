@@ -26,6 +26,8 @@ const ImgStatic = "Imagen_static_FFTV.png";
 // Establecer las dimensiones del vídeo en directo.
 vidPrincipal.width = 640;
 vidPrincipal.height = 360;
+width = 426;
+height = 240;
 
 // Fase de estados para indicar si partimos desde el inicio con cámara OFF o pasamos
 // al siguiente estado con cámara en ON.

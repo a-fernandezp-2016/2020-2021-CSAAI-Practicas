@@ -24,26 +24,26 @@ body {
     width: 187px;
     height: 199px;
 }
-/* Diseño del título del Realizador de TV: Fitness Férez TV. */
+/* Diseño del título del Realizador de TV: Férez World TV. */
 h1 {
     text-align: center;
     font: bold 80px Tahoma;
     color:rgb(139, 9, 9);
 }
-/* Diseño del subtítulo del Realizador de TV: Fitness Férez TV. */
+/* Diseño del subtítulo del Realizador de TV: Férez World TV. */
 #subtitle {
     text-align: center;
     font: bold 40px Tahoma;
     color:rgb(139, 9, 9);
 }
-/* Diseño del título de la emisión en directo del Realizador de TV: Fitness Férez TV. */
+/* Diseño del título de la emisión en directo del Realizador de TV: Férez World TV. */
 #title1 {
     text-align: center;
     font: bold 30px Tahoma;
     color: black;
     margin-bottom: 10px;
 }
-/* Diseño del vídeo en directo del Realizador de TV: Fitness Férez TV. */
+/* Diseño del vídeo en directo del Realizador de TV: Férez World TV. */
 #videoDirecto {
     background-color: transparent;
     border-color: goldenrod;
@@ -57,7 +57,7 @@ h1 {
     margin-right: auto;
     display: block;
 }
-/* Diseño del título del panel de control del Realizador de TV: Fitness Férez TV. */
+/* Diseño del título del panel de control del Realizador de TV: Férez World TV. */
 #title2 {
     text-align: center;
     font: bold 40px Tahoma;
@@ -65,7 +65,7 @@ h1 {
     margin-top: 70px;
     margin-bottom: 20px;
 }
-/* Diseño del panel de control del Realizador de TV: Fitness Férez TV. */
+/* Diseño del panel de control del Realizador de TV: Férez World TV. */
 #panelControl {
     background-color: grey;
     border-color: black;
@@ -80,7 +80,7 @@ h1 {
     width: 800px;
     height: 200px;
 }
-/* Diseño de los botones del Realizador de TV: Fitness Férez TV. */
+/* Diseño de los botones del Realizador de TV: Férez World TV. */
 button {
     background-color: wheat;
     color: rgb(139, 9, 9);
@@ -99,26 +99,26 @@ button {
     width: 180px;
     height: 70px;
 }
-/* Diseño de la 1º fila de los botones del Realizador de TV: Fitness Férez TV. */
+/* Diseño de la 1º fila de los botones del Realizador de TV: Férez World TV. */
 .fila1 {
     margin-top: 10px;
     margin-bottom: 20px;
 }
-/* Diseño de la 2º fila de los botones del Realizador de TV: Fitness Férez TV. */
+/* Diseño de la 2º fila de los botones del Realizador de TV: Férez World TV. */
 .fila2 {
     margin-bottom: 10px;
     margin-left: 10px;
 }
 /* Formato de los vídeos muestra, para que el usuario pueda, primero ver y, luego, elegir. */
-#vidPadel {
+#vidCam1 {
     margin-left: 15px;
     margin-bottom: 50px;
 }
-#vidTenis {
+#vidCam2 {
     margin-left: 10px;
     margin-bottom: 50px;
 }
-#vidFutbol {
+#vidCam3 {
     margin-left: 10px;
     margin-bottom: 50px;
 }
