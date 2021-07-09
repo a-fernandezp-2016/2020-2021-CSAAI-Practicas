@@ -94,7 +94,7 @@ h1 {
 #displayDesliza {
     font: bold 25px Tahoma;
     color: rgb(139, 9, 9);
-    margin-left: 20px;
+    margin-left: 10px;
 }
 /* Diseño de los botones del Realizador de TV: Férez World TV. */
 button {
@@ -133,7 +133,7 @@ button {
 }
 /* Diseño de la columna del botón de la Imagen estática. */
 #imgStatic {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 /* Diseño de la 2º fila de los botones del Realizador de TV: Férez World TV. */
 .fila2 {
