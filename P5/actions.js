@@ -57,11 +57,11 @@ Camera3.poster = ImgBarrasVertSecun;
 // Función para establacer en cada vídeo de segundo plano, su propio vídeo.
 function videosSecondPlane()
 {
-    // Se establacen por defecto, los tres vídeos en remoto de la URJC, en su propia posición de
-    // segundo plano.
-    Camera1.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
-    Camera2.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
-    Camera3.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
+    // Se establacen por defecto, los tres vídeos sacados de un repositorio llamado "videos" de 
+    // mi usuario de GitHub.
+    Camera1.src = "https://github.com/a-fernandezp-2016/videos/raw/main/VideoDeportes.mp4";
+    Camera2.src = "https://github.com/a-fernandezp-2016/videos/raw/main/VideoNoticiasA3.mp4";
+    Camera3.src = "https://github.com/a-fernandezp-2016/videos/raw/main/VideoMiniSerie.mp4";
     // Los vídeos en segundo plano, se reproducen desde el principio.
     Camera1.currentTime = 0;
     Camera1.play();
@@ -157,7 +157,7 @@ botonCamera1.onclick = () =>
     {
         console.log("Cámara 1.");
         // Se establece en el vídeo en directo => el contenido de la cámara 1.
-        vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+        vidPrincipal.src = "https://github.com/a-fernandezp-2016/videos/raw/main/VideoDeportes.mp4";
         // Llamar a la función para establacer el vídeo en directo.
         videoOnLive();
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
@@ -176,7 +176,7 @@ botonCamera2.onclick = () =>
     {
         console.log("Cámara 2.");
         // Se establece en el vídeo en directo => el contenido de la cámara 2.
-        vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
+        vidPrincipal.src = "https://github.com/a-fernandezp-2016/videos/raw/main/VideoNoticiasA3.mp4";
         // Llamar a la función para establacer el vídeo en directo.
         videoOnLive();
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
@@ -195,7 +195,7 @@ botonCamera3.onclick = () =>
     {
         console.log("Cámara 3.");
         // Se establece en el vídeo en directo => el contenido de la cámara 3.
-        vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
+        vidPrincipal.src = "https://github.com/a-fernandezp-2016/videos/raw/main/VideoMiniSerie.mp4";
         // Llamar a la función para establacer el vídeo en directo.
         videoOnLive();
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
