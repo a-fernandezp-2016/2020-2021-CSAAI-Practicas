@@ -150,6 +150,8 @@ botonCamera1.onclick = () =>
         console.log("ESTADO EN EMISIÓN: 1. Continuamos aquí....");
         // Se establece en el vídeo en directo => el contenido de la cámara 1.
         vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+        // Llamar a la función para establacer el vídeo en directo.
+        videoOnLive();
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
         videosSecondPlane();
     }
@@ -167,6 +169,8 @@ botonCamera2.onclick = () =>
         console.log("ESTADO EN EMISIÓN: 1. Continuamos aquí....");
         // Se establece en el vídeo en directo => el contenido de la cámara 2.
         vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
+        // Llamar a la función para establacer el vídeo en directo.
+        videoOnLive();
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
         videosSecondPlane();
     }
