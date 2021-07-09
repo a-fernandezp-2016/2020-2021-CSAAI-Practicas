@@ -87,9 +87,9 @@ Camera1.currentTime = 0;
 // Pulsamos el botón de cámara ON para empezar a emitir los videos en segundo plano y el vídeo en directo con imagen estática.
 botonCamON.onclick = () => 
 {
-    console.log("ESTADO INICIAL: 0.");
     if(fase == ESTADO.INIT)
     {
+        console.log("¡QUÉ EMPIECE EL ESPECTÁCULO!");
         // Pasamos al estado siguiente.
         fase = ESTADO.EMISION;
         // Se establece por defecto la imagen estática en la emisión del vídeo en directo.
@@ -108,7 +108,7 @@ botonCamOFF.onclick = () =>
 {
     if(fase == ESTADO.EMISION)
     {
-        console.log("ESTADO EN EMISIÓN: 1.");
+        console.log("¡Adiós! ¡HASTA PRONTO!");
         // Volvemos al estado inicial.
         fase = ESTADO.INIT;
         // Establecemos la imagen de las barras verticales multicolor en los 4 vídeos,
@@ -129,7 +129,7 @@ botonImgStatic.onclick = () =>
 {
     if(fase == ESTADO.EMISION)
     {
-        console.log("ESTADO EN EMISIÓN: 1. Continuamos aquí....");
+        console.log("Imagen estática....");
         // Establecemos la imagen estática en los 4 vídeos.
         vidPrincipal.poster = ImgStaticPrinc;
         Camera1.poster = ImgStaticSecun;
@@ -147,7 +147,7 @@ botonCamera1.onclick = () =>
 {
     if(fase == ESTADO.EMISION)
     {
-        console.log("ESTADO EN EMISIÓN: 1. Continuamos aquí....");
+        console.log("Cámara 1.");
         // Se establece en el vídeo en directo => el contenido de la cámara 1.
         vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
         // Llamar a la función para establacer el vídeo en directo.
@@ -166,7 +166,7 @@ botonCamera2.onclick = () =>
 {
     if(fase == ESTADO.EMISION)
     {
-        console.log("ESTADO EN EMISIÓN: 1. Continuamos aquí....");
+        console.log("Cámara 2.");
         // Se establece en el vídeo en directo => el contenido de la cámara 2.
         vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
         // Llamar a la función para establacer el vídeo en directo.
@@ -185,7 +185,7 @@ botonCamera3.onclick = () =>
 {
     if(fase == ESTADO.EMISION)
     {
-        console.log("ESTADO EN EMISIÓN: 1. Continuamos aquí....");
+        console.log("Cámara 3.");
         // Se establece en el vídeo en directo => el contenido de la cámara 3.
         vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
         // Llamar a la función para establacer el vídeo en directo.
