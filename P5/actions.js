@@ -82,8 +82,7 @@ function videoOnLive()
     vidPrincipal.play();
     vidPrincipal.muted = false;
 }
-Camera1.currentTime = 0;
-    Camera1.play();
+
 // Pulsamos el botón de cámara ON para empezar a emitir los videos en segundo plano y el vídeo en directo con imagen estática.
 botonCamON.onclick = () => 
 {
@@ -113,7 +112,7 @@ botonCamOFF.onclick = () =>
         fase = ESTADO.INIT;
         // Establecemos la imagen de las barras verticales multicolor en los 4 vídeos,
         // lo que significa que las cámaras están apagadas.
-        vidPrincipal.src = ImgBarrasVertPrinc;
+        vidPrincipal.poster = ImgBarrasVertPrinc;
         Camera1.src = ImgBarrasVertSecun;
         Camera2.src = ImgBarrasVertSecun;
         Camera3.src = ImgBarrasVertSecun;
@@ -131,7 +130,7 @@ botonImgStatic.onclick = () =>
     {
         console.log("Imagen estática....");
         // Establecemos la imagen estática en los 4 vídeos.
-        vidPrincipal.src = ImgStaticPrinc;
+        vidPrincipal.poster = ImgStaticPrinc;
         Camera1.src = ImgStaticSecun;
         Camera2.src = ImgStaticSecun;
         Camera3.src = ImgStaticSecun;
