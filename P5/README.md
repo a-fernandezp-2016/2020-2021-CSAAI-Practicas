@@ -59,7 +59,11 @@ Imagen de los tres vídeos en segundo plano, sin sonido y apagados:
 
 ### **Las Mejoras son las siguientes:**
 
-Se ha procedido a la reproducción en bucle, en el que, al seleccionar una fuente, ésta se reproduce sólo durante 2 segundos y, se vuelve atrás (2 segundos), repitiéndose dicho trozo de dos segundos en bucle, constantemente. Se puede cambiar la fuente de vídeo ya que el bucle está puesto como **loop** en la etiqueta de vídeo de HTML y da igual el link que tenga la fuente, el bucle funcionará siempre.
+1. Se ha procedido a la reproducción en bucle, en el que, al seleccionar una fuente, ésta se reproduce sólo durante 2 segundos y, se vuelve atrás (2 segundos), repitiéndose dicho trozo de dos segundos en bucle, constantemente. Se puede cambiar la fuente de vídeo ya que el bucle está puesto como **loop** en la etiqueta de vídeo de HTML y da igual el link que tenga la fuente, el bucle funcionará siempre.
+
+2. Se ha añadido un vídeo de más. En las especificaciones obligatorias te decía de hacerlo con dos vídeos (sin contar con el vídeo en directo) como mínimo. Todo los vídeos que se añadan, son **mejoras**.
+
+3. En vez de utilizar los vídeos que nos da el profesor Juan, yo he hecho como si fuera un canal de TV, con canal de noticias, de deportes y canal de series. Aparte está, la Imagen estática, que es como darle una pausa a la realización y, la imagen de las barras verticales multicolores, que aparecen cuando se apaga la cámara de TV.
 
 <br>
 
