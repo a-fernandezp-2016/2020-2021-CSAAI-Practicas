@@ -62,38 +62,43 @@ Para finalizar os dejo la imagen de mi CV completo para que veáis que está aju
 <br>
 <br>
 Nota: Todas las imágenes puestas, tanto en el Readme, como en el CV de Peeta Mellark (incluidos iconos de redes sociales y ubicación), están editadas por el programa de edición de imágenes Photoshop 2018, que se encuentra en el escritorio Adobe de "My APPs URJC".
-<br>
-<br>
-### MEJORAS:
-<br>
-1) Introducción de un favicon o icono en el título de cabecera: "CV Peeta".
-<br>
-2) Introducción de iconos al principio de cada título de cada sección del CV.
-<br>
-3) Encuadrado de todo el CV en un borde dorado y con el suficiente ancho.
-<br>
-4) Fuera del borde, en la parte inferior, poner un archivo gif o webp que vaya cambiando, según el icono de las partes de la trilogía.
-<br>
-5) Dividir el CV en parte derecha e izquierda:
-    <br>
-    
-    5.1) En la parte derecha se encontrarán los aspectos más de desarrollo propio: Sobre mí, Contacto, Localización, Idiomas, Hobbies e Información Adicional.
 
-    5.2) En la parte derecha se encontrarán los aspectos más de desarrollo profesional: Experiencia Laboral, Formación Académica y Habilidades y Logros.
 <br>
-6) Debajo del título de quién es el CV (Peeta Mellark), he puesto una frase que dice Peeta en los libros y en las película (a ver si averiguas en qué libro y en qué película) y que me ha parecido una buena idea ponerla como pie de título, ya que describe en una sola frase, el personaje de Peeta.
+
+### MEJORAS:
+
 <br>
-7)Para finalizar, como se puede observar, está todo bien alineado y cuidado.
+
+1. Introducción de un favicon o icono en el título de cabecera: "CV Peeta".
+
+2. Introducción de iconos al principio de cada título de cada sección del CV.
+
+3. Encuadrado de todo el CV en un borde dorado y con el suficiente ancho.
+
+4. Fuera del borde, en la parte inferior, poner un archivo gif o webp que vaya cambiando, según el icono de las partes de la trilogía.
+
+5. Dividir el CV en parte derecha e izquierda:
+    
+        5.1. En la parte derecha se encontrarán los aspectos más de desarrollo propio: Sobre mí, Contacto, Localización, Idiomas, Hobbies e Información Adicional.
+
+        5.2. En la parte derecha se encontrarán los aspectos más de desarrollo profesional: Experiencia Laboral, Formación Académica y Habilidades y Logros.
+
+6. Debajo del título de quién es el CV (Peeta Mellark), he puesto una frase que dice Peeta en los libros y en las película (a ver si averiguas en qué libro y en qué película) y que me ha parecido una buena idea ponerla como pie de título, ya que describe en una sola frase, el personaje de Peeta.
+
+7. Para finalizar, como se puede observar, está todo bien alineado y cuidado.
+
 <br>
-<br>
+
 Por cierto, respecto al ZOOM, al mostrar la P1 en el Navegador, déjalo en la configuración por defecto, o estándar, que suele ser 100%.
+
 <br>
-<br>
+
 Muchas gracias por su tiempo y atención.
+
 <br>
-<br>
+
 Atentamente.
-<br>
+
 <br>
 
 El autor del programa: **CV de un personaje ficticio** =es> **Alejandro Fernández Pérez**, alumno de GISAM (URJC).
