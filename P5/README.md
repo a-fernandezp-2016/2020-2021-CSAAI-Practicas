@@ -73,3 +73,12 @@ Muchas gracias por su tiempo y atención.
 Atentamente.
 
 El autor del programa: **Férez World TV** =es> **Alejandro Fernández Pérez**, alumno de GISAM (URJC).
+
+<br>
+<br>
+
+## **NOTA:**
+
+![](Filosofia_ImagenEstatica.png)
+
+Ésta es la imagen estática, que aparece al inicio cuando se aprieta el botón de Cámara TV ON. La frase de debajo en color granate: *Visualiza todo en 4K*, no quiere decir que el vídeo o los vídeos en segundo plano se visualicen en 4K, sino que es una frase metafórica, refiriéndose a que Férez World TV (el canal de TV) comparte dicha filosofía o frase metafórica, que significa, que lo importante en la vida es pararse, alejarse y, observar la situación desde una perspectiva más amplia (de ahí 4K, que es muy grande o amplio). La frase siguiente resume la frase de la Imagen estática estrictamente bien: **Tiene mejor conocimiento del mundo, no el que más ha vivido, sino el que más ha observado**.
