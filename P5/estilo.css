@@ -110,15 +110,15 @@ button {
     margin-left: 10px;
 }
 /* Formato de los vídeos muestra, para que el usuario pueda, primero ver y, luego, elegir. */
-#vidPadel {
+#videoCam1 {
     margin-left: 15px;
     margin-bottom: 50px;
 }
-#vidTenis {
+#videoCam2 {
     margin-left: 10px;
     margin-bottom: 50px;
 }
-#vidFutbol {
+#videoCam3 {
     margin-left: 10px;
     margin-bottom: 50px;
 }

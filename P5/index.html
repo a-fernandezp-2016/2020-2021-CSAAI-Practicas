@@ -26,7 +26,7 @@
     <!-- Título del vídeo en emisión en directo. -->
     <h3 id="title1"> Emisión en directo: </h3>
     <!-- Vídeo principal o en directo. -->
-    <iframe id="videoDirecto"></iframe>
+    <video id="videoDirecto" autoplay loop></video>
     <!-- Tabla de controles del Realizador de TV. -->
     <h3 id="title2"> Panel de Control: </h3>
     <table id="panelControl">
@@ -43,40 +43,34 @@
         </tr>
         <!-- 2º fila de botones. -->
         <tr>
-            <!-- Botón para ver la fuente del vídeo de la Cámara de TV de Pádel. -->
-            <td> <button class="fila2" id="padel"> Ver Pádel </button> </td>
-            <!-- Botón para ver la fuente del vídeo de la Cámara de TV de Tenis. -->
-            <td> <button class="fila2" id="tenis"> Ver Tenis </button> </td>
-            <!-- Botón para ver la fuente del vídeo de la Cámara de TV de Fútbol. -->
-            <td> <button class="fila2" id="futbol"> Ver Fútbol </button> </td>
+            <!-- Botón para ver la fuente del vídeo de la Cámara de TV 1. -->
+            <td> <button class="fila2" id="Cam1"> Select Camera 1 </button> </td>
+            <!-- Botón para ver la fuente del vídeo de la Cámara de TV 2. -->
+            <td> <button class="fila2" id="Cam2"> Select Camera 2 </button> </td>
+            <!-- Botón para ver la fuente del vídeo de la Cámara de TV 3. -->
+            <td> <button class="fila2" id="Cam3"> Select Camera 3 </button> </td>
             <!-- Botón para ver la imagen estática. -->
             <td> <button class="fila2" id="imgStatic"> Imagen <br> Estática </button> </td>
         </tr>
     </table>
     <!-- Tabla de los tres vídeos a elegir para ver en directo. -->
     <table>
-        <!-- Fila única donde se sitúan los tres vídeos embebidos de YouTube. -->
+        <!-- Fila única donde se sitúan los tres vídeos en remoto en GSYC URJC, en el directorio jmplaza/csaai. -->
         <tr>
-            <!-- Establecer la fuente del vídeo de la Cámara de TV de Pádel. -->
+            <!-- Establecer la fuente del vídeo de la Cámara de TV 1. -->
             <td>
                 <p class="other"> Vídeo de Pádel: </p>
-                <iframe id="vidPadel" width="426" height="240"
-                src="https://www.youtube.com/embed/7HPBipFv4_I?autoplay=1&mute=1&loop=1controls=0">
-                </iframe> 
+                <video id="videoCam1" autoplay loop muted></video> 
             </td>
-            <!-- Establecer la fuente del vídeo de la Cámara de TV de Tenis. -->
+            <!-- Establecer la fuente del vídeo de la Cámara de TV 2. -->
             <td>
                 <p class="other"> Vídeo de Tenis: </p>
-                <iframe id="vidTenis" width="426" height="240"
-                src="https://www.youtube.com/embed/3bnmkMx2x_8?autoplay=1&mute=1&loop=1controls=0">
-                </iframe> 
+                <video id="videoCam2" autoplay loop muted></video> 
             </td>
-            <!-- Establecer la fuente del vídeo de la Cámara de TV de Fútbol. -->
+            <!-- Establecer la fuente del vídeo de la Cámara de TV 3. -->
             <td>
                 <p class="other"> Vídeo de Fútbol: </p>
-                <iframe id="vidFutbol" width="426" height="240"
-                src="https://www.youtube.com/embed/hpIyRpVQjUY?autoplay=1&mute=1&loop=1controls=0">
-                </iframe> 
+                <video id="videoCam3" autoplay loop muted></video> 
             </td>
         </tr>
     </table>
