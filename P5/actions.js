@@ -54,7 +54,28 @@ Camera1.poster = ImgBarrasVertSecun;
 Camera2.poster = ImgBarrasVertSecun;
 Camera3.poster = ImgBarrasVertSecun;
 
-// Pulsamos el botón de cámara ON para empezar a emitir el vídeo que queramos.
+// Función para establacer en cada vídeo de segundo plano, su propio vídeo.
+function videosSecondPlane()
+{
+    // Se establacen por defecto, los tres vídeos en remoto de la URJC, en su propia posición de
+    // segundo plano.
+    Camera1.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+    Camera2.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
+    Camera3.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
+    // Los vídeos en segundo plano, se reproducen desde el principio.
+    Camera1.currentTime = 0;
+    Camera1.play();
+    Camera2.currentTime = 0;
+    Camera2.play();
+    Camera3.currentTime = 0;
+    Camera3.play();
+    // Y dichos vídeos deben estar MUTEADOS = EN SILENCIO.
+    Camera1.muted = true;
+    Camera2.muted = true;
+    Camera3.muted = true;
+}
+
+// Pulsamos el botón de cámara ON para empezar a emitir los videos en segundo plano y el vídeo en directo con imagen estática.
 botonCamON.onclick = () => 
 {
     console.log("ESTADO INICIAL: 0.");
@@ -64,22 +85,8 @@ botonCamON.onclick = () =>
         fase = ESTADO.EMISION;
         // Se establece por defecto la imagen estática en la emisión del vídeo en directo.
         vidPrincipal.poster = ImgStaticPrinc;
-        // Se establacen por defecto, los tres vídeos en remoto de la URJC, en su propia posición de
-        // segundo plano.
-        Camera1.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
-        Camera2.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
-        Camera3.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
-        // Los vídeos en segundo plano, se reproducen desde el principio.
-        Camera1.currentTime = 0;
-        Camera1.play();
-        Camera2.currentTime = 0;
-        Camera2.play();
-        Camera3.currentTime = 0;
-        Camera3.play();
-        // Y dichos vídeos deben estar MUTEADOS = EN SILENCIO.
-        Camera1.muted = true;
-        Camera2.muted = true;
-        Camera3.muted = true;
+        // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
+        videosSecondPlane();
     }
     else
     {
@@ -98,9 +105,78 @@ botonCamOFF.onclick = () =>
         // Establecemos la imagen de las barras verticales multicolor en los 4 vídeos,
         // lo que significa que las cámaras están apagadas.
         vidPrincipal.poster = ImgBarrasVertPrinc;
-        VidPadel.poster = ImgBarrasVertSecun;
-        VidTenis.poster = ImgBarrasVertSecun;
-        VidFutbol.poster = ImgBarrasVertSecun;
+        Camera1.poster = ImgBarrasVertSecun;
+        Camera2.poster = ImgBarrasVertSecun;
+        Camera3.poster = ImgBarrasVertSecun;
+    }
+    else
+    {
+        // Mensaje indicando que pulsar el bóton en otro momento al estado en emisión, es un proceso inválido.
+        console.log("PROCESO NO VÁLIDO, LO SIENTO.");
+    }
+}
+// Pulsamos el botón de Imagen estática, para poner los vídeos en 2º plano y el de directo con dicha imagen.
+botonImgStatic.onclick = () =>
+{
+    if(fase == ESTADO.EMISION)
+    {
+        console.log("ESTADO EN EMISIÓN: 1. Continuamos aquí....");
+        // Establecemos la imagen estática en los 4 vídeos.
+        vidPrincipal.poster = ImgStaticPrinc;
+        Camera1.poster = ImgStaticSecun;
+        Camera2.poster = ImgStaticSecun;
+        Camera3.poster = ImgStaticSecun;
+    }
+    else
+    {
+        // Mensaje indicando que pulsar el bóton en otro momento al estado en emisión, es un proceso inválido.
+        console.log("PROCESO NO VÁLIDO, LO SIENTO.");
+    }
+}
+// Pulsamos el botón de Cámara de TV 1, para emitir en directo el contenido de la cámara 1.
+botonCamera1.onclick = () =>
+{
+    if(fase == ESTADO.EMISION)
+    {
+        console.log("ESTADO EN EMISIÓN: 1. Continuamos aquí....");
+        // Se establece en el vídeo en directo => el contenido de la cámara 1.
+        vidPrincipal.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+        // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
+        videosSecondPlane();
+    }
+    else
+    {
+        // Mensaje indicando que pulsar el bóton en otro momento al estado en emisión, es un proceso inválido.
+        console.log("PROCESO NO VÁLIDO, LO SIENTO.");
+    }
+}
+// Pulsamos el botón de Cámara de TV 2, para emitir en directo el contenido de la cámara 2.
+botonCamera2.onclick = () =>
+{
+    if(fase == ESTADO.EMISION)
+    {
+        console.log("ESTADO EN EMISIÓN: 1. Continuamos aquí....");
+        // Se establece en el vídeo en directo => el contenido de la cámara 2.
+        vidPrincipal.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+        // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
+        videosSecondPlane();
+    }
+    else
+    {
+        // Mensaje indicando que pulsar el bóton en otro momento al estado en emisión, es un proceso inválido.
+        console.log("PROCESO NO VÁLIDO, LO SIENTO.");
+    }
+}
+// Pulsamos el botón de Cámara de TV 3, para emitir en directo el contenido de la cámara 3.
+botonCamera3.onclick = () =>
+{
+    if(fase == ESTADO.EMISION)
+    {
+        console.log("ESTADO EN EMISIÓN: 1. Continuamos aquí....");
+        // Se establece en el vídeo en directo => el contenido de la cámara 3.
+        vidPrincipal.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
+        // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
+        videosSecondPlane();
     }
     else
     {
