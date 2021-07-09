@@ -80,8 +80,7 @@ Imagen de fondo:
 <br>
 
 Y, esto es todo el programa del procesado de imagen: Image Processing, en HTML, CSS y JS. Espero que la valoración que se haga sea buena, o incluso, muy buena. Es un trabajo con bastante esfuerzo, sacrificio y horas.
-<br>
-<br>
+
 Muchas gracias por su tiempo y atención.
 
 Atentamente.
