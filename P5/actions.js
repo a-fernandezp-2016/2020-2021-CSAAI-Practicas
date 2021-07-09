@@ -93,7 +93,7 @@ botonCamON.onclick = () =>
         // Pasamos al estado siguiente.
         fase = ESTADO.EMISION;
         // Se establece por defecto la imagen estática en la emisión del vídeo en directo.
-        vidPrincipal.poster = ImgStaticPrinc;
+        vidPrincipal.src = ImgStaticPrinc;
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
         videosSecondPlane();
     }
@@ -113,10 +113,10 @@ botonCamOFF.onclick = () =>
         fase = ESTADO.INIT;
         // Establecemos la imagen de las barras verticales multicolor en los 4 vídeos,
         // lo que significa que las cámaras están apagadas.
-        vidPrincipal.poster = ImgBarrasVertPrinc;
-        Camera1.poster = ImgBarrasVertSecun;
-        Camera2.poster = ImgBarrasVertSecun;
-        Camera3.poster = ImgBarrasVertSecun;
+        vidPrincipal.src = ImgBarrasVertPrinc;
+        Camera1.src = ImgBarrasVertSecun;
+        Camera2.src = ImgBarrasVertSecun;
+        Camera3.src = ImgBarrasVertSecun;
     }
     else
     {
@@ -131,10 +131,10 @@ botonImgStatic.onclick = () =>
     {
         console.log("Imagen estática....");
         // Establecemos la imagen estática en los 4 vídeos.
-        vidPrincipal.poster = ImgStaticPrinc;
-        Camera1.poster = ImgStaticSecun;
-        Camera2.poster = ImgStaticSecun;
-        Camera3.poster = ImgStaticSecun;
+        vidPrincipal.src = ImgStaticPrinc;
+        Camera1.src = ImgStaticSecun;
+        Camera2.src = ImgStaticSecun;
+        Camera3.src = ImgStaticSecun;
     }
     else
     {
