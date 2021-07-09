@@ -65,6 +65,8 @@ Imagen de los tres vídeos en segundo plano, sin sonido y apagados:
 
 3. En vez de utilizar los vídeos que nos da el profesor Juan, yo he hecho como si fuera un canal de TV, con canal de noticias, de deportes y canal de series. Aparte está, la Imagen estática, que es como darle una pausa a la realización y, la imagen de las barras verticales multicolores, que aparecen cuando se apaga la cámara de TV.
 
+4. Se ha añadido un volumen en forma de deslizador en el panel de control del realizador, cuyo fin es aumentar o disminuir el volumen a gusto del usuario y, cuando se emita uno de los tres vídeos que están en segundo plano. El deslizador del volumen va de 0 a 1, incrementándose de 0.1 en 0.1, siendo 0 = nivel sonoro mínimo de volumen y, 1 = nivel sonoro máximo de volumen.
+
 <br>
 
 ### **CONCLUSIÓN:**
