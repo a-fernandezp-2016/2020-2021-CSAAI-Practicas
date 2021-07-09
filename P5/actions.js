@@ -60,11 +60,8 @@ function videosSecondPlane()
     // Se establacen por defecto, los tres vídeos en remoto de la URJC, en su propia posición de
     // segundo plano.
     Camera1.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
-    Camera1.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
     Camera2.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
-    Camera2.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
     Camera3.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
-    Camera3.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
     // Los vídeos en segundo plano, se reproducen desde el principio.
     Camera1.currentTime = 0;
     Camera1.play();
@@ -161,7 +158,6 @@ botonCamera1.onclick = () =>
         console.log("Cámara 1.");
         // Se establece en el vídeo en directo => el contenido de la cámara 1.
         vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
-        vidPrincipal.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
         // Llamar a la función para establacer el vídeo en directo.
         videoOnLive();
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
@@ -181,7 +177,6 @@ botonCamera2.onclick = () =>
         console.log("Cámara 2.");
         // Se establece en el vídeo en directo => el contenido de la cámara 2.
         vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
-        vidPrincipal.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
         // Llamar a la función para establacer el vídeo en directo.
         videoOnLive();
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
@@ -201,7 +196,6 @@ botonCamera3.onclick = () =>
         console.log("Cámara 3.");
         // Se establece en el vídeo en directo => el contenido de la cámara 3.
         vidPrincipal.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
-        vidPrincipal.poster = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente3.mp4";
         // Llamar a la función para establacer el vídeo en directo.
         videoOnLive();
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
