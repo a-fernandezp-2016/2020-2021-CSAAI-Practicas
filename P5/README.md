@@ -42,7 +42,7 @@ Imagen del Panel de Control del Realizador:
 
 ![](PanelControl_Muestra.png)
 
-Imagen de los tres vídeos en segundo plano sin sonido:
+Imagen de los tres vídeos en segundo plano sin sonido y apagados:
 
 ![](VideosSecondPlane_Muestra.png)
 
