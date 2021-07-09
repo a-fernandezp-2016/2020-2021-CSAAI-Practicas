@@ -22,8 +22,9 @@ const Camera3 = document.getElementById("videoCam3");
 const ImgBarrasVertPrinc = "barrasVertTV_640x360.jpg";
 // Imagen de barras verticales indicando que la cámara está apagada, para los vídeos de la Cámara de TV en segundo plano.
 const ImgBarrasVertSecun = "barrasVertTV_426x240.png";
-// Imagen estática usada.
-const ImgStatic = "Imagen_static_FFTV.png";
+// Imagen estática usada para escena en directo y para los vídeos de la Cámara de TV en segundo plano.
+const ImgStaticPrinc = "Img_Static_640x360.png";
+const ImgStaticSecun = "Img_Static_426x240.png";
 
 // Establecer las dimensiones del vídeo en directo.
 vidPrincipal.width = 640;
@@ -62,7 +63,7 @@ botonCamON.onclick = () =>
         // Pasamos al estado siguiente.
         fase = ESTADO.EMISION;
         // Se establece por defecto la imagen estática en la emisión del vídeo en directo.
-        vidPrincipal.poster = ImgStatic;
+        vidPrincipal.poster = ImgStaticPrinc;
         // Se establacen por defecto, los tres vídeos en remoto de la URJC, en su propia posición de
         // segundo plano.
         Camera1.src = "https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
