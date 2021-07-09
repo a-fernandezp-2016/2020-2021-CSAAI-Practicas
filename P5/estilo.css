@@ -77,7 +77,24 @@ h1 {
     margin-right: auto;
     display: block;
     width: 800px;
-    height: 200px;
+    height: 270px;
+}
+/* Diseño del volumen deslizante. */
+#volumen {
+    width: 320px;
+    height: 10px;
+}
+/* Diseño del mensaje del volumen. */
+#msg_volum {
+    font: bold 25px Tahoma;
+    color: rgb(139, 9, 9);
+    margin-left: 50px;
+}
+/* Diseño del display del volumen. */
+#displayDesliza {
+    font: bold 25px Tahoma;
+    color: rgb(139, 9, 9);
+    margin-left: 50px;
 }
 /* Diseño de los botones del Realizador de TV: Férez World TV. */
 button {
@@ -102,6 +119,21 @@ button {
 .fila1 {
     margin-top: 10px;
     margin-bottom: 20px;
+    margin-left: 10px;
+    font: bold 27px Tahoma;
+}
+/* Diseño de la columna del botón de la Cámara de TV en OFF. */
+#camOFF {
+    font: bold 25px Tahoma;
+    margin-left: -125px;
+}
+/* Diseño de la columna del botón del canal series. */
+#Cam3 {
+    margin-left: -125px;
+}
+/* Diseño de la columna del botón de la Imagen estática. */
+#imgStatic {
+    margin-left: 0px;
 }
 /* Diseño de la 2º fila de los botones del Realizador de TV: Férez World TV. */
 .fila2 {
