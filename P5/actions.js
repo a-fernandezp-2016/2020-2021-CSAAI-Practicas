@@ -93,7 +93,7 @@ botonCamON.onclick = () =>
         // Pasamos al estado siguiente.
         fase = ESTADO.EMISION;
         // Se establece por defecto la imagen estática en la emisión del vídeo en directo.
-        vidPrincipal.src = ImgStaticPrinc;
+        vidPrincipal.poster = ImgStaticPrinc;
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
         videosSecondPlane();
     }
