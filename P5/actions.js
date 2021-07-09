@@ -85,7 +85,7 @@ botonCamON.onclick = () =>
         // Mensaje indicando que pulsar el bóton en otro momento al estado inicial, es un proceso inválido.
         console.log("PROCESO NO VÁLIDO, LO SIENTO.");
     }
-}
+};
 // Pulsamos el botón de cámara OFF para apagar la cámara de TV en emisión y los otros 3 vídeos.
 botonCamOFF.onclick = () => 
 {
@@ -106,4 +106,4 @@ botonCamOFF.onclick = () =>
         // Mensaje indicando que pulsar el bóton en otro momento al estado en emisión, es un proceso inválido.
         console.log("PROCESO NO VÁLIDO, LO SIENTO.");
     }
-}
+};
