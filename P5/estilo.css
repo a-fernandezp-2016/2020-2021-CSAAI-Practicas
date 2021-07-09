@@ -45,14 +45,11 @@ h1 {
 }
 /* Diseño del vídeo en directo del Realizador de TV: Férez World TV. */
 #videoDirecto {
-    background-color: transparent;
     border-color: goldenrod;
     border-width: 6px;
     border-style: solid;
     border-radius: 12px;
-    /* Para centrar el lienzo. */
-    padding-left: 0;
-    padding-right: 0;
+    /* Para centrar el vídeo en directo/principal. */
     margin-left: 350px;
     margin-right: auto;
     display: block;
