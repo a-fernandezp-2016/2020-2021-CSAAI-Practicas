@@ -18,6 +18,10 @@ const Camera1 = document.getElementById("videoCam1");
 const Camera2 = document.getElementById("videoCam2");
 const Camera3 = document.getElementById("videoCam3");
 
+// Obtención de los elementos del control de volumen deslizante.
+const DeslizadorVol = document.getElementById("volumen");
+const DisplayVol = document.getElementById("displayDesliza");
+
 // Imagen de barras verticales indicando que la cámara está apagada, para escena en directo.
 const ImgBarrasVertPrinc = "barrasVertTV_640x360.jpg";
 // Imagen de barras verticales indicando que la cámara está apagada, para los vídeos de la Cámara de TV en segundo plano.
@@ -46,6 +50,9 @@ const ESTADO = {
 
 // Variable fase inicializada en la fase 0 o inicial.
 let fase = ESTADO.INIT;
+
+// Variable OptionVol que sirve para saber si se sube el volumen del canal de deportes, del de noticias o del de la serie.
+let OptionVol = 0;
 
 // Por defecto, el vídeo principal y los otros 3 están apagados y su imagen son las barras verticales
 // multicolor.
@@ -155,6 +162,9 @@ botonCamera1.onclick = () =>
 {
     if(fase == ESTADO.EMISION)
     {
+        // Pongo el valor 1 a OptionVol, para ajustar el volumen del vídeo en directo en ese momento.
+        OptionVol = 1;
+        // Mensaje Cámara de TV 1.
         console.log("Cámara 1.");
         // Se establece en el vídeo en directo => el contenido de la cámara 1.
         vidPrincipal.src = "https://github.com/a-fernandezp-2016/videos/raw/main/VideoDeportes.mp4";
@@ -174,6 +184,9 @@ botonCamera2.onclick = () =>
 {
     if(fase == ESTADO.EMISION)
     {
+        // Pongo el valor 1 a OptionVol, para ajustar el volumen del vídeo en directo en ese momento.
+        OptionVol = 1;
+        // Mensaje Cámara de TV 2.
         console.log("Cámara 2.");
         // Se establece en el vídeo en directo => el contenido de la cámara 2.
         vidPrincipal.src = "https://github.com/a-fernandezp-2016/videos/raw/main/VideoNoticiasA3.mp4";
@@ -193,6 +206,9 @@ botonCamera3.onclick = () =>
 {
     if(fase == ESTADO.EMISION)
     {
+        // Pongo el valor 1 a OptionVol, para ajustar el volumen del vídeo en directo en ese momento.
+        OptionVol = 1;
+        // Mensaje Cámara de TV 3.
         console.log("Cámara 3.");
         // Se establece en el vídeo en directo => el contenido de la cámara 3.
         vidPrincipal.src = "https://github.com/a-fernandezp-2016/videos/raw/main/VideoMiniSerie.mp4";
@@ -200,6 +216,29 @@ botonCamera3.onclick = () =>
         videoOnLive();
         // Llamar a la función para establacer en cada vídeo de segundo plano, su propio vídeo.
         videosSecondPlane();
+    }
+    else
+    {
+        // Mensaje indicando que pulsar el bóton en otro momento al estado en emisión, es un proceso inválido.
+        console.log("PROCESO NO VÁLIDO, LO SIENTO.");
+    }
+}
+// Manejo deslizante del volumen para subir o bajar el volumen del vídeo en directo a tu gusto.
+DeslizadorVol.onclick = (ev) =>
+{
+    if(fase == ESTADO.EMISION)
+    {
+        console.log("AJUSTE DEL VOLUMEN DESLIZANTE...");
+        switch(OptionVol)
+        {
+            case 1:
+                vidPrincipal.volume = ev.currentTarget.value;
+                DisplayVol.innerHTML = ev.currentTarget.value;
+                break;
+            default:
+                // Mensaje avisando de que sólo se puede subir el volumen cuando hay vídeo de un canal en directo.
+                console.log("NO SE PUEDE AJUSTAR EL VOLUMEN...");
+        }
     }
     else
     {
